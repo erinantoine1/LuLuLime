@@ -1,18 +1,12 @@
 import React, {useEffect} from 'react';
-import Axios from 'axios';
-
-
-var x = 4
+import axios from 'axios';
 
 const App = () => {
 
   return (
-    <div>Hello, world</div>
+    <div>Goodbye</div>
   )
 
 }
-
-
-
 
 export default App;
