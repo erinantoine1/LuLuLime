@@ -5,8 +5,7 @@ const App = () => {
 
   return (
     <div>Goodbye</div>
-  )
-
-}
+  );
+};
 
 export default App;
