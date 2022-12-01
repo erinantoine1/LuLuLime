@@ -3,6 +3,12 @@
   "rules": {
     "react/function-component-definition": "off",
     "arrow-body-style": "off",
-    "padded-blocks": "off"
+    "padded-blocks": "off",
+    "no-multiple-empty-lines": "off",
+    "no-unused-vars": "off",
+    "no-console": 0,
+    "import/extensions": "off",
+    "react/jsx-filename-extension": "off",
+    "no-undef": "off"
     }
 }

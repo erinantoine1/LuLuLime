@@ -16,7 +16,47 @@
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar x = 4;\nvar App = function App() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Hello, world\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_Overview_Overview_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Overview/Overview.jsx */ \"./client/src/components/Overview/Overview.jsx\");\n/* harmony import */ var _components_QuestionsAnswers_QuestionsAnswers_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/QuestionsAnswers/QuestionsAnswers.jsx */ \"./client/src/components/QuestionsAnswers/QuestionsAnswers.jsx\");\n/* harmony import */ var _components_RatingsReviews_RatingsReviews_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/RatingsReviews/RatingsReviews.jsx */ \"./client/src/components/RatingsReviews/RatingsReviews.jsx\");\n/* harmony import */ var _components_RelatedItemsComparisons_RelatedItemsComparisons_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/RelatedItemsComparisons/RelatedItemsComparisons.jsx */ \"./client/src/components/RelatedItemsComparisons/RelatedItemsComparisons.jsx\");\n\n\n\n\n\n\nvar App = function App() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Overview_Overview_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_RelatedItemsComparisons_RelatedItemsComparisons_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_QuestionsAnswers_QuestionsAnswers_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_RatingsReviews_RatingsReviews_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/App.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Overview.jsx":
+/*!*****************************************************!*\
+  !*** ./client/src/components/Overview/Overview.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nvar Overview = function Overview() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Overview\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Overview);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Overview.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/QuestionsAnswers/QuestionsAnswers.jsx":
+/*!*********************************************************************!*\
+  !*** ./client/src/components/QuestionsAnswers/QuestionsAnswers.jsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nvar QuestionsAnswers = function QuestionsAnswers() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Questions and Answers\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsAnswers);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/QuestionsAnswers/QuestionsAnswers.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/RatingsReviews/RatingsReviews.jsx":
+/*!*****************************************************************!*\
+  !*** ./client/src/components/RatingsReviews/RatingsReviews.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nvar RatingsReviews = function RatingsReviews() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Ratings and Reviews\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RatingsReviews);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/RatingsReviews/RatingsReviews.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/RelatedItemsComparisons/RelatedItemsComparisons.jsx":
+/*!***********************************************************************************!*\
+  !*** ./client/src/components/RelatedItemsComparisons/RelatedItemsComparisons.jsx ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nvar RelatedItemsComparisons = function RelatedItemsComparisons() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Related Items and Comparisons\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RelatedItemsComparisons);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/RelatedItemsComparisons/RelatedItemsComparisons.jsx?");
 
 /***/ }),
 
