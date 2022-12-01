@@ -1,3 +1,8 @@
 {
-  "extends": "airbnb"
+  "extends": ["airbnb"],
+  "rules": {
+    "react/function-component-definition": "off",
+    "arrow-body-style": "off",
+    "padded-blocks": "off"
+    }
 }
