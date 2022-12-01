@@ -4,7 +4,7 @@ import axios from 'axios';
 const App = () => {
 
   return (
-    <div>Goodbye</div>
+    <div><h3>Goodbye</h3></div>
   )
 
 }
