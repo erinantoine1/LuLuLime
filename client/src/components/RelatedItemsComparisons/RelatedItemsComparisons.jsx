@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import List from './List.jsx';
 
 const RelatedItemsComparisons = () => {
   return (
-    <div>Related Items and Comparisons</div>
+    <div>
+      <h1>Related Items</h1>
+      <List />
+      <h1>Your Outfit</h1>
+      <List />
+    </div>
   );
 };
 
