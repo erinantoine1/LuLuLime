@@ -64,6 +64,138 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./client/src/components/Overview/Add_To_Cart/AddToCart.jsx":
+/*!******************************************************************!*\
+  !*** ./client/src/components/Overview/Add_To_Cart/AddToCart.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _SizeSelector_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SizeSelector.jsx */ \"./client/src/components/Overview/Add_To_Cart/SizeSelector.jsx\");\n/* harmony import */ var _QuantitySelector_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuantitySelector.jsx */ \"./client/src/components/Overview/Add_To_Cart/QuantitySelector.jsx\");\n\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar AddToCart = function AddToCart(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Add to Cart\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ol\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_QuantitySelector_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_SizeSelector_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddToCart);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Add_To_Cart/AddToCart.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Add_To_Cart/QuantitySelector.jsx":
+/*!*************************************************************************!*\
+  !*** ./client/src/components/Overview/Add_To_Cart/QuantitySelector.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar QuantitySelector = function QuantitySelector(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Quantity Selector\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuantitySelector);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Add_To_Cart/QuantitySelector.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Add_To_Cart/SizeSelector.jsx":
+/*!*********************************************************************!*\
+  !*** ./client/src/components/Overview/Add_To_Cart/SizeSelector.jsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar SizeSelector = function SizeSelector(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Size Selector\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SizeSelector);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Add_To_Cart/SizeSelector.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/CurrentImage.jsx":
+/*!***********************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/CurrentImage.jsx ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar CurrentImage = function CurrentImage(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Current Image\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CurrentImage);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/CurrentImage.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/DefaultImageView.jsx":
+/*!***************************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/DefaultImageView.jsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _CurrentImage_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CurrentImage.jsx */ \"./client/src/components/Overview/Image_Gallery/CurrentImage.jsx\");\n/* harmony import */ var _ImageThumbnails_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImageThumbnails.jsx */ \"./client/src/components/Overview/Image_Gallery/ImageThumbnails.jsx\");\n/* harmony import */ var _ImageArrows_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ImageArrows.jsx */ \"./client/src/components/Overview/Image_Gallery/ImageArrows.jsx\");\n\n\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar DefaultImageView = function DefaultImageView(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Default Image View\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ul\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_CurrentImage_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ImageThumbnails_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ImageArrows_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DefaultImageView);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/DefaultImageView.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/ExpandedImageView.jsx":
+/*!****************************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/ExpandedImageView.jsx ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _CurrentImage_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CurrentImage.jsx */ \"./client/src/components/Overview/Image_Gallery/CurrentImage.jsx\");\n/* harmony import */ var _ImageIcons_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImageIcons.jsx */ \"./client/src/components/Overview/Image_Gallery/ImageIcons.jsx\");\n/* harmony import */ var _ImageArrows_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ImageArrows.jsx */ \"./client/src/components/Overview/Image_Gallery/ImageArrows.jsx\");\n\n\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar ExpandedImageView = function ExpandedImageView(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Expanded Image View\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ul\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_CurrentImage_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ImageIcons_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ImageArrows_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ExpandedImageView);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/ExpandedImageView.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/ImageArrows.jsx":
+/*!**********************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/ImageArrows.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar ImageArrows = function ImageArrows(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Image Arrows\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageArrows);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/ImageArrows.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/ImageGallery.jsx":
+/*!***********************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/ImageGallery.jsx ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _DefaultImageView_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DefaultImageView.jsx */ \"./client/src/components/Overview/Image_Gallery/DefaultImageView.jsx\");\n/* harmony import */ var _ExpandedImageView_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExpandedImageView.jsx */ \"./client/src/components/Overview/Image_Gallery/ExpandedImageView.jsx\");\n\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar ImageGallery = function ImageGallery(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Image Gallery\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ol\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_DefaultImageView_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ExpandedImageView_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGallery);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/ImageGallery.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/ImageIcon.jsx":
+/*!********************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/ImageIcon.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar ImageIcon = function ImageIcon(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Image Icon\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageIcon);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/ImageIcon.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/ImageIcons.jsx":
+/*!*********************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/ImageIcons.jsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ImageIcon_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageIcon.jsx */ \"./client/src/components/Overview/Image_Gallery/ImageIcon.jsx\");\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar ImageIcons = function ImageIcons(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Image Icons\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ul\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ImageIcon_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageIcons);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/ImageIcons.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/ImageThumbnail.jsx":
+/*!*************************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/ImageThumbnail.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar ImageThumbnail = function ImageThumbnail(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Image Thumbnail\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageThumbnail);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/ImageThumbnail.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Image_Gallery/ImageThumbnails.jsx":
+/*!**************************************************************************!*\
+  !*** ./client/src/components/Overview/Image_Gallery/ImageThumbnails.jsx ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ImageThumbnail_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageThumbnail.jsx */ \"./client/src/components/Overview/Image_Gallery/ImageThumbnail.jsx\");\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar ImageThumbnails = function ImageThumbnails(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Image Thumbnails\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ul\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ImageThumbnail_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageThumbnails);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Image_Gallery/ImageThumbnails.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/components/Overview/Overview.jsx":
 /*!*****************************************************!*\
   !*** ./client/src/components/Overview/Overview.jsx ***!
@@ -71,7 +203,106 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nvar Overview = function Overview() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Overview\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Overview);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Overview.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Product_Information_ProductInformation_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Product_Information/ProductInformation.jsx */ \"./client/src/components/Overview/Product_Information/ProductInformation.jsx\");\n/* harmony import */ var _Image_Gallery_ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Image_Gallery/ImageGallery.jsx */ \"./client/src/components/Overview/Image_Gallery/ImageGallery.jsx\");\n/* harmony import */ var _Style_Selector_StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Style_Selector/StyleSelector.jsx */ \"./client/src/components/Overview/Style_Selector/StyleSelector.jsx\");\n/* harmony import */ var _Add_To_Cart_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Add_To_Cart/AddToCart.jsx */ \"./client/src/components/Overview/Add_To_Cart/AddToCart.jsx\");\n// eslint-disable-next-line no-unused-vars\n\n\n\n\n\n// import axios from 'axios';\n// //require('dotenv').config();\n\n// const API_KEY = process.env.REACT_APP_API_KEY;\n// const API_URL = process.env.REACT_APP_API_URL;\n\nvar Overview = function Overview() {\n  // const getProducts = () => {\n\n  //  return axios.get(`${API_URL}/products`, { headers: {\n  //   Authorization: `token ${API_KEY}`,\n  //   'Access-Control-Allow-Headers': 'Authorization'\n  // }});\n  //     .then((response) => {\n  //       console.log(response.data);\n  //     });\n  // };\n\n  // useEffect(() => {\n  //   getProducts();\n  // }, []);\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Overview Module\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ul\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Product_Information_ProductInformation_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Image_Gallery_ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Style_Selector_StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Add_To_Cart_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Overview);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Overview.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Product_Information/ProductCategory.jsx":
+/*!********************************************************************************!*\
+  !*** ./client/src/components/Overview/Product_Information/ProductCategory.jsx ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar ProductCategory = function ProductCategory(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Product Category\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductCategory);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Product_Information/ProductCategory.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Product_Information/ProductInformation.jsx":
+/*!***********************************************************************************!*\
+  !*** ./client/src/components/Overview/Product_Information/ProductInformation.jsx ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ProductTitle_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductTitle.jsx */ \"./client/src/components/Overview/Product_Information/ProductTitle.jsx\");\n/* harmony import */ var _StarRating_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StarRating.jsx */ \"./client/src/components/Overview/Product_Information/StarRating.jsx\");\n/* harmony import */ var _ProductCategory_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProductCategory.jsx */ \"./client/src/components/Overview/Product_Information/ProductCategory.jsx\");\n/* harmony import */ var _ProductPrice_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ProductPrice.jsx */ \"./client/src/components/Overview/Product_Information/ProductPrice.jsx\");\n/* harmony import */ var _ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ProductOverview.jsx */ \"./client/src/components/Overview/Product_Information/ProductOverview.jsx\");\n/* harmony import */ var _Share_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Share.jsx */ \"./client/src/components/Overview/Product_Information/Share.jsx\");\n\n\n\n\n\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar ProductInformation = function ProductInformation(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Product Information\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ul\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ProductTitle_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_StarRating_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ProductCategory_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ProductPrice_jsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Share_jsx__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductInformation);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Product_Information/ProductInformation.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Product_Information/ProductOverview.jsx":
+/*!********************************************************************************!*\
+  !*** ./client/src/components/Overview/Product_Information/ProductOverview.jsx ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar ProductOverview = function ProductOverview(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Product Overview\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductOverview);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Product_Information/ProductOverview.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Product_Information/ProductPrice.jsx":
+/*!*****************************************************************************!*\
+  !*** ./client/src/components/Overview/Product_Information/ProductPrice.jsx ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar ProductPrice = function ProductPrice(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Product Price\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductPrice);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Product_Information/ProductPrice.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Product_Information/ProductTitle.jsx":
+/*!*****************************************************************************!*\
+  !*** ./client/src/components/Overview/Product_Information/ProductTitle.jsx ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar ProductTitle = function ProductTitle(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Product Title\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductTitle);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Product_Information/ProductTitle.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Product_Information/Share.jsx":
+/*!**********************************************************************!*\
+  !*** ./client/src/components/Overview/Product_Information/Share.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar Share = function Share(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Share\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Share);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Product_Information/Share.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Product_Information/StarRating.jsx":
+/*!***************************************************************************!*\
+  !*** ./client/src/components/Overview/Product_Information/StarRating.jsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar StarRating = function StarRating(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Star Rating\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StarRating);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Product_Information/StarRating.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Style_Selector/StyleSelector.jsx":
+/*!*************************************************************************!*\
+  !*** ./client/src/components/Overview/Style_Selector/StyleSelector.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _StyleThumbnail_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StyleThumbnail.jsx */ \"./client/src/components/Overview/Style_Selector/StyleThumbnail.jsx\");\n\n\n\n// eslint-disable-next-line no-unused-vars\nvar StyleSelector = function StyleSelector(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Style Selector\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"ol\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"li\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_StyleThumbnail_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StyleSelector);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Style_Selector/StyleSelector.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/Style_Selector/StyleThumbnail.jsx":
+/*!**************************************************************************!*\
+  !*** ./client/src/components/Overview/Style_Selector/StyleThumbnail.jsx ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// eslint-disable-next-line no-unused-vars\nvar StyleThumbnail = function StyleThumbnail(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, \"Style Thumbnail\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StyleThumbnail);\n\n//# sourceURL=webpack://rfp2210-fec/./client/src/components/Overview/Style_Selector/StyleThumbnail.jsx?");
 
 /***/ }),
 
