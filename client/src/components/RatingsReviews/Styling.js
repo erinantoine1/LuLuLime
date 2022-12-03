@@ -6,7 +6,7 @@ export const ReviewListDiv = styled.div`
 
 // Review List Styles
 
-export const ReviewListHeader = styled.span`
+export const ReviewListHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -45,6 +45,7 @@ export const ReviewTileDiv = styled.div`
   margin-left: 50px;
 `;
 
-export const ReviewTileHeader = styled.span`
+export const ReviewTileHeader = styled.div`
   display: flex;
+  justify-content: space-between;
 `;

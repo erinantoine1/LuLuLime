@@ -3,6 +3,9 @@ import * as styling from './Styling.js';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import ReviewTile from './ReviewTile.jsx';
+import sortByRelevance from './Utility.js';
+
+const { useState } = React;
 
 const RatingsReviews = () => {
 
@@ -14,11 +17,11 @@ const RatingsReviews = () => {
       {
         review_id: 5,
         rating: 3,
-        summary: 'I"m enjoying wearing these shades',
+        summary: "I'm enjoying wearing these shades",
         recommend: false,
         response: null,
         body: 'Comfortable and practical.',
-        date: '2019-04-14T00:00:00.000Z',
+        date: '2022-06-23T00:00:00.000Z',
         reviewer_name: 'shortandsweeet',
         helpfulness: 5,
         photos: [{
@@ -35,15 +38,34 @@ const RatingsReviews = () => {
         review_id: 3,
         rating: 4,
         summary: 'I am liking these glasses',
-        recommend: false,
+        recommend: true,
         response: 'Glad you"re enjoying the product!',
         body: 'They are very dark. But that"s good because I"m in very sunny spots',
-        date: '2019-06-23T00:00:00.000Z',
+        date: '2022-04-23T00:00:00.000Z',
         reviewer_name: 'bigbrotherbenjamin',
-        helpfulness: 5,
+        helpfulness: 8,
         photos: [],
       },
     ],
+  };
+
+  const [results, setResults] = useState(testProduct.results);
+  const [sortOrder, setSortOrder] = useState('Relevant');
+
+  const handleSort = (value) => {
+    const sortedList = [...results];
+    if (value === 'Helpful') {
+      setResults(sortedList.sort((a, b) => {
+        return a.helpfulness < b.helpfulness ? 1 : -1;
+      }));
+    } else if (value === 'Newest') {
+      setResults(sortedList.sort((a, b) => {
+        return new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1;
+      }));
+    } else {
+      setResults(sortedList.sort(sortByRelevance));
+    }
+    setSortOrder(value);
   };
 
   return (
@@ -52,17 +74,19 @@ const RatingsReviews = () => {
         <h3>Review List</h3>
         <label htmlFor="sort">
           Sort-On:
-          <select name="sort" id="sort">
+          <select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
+            <option value="Relevant">Relevant</option>
             <option value="Helpful">Helpful</option>
             <option value="Newest">Newest</option>
-            <option value="Relevant">Relevant</option>
           </select>
         </label>
       </styling.ReviewListHeader>
       <styling.ReviewListBody>
         <RatingBreakdown />
         <styling.ReviewTilesContainer>
-          <ReviewTile />
+          {results.map((review) => (
+            <ReviewTile key={review.review_id} review={review} />
+          ))}
         </styling.ReviewTilesContainer>
       </styling.ReviewListBody>
       <styling.ReviewButtonContainer>
