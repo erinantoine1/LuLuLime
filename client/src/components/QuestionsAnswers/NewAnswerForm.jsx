@@ -7,3 +7,5 @@ const NewAnswerForm = () => {
     </div>
   );
 };
+
+export default NewAnswerForm;

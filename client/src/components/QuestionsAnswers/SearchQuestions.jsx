@@ -7,3 +7,5 @@ const SearchQuestions = () => {
     </div>
   );
 };
+
+export default SearchQuestions;
