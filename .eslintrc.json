@@ -9,6 +9,10 @@
     "no-console": 0,
     "import/extensions": "off",
     "react/jsx-filename-extension": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "comma-dangle": "off",
+    "camelcase": "off",
+    "react/prop-types": "off",
+    "no-lone-blocks": "off"
     }
 }
