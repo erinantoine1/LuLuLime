@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
-import List from './List.jsx';
+import styled from 'styled-components';
+import RelatedList from './RelatedList.jsx';
+
+const StyledRIC = styled.div`
+  text-align: center;
+  font-family: Helvetica;
+`;
 
 const RelatedItemsComparisons = () => {
   return (
-    <div>
+    <StyledRIC>
       <h1>Related Items</h1>
-      <List />
+      <RelatedList />
       <h1>Your Outfit</h1>
-      <List />
-    </div>
+    </StyledRIC>
   );
 };
 
