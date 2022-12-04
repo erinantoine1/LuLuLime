@@ -14,7 +14,7 @@ const ReviewTile = ({ review }) => {
       <div>{review.body}</div>
       <span>
         {review.photos.map((photo) => {
-          return <img key={photo.id} src={photo.url} alt="Clothing product" />;
+          return <img key={photo.id} src={photo.url} alt="Clothing product" width="100" height="100" />;
         })}
       </span>
       {review.recommend ? <span>I recommend this product</span> : null}
