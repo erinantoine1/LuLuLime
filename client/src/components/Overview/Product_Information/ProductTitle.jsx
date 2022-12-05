@@ -1,13 +1,18 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line no-unused-vars
-const ProductTitle = (props) => {
+const ProductTitle = ({ productTitle }) => {
 
   return (
     <div>
-      Product Title
+      { productTitle }
     </div>
   );
+};
+
+ProductTitle.propTypes = {
+  productTitle: PropTypes.string,
 };
 
 export default ProductTitle;
