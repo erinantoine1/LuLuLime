@@ -1,19 +1,24 @@
 import styled from 'styled-components';
 
 // Main container
-export const ReviewListDiv = styled.div`
+export const ReviewSectionContainer = styled.div`
 `;
 
-// Review List Styles
-
-export const ReviewListHeader = styled.div`
+export const ReviewSectionHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
 `;
 
-export const ReviewListBody = styled.div`
+export const ReviewSectionBody = styled.div`
   display: flex;
+`;
+
+// Review List Styles
+
+export const ReviewListDiv = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ReviewTilesContainer = styled.div`
@@ -22,6 +27,7 @@ export const ReviewTilesContainer = styled.div`
 `;
 
 export const ReviewButtonContainer = styled.div`
+  margin-left: 80px;
 `;
 
 // Rating Breakdown Styles

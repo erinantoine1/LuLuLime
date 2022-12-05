@@ -5,8 +5,9 @@ module.exports = {
   getReviews: (req, res) => {
     const { query: { product_id } } = req;
     const { query: { sort } } = req;
+    const { query: { count } } = req;
     axios({
-      url: `${config.URL}/reviews/?product_id=${product_id}&sort=${sort}`,
+      url: `${config.URL}/reviews/?product_id=${product_id}&sort=${sort}&count=${count}`,
       method: 'get',
       headers: {
         Authorization: config.TOKEN

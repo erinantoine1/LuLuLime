@@ -3,53 +3,36 @@ import axios from 'axios';
 import * as styling from './Styling.js';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-import ReviewTile from './ReviewTile.jsx';
+import ReviewList from './ReviewList.jsx';
+
 
 const RatingsReviews = () => {
 
-  const [results, setResults] = useState([]);
-  const [sortOrder, setSortOrder] = useState('relevant');
+  const [reviews, setReviews] = useState([]);
   const [filterBy, setFilterBy] = useState([]);
-  const [filteredResults, setFilteredResults] = useState([]);
-  const [displayedReviews, setDisplayedReviews] = useState(2);
 
-  useEffect(() => {
+  const generateReviews = (product_id, sort, count) => {
+    const queries = { product_id, sort, count };
     axios.get('/reviews', {
-      params: {
-        product_id: 40344,
-        sort: 'relevant'
-      }
+      params: queries
     })
       .then((response) => {
-        setResults(response.data.results);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    setFilteredResults(results.filter((review) => {
-      return filterBy.includes(review.rating);
-    }));
-  }, [filterBy, sortOrder]);
-
-  const handleSort = (value) => {
-    axios.get('/reviews', {
-      params: {
-        product_id: 40344,
-        sort: value
-      }
-    })
-      .then((response) => {
-        setResults(response.data.results);
-        setSortOrder(value);
+        setReviews(response.data.results);
       })
       .catch((error) => console.log(error));
   };
 
+  const handleSort = (value) => {
+    generateReviews(40344, value, 50);
+  };
+
+  useEffect(() => {
+    generateReviews(40344, 'relevant', 50);
+  }, []);
 
   return (
-    <styling.ReviewListDiv>
-      <styling.ReviewListHeader>
+    <styling.ReviewSectionContainer>
+      <styling.ReviewSectionHeader>
         <h3>Review List</h3>
         <label htmlFor="sort">
           Sort-On:
@@ -59,23 +42,15 @@ const RatingsReviews = () => {
             <option value="newest">Newest</option>
           </select>
         </label>
-      </styling.ReviewListHeader>
-      <styling.ReviewListBody>
+      </styling.ReviewSectionHeader>
+      <styling.ReviewSectionBody>
         <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} />
-        <styling.ReviewTilesContainer>
-          {filterBy.length === 0 ? results.slice(0, displayedReviews).map((review) => (
-            <ReviewTile key={review.review_id} review={review} />
-          )) : filteredResults.slice(0, displayedReviews).map((review) => (
-            <ReviewTile key={review.review_id} review={review} />
-          ))}
-        </styling.ReviewTilesContainer>
-      </styling.ReviewListBody>
-      <styling.ReviewButtonContainer>
-        {filteredResults.length === 0 && results.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
-        {filteredResults.length > 2 && filteredResults.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
-        <button type="submit">Add Reviews</button>
-      </styling.ReviewButtonContainer>
-    </styling.ReviewListDiv>
+        <ReviewList reviews={filterBy.length === 0 ? reviews : reviews.filter((review) => {
+          return filterBy.includes(review.rating);
+        })}
+        />
+      </styling.ReviewSectionBody>
+    </styling.ReviewSectionContainer>
   );
 };
 
