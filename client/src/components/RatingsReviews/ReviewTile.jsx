@@ -10,7 +10,9 @@ const ReviewTile = ({ review }) => {
         <span>{review.summary}</span>
         <span>{review.date}</span>
       </styling.ReviewTileHeader>
-      <span>{review.rating}</span>
+      <span>
+        {`Rating: ${review.rating}`}
+      </span>
       <div>{review.body}</div>
       <span>
         {review.photos.map((photo) => {
@@ -21,8 +23,7 @@ const ReviewTile = ({ review }) => {
       <span>{review.reviewer_name}</span>
       <div>{review.response}</div>
       <span>
-        Helpful:
-        {review.helpfulness}
+        {`Helpful: ${review.helpfulness}`}
         <button type="submit">Report?</button>
       </span>
     </styling.ReviewTileDiv>

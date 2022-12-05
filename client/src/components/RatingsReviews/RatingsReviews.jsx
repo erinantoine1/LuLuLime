@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as styling from './Styling.js';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import ReviewTile from './ReviewTile.jsx';
 
-
-const { useState, useEffect } = React;
-
 const RatingsReviews = () => {
 
   const [results, setResults] = useState([]);
-  const [resultsDisplay, setResultsDisplay] = useState([]);
-  const [sortOrder, setSortOrder] = useState('Relevant');
+  const [sortOrder, setSortOrder] = useState('relevant');
+  const [filterBy, setFilterBy] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [displayedReviews, setDisplayedReviews] = useState(2);
 
   useEffect(() => {
     axios.get('/reviews', {
@@ -23,10 +22,15 @@ const RatingsReviews = () => {
     })
       .then((response) => {
         setResults(response.data.results);
-        setResultsDisplay(response.data.results);
       })
       .catch((error) => console.log(error));
   }, []);
+
+  useEffect(() => {
+    setFilteredResults(results.filter((review) => {
+      return filterBy.includes(review.rating);
+    }));
+  }, [filterBy, sortOrder]);
 
   const handleSort = (value) => {
     axios.get('/reviews', {
@@ -37,11 +41,11 @@ const RatingsReviews = () => {
     })
       .then((response) => {
         setResults(response.data.results);
-        setResultsDisplay(response.data.results);
         setSortOrder(value);
       })
       .catch((error) => console.log(error));
   };
+
 
   return (
     <styling.ReviewListDiv>
@@ -57,15 +61,18 @@ const RatingsReviews = () => {
         </label>
       </styling.ReviewListHeader>
       <styling.ReviewListBody>
-        <RatingBreakdown />
+        <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} />
         <styling.ReviewTilesContainer>
-          {resultsDisplay.map((review) => (
+          {filterBy.length === 0 ? results.slice(0, displayedReviews).map((review) => (
+            <ReviewTile key={review.review_id} review={review} />
+          )) : filteredResults.slice(0, displayedReviews).map((review) => (
             <ReviewTile key={review.review_id} review={review} />
           ))}
         </styling.ReviewTilesContainer>
       </styling.ReviewListBody>
       <styling.ReviewButtonContainer>
-        <button type="submit">More Reviews</button>
+        {filteredResults.length === 0 && results.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
+        {filteredResults.length > 2 && filteredResults.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
         <button type="submit">Add Reviews</button>
       </styling.ReviewButtonContainer>
     </styling.ReviewListDiv>

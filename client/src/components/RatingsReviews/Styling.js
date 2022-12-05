@@ -33,6 +33,12 @@ export const RatingBreakdownDiv = styled.div`
   gap: 10px;
 `;
 
+export const BarGraphDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap 10px;
+`;
+
 // Product Breakdown Styles
 
 // ReviewTile Styles
