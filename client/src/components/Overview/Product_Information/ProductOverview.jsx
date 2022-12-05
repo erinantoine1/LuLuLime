@@ -1,13 +1,19 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line no-unused-vars
-const ProductOverview = (props) => {
+const ProductOverview = ({ productDescription }) => {
+  const overviewDisplay = `Overview: ${productDescription}`;
 
   return (
     <div>
-      Product Overview
+      { overviewDisplay }
     </div>
   );
+};
+
+ProductOverview.propTypes = {
+  productDescription: PropTypes.string,
 };
 
 export default ProductOverview;
