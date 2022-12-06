@@ -4,6 +4,7 @@ const reviewControllers = require('./controllers/reviewsControllers.js');
 
 
 router.get('/reviews', reviewControllers.getReviews);
+router.get('/reviews/meta', reviewControllers.getMetaData);
 
 module.exports = router;
 

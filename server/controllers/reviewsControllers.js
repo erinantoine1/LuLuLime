@@ -20,4 +20,20 @@ module.exports = {
         res.status(500).send(error);
       });
   },
+  getMetaData: (req, res) => {
+    const { query: { product_id } } = req;
+    axios({
+      url: `${config.URL}/reviews/meta/?product_id=${product_id}`,
+      method: 'get',
+      headers: {
+        Authorization: config.TOKEN
+      }
+    })
+      .then((response) => {
+        res.status(200).send(response.data);
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
+  }
 };

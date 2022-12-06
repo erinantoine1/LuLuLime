@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import * as styling from './Styling.js';
 import ReviewTile from './ReviewTile.jsx';
+import ReviewForm from './ReviewForm.jsx';
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ({ reviews, metaData }) => {
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
@@ -15,8 +16,9 @@ const ReviewList = ({ reviews }) => {
       </styling.ReviewTilesContainer>
       <styling.ReviewButtonContainer>
         {reviews.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
-        <button type="submit">Add Reviews</button>
+        <button type="submit">Add Review</button>
       </styling.ReviewButtonContainer>
+      <ReviewForm metaData={metaData} />
     </styling.ReviewListDiv>
   );
 };

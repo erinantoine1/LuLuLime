@@ -61,3 +61,35 @@ export const ReviewTileHeader = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+// Review Form Styles
+
+export const ReviewFormContainer = styled.div`
+`;
+
+export const styledForm = styled.form`
+`;
+
+export const recommendDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const characteristicsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const characteristicsButtons = styled.div`
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const characteristicsChoices = styled.span`
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+`;

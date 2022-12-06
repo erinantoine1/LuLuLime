@@ -10,6 +10,9 @@ const RatingsReviews = () => {
 
   const [reviews, setReviews] = useState([]);
   const [filterBy, setFilterBy] = useState([]);
+  const [metaData, setMetaData] = useState({});
+  const [reviewsLoaded, setReviewsLoaded] = useState(false);
+  const [metaDataLoaded, setMetaDataLoaded] = useState(false);
 
   const generateReviews = (product_id, sort, count) => {
     const queries = { product_id, sort, count };
@@ -18,6 +21,7 @@ const RatingsReviews = () => {
     })
       .then((response) => {
         setReviews(response.data.results);
+        setReviewsLoaded(true);
       })
       .catch((error) => console.log(error));
   };
@@ -30,6 +34,22 @@ const RatingsReviews = () => {
     generateReviews(40344, 'relevant', 50);
   }, []);
 
+  useEffect(() => {
+    axios.get('/reviews/meta', {
+      params: {
+        product_id: 40344
+      }
+    })
+      .then((response) => {
+        setMetaData(response.data);
+        setMetaDataLoaded(true);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  if (!reviewsLoaded || !metaDataLoaded) {
+    return <div>Loading Reviews</div>;
+  }
   return (
     <styling.ReviewSectionContainer>
       <styling.ReviewSectionHeader>
@@ -45,9 +65,11 @@ const RatingsReviews = () => {
       </styling.ReviewSectionHeader>
       <styling.ReviewSectionBody>
         <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} />
-        <ReviewList reviews={filterBy.length === 0 ? reviews : reviews.filter((review) => {
-          return filterBy.includes(review.rating);
-        })}
+        <ReviewList
+          reviews={filterBy.length === 0 ? reviews : reviews.filter((review) => {
+            return filterBy.includes(review.rating);
+          })}
+          metaData={metaData}
         />
       </styling.ReviewSectionBody>
     </styling.ReviewSectionContainer>
