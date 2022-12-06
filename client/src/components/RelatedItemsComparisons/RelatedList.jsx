@@ -68,7 +68,7 @@ const RightButton = styled.button`
 
 
 const RelatedList = ({ setShowModal, showModal }) => {
-  const [relatedItem, setRelatedItem] = useState([{}, {}, {}, {}, {}, {}, {}]);
+  const [relatedItem, setRelatedItem] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
   const containerRef = useRef(null);
 
   const handleLeftClick = () => {
