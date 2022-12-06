@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import ActionButtonStar from './ActionButtonStar.jsx';
+import ActionButtonX from './ActionButtonX.jsx';
 import { TOKEN } from '../../../../config.js';
 
 const StyledCard = styled.div`
@@ -38,11 +39,11 @@ const Image = styled.img`
 `;
 
 
-const Card = (props) => {
+const Card = ({ picture, type, setShowModal, showModal }) => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const [picture, setPicture] = useState('');
+  // const [picture, setPicture] = useState('');
 
   const styledcard = useRef(null);
 
@@ -59,8 +60,8 @@ const Card = (props) => {
 
   return (
     <StyledCard>
-      <ActionButtonStar />
-      <Image alt="image" src={props.picture} />
+      {type === 'related' ? <ActionButtonStar setShowModal={setShowModal} showModal={showModal} /> : <ActionButtonX />}
+      <Image alt="image" src={picture} />
       <h2>name</h2>
       <h3>price</h3>
     </StyledCard>

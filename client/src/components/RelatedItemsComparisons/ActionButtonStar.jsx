@@ -1,7 +1,8 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Star = styled.img`
+const StyledStar = styled.img`
   height: 25px;
   width: 25px;
   top: 0;
@@ -9,11 +10,10 @@ const Star = styled.img`
   position: absolute;
 `;
 
-const ActionButtonStar = () => {
-
+const ActionButtonStar = ({ setShowModal, showModal }) => {
 
   return (
-    <Star onClick={() => console.log('clicked')} src="https://cdn-icons-png.flaticon.com/512/753/753263.png" alt="star" />
+    <StyledStar onClick={() => setShowModal(!showModal)} src="https://cdn-icons-png.flaticon.com/512/753/753263.png" alt="star" />
   );
 };
 
