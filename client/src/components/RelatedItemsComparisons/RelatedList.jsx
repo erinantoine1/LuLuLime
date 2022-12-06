@@ -81,7 +81,7 @@ const RelatedList = ({ setShowModal, showModal }) => {
 
   return (
     <ContainerParent>
-      <LeftButton type="button" onClick={handleLeftClick}>{'<'}</LeftButton>
+      <LeftButton type="button" onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
         <Card picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" setShowModal={setShowModal} showModal={showModal} />
         <Card picture="https://images.unsplash.com/photo-1534481909716-9a482087f27d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
@@ -96,7 +96,7 @@ const RelatedList = ({ setShowModal, showModal }) => {
         <Card picture="https://images.unsplash.com/photo-1530092376999-2431865aa8df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
         <Card picture="https://images.unsplash.com/photo-1556304653-cba65c59b3c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
       </CardContainer>
-      <RightButton type="button" onClick={handleRightClick}>{'>'}</RightButton>
+      <RightButton type="button" onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
   );
 };

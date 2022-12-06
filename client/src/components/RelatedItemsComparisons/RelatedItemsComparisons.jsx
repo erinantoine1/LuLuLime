@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import RelatedList from './RelatedList.jsx';
-import RelatedList2 from './version2/RelatedList2.jsx';
 import OutfitList from './OutfitList.jsx';
 import CompareModal from './CompareModal.jsx';
 

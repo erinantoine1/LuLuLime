@@ -31,7 +31,7 @@ const StyledColumn = styled.div`
   width: 33%;
 `;
 
-const SpaceHolder = styled.h1`
+const SpaceHolder = styled.h2`
   visibility: hidden;
 `;
 
@@ -41,9 +41,12 @@ const StyledTitle = styled.div`
 
 const StyledText = styled.p`
   font-size: 1.5rem;
+  margin-top: 2rem;
 `;
 
+
 const CompareModal = ({ showModal, setShowModal }) => {
+  // add states for comparisons
 
   return (
     <Model onClick={() => setShowModal(!showModal)}>
@@ -52,7 +55,7 @@ const CompareModal = ({ showModal, setShowModal }) => {
           <h1>Comparing</h1>
         </StyledTitle>
         <StyledColumn>
-          <h1>Item1</h1>
+          <h2>Item1</h2>
           <StyledText>✔</StyledText>
           <StyledText>✘</StyledText>
           <StyledText>✔</StyledText>
@@ -68,7 +71,7 @@ const CompareModal = ({ showModal, setShowModal }) => {
           <StyledText>Something5</StyledText>
         </StyledColumn>
         <StyledColumn>
-          <h1>Item2</h1>
+          <h2>Item2</h2>
           <StyledText>✘</StyledText>
           <StyledText>✔</StyledText>
           <StyledText>✔</StyledText>

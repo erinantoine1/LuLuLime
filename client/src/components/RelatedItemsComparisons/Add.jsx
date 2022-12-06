@@ -17,10 +17,16 @@ const Plus = styled.h1`
   font-size: 5rem;
 `;
 
-const Add = () => {
+const Add = ({ outfitItems, setOutfitItems }) => {
+
+  const addItem = () => {
+    const copy = [...outfitItems];
+    copy.push(1);
+    setOutfitItems(copy);
+  };
 
   return (
-    <StyledCard>
+    <StyledCard onClick={addItem}>
       <Plus>+</Plus>
     </StyledCard>
   );

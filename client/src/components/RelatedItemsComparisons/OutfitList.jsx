@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Add from './Add.jsx';
-import Card from './Card.jsx';
+import OutfitCard from './OutfitCard.jsx';
 
 const ContainerParent = styled.div`
   margin-left: 12%;
@@ -49,7 +49,7 @@ const RightButton = styled.button`
 
 
 const OutfitList = () => {
-  const [outfitItems, setOutfitItems] = useState([1, 2, 3, 1, 1]);
+  const [outfitItems, setOutfitItems] = useState([]);
   const containerRef = useRef(null);
 
   const handleLeftClick = () => {
@@ -62,12 +62,12 @@ const OutfitList = () => {
 
   return (
     <ContainerParent>
-      <LeftButton onClick={handleLeftClick}>{'<'}</LeftButton>
-      <Add />
+      <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
+      <Add setOutfitItems={setOutfitItems} outfitItems={outfitItems} />
       <CardContainer ref={containerRef}>
-        {outfitItems.map((item, index) => <Card picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" />)}
+        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" />)}
       </CardContainer>
-      <RightButton onClick={handleRightClick}>{'>'}</RightButton>
+      <RightButton onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
   );
 };
