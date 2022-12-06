@@ -98,7 +98,7 @@ const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
               name="body"
               minLength="50"
               maxLength="1000"
-              placeholder="Best Purchase Ever!"
+              placeholder="Why did you like the product or not?"
               value={reviewForm.body}
               onChange={(event) => setReviewForm({ ...reviewForm, body: event.target.value })}
             />
