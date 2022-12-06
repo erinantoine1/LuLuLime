@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import ActionButtonStar from './ActionButtonStar.jsx';
-import ActionButtonX from './ActionButtonX.jsx';
 import { TOKEN } from '../../../../config.js';
 
 const StyledCard = styled.div`

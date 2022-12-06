@@ -1,7 +1,4 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { TOKEN } from '../../../../config.js';
@@ -54,7 +51,15 @@ const StyledCategory = styled.p`
   color: #A9A9A9;
 `;
 
-const Card = ({ picture, type, setShowModal, showModal, outfitItems, setOutfitItems }) => {
+const StyledStar = styled.img`
+  height: 25px;
+  width: 25px;
+  top: 0.3rem;
+  left: 90%;
+  position: absolute;
+`;
+
+const RelatedCard = ({ picture, type, setShowModal, showModal, outfitItems, setOutfitItems }) => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -75,8 +80,8 @@ const Card = ({ picture, type, setShowModal, showModal, outfitItems, setOutfitIt
 
   return (
     <StyledCard>
-      {type === 'related' ? <ActionButtonStar setShowModal={setShowModal} showModal={showModal} /> : <ActionButtonX outfitItems={outfitItems} setOutfititems={setOutfitItems} />}
-      <Image alt="image" src={picture} />
+      <StyledStar onClick={() => setShowModal(!showModal)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
+      <Image src={picture} alt="item" />
       <StyledCategory>Category</StyledCategory>
       <StyledName>Name</StyledName>
       <StyledName>Price</StyledName>
@@ -84,4 +89,5 @@ const Card = ({ picture, type, setShowModal, showModal, outfitItems, setOutfitIt
   );
 };
 
-export default Card;
+
+export default RelatedCard;
