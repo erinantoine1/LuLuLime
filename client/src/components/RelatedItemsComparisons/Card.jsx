@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { useState, useEffect, useRef } from 'react';
@@ -38,6 +39,22 @@ const Image = styled.img`
   width: 300px;
 `;
 
+const Info = styled.div`
+  margin: 0;
+  padding: 0;
+`;
+
+const StyledName = styled.h3`
+  margin: 0;
+  padding: 0;
+`;
+
+const StyledCategory = styled.p`
+  margin: 0;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  color: #A9A9A9;
+`;
 
 const Card = ({ picture, type, setShowModal, showModal }) => {
 
@@ -62,16 +79,11 @@ const Card = ({ picture, type, setShowModal, showModal }) => {
     <StyledCard>
       {type === 'related' ? <ActionButtonStar setShowModal={setShowModal} showModal={showModal} /> : <ActionButtonX />}
       <Image alt="image" src={picture} />
-      <h2>name</h2>
-      <h3>price</h3>
+      <StyledCategory>Category</StyledCategory>
+      <StyledName>Name</StyledName>
+      <StyledName>Price</StyledName>
     </StyledCard>
   );
 };
-
-// RelatedListCard.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-//   price: PropTypes.string.isRequired,
-// };
 
 export default Card;

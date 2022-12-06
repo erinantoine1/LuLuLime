@@ -14,10 +14,33 @@ const Model = styled.div`
 
 const InnerModel = styled.div`
   background-color: white;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 5%;
-  min-height: 600px;
+  margin: 8% 30%;
+  height: 60vh;
+
+  @media screen and (max-width: 1100px) {
+    margin: 8% 25%;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin 8% 15%;
+  }
+`;
+
+const StyledColumn = styled.div`
+  float: left;
+  width: 33%;
+`;
+
+const SpaceHolder = styled.h1`
+  visibility: hidden;
+`;
+
+const StyledTitle = styled.div`
+  padding-top: 1rem;
+`;
+
+const StyledText = styled.p`
+  font-size: 1.5rem;
 `;
 
 const CompareModal = ({ showModal, setShowModal }) => {
@@ -25,7 +48,33 @@ const CompareModal = ({ showModal, setShowModal }) => {
   return (
     <Model onClick={() => setShowModal(!showModal)}>
       <InnerModel>
-        <h1>IM THE MODAL</h1>
+        <StyledTitle>
+          <h1>Comparing</h1>
+        </StyledTitle>
+        <StyledColumn>
+          <h1>Item1</h1>
+          <StyledText>✔</StyledText>
+          <StyledText>✘</StyledText>
+          <StyledText>✔</StyledText>
+          <StyledText>✔</StyledText>
+          <StyledText>✘</StyledText>
+        </StyledColumn>
+        <StyledColumn>
+          <SpaceHolder>nothing</SpaceHolder>
+          <StyledText>Something1</StyledText>
+          <StyledText>Something2</StyledText>
+          <StyledText>Something3</StyledText>
+          <StyledText>Someething4</StyledText>
+          <StyledText>Something5</StyledText>
+        </StyledColumn>
+        <StyledColumn>
+          <h1>Item2</h1>
+          <StyledText>✘</StyledText>
+          <StyledText>✔</StyledText>
+          <StyledText>✔</StyledText>
+          <StyledText>✘</StyledText>
+          <StyledText>✔</StyledText>
+        </StyledColumn>
       </InnerModel>
     </Model>
   );

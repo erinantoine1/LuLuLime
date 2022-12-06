@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledX = styled.img`
   height: 25px;
   width: 25px;
-  top: 0;
+  top: 0.3rem;
   left: 90%;
   position: absolute;
 `;
