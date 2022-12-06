@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import Card from './Card.jsx';
 import RelatedCard from './RelatedCard.jsx';
 
 const ContainerParent = styled.div`
@@ -69,7 +68,7 @@ const RightButton = styled.button`
 
 
 const RelatedList = ({ setShowModal, showModal }) => {
-  const [relatedItem, setRelatedItem] = useState([{}, {}, {}, {}, {}]);
+  const [relatedItem, setRelatedItem] = useState([{}, {}, {}, {}, {}, {}, {}]);
   const containerRef = useRef(null);
 
   const handleLeftClick = () => {
@@ -84,18 +83,8 @@ const RelatedList = ({ setShowModal, showModal }) => {
     <ContainerParent>
       <LeftButton type="button" onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        <RelatedCard picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" setShowModal={setShowModal} showModal={showModal} />
-        <RelatedCard picture="https://images.unsplash.com/photo-1534481909716-9a482087f27d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1459501462159-97d5bded1416?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1479756212843-6314ad5121dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1461551449292-b63f7419ac93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1560095633-6803ba0461cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1519722417352-7d6959729417?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1530092376999-2431865aa8df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1514866726862-0f081731e63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1530092376999-2431865aa8df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
-        <RelatedCard picture="https://images.unsplash.com/photo-1556304653-cba65c59b3c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" type="related" />
+
+        {relatedItem.map((item, index) => <RelatedCard picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} showModal={showModal} />)}
       </CardContainer>
       <RightButton type="button" onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
