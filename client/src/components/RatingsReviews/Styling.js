@@ -102,9 +102,9 @@ export const textAreaDiv = styled.div`
 `;
 
 export const photoButton = styled.button`
-  width: 10%;
+  width: fit-content;
 `;
 
 export const submitButton = styled.input`
-  width: 10%;
+  width: fit-content;
 `;

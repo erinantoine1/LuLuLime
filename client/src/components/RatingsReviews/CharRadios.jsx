@@ -18,7 +18,7 @@ const CharRadios = ({ characteristicName, characteristicId, reviewForm, setRevie
           id={`${index + 1}-${characteristicName}`}
           name={characteristicName}
           value={index + 1}
-          onChange={(event) => updateCharacteristics(event.target.value)}
+          onChange={(event) => updateCharacteristics(Number(event.target.value))}
         />
       </label>
     ))

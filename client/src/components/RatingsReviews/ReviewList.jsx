@@ -3,7 +3,7 @@ import * as styling from './Styling.js';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
-const ReviewList = ({ reviews, metaData }) => {
+const ReviewList = ({ reviews, metaData, setReviews }) => {
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
@@ -20,7 +20,15 @@ const ReviewList = ({ reviews, metaData }) => {
         {reviews.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
         <button type="submit" onClick={() => displayReviewForm ? setDisplayReviewForm(false) : setDisplayReviewForm(true)}>Add Review</button>
       </styling.ReviewButtonContainer>
-      {displayReviewForm ? <ReviewForm metaData={metaData} /> : null}
+      {displayReviewForm
+        ? (
+          <ReviewForm
+            metaData={metaData}
+            setDisplayReviewForm={setDisplayReviewForm}
+            setReviews={setReviews}
+          />
+        )
+        : null}
     </styling.ReviewListDiv>
   );
 };

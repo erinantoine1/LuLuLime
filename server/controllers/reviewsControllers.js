@@ -35,5 +35,21 @@ module.exports = {
       .catch((error) => {
         res.status(500).send(error);
       });
+  },
+  postReview: (req, res) => {
+    axios({
+      url: `${config.URL}/reviews`,
+      method: 'post',
+      data: req.body,
+      headers: {
+        Authorization: config.TOKEN
+      }
+    })
+      .then((response) => {
+        res.status(201).send();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 };

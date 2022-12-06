@@ -27,11 +27,11 @@ const RatingsReviews = () => {
   };
 
   const handleSort = (value) => {
-    generateReviews(40344, value, 50);
+    generateReviews(40344, value, 1000);
   };
 
   useEffect(() => {
-    generateReviews(40344, 'relevant', 50);
+    generateReviews(40344, 'relevant', 1000);
   }, []);
 
   useEffect(() => {
@@ -70,6 +70,7 @@ const RatingsReviews = () => {
             return filterBy.includes(review.rating);
           })}
           metaData={metaData}
+          setReviews={setReviews}
         />
       </styling.ReviewSectionBody>
     </styling.ReviewSectionContainer>

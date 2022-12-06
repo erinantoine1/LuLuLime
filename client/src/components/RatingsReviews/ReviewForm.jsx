@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import * as styling from './Styling.js';
 import CharSection from './CharSection.jsx';
 
-const ReviewForm = ({ metaData }) => {
+const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
 
   const [reviewForm, setReviewForm] = useState({
-    product_id: metaData.product_id,
+    product_id: 40344,
     rating: 1,
     summary: '',
     body: '',
@@ -24,7 +25,21 @@ const ReviewForm = ({ metaData }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(reviewForm);
+    axios.post('/reviews', reviewForm)
+      .then(() => {
+        return axios.get('/reviews', {
+          params: {
+            product_id: Number(metaData.product_id),
+            sort: 'relevant',
+            count: 1000
+          }
+        });
+      })
+      .then((response) => {
+        setReviews(response.data.results);
+      })
+      .catch((error) => console.log(error));
+    setDisplayReviewForm(false);
   };
 
   return (
@@ -40,7 +55,7 @@ const ReviewForm = ({ metaData }) => {
             min="1"
             max="5"
             value={reviewForm.rating}
-            onChange={(event) => setReviewForm({ ...reviewForm, rating: event.target.value })}
+            onChange={(event) => setReviewForm({ ...reviewForm, rating: Number(event.target.value) })}
           />
         </label>
         <styling.recommendDiv>
