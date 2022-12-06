@@ -7,6 +7,8 @@ const ReviewList = ({ reviews, metaData }) => {
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
+  const [displayReviewForm, setDisplayReviewForm] = useState(false);
+
   return (
     <styling.ReviewListDiv>
       <styling.ReviewTilesContainer>
@@ -16,9 +18,9 @@ const ReviewList = ({ reviews, metaData }) => {
       </styling.ReviewTilesContainer>
       <styling.ReviewButtonContainer>
         {reviews.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
-        <button type="submit">Add Review</button>
+        <button type="submit" onClick={() => displayReviewForm ? setDisplayReviewForm(false) : setDisplayReviewForm(true)}>Add Review</button>
       </styling.ReviewButtonContainer>
-      <ReviewForm metaData={metaData} />
+      {displayReviewForm ? <ReviewForm metaData={metaData} /> : null}
     </styling.ReviewListDiv>
   );
 };

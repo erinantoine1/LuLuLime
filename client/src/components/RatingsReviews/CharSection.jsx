@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import * as styling from './Styling.js';
+import CharRadios from './CharRadios.jsx';
 
-const CharacteristicInput = ({ characteristic }) => {
+const CharSection = ({ characteristic, reviewForm, setReviewForm }) => {
   const choices = {};
   const characteristicName = characteristic[0];
   const characteristicId = characteristic[1].id;
@@ -26,33 +27,19 @@ const CharacteristicInput = ({ characteristic }) => {
     <styling.characteristicsDiv>
       <span>{characteristicName}</span>
       <styling.characteristicsButtons>
-        <label htmlFor={characteristicName}>
-          1
-          <input type="radio" name={characteristicName} />
-        </label>
-        <label htmlFor={characteristicName}>
-          2
-          <input type="radio" name={characteristicName} />
-        </label>
-        <label htmlFor={characteristicName}>
-          3
-          <input type="radio" name={characteristicName} />
-        </label>
-        <label htmlFor={characteristicName}>
-          4
-          <input type="radio" name={characteristicName} />
-        </label>
-        <label htmlFor={characteristicName}>
-          5
-          <input type="radio" name={characteristicName} />
-        </label>
+        <CharRadios
+          characteristicName={characteristicName}
+          characteristicId={characteristicId}
+          reviewForm={reviewForm}
+          setReviewForm={setReviewForm}
+        />
       </styling.characteristicsButtons>
-      <styling.characteristicsChoices>
+      <styling.characteristicsDescriptions>
         <span>{choices[1]}</span>
         <span>{choices[5]}</span>
-      </styling.characteristicsChoices>
+      </styling.characteristicsDescriptions>
     </styling.characteristicsDiv>
   );
 };
 
-export default CharacteristicInput;
+export default CharSection;

@@ -68,6 +68,8 @@ export const ReviewFormContainer = styled.div`
 `;
 
 export const styledForm = styled.form`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const recommendDiv = styled.div`
@@ -88,8 +90,21 @@ export const characteristicsButtons = styled.div`
   justify-content: space-between;
 `;
 
-export const characteristicsChoices = styled.span`
+export const characteristicsDescriptions = styled.span`
   width: 450px;
   display: flex;
   justify-content: space-between;
+`;
+
+export const textAreaDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const photoButton = styled.button`
+  width: 10%;
+`;
+
+export const submitButton = styled.input`
+  width: 10%;
 `;
