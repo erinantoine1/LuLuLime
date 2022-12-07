@@ -552,9 +552,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /*!*******************!*\
   !*** ./config.js ***!
   \*******************/
-/***/ ((module) => {
+/***/ (() => {
 
-eval("module.exports = {\n  TOKEN: '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'\n};\n\n//# sourceURL=webpack://rfp2210-fec/./config.js?");
+eval("token = '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';\n\n//# sourceURL=webpack://rfp2210-fec/./config.js?");
 
 /***/ }),
 
