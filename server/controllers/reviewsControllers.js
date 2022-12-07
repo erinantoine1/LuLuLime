@@ -49,7 +49,40 @@ module.exports = {
         res.status(201).send();
       })
       .catch((error) => {
+        res.status(500).send(error);
+      });
+  },
+  updateHelpful: (req, res) => {
+    const { query: { review_id } } = req;
+    axios({
+      url: `${config.URL}/reviews/${review_id}/helpful`,
+      method: 'put',
+      headers: {
+        Authorization: config.TOKEN
+      }
+    })
+      .then((response) => {
+        res.status(204).send();
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
+  },
+  reportReview: (req, res) => {
+    const { query: { review_id } } = req;
+    axios({
+      url: `${config.URL}/reviews/${review_id}/report`,
+      method: 'put',
+      headers: {
+        Authorization: config.TOKEN
+      }
+    })
+      .then((response) => {
+        res.status(204).send();
+      })
+      .catch((error) => {
         console.log(error);
+        res.status(500).send(error);
       });
   }
 };
