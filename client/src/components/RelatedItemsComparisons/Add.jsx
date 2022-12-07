@@ -11,14 +11,13 @@ const StyledCard = styled.div`
   width: ${props => props.width / 4}px;
 `;
 
-// box-shadow: 0 1px 0.5rem -4px #000;
-//   background: #fff;
-//   cursor: pointer;
-//   height: 375px;
-//   position: relative;
-//   margin-bottom: 1rem;
 const Plus = styled.h1`
-  font-size: 4rem;
+  font-size: 5rem;
+  margin-top: 25%;
+`;
+
+const Title = styled.h2`
+  margin-top: 10%;
 `;
 
 const Add = ({ outfitItems, setOutfitItems, cardWidth }) => {
@@ -31,6 +30,7 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth }) => {
 
   return (
     <StyledCard width={cardWidth} onClick={addItem}>
+      <Title>Add to Outfit</Title>
       <Plus>+</Plus>
     </StyledCard>
   );

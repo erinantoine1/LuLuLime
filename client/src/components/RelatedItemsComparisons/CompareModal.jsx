@@ -67,7 +67,7 @@ const CompareModal = ({ setShowModal }) => {
           <StyledText>Something1</StyledText>
           <StyledText>Something2</StyledText>
           <StyledText>Something3</StyledText>
-          <StyledText>Someething4</StyledText>
+          <StyledText>Something4</StyledText>
           <StyledText>Something5</StyledText>
         </StyledColumn>
         <StyledColumn>

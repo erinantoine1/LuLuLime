@@ -18,8 +18,13 @@ const Image = styled.img`
 `;
 
 const StyledName = styled.h3`
-  margin: 0;
+  margin: 0.5rem 0;
   padding: 0;
+`;
+
+const StyledPrice = styled.p`
+  padding: 0;
+  margin: 0;
 `;
 
 const StyledCategory = styled.p`
@@ -55,7 +60,8 @@ const OutfitCard = ({ outfitItems, setOutfitItems, picture, cardWidth }) => {
       <Image width={cardWidth} alt="image" src={picture} />
       <StyledCategory>Category</StyledCategory>
       <StyledName>Name</StyledName>
-      <StyledName>Price</StyledName>
+      <StyledPrice>Price</StyledPrice>
+      <StyledName>☆☆☆☆☆</StyledName>
     </StyledCard>
   );
 };

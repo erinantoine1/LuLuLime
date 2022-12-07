@@ -59,9 +59,8 @@ const RelatedList = ({ setShowModal, showModal }) => {
   const [width, setWidth] = useState(0);
   const containerRef = useRef();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setWidth(containerRef.current.offsetWidth);
-    console.log('element is ', document.querySelector('#test').clientWidth);
   }, []);
 
   const handleLeftClick = () => {
@@ -77,8 +76,8 @@ const RelatedList = ({ setShowModal, showModal }) => {
   return (
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
-      <CardContainer id="test" ref={containerRef}>
-        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={containerRef.current.offsetWidth} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} />)}
+      <CardContainer ref={containerRef}>
+        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={width} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} />)}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItem.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
