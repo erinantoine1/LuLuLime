@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Model = styled.div`
+const Modal = styled.div`
     z-index: 999;
     position: fixed;
     top: 0;
@@ -12,7 +12,7 @@ const Model = styled.div`
     background: rgba(0,0,0,0.5);
 `;
 
-const InnerModel = styled.div`
+const InnerModal = styled.div`
   background-color: white;
   margin: 8% 30%;
   height: 60vh;
@@ -45,12 +45,12 @@ const StyledText = styled.p`
 `;
 
 
-const CompareModal = ({ showModal, setShowModal }) => {
+const CompareModal = ({ setShowModal }) => {
   // add states for comparisons
 
   return (
-    <Model onClick={() => setShowModal(!showModal)}>
-      <InnerModel>
+    <Modal onClick={() => setShowModal(false)}>
+      <InnerModal>
         <StyledTitle>
           <h1>Comparing</h1>
         </StyledTitle>
@@ -67,7 +67,7 @@ const CompareModal = ({ showModal, setShowModal }) => {
           <StyledText>Something1</StyledText>
           <StyledText>Something2</StyledText>
           <StyledText>Something3</StyledText>
-          <StyledText>Someething4</StyledText>
+          <StyledText>Something4</StyledText>
           <StyledText>Something5</StyledText>
         </StyledColumn>
         <StyledColumn>
@@ -78,8 +78,8 @@ const CompareModal = ({ showModal, setShowModal }) => {
           <StyledText>✘</StyledText>
           <StyledText>✔</StyledText>
         </StyledColumn>
-      </InnerModel>
-    </Model>
+      </InnerModal>
+    </Modal>
   );
 };
 
