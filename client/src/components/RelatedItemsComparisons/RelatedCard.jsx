@@ -18,11 +18,6 @@ const StyledCard = styled.div`
 //   margin-left: 2px;
 // }
 
-const Info = styled.div`
-  margin: 0;
-  padding: 0;
-`;
-
 const StyledName = styled.h3`
   margin: 0.5rem 0;
   padding: 0;
