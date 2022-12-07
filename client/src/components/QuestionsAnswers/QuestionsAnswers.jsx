@@ -69,19 +69,33 @@ const results = [{
   }
 }];
 
-const QuestionsAnswers = (/* product_id */) => {
+const QuestionsAnswers = ({ current_id }) => {
 
-  const [questions, setQuestions] = useState(results);
+  const [questions, setQuestions] = useState([]);
   const [filterdQuestions, setFilteredQuestions] = useState([]);
   const [filtered, setFiltered] = useState(false);
   const [render, setRender] = useState(true);
 
-  // useEffect(() => {
-  //   axios.get('/qa/questions/product_id')
-  //     .then((response) => {
-  //       setQuestions(response.results);
-  //     });
-  // }, []);
+  const loadQuestions = (product_id, page, count) => {
+    const parameters = { product_id, page, count };
+    console.log(parameters);
+    axios.get('/qa/questions', {
+      params: parameters
+    })
+      .then((response) => {
+        console.log('hello');
+        // console.log(response.data.results);
+        setQuestions(response.data.results);
+        console.log(questions);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    loadQuestions(current_id, 1, 5);
+  }, []);
 
   const reRender = () => {
     setRender(!render);

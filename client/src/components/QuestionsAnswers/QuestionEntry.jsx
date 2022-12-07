@@ -10,6 +10,10 @@ const QuestionEntry = ({ question }) => {
   let answers = Object.values(question.answers);
   answers = answers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
 
+  const showAnswers = () => {
+    setAnswersShown(answers.length);
+  };
+
   const getAnswers = answers.slice(0, answersShown);
 
   return (
@@ -24,7 +28,7 @@ const QuestionEntry = ({ question }) => {
       {getAnswers.map((answer, key) => (
         <AnswerEntry answer={answer} key={key} />
       ))}
-      <button>Load more answers</button>
+      <button onClick={showAnswers}>Load more answers</button>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const App = () => {
     <div>
       <Overview />
       <RelatedItemsComparisons />
-      <QuestionsAnswers />
+      <QuestionsAnswers current_id={40344} />
       <RatingsReviews />
     </div>
   );
