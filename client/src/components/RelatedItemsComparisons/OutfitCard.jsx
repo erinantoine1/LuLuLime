@@ -32,8 +32,8 @@ const StyledCategory = styled.p`
 const StyledX = styled.img`
   height: 25px;
   width: 25px;
-  top: 0.3rem;
-  left: 90%;
+  top: 0.5rem;
+  right: 0.5rem;
   position: absolute;
 `;
 
