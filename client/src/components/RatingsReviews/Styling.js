@@ -14,6 +14,19 @@ export const ReviewSectionBody = styled.div`
   display: flex;
 `;
 
+export const StarButton = styled.button`
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: ${props => props.clicked ? '#000' : '#ccc'}
+`;
+
+export const StarOutline = styled.span`
+`;
+
+export const StarFilled = styled.span`
+`;
+
 // Review List Styles
 
 export const ReviewListDiv = styled.div`

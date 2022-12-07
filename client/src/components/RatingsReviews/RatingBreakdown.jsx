@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as styling from './Styling.js';
 import ProductBreakdown from './ProductBreakdown.jsx';
+import StaticStars from './StaticStars.jsx';
 
 const RatingBreakdown = ({ filterBy, setFilterBy }) => {
 
@@ -20,15 +21,15 @@ const RatingBreakdown = ({ filterBy, setFilterBy }) => {
 
   return (
     <styling.RatingBreakdownDiv>
-      <span> Rating: Stars</span>
+      <StaticStars stars={5} />
       <span> % Recommended</span>
       <styling.BarGraphDiv>
         <span>Bar Graph</span>
-        <span onClick={() => toggleFilter(5)}>5 Stars</span>
-        <span onClick={() => toggleFilter(4)}>4 Stars</span>
-        <span onClick={() => toggleFilter(3)}>3 Stars</span>
-        <span onClick={() => toggleFilter(2)}>2 Stars</span>
-        <span onClick={() => toggleFilter(1)}>1 Star</span>
+        {[...Array(5).keys()].reverse().map((stars, index) => {
+          return (
+            <StaticStars key={stars + 1} stars={stars + 1} onClick={() => toggleFilter(stars + 1)} />
+          );
+        })}
         {filterBy.length > 0 ? <span>{`Sorting By Reviews with ${filterBy} Star(s)`}</span> : null}
       </styling.BarGraphDiv>
       <button type="submit" onClick={() => resetFilters()}>Reset Filters</button>

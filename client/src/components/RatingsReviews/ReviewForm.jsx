@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as styling from './Styling.js';
 import CharSection from './CharSection.jsx';
+import ReviewStarRating from './StarRating.jsx';
 
 const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setReviews }) => {
 
@@ -54,7 +55,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
         <styling.recommendDiv>
           <label htmlFor="rating">
             Rating:
-            <input
+            {/* <input
               type="number"
               id="rating"
               name="rating"
@@ -62,7 +63,8 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
               max="5"
               value={reviewForm.rating}
               onChange={(event) => setReviewForm({ ...reviewForm, rating: Number(event.target.value) })}
-            />
+            /> */}
+            <ReviewStarRating reviewForm={reviewForm} setReviewForm={setReviewForm} />
           </label>
           <span>I recommend this product: </span>
           <label htmlFor="recommend">
