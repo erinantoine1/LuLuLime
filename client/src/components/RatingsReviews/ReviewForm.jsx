@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as styling from './Styling.js';
 import CharSection from './CharSection.jsx';
 
-const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
+const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setReviews }) => {
 
   const [reviewForm, setReviewForm] = useState({
     product_id: 40344,
@@ -17,6 +17,7 @@ const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
     characteristics: {}
   });
 
+  const [visible, setVisible] = useState(true);
   const [photoView, setPhotoView] = useState(false);
 
   const handleRecommend = (value) => {
@@ -39,26 +40,30 @@ const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
         setReviews(response.data.results);
       })
       .catch((error) => console.log(error));
-    setDisplayReviewForm(false);
+    setVisible(false);
   };
 
   return (
-    <styling.ReviewFormContainer>
-      <h2>Review Form</h2>
-      <styling.styledForm>
-        <label htmlFor="rating">
-          Rating:
-          <input
-            type="number"
-            id="rating"
-            name="rating"
-            min="1"
-            max="5"
-            value={reviewForm.rating}
-            onChange={(event) => setReviewForm({ ...reviewForm, rating: Number(event.target.value) })}
-          />
-        </label>
+    <styling.ReviewFormContainer
+      onClick={() => setVisible(false)}
+      out={!visible}
+      onAnimationEnd={() => !visible && setDisplayReviewForm(false)}
+    >
+      <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
+        <h2>Review Form</h2>
         <styling.recommendDiv>
+          <label htmlFor="rating">
+            Rating:
+            <input
+              type="number"
+              id="rating"
+              name="rating"
+              min="1"
+              max="5"
+              value={reviewForm.rating}
+              onChange={(event) => setReviewForm({ ...reviewForm, rating: Number(event.target.value) })}
+            />
+          </label>
           <span>I recommend this product: </span>
           <label htmlFor="recommend">
             Yes
@@ -78,9 +83,10 @@ const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
           />
         ))}
         <styling.textAreaDiv>
-          <label htmlFor="summary">
-            Summary
+          <styling.FormLabels htmlFor="summary">
+            Summary:
             <textarea
+              cols="48"
               id="summary"
               name="summary"
               maxLength="60"
@@ -88,9 +94,9 @@ const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
               value={reviewForm.summary}
               onChange={(event) => setReviewForm({ ...reviewForm, summary: event.target.value })}
             />
-          </label>
-          <label htmlFor="body">
-            Review
+          </styling.FormLabels>
+          <styling.FormLabels htmlFor="body">
+            Review:
             <textarea
               cols="48"
               rows="8"
@@ -102,38 +108,41 @@ const ReviewForm = ({ metaData, setDisplayReviewForm, setReviews }) => {
               value={reviewForm.body}
               onChange={(event) => setReviewForm({ ...reviewForm, body: event.target.value })}
             />
-            {reviewForm.body.length < 50 ? `Minimum Required Characters Left: ${50 - reviewForm.body.length}` : 'Minimum Reached'}
-          </label>
+          </styling.FormLabels>
+          {reviewForm.body.length < 50 ? `Minimum Required Characters Left: ${50 - reviewForm.body.length}` : 'Minimum Reached'}
         </styling.textAreaDiv>
-        <styling.photoButton
-          type="submit"
-        >
-          Upload Photos
-        </styling.photoButton>
-        <label htmlFor="nicname">
-          Nickname
-          <input
-            type="text"
-            id="nickname"
-            name="nickname"
-            placeholder="Example: jackson11!"
-            value={reviewForm.name}
-            onChange={(event) => setReviewForm({ ...reviewForm, name: event.target.value })}
-          />
-        </label>
-        <span>For privacy reasons, do not use your full name or email address</span>
-        <label htmlFor="email">
-          Email
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Example: jackson11@email.com"
-            value={reviewForm.email}
-            onChange={(event) => setReviewForm({ ...reviewForm, email: event.target.value })}
-          />
-        </label>
-        <span>For authentication reasons, you will not be emailed</span>
+        <styling.UserInfoDiv>
+          <styling.photoButton
+            type="submit"
+            onClick={(event) => event.preventDefault()}
+          >
+            Upload Photos
+          </styling.photoButton>
+          <styling.FormLabels htmlFor="nicname">
+            Nickname:
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              placeholder="Example: jackson11!"
+              value={reviewForm.name}
+              onChange={(event) => setReviewForm({ ...reviewForm, name: event.target.value })}
+            />
+          </styling.FormLabels>
+          <span>For privacy reasons, do not use your full name or email address</span>
+          <styling.FormLabels htmlFor="email">
+            Email:
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Example: jackson11@email.com"
+              value={reviewForm.email}
+              onChange={(event) => setReviewForm({ ...reviewForm, email: event.target.value })}
+            />
+          </styling.FormLabels>
+          <span>For authentication reasons, you will not be emailed</span>
+        </styling.UserInfoDiv>
         <styling.submitButton type="submit" value="Submit Review" onClick={(event) => handleSubmit(event)} />
       </styling.styledForm>
     </styling.ReviewFormContainer>
