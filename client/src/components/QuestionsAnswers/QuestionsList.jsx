@@ -1,12 +1,17 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
 
-const QuestionsList = ({ questions }) => {
+const QuestionsList = ({ questions, loadQuestions }) => {
 
   return (
     questions.map((question, key) => (
-      <QuestionEntry question={question} key={key} />
+      <div>
+        <QuestionEntry
+          question={question}
+          loadQuestions={loadQuestions}
+          key={key}
+        />
+      </div>
     ))
   );
 };

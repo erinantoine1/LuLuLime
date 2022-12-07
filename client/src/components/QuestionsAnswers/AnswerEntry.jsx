@@ -1,7 +1,25 @@
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const AnswerEntry = ({ answer }) => {
+const AnswerEntry = ({ answer, loadQuestions }) => {
+
+  const handleUpdate = (route) => {
+    axios.put(`/answer/${route}`, {
+      answer_id: answer.id
+    })
+      .then(() => {
+        loadQuestions();
+      });
+  };
+
+  const setHelpful = () => {
+    handleUpdate('helpful');
+  };
+
+  const report = () => {
+    handleUpdate('report');
+  };
+
   return (
     <div>
       <text>
@@ -9,10 +27,10 @@ const AnswerEntry = ({ answer }) => {
         {`: ${answer.body}?`}
       </text>
       <text>{`\nby ${answer.answerer_name}, ${answer.date}   |   Helpful? `}</text>
-      <button>Yes</button>
+      <button onClick={setHelpful}>Yes</button>
       <text>{` ${answer.helpfulness}`}</text>
       <text> | </text>
-      <button>Report</button>
+      <button onClick={report}>Report</button>
     </div>
   );
 };
