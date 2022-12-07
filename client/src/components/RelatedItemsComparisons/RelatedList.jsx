@@ -1,5 +1,9 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable arrow-parens */
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import RelatedCard from './RelatedCard.jsx';
 
@@ -21,25 +25,6 @@ const CardContainer = styled.div`
   position: relative;
 `;
 
-const Button = styled.button`
-  background #fff;
-  height: 46px;
-  width 46px;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 50%;
-  border: 1px solid grey;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  &:first-child {
-    left: -23px;
-  }
-  &:last-child {
-    right: -23px;
-  }
-`;
-
 const LeftButton = styled.button`
   float: left;
   text-align: center;
@@ -51,6 +36,7 @@ const LeftButton = styled.button`
   cursor: pointer;
   font-size: 3rem;
   border: none;
+  visibility: ${props => props.scrollCount > 0 ? 'visible' : 'hidden'};
 `;
 
 const RightButton = styled.button`
@@ -64,29 +50,36 @@ const RightButton = styled.button`
   cursor: pointer;
   font-size: 3rem;
   border: none;
+  visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
 `;
-
 
 const RelatedList = ({ setShowModal, showModal }) => {
   const [relatedItem, setRelatedItem] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
-  const containerRef = useRef(null);
+  const [scrollCount, setScrollCount] = useState(0);
+  const [width, setWidth] = useState(0);
+  const containerRef = useRef();
+
+  useEffect(() => {
+    setWidth(containerRef.current.offsetWidth);
+  }, []);
 
   const handleLeftClick = () => {
-    containerRef.current.scrollLeft -= containerRef.current.offsetWidth * 0.7;
+    containerRef.current.scrollLeft -= containerRef.current.offsetWidth / 4 + 0.5;
+    setScrollCount(scrollCount - 1);
   };
 
   const handleRightClick = () => {
-    containerRef.current.scrollLeft += containerRef.current.offsetWidth * 0.7;
+    containerRef.current.scrollLeft += containerRef.current.offsetWidth / 4 + 0.5;
+    setScrollCount(scrollCount + 1);
   };
 
   return (
     <ContainerParent>
-      <LeftButton type="button" onClick={handleLeftClick}>⇠</LeftButton>
+      <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-
-        {relatedItem.map((item, index) => <RelatedCard picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} showModal={showModal} />)}
+        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={width} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} />)}
       </CardContainer>
-      <RightButton type="button" onClick={handleRightClick}>⇢</RightButton>
+      <RightButton scrollCount={scrollCount} len={relatedItem.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
   );
 };

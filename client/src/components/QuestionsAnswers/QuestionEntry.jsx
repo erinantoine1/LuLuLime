@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import AnswerEntry from './AnswerEntry.jsx';
@@ -13,10 +14,17 @@ const QuestionEntry = ({ question }) => {
 
   return (
     <div>
-      <b>{`Q: ${question.question_body}?`}</b>
+      <text>
+        <b>Q</b>
+        {`: ${question.question_body}?`}
+      </text>
+      <text>{'\nHelpful? '}</text>
+      <button>Yes</button>
+      <text>{` ${question.question_helpfulness}`}</text>
       {getAnswers.map((answer, key) => (
         <AnswerEntry answer={answer} key={key} />
       ))}
+      <button>Load more answers</button>
     </div>
   );
 };

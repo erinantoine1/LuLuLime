@@ -1,9 +1,12 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import QuestionEntry from './QuestionEntry.jsx';
+import QuestionsList from './QuestionsList.jsx';
 import NewQuestionForm from './NewQuestionForm.jsx';
 import NewAnswerForm from './NewAnswerForm.jsx';
+import SearchQuestions from './SearchQuestions.jsx';
 
 const results = [{
   question_id: 37,
@@ -69,6 +72,9 @@ const results = [{
 const QuestionsAnswers = (/* product_id */) => {
 
   const [questions, setQuestions] = useState(results);
+  const [filterdQuestions, setFilteredQuestions] = useState([]);
+  const [filtered, setFiltered] = useState(false);
+  const [render, setRender] = useState(true);
 
   // useEffect(() => {
   //   axios.get('/qa/questions/product_id')
@@ -77,15 +83,47 @@ const QuestionsAnswers = (/* product_id */) => {
   //     });
   // }, []);
 
+  const reRender = () => {
+    setRender(!render);
+  };
+
+  const doSearch = (query) => {
+    if (query === null) {
+      setFiltered(false);
+    } else {
+      const searchQs = questions.filter((question) => (
+        question.question_body.toLowerCase().includes(query.toLowerCase())
+      ));
+      setFiltered(true);
+      if (searchQs.length > 0) {
+        setFilteredQuestions(searchQs);
+      } else {
+        setNotFound(true);
+      }
+    }
+  };
+
   return (
     <div>
       <h2>Questions and Answers</h2>
-      {questions.map((question, key) => (
-        <QuestionEntry question={question} key={key} />
-      ))}
+      <SearchQuestions doSearch={doSearch} />
+      <QuestionsList questions={filtered ? filterdQuestions : questions} />
+      <button>Load more questions</button>
+      <button>Add a question</button>
     </div>
   );
 };
 
 export default QuestionsAnswers;
 
+
+
+// return (
+//   <div>
+//     <h2>Questions and Answers</h2>
+//     <SearchQuestions doSearch={doSearch} />
+//     {filtered ? questions.map((question, key) => (
+//       <QuestionEntry question={question} key={key} />
+//     ))}
+//   </div>
+// );
