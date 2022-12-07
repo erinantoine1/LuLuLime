@@ -3,21 +3,21 @@ const QAController = require('./controllers/QuestonsAnswersController.js');
 
 module.exports = router;
 
-router.get('/qa/questions', QAController.getQuestions);
+router.get('/questions', QAController.getQuestions);
 
-router.get('/qa/questions/:question_id/answers', QAController.getAnswers);
+router.get('/answers', QAController.getAnswers);
 
-router.post('/qa/questionss', QAController.postQuestion);
+router.post('/questions', QAController.postQuestion);
 
-router.post('/qa/questions/:question_id/answers', QAController.postAnswer);
+router.post('/answers', QAController.postAnswer);
 
-router.put('/qa/questions/:question_id/helpful', QAController.setQuestionHelpful);
+router.put('/question/helpful', QAController.setQuestionHelpful);
 
-router.put('/qa/questions/:question_id/report', QAController.reportQuestion);
+router.put('/question/report', QAController.reportQuestion);
 
-router.put('/qa/answers/:answer_id/helpful', QAController.setAnswerHelpful);
+router.put('answer/helpful', QAController.setAnswerHelpful);
 
-router.put('/qa/answers/:answer_id/report', QAController.reportAnswer);
+router.put('/answer/report', QAController.reportAnswer);
 
 const reviewControllers = require('./controllers/reviewsControllers.js');
 

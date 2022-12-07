@@ -1,7 +1,18 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const AnswerEntry = ({ answer }) => {
+const AnswerEntry = ({ answer, loadQuestions }) => {
+
+  const handleUpdate = (route, answer_id) => {
+    axios.put(`/qa/answers/:${question_id}/${route}`, {
+      question_id
+    })
+      .then(() => {
+        loadQuestions();
+      });
+  };
+
   return (
     <div>
       <text>

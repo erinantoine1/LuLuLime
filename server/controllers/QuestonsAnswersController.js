@@ -18,6 +18,7 @@ module.exports = {
         res.status(200).send(response.data);
       })
       .catch((error) => {
+        console.log('error');
         res.status(500).send(error);
       });
   },
@@ -72,9 +73,12 @@ module.exports = {
       });
   },
   setQuestionHelpful: (req, res) => {
+    console.log('inside setHelpful');
+    console.log(req);
     const { query: { question_id } } = req;
+    console.log(`${config.URL}/qa/questions/${question_id}/helpful`);
     axios({
-      url: `${config.URL}/qa/questions/:${question_id}/helpful`,
+      url: `${config.URL}/qa/questions/${question_id}/helpful`,
       method: 'put',
       headers: {
         Authorization: config.TOKEN
@@ -88,9 +92,9 @@ module.exports = {
       });
   },
   reportQuestion: (req, res) => {
-    const { query: { question_id } } = req;
+    const { body: { question_id } } = req;
     axios({
-      url: `${config.URL}/qa/questions/:${question_id}/report`,
+      url: `${config.URL}/qa/questions/${question_id}/report`,
       method: 'put',
       headers: {
         Authorization: config.TOKEN
@@ -106,7 +110,7 @@ module.exports = {
   setAnswerHelpful: (req, res) => {
     const { query: { answer_id } } = req;
     axios({
-      url: `${config.URL}/qa/answers/:${answer_id}/helpful`,
+      url: `${config.URL}/qa/answers/${answer_id}/helpful`,
       method: 'put',
       headers: {
         Authorization: config.TOKEN
@@ -122,7 +126,7 @@ module.exports = {
   reportAnswer: (req, res) => {
     const { query: { answer_id } } = req;
     axios({
-      url: `${config.URL}/qa/questions/:${answer_id}/report`,
+      url: `${config.URL}/qa/questions/${answer_id}/report`,
       method: 'put',
       headers: {
         Authorization: config.TOKEN
