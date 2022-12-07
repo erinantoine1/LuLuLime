@@ -88,9 +88,7 @@ const QuestionsAnswers = (/* product_id */) => {
   };
 
   const doSearch = (query) => {
-    if (query === null) {
-      setFiltered(false);
-    } else {
+    if (query) {
       const searchQs = questions.filter((question) => (
         question.question_body.toLowerCase().includes(query.toLowerCase())
       ));
@@ -100,6 +98,8 @@ const QuestionsAnswers = (/* product_id */) => {
       } else {
         setNotFound(true);
       }
+    } else {
+      setFiltered(false);
     }
   };
 

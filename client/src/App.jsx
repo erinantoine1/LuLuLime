@@ -10,9 +10,9 @@ import RelatedItemsComparisons from './components/RelatedItemsComparisons/Relate
 const App = () => {
   return (
     <div>
-      {/* <Overview />
+      <Overview />
       <RelatedItemsComparisons />
-      <QuestionsAnswers /> */}
+      <QuestionsAnswers />
       <RatingsReviews />
     </div>
   );
