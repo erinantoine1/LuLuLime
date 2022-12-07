@@ -33,5 +33,4 @@ const Add = ({ outfitItems, setOutfitItems }) => {
   );
 };
 
-
 export default Add;
