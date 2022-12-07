@@ -24,3 +24,5 @@ const reviewControllers = require('./controllers/reviewsControllers.js');
 router.get('/reviews', reviewControllers.getReviews);
 router.get('/reviews/meta', reviewControllers.getMetaData);
 router.post('/reviews', reviewControllers.postReview);
+router.put('/reviews/helpful', reviewControllers.updateHelpful);
+router.put('/reviews/report', reviewControllers.reportReview);
