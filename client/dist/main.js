@@ -576,7 +576,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
   \*******************/
 /***/ ((module) => {
 
-eval("module.exports = {\n  TOKEN: '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'\n};\n\n//# sourceURL=webpack://rfp2210-fec/./config.js?");
+eval("module.exports = {\n  TOKEN: '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',\n  URL: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp'\n};\n\n//# sourceURL=webpack://rfp2210-fec/./config.js?");
 
 /***/ }),
 
