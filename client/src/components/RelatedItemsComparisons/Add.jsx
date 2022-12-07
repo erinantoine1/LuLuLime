@@ -8,8 +8,9 @@ const StyledCard = styled.div`
   cursor: pointer;
   height: 375px;
   position: relative;
-  width: ${props => props.width / 4 + 7}px;
+  width: ${props => props.width / 4}px;
 `;
+
 // box-shadow: 0 1px 0.5rem -4px #000;
 //   background: #fff;
 //   cursor: pointer;
@@ -27,8 +28,6 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth }) => {
     copy.push(1);
     setOutfitItems(copy);
   };
-
-  console.log(cardWidth);
 
   return (
     <StyledCard width={cardWidth} onClick={addItem}>
