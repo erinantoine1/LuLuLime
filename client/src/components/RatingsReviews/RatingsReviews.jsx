@@ -10,6 +10,7 @@ const RatingsReviews = () => {
 
   const [reviews, setReviews] = useState([]);
   const [filterBy, setFilterBy] = useState([]);
+  const [sortOrder, setSortOrder] = useState('relevant');
   const [metaData, setMetaData] = useState({});
   const [reviewsLoaded, setReviewsLoaded] = useState(false);
   const [metaDataLoaded, setMetaDataLoaded] = useState(false);
@@ -28,6 +29,7 @@ const RatingsReviews = () => {
 
   const handleSort = (value) => {
     generateReviews(40344, value, 1000);
+    setSortOrder(value);
   };
 
   useEffect(() => {
@@ -71,6 +73,7 @@ const RatingsReviews = () => {
           })}
           metaData={metaData}
           setReviews={setReviews}
+          sortOrder={sortOrder}
         />
       </styling.ReviewSectionBody>
     </styling.ReviewSectionContainer>

@@ -3,7 +3,7 @@ import * as styling from './Styling.js';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
-const ReviewList = ({ reviews, metaData, setReviews }) => {
+const ReviewList = ({ reviews, metaData, setReviews, sortOrder }) => {
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
@@ -13,7 +13,12 @@ const ReviewList = ({ reviews, metaData, setReviews }) => {
     <styling.ReviewListDiv>
       <styling.ReviewTilesContainer>
         {reviews.slice(0, displayedReviews).map((review) => (
-          <ReviewTile key={review.review_id} review={review} />
+          <ReviewTile
+            key={review.review_id}
+            review={review}
+            setReviews={setReviews}
+            sortOrder={sortOrder}
+          />
         ))}
       </styling.ReviewTilesContainer>
       <styling.ReviewButtonContainer>

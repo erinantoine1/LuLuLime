@@ -29,8 +29,9 @@ const RatingBreakdown = ({ filterBy, setFilterBy }) => {
         <span onClick={() => toggleFilter(3)}>3 Stars</span>
         <span onClick={() => toggleFilter(2)}>2 Stars</span>
         <span onClick={() => toggleFilter(1)}>1 Star</span>
-        <button type="submit" onClick={() => resetFilters()}>Reset Filters</button>
+        {filterBy.length > 0 ? <span>{`Sorting By Reviews with ${filterBy} Star(s)`}</span> : null}
       </styling.BarGraphDiv>
+      <button type="submit" onClick={() => resetFilters()}>Reset Filters</button>
       <ProductBreakdown />
     </styling.RatingBreakdownDiv>
   );
