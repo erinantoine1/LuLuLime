@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import Overview from './components/Overview/Overview.jsx';
+// import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers/QuestionsAnswers.jsx';
 import RatingsReviews from './components/RatingsReviews/RatingsReviews.jsx';
 import RelatedItemsComparisons from './components/RelatedItemsComparisons/RelatedItemsComparisons.jsx';
@@ -16,12 +16,14 @@ const App = () => {
 
   return (
     <div>
-      <Overview currentID={currendID} />
       <RelatedItemsComparisons currentID={currendID} setNewProduct={setNewProduct} />
-      <QuestionsAnswers product={currendID} />
-      <RatingsReviews product={currendID} />
+      <QuestionsAnswers currentID={currendID} />
+      <RatingsReviews currentID={currendID} />
     </div>
   );
 };
 
 export default App;
+
+
+// <Overview currentID={currendID} />

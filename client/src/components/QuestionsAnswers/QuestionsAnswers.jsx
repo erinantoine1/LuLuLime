@@ -6,9 +6,9 @@ import NewQuestionForm from './NewQuestionForm.jsx';
 import NewAnswerForm from './NewAnswerForm.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
 
-const QuestionsAnswers = ({ current_id }) => {
+const QuestionsAnswers = ({ currentID }) => {
 
-  const [product_id, setProduct_id] = useState(current_id);
+  const [product_id, setProduct_id] = useState(currentID);
   const [questions, setQuestions] = useState([]);
   const [filterdQuestions, setFilteredQuestions] = useState([]);
   const [filtered, setFiltered] = useState(false);
