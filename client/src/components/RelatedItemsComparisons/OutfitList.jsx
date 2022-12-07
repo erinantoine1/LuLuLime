@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+/* eslint-disable max-len */
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import Add from './Add.jsx';
 import OutfitCard from './OutfitCard.jsx';
@@ -47,22 +48,30 @@ const RightButton = styled.button`
 
 const OutfitList = () => {
   const [outfitItems, setOutfitItems] = useState([]);
-  const containerRef = useRef(null);
+  const [scrollCount, setScrollCount] = useState(0);
+  const [width, setWidth] = useState(0);
+  const containerRef = useRef();
+
+  useEffect(() => {
+    setWidth(containerRef.current.offsetWidth);
+  }, []);
 
   const handleLeftClick = () => {
-    containerRef.current.scrollLeft -= containerRef.current.offsetWidth * 0.7;
+    containerRef.current.scrollLeft -= containerRef.current.offsetWidth / 3 + 0.5;
+    setScrollCount(scrollCount - 1);
   };
 
   const handleRightClick = () => {
-    containerRef.current.scrollLeft += containerRef.current.offsetWidth * 0.7;
+    containerRef.current.scrollLeft += containerRef.current.offsetWidth / 3 + 0.5;
+    setScrollCount(scrollCount + 1);
   };
 
   return (
     <ContainerParent>
       <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
-      <Add setOutfitItems={setOutfitItems} outfitItems={outfitItems} />
+      <Add cardWidth={width} setOutfitItems={setOutfitItems} outfitItems={outfitItems} />
       <CardContainer ref={containerRef}>
-        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" />)}
+        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" cardWidth={containerRef.current.offsetWidth} />)}
       </CardContainer>
       <RightButton onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

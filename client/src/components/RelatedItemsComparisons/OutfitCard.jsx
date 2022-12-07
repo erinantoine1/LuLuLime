@@ -7,19 +7,24 @@ const StyledCard = styled.div`
   box-shadow: 0 1px 0.5rem -4px #000;
   background: #fff;
   cursor: pointer;
-  margin: 10px;
   height: 375px;
   position: relative;
+  margin: 0;
 `;
 
 const Image = styled.img`
-  height: 70%;
-  width: 300px;
+  height: 60%;
+  width: ${props => props.width / 3}px;
 `;
 
 const StyledName = styled.h3`
-  margin: 0;
+  margin: 0.5rem 0;
   padding: 0;
+`;
+
+const StyledPrice = styled.p`
+  padding: 0;
+  margin: 0;
 `;
 
 const StyledCategory = styled.p`
@@ -32,12 +37,12 @@ const StyledCategory = styled.p`
 const StyledX = styled.img`
   height: 25px;
   width: 25px;
-  top: 0.3rem;
-  left: 90%;
+  top: 0.5rem;
+  right: 0.5rem;
   position: absolute;
 `;
 
-const OutfitCard = ({ outfitItems, setOutfitItems, picture }) => {
+const OutfitCard = ({ outfitItems, setOutfitItems, picture, cardWidth }) => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -52,10 +57,11 @@ const OutfitCard = ({ outfitItems, setOutfitItems, picture }) => {
   return (
     <StyledCard>
       <StyledX src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png" alt="X" onClick={removeItem} />
-      <Image alt="image" src={picture} />
+      <Image width={cardWidth} alt="image" src={picture} />
       <StyledCategory>Category</StyledCategory>
       <StyledName>Name</StyledName>
-      <StyledName>Price</StyledName>
+      <StyledPrice>Price</StyledPrice>
+      <StyledName>☆☆☆☆☆</StyledName>
     </StyledCard>
   );
 };
