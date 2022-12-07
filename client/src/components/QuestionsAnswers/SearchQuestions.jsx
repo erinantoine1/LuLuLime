@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const SearchQuestions = () => {
+const SearchQuestions = ({ doSearch, unfilter }) => {
+
+  const [query, setQuery] = useState('');
+
+  const handleInput = (event) => {
+    setQuery(event.target.value);
+    if (query.length >= 2) {
+      doSearch(query);
+    } else if (query.length === 1) {
+      doSearch(null);
+    }
+  };
+
   return (
     <div>
-      SearchQuestions
+      <input type='text' placeholder='Have a question?' onChange={handleInput} />
     </div>
   );
 };
