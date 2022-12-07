@@ -1,5 +1,3 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';

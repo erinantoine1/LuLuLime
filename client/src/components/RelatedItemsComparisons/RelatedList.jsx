@@ -1,8 +1,5 @@
 /* eslint-disable object-curly-newline */
-/* eslint-disable arrow-parens */
-/* eslint-disable no-confusing-arrow */
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
+
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import RelatedCard from './RelatedCard.jsx';

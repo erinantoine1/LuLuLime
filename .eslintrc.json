@@ -14,6 +14,13 @@
     "camelcase": "off",
     "react/prop-types": "off",
     "no-lone-blocks": "off",
-    "jsx-quotes": "off"
+    "jsx-quotes": "off",
+    "react/button-has-type": "off",
+    "react/no-array-index-key": "off",
+    "max-len": "off",
+    "arrow-parens": "off",
+    "no-confusing-arrow": "off",
+    "object-curly-newline": "off",
+    "react/forbid-prop-types": "off"
     }
 }
