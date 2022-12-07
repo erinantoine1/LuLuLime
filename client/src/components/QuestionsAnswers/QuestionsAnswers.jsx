@@ -22,10 +22,7 @@ const QuestionsAnswers = ({ current_id }) => {
       params: parameters
     })
       .then((response) => {
-        console.log('hello');
-        // console.log(response.data.results);
         setQuestions(response.data.results);
-        console.log(questions);
       })
       .catch((error) => {
         console.log(error);

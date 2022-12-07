@@ -6,7 +6,6 @@ module.exports = {
     const { query: { product_id } } = req;
     const { query: { page } } = req;
     const { query: { count } } = req;
-    console.log(`${config.URL}/qa/questions/?product_id=${product_id}&page=${page}&count=${count}`);
     axios({
       url: `${config.URL}/qa/questions/?product_id=${product_id}&page=${page}&count=${count}`,
       method: 'get',
@@ -105,7 +104,6 @@ module.exports = {
   },
   setAnswerHelpful: (req, res) => {
     const { body: { answer_id } } = req;
-    console.log(req);
     console.log(`${config.URL}/qa/answers/${answer_id}/helpful`);
     axios({
       url: `${config.URL}/qa/answers/${answer_id}/helpful`,
