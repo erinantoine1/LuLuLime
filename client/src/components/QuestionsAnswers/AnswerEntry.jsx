@@ -5,8 +5,9 @@ import axios from 'axios';
 const AnswerEntry = ({ answer, loadQuestions }) => {
 
   const handleUpdate = (route) => {
+    console.log({answer_id: answer.answer_id});
     axios.put(`/answer/${route}`, {
-      answer_id: answer.answer_id
+      answer_id: answer.id
     })
       .then(() => {
         loadQuestions();

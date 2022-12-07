@@ -105,6 +105,8 @@ module.exports = {
   },
   setAnswerHelpful: (req, res) => {
     const { body: { answer_id } } = req;
+    console.log(req);
+    console.log(`${config.URL}/qa/answers/${answer_id}/helpful`);
     axios({
       url: `${config.URL}/qa/answers/${answer_id}/helpful`,
       method: 'put',
