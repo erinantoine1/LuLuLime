@@ -8,8 +8,6 @@ const ContainerParent = styled.div`
   margin-right: 12%;
   display: flex;
 `;
-// align-items: center
-// justify-content: center;
 
 const CardContainer = styled.div`
   display: flex;
@@ -46,7 +44,6 @@ const RightButton = styled.button`
   cursor: pointer;
   font-size: 3rem;
 `;
-
 
 const OutfitList = () => {
   const [outfitItems, setOutfitItems] = useState([]);
