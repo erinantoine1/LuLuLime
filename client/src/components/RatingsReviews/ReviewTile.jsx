@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import * as styling from './Styling.js';
+import StaticStars from './StaticStars.jsx';
 
 const ReviewTile = ({ review, setReviews, sortOrder }) => {
 
@@ -35,7 +36,8 @@ const ReviewTile = ({ review, setReviews, sortOrder }) => {
         <span>{review.date}</span>
       </styling.ReviewTileHeader>
       <span>
-        {`Rating: ${review.rating}`}
+        Rating:
+        <StaticStars stars={review.rating} />
       </span>
       <div>{review.body}</div>
       <span>

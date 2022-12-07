@@ -15,6 +15,9 @@ const RatingsReviews = () => {
   const [reviewsLoaded, setReviewsLoaded] = useState(false);
   const [metaDataLoaded, setMetaDataLoaded] = useState(false);
 
+  // Modal Control
+  const [displayReviewForm, setDisplayReviewForm] = useState(false);
+
   const generateReviews = (product_id, sort, count) => {
     const queries = { product_id, sort, count };
     axios.get('/reviews', {
@@ -74,6 +77,8 @@ const RatingsReviews = () => {
           metaData={metaData}
           setReviews={setReviews}
           sortOrder={sortOrder}
+          displayReviewForm={displayReviewForm}
+          setDisplayReviewForm={setDisplayReviewForm}
         />
       </styling.ReviewSectionBody>
     </styling.ReviewSectionContainer>
