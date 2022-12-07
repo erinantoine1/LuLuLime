@@ -14,8 +14,6 @@ const QuantitySelector = (
   }) => {
     let currentMaxQuantityIndex;
 
-
-
     useEffect(() => {
       if (productStyleSize) {
         setQuantitySelectorIsDisabled(false);
