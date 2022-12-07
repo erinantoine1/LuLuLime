@@ -18,3 +18,9 @@ module.exports = router;
 // router.put('/qa/answers/:answer_id/helpful')
 
 // router.put('/qa/answers/:answer_id/report')
+
+const reviewControllers = require('./controllers/reviewsControllers.js');
+
+router.get('/reviews', reviewControllers.getReviews);
+router.get('/reviews/meta', reviewControllers.getMetaData);
+router.post('/reviews', reviewControllers.postReview);
