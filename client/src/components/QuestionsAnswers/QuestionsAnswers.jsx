@@ -10,12 +10,13 @@ import SearchQuestions from './SearchQuestions.jsx';
 
 const QuestionsAnswers = ({ current_id }) => {
 
+  const [product_id, setProduct_id] = useState(current_id);
   const [questions, setQuestions] = useState([]);
   const [filterdQuestions, setFilteredQuestions] = useState([]);
   const [filtered, setFiltered] = useState(false);
   const [render, setRender] = useState(true);
 
-  const loadQuestions = (product_id, page = 1, count = 5) => {
+  const loadQuestions = (page = 1, count = 5) => {
     const parameters = { product_id, page, count };
     axios.get('/questions', {
       params: parameters
@@ -32,7 +33,7 @@ const QuestionsAnswers = ({ current_id }) => {
   };
 
   useEffect(() => {
-    loadQuestions(current_id);
+    loadQuestions();
   }, []);
 
   const reRender = () => {

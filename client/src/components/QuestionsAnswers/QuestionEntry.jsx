@@ -8,15 +8,10 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   const [answersShown, setAnswersShown] = useState(2);
 
-  console.log(question.question_id);
-
   let answers = Object.values(question.answers);
   answers = answers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
 
   const handleUpdate = (route) => {
-    const parameters = { question_id: question.question_id };
-    console.log(parameters);
-    console.log(`/question/${route}`);
     axios.put(`/question/${route}`, {
       question_id: question.question_id
     })

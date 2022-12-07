@@ -4,13 +4,21 @@ import axios from 'axios';
 
 const AnswerEntry = ({ answer, loadQuestions }) => {
 
-  const handleUpdate = (route, answer_id) => {
-    axios.put(`/qa/answers/:${question_id}/${route}`, {
-      question_id
+  const handleUpdate = (route) => {
+    axios.put(`/answer/${route}`, {
+      answer_id: answer.answer_id
     })
       .then(() => {
         loadQuestions();
       });
+  };
+
+  const setHelpful = () => {
+    handleUpdate('helpful');
+  };
+
+  const report = () => {
+    handleUpdate('report');
   };
 
   return (
@@ -20,10 +28,10 @@ const AnswerEntry = ({ answer, loadQuestions }) => {
         {`: ${answer.body}?`}
       </text>
       <text>{`\nby ${answer.answerer_name}, ${answer.date}   |   Helpful? `}</text>
-      <button>Yes</button>
+      <button onClick={setHelpful}>Yes</button>
       <text>{` ${answer.helpfulness}`}</text>
       <text> | </text>
-      <button>Report</button>
+      <button onClick={report}>Report</button>
     </div>
   );
 };

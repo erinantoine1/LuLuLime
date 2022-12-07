@@ -15,7 +15,7 @@ router.put('/question/helpful', QAController.setQuestionHelpful);
 
 router.put('/question/report', QAController.reportQuestion);
 
-router.put('answer/helpful', QAController.setAnswerHelpful);
+router.put('/answer/helpful', QAController.setAnswerHelpful);
 
 router.put('/answer/report', QAController.reportAnswer);
 
