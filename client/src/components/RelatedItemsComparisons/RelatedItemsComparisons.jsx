@@ -16,7 +16,7 @@ const RelatedItemsComparisons = () => {
 
   return (
     <Slate>
-      {showModal && <CompareModal showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && <CompareModal setShowModal={setShowModal} />}
       <h1>Related Items</h1>
       <RelatedList setShowModal={setShowModal} showModal={showModal} />
       <h1>Your Outfit</h1>

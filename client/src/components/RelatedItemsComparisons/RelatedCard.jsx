@@ -1,29 +1,18 @@
+/* eslint-disable arrow-parens */
+/* eslint-disable object-curly-newline */
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { TOKEN } from '../../../../config.js';
 
 const StyledCard = styled.div`
-  box-shadow: 0 1px 0.5rem -4px #000;
   background: #fff;
   cursor: pointer;
-  margin: 10px;
   height: 375px;
   position: relative;
-`;
-
-const StyledCard2 = styled.div`
-  box-shadow: 0 1px 1rem -4px #000;
-  background: #fff;
-  margin-left: 14px;
-  overflow: hidden;
-  cursor: pointer;
-`;
-
-const Image = styled.img`
-  height: 70%;
-  width: 300px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 0.5rem -4px #000;
 `;
 
 const Info = styled.div`
@@ -51,7 +40,12 @@ const StyledStar = styled.img`
   position: absolute;
 `;
 
-const RelatedCard = ({ picture, type, setShowModal, showModal, outfitItems, setOutfitItems }) => {
+const Image = styled.img`
+    height: 60%;
+    width: ${props => props.width / 4}px;
+`;
+
+const RelatedCard = ({ picture, type, setShowModal, outfitItems, setOutfitItems, cardWidth }) => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -59,8 +53,8 @@ const RelatedCard = ({ picture, type, setShowModal, showModal, outfitItems, setO
 
   return (
     <StyledCard>
-      <StyledStar onClick={() => setShowModal(!showModal)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
-      <Image src={picture} alt="item" />
+      <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
+      <Image width={cardWidth} src={picture} alt="item" />
       <StyledCategory>Category</StyledCategory>
       <StyledName>Name</StyledName>
       <StyledName>Price</StyledName>
