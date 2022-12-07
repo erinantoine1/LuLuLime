@@ -1,8 +1,32 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import axios from 'axios';
 import * as styling from './Styling.js';
 
-const ReviewTile = ({ review }) => {
+const ReviewTile = ({ review, setReviews, sortOrder }) => {
+
+  const handleUpdate = (route, review_id) => {
+    axios({
+      url: `/reviews/${route}`,
+      method: 'put',
+      params: {
+        review_id
+      }
+    })
+      .then(() => {
+        return axios.get('/reviews', {
+          params: {
+            product_id: 40344,
+            sort: sortOrder,
+            count: 1000
+          }
+        });
+      })
+      .then((response) => {
+        setReviews(response.data.results);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <styling.ReviewTileDiv>
@@ -24,7 +48,8 @@ const ReviewTile = ({ review }) => {
       <div>{review.response}</div>
       <span>
         {`Helpful: ${review.helpfulness}`}
-        <button type="submit">Report?</button>
+        <button type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Yes</button>
+        <button type="submit" onClick={() => handleUpdate('report', review.review_id)}>Report?</button>
       </span>
     </styling.ReviewTileDiv>
   );
