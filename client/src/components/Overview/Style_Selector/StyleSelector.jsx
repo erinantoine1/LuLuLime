@@ -52,50 +52,98 @@ position: relative;
 left: 255px;
 top: -263px;
 `;
+const ThumbnailStyleName = styled.div`
+height: 30px;
+width: 200px;
+position: relative;
+left: 0px;
+top: 0px;
+`;
 
-const StyleSelector = ({ allProductStyles, currentProductStyle, setCurrentProductStyle, setCurrentOriginalPrice, setCurrentSalePrice, currentSalePrice, setCurrentSizes, setCurrentQuantities }) => {
-  return (
-    <StyleThumbnailsDiv>
-      {allProductStyles.map((styles) => {
-        const tempSizeArray = [];
-        const tempQuantityArray = [];
-        const skus = Object.keys(styles.skus);
-        for (let i = 0; i < skus.length; i++) {
-          tempQuantityArray.push(styles.skus[skus[i]].quantity);
-          tempSizeArray.push(styles.skus[skus[i]].size);
-        }
-
-        return (
-          <StyleThumbnail
-            currentProductStyle={currentProductStyle}
-            setCurrentProductStyle={setCurrentProductStyle}
-            thumbnailUrl={styles.photos[0].thumbnail_url}
-            styleId={styles.style_id}
-            styleOriginalPrice={styles.original_price}
-            styleSalePrice={styles.sale_price}
-            setCurrentOriginalPrice={setCurrentOriginalPrice}
-            setCurrentSalePrice={setCurrentSalePrice}
-            currentSalePrice={currentSalePrice}
-            setCurrentSizes={setCurrentSizes}
-            setCurrentQuantities={setCurrentQuantities}
-            styleSizes={tempSizeArray}
-            styleQuantities={tempQuantityArray}
-          />
-        );
-      })}
-    </StyleThumbnailsDiv>
-  );
-};
+const StyleSelector = (
+  ({
+    allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray
+  }) => {
+    return (
+      <div>
+        <ThumbnailStyleName>{productStyleName}</ThumbnailStyleName>
+        <StyleThumbnailsDiv>
+          {allProductStyles.map((styles) => {
+            return (
+              <StyleThumbnail
+                productStyleId={productStyleId}
+                setProductStyleId={setProductStyleId}
+                styleId={styles.style_id}
+                productStyleName={productStyleName}
+                setProductStyleName={setProductStyleName}
+                styleName={styles.name}
+                productStyleOriginalPrice={productStyleOriginalPrice}
+                setProductStyleOriginalPrice={setProductStyleOriginalPrice}
+                styleOriginalPrice={styles.original_price}
+                productStyleSalePrice={productStyleSalePrice}
+                setProductStyleSalePrice={setProductStyleSalePrice}
+                styleSalePrice={styles.sale_price}
+                productStylePhotos={productStylePhotos}
+                setProductStylePhotos={setProductStylePhotos}
+                stylePhotos={styles.photos}
+                productStyleSkus={productStyleSkus}
+                setProductStyleSkus={setProductStyleSkus}
+                styleSkus={styles.skus}
+                productStyleSize={productStyleSize}
+                setProductStyleSize={setProductStyleSize}
+                productStyleQuantity={productStyleQuantity}
+                setProductStyleQuantity={setProductStyleQuantity}
+                productStyleSizes={productStyleSizes}
+                setProductStyleSizes={setProductStyleSizes}
+                productStyleQuantities={productStyleQuantities}
+                setProductStyleQuantities={setProductStyleQuantities}
+                productStyleSku={productStyleSku}
+                setProductStyleSku={setProductStyleSku}
+                quantitySelectorIsDisabled={quantitySelectorIsDisabled}
+                setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
+                dropdownQuantitiesArray={dropdownQuantitiesArray}
+                setDropdownQuantitiesArray={setDropdownQuantitiesArray}
+              />
+            );
+          })}
+        </StyleThumbnailsDiv>
+      </div>
+    );
+  });
 
 StyleSelector.propTypes = {
   allProductStyles: PropTypes.array,
-  currentProductStyle: PropTypes.number,
-  setCurrentProductStyle: PropTypes.func,
-  setCurrentOriginalPrice: PropTypes.func,
-  setCurrentSalePrice: PropTypes.func,
-  currentSalePrice: PropTypes.string,
-  setCurrentSizes: PropTypes.func,
-  setCurrentQuantities: PropTypes.func,
+  setAllProductStyles: PropTypes.func,
+  productStyleDefault: PropTypes.bool,
+  setProductStyleDefault: PropTypes.func,
+  productStyleId: PropTypes.number,
+  setProductStyleId: PropTypes.func,
+  productStyleName: PropTypes.string,
+  setProductStyleName: PropTypes.func,
+  productStyleOriginalPrice: PropTypes.string,
+  setProductStyleOriginalPrice: PropTypes.func,
+  productStyleSalePrice: PropTypes.string,
+  setProductStyleSalePrice: PropTypes.func,
+  productStylePhotos: PropTypes.array,
+  setProductStylePhotos: PropTypes.func,
+  productStyleSku: PropTypes.string,
+  setProductStyleSku: PropTypes.func,
+  productStyleSkus: PropTypes.object,
+  setProductStyleSkus: PropTypes.func,
+  productStyleSize: PropTypes.string,
+  setProductStyleSize: PropTypes.func,
+  productStyleQuantity: PropTypes.number,
+  setProductStyleQuantity: PropTypes.func,
+  productStyleSizes: PropTypes.array,
+  setProductStyleSizes: PropTypes.func,
+  productStyleQuantities: PropTypes.array,
+  setProductStyleQuantities: PropTypes.func,
+  undefinedSizeSubmitted: PropTypes.bool,
+  setUndefinedSizeSubmitted: PropTypes.func,
+  quantitySelectorIsDisabled: PropTypes.bool,
+  setQuantitySelectorIsDisabled: PropTypes.func,
+  dropdownQuantitiesArray: PropTypes.array,
+  setDropdownQuantitiesArray: PropTypes.func,
 };
 
 export default StyleSelector;
