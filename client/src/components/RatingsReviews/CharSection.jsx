@@ -25,7 +25,7 @@ const CharSection = ({ characteristic, reviewForm, setReviewForm }) => {
 
   return (
     <styling.characteristicsDiv>
-      <span>{characteristicName}</span>
+      <styling.CharNames>{`${characteristicName}: `}</styling.CharNames>
       <styling.characteristicsButtons>
         <CharRadios
           characteristicName={characteristicName}
