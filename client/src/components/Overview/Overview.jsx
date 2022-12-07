@@ -32,9 +32,9 @@ left: 300px;
 `;
 const ImageGalleryDiv = styled.div`
 height: 650px;
-width: 750px;
+width: 850px;
 position: relative;
-left: 300px;
+left: 200px;
 border: dotted;
 border-width: 3px;
 `;
@@ -42,14 +42,14 @@ const StyleSelectorDiv = styled.div`
 height: 200px;
 width: 340px;
 position: relative;
-left: 1100px;
+left: 1250px;
 top: -475px;
 `;
 const AddToCartDiv = styled.div`
 height: 300px;
 width: 600px;
 position: relative;
-left: 1100px;
+left: 1250px;
 top: -1175px;
 `;
 
@@ -77,6 +77,9 @@ const Overview = () => {
   const [undefinedSizeSubmitted, setUndefinedSizeSubmitted] = useState(false);
   const [quantitySelectorIsDisabled, setQuantitySelectorIsDisabled] = useState(true);
   const [dropdownQuantitiesArray, setDropdownQuantitiesArray] = useState(['-']);
+  const [currentThumbnailUrl, setCurrentThumbnailUrl] = useState('');
+  const [currentPhotoUrl, setCurrentPhotoUrl] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   /* ****************** axios requests ******************* */
   useEffect(() => {
@@ -149,7 +152,46 @@ const Overview = () => {
         <NavigationDiv>Future Navigation Div</NavigationDiv>
         <PlaceHolderDiv />
         <ImageGalleryDiv>
-          <ImageGallery />
+          <ImageGallery
+            allProductStyles={allProductStyles}
+            setAllProductStyles={setAllProductStyles}
+            productStyleDefault={productStyleDefault}
+            setProductStyleDefault={setProductStyleDefault}
+            productStyleId={productStyleId}
+            setProductStyleId={setProductStyleId}
+            productStyleName={productStyleName}
+            setProductStyleName={setProductStyleName}
+            productStyleOriginalPrice={productStyleOriginalPrice}
+            setProductStyleOriginalPrice={setProductStyleOriginalPrice}
+            productStyleSalePrice={productStyleSalePrice}
+            setProductStyleSalePrice={setProductStyleSalePrice}
+            productStylePhotos={productStylePhotos}
+            setProductStylePhotos={setProductStylePhotos}
+            productStyleSku={productStyleSku}
+            setProductStyleSku={setProductStyleSku}
+            productStyleSkus={productStyleSkus}
+            setProductStyleSkus={setProductStyleSkus}
+            productStyleSize={productStyleSize}
+            setProductStyleSize={setProductStyleSize}
+            productStyleQuantity={productStyleQuantity}
+            setProductStyleQuantity={setProductStyleQuantity}
+            productStyleSizes={productStyleSizes}
+            setProductStyleSizes={setProductStyleSizes}
+            productStyleQuantities={productStyleQuantities}
+            setProductStyleQuantities={setProductStyleQuantities}
+            undefinedSizeSubmitted={undefinedSizeSubmitted}
+            setUndefinedSizeSubmitted={setUndefinedSizeSubmitted}
+            quantitySelectorIsDisabled={quantitySelectorIsDisabled}
+            setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
+            dropdownQuantitiesArray={dropdownQuantitiesArray}
+            setDropdownQuantitiesArray={setDropdownQuantitiesArray}
+            currentThumbnailUrl={currentThumbnailUrl}
+            setCurrentThumbnailUrl={setCurrentThumbnailUrl}
+            currentPhotoUrl={currentPhotoUrl}
+            setCurrentPhotoUrl={setCurrentPhotoUrl}
+            currentImageIndex={currentImageIndex}
+            setCurrentImageIndex={setCurrentImageIndex}
+          />
         </ImageGalleryDiv>
         <br />
         <StyleSelectorDiv>
