@@ -11,7 +11,7 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const RelatedItemsComparisons = () => {
+const RelatedItemsComparisons = ({ currentID, setNewProduct }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (

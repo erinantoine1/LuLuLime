@@ -1,5 +1,3 @@
-/* eslint-disable object-curly-newline */
-
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import RelatedCard from './RelatedCard.jsx';
@@ -61,12 +59,12 @@ const RelatedList = ({ setShowModal, showModal }) => {
   }, []);
 
   const handleLeftClick = () => {
-    containerRef.current.scrollLeft -= containerRef.current.offsetWidth / 4 + 0.5;
+    containerRef.current.scrollLeft -= Math.floor(width / 4);
     setScrollCount(scrollCount - 1);
   };
 
   const handleRightClick = () => {
-    containerRef.current.scrollLeft += containerRef.current.offsetWidth / 4 + 0.5;
+    containerRef.current.scrollLeft += Math.floor(width / 4);
     setScrollCount(scrollCount + 1);
   };
 
@@ -74,7 +72,7 @@ const RelatedList = ({ setShowModal, showModal }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={width} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} />)}
+        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={Math.floor(width / 4)} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} key={`${item}+${index}`} />)}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItem.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

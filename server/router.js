@@ -26,3 +26,57 @@ router.get('/reviews/meta', reviewControllers.getMetaData);
 router.post('/reviews', reviewControllers.postReview);
 router.put('/reviews/helpful', reviewControllers.updateHelpful);
 router.put('/reviews/report', reviewControllers.reportReview);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const relatedController = require('./controllers/relatedController.js');
+
+router.get('/outfit', relatedController.getItem);

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -14,7 +13,7 @@ const StyledCard = styled.div`
 
 const Image = styled.img`
   height: 60%;
-  width: ${props => props.width / 3}px;
+  width: ${props => props.width}px;
 `;
 
 const StyledName = styled.h3`

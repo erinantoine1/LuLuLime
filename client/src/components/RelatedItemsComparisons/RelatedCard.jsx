@@ -1,7 +1,3 @@
-/* eslint-disable arrow-parens */
-/* eslint-disable object-curly-newline */
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -45,7 +41,7 @@ const StyledStar = styled.img`
 
 const Image = styled.img`
     height: 60%;
-    width: ${props => props.width / 4}px;
+    width: ${props => props.width}px;
 `;
 
 const RelatedCard = ({ picture, type, setShowModal, outfitItems, setOutfitItems, cardWidth }) => {

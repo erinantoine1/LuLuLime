@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import Add from './Add.jsx';
@@ -57,12 +56,12 @@ const OutfitList = () => {
   }, []);
 
   const handleLeftClick = () => {
-    containerRef.current.scrollLeft -= containerRef.current.offsetWidth / 3 + 0.5;
+    containerRef.current.scrollLeft -= Math.floor(width / 4);
     setScrollCount(scrollCount - 1);
   };
 
   const handleRightClick = () => {
-    containerRef.current.scrollLeft += containerRef.current.offsetWidth / 3 + 0.5;
+    containerRef.current.scrollLeft += Math.floor(width / 4);
     setScrollCount(scrollCount + 1);
   };
 
@@ -71,7 +70,7 @@ const OutfitList = () => {
       <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
       <Add cardWidth={width} setOutfitItems={setOutfitItems} outfitItems={outfitItems} />
       <CardContainer ref={containerRef}>
-        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" cardWidth={containerRef.current.offsetWidth} />)}
+        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" cardWidth={Math.floor(width / 4)} />)}
       </CardContainer>
       <RightButton onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
