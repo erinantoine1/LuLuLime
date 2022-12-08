@@ -1,23 +1,23 @@
 const router = require('express').Router();
-const controller = require('./controllers');
+const QAController = require('./controllers/QuestonsAnswersController.js');
 
 module.exports = router;
 
-// router.get('/qa/questions')
+router.get('/questions', QAController.getQuestions);
 
-// router.get('/qa/questions/:question_id/answers')
+router.get('/answers', QAController.getAnswers);
 
-// router.post('/qa/questionss')
+router.post('/questions', QAController.postQuestion);
 
-// router.post('/qa/questions/:question_id/answers')
+router.post('/answers', QAController.postAnswer);
 
-// router.put('/qa/questions/:question_id/helpful')
+router.put('/question/helpful', QAController.setQuestionHelpful);
 
-// router.put('/qa/questions/:question_id/report')
+router.put('/question/report', QAController.reportQuestion);
 
-// router.put('/qa/answers/:answer_id/helpful')
+router.put('/answer/helpful', QAController.setAnswerHelpful);
 
-// router.put('/qa/answers/:answer_id/report')
+router.put('/answer/report', QAController.reportAnswer);
 
 const reviewControllers = require('./controllers/reviewsControllers.js');
 

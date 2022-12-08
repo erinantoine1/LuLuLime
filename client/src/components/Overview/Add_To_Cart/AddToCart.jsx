@@ -1,9 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-empty-pattern */
 /* eslint-disable max-len */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/forbid-prop-types */
 /* eslint-disable object-curly-newline */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import SizeSelector from './SizeSelector.jsx';

@@ -3,11 +3,9 @@ import * as styling from './Styling.js';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
-const ReviewList = ({ reviews, metaData, setReviews, sortOrder }) => {
+const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewForm, setDisplayReviewForm }) => {
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
-
-  const [displayReviewForm, setDisplayReviewForm] = useState(false);
 
   return (
     <styling.ReviewListDiv>
@@ -29,6 +27,7 @@ const ReviewList = ({ reviews, metaData, setReviews, sortOrder }) => {
         ? (
           <ReviewForm
             metaData={metaData}
+            displayReviewForm={displayReviewForm}
             setDisplayReviewForm={setDisplayReviewForm}
             setReviews={setReviews}
           />
