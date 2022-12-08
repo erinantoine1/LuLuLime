@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import * as styling from './Styling.js';
 
-const StaticStars = ({ stars, ...rootDOMAttributes }) => {
+const StaticStars = ({ rating, size, ...rootDOMAttributes }) => {
+
+  const percentage = (rating / 5) * 100;
 
   return (
-    <div>
-      {[...Array(stars)].map((star, index) => {
-        return (
-          <styling.StarFilled key={index} {...rootDOMAttributes}>&#9733;</styling.StarFilled>
-        );
-      })}
-    </div>
+    <styling.Ratings {...rootDOMAttributes}>
+      <styling.EmptyStars size={size}></styling.EmptyStars>
+      <styling.FullStars percentage={percentage} size={size}></styling.FullStars>
+    </styling.Ratings>
   );
 };
 

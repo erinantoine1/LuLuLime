@@ -14,6 +14,7 @@ export const ReviewSectionBody = styled.div`
   display: flex;
 `;
 
+// Hover Stars
 export const StarButton = styled.button`
   background-color: transparent;
   border: none;
@@ -21,10 +22,39 @@ export const StarButton = styled.button`
   color: ${props => props.clicked ? '#000' : '#ccc'}
 `;
 
-export const StarOutline = styled.span`
+
+// Static Stars
+export const Ratings = styled.div`
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #b1b1b1;
+  overflow: hidden;
+  margin-right: 150px;
+  margin-left: 20px;
 `;
 
-export const StarFilled = styled.span`
+export const EmptyStars = styled.div`
+  &:before {
+    content: "★★★★★";
+    font-size: ${props => props.size}pt;
+    -webkit-text-stroke: 1px #848484;
+  }
+`;
+
+export const FullStars = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fde16d;
+  &:before {
+    content: "★★★★★";
+    font-size: ${props => props.size}pt;
+    -webkit-text-stroke: 1px orange;
+  }
+  width: ${props => props.percentage}%
 `;
 
 // Review List Styles

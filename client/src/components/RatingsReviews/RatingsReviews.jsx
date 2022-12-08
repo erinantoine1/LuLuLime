@@ -58,7 +58,7 @@ const RatingsReviews = () => {
   return (
     <styling.ReviewSectionContainer>
       <styling.ReviewSectionHeader>
-        <h3>Review List</h3>
+        <h2>Review List</h2>
         <label htmlFor="sort">
           Sort-On:
           <select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
@@ -69,7 +69,7 @@ const RatingsReviews = () => {
         </label>
       </styling.ReviewSectionHeader>
       <styling.ReviewSectionBody>
-        <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} />
+        <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} />
         <ReviewList
           reviews={filterBy.length === 0 ? reviews : reviews.filter((review) => {
             return filterBy.includes(review.rating);

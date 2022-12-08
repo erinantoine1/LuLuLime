@@ -37,7 +37,7 @@ const ReviewTile = ({ review, setReviews, sortOrder }) => {
       </styling.ReviewTileHeader>
       <span>
         Rating:
-        <StaticStars stars={review.rating} />
+        <StaticStars rating={review.rating} size={14} />
       </span>
       <div>{review.body}</div>
       <span>
