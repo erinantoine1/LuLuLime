@@ -45,7 +45,7 @@ const RightButton = styled.button`
   font-size: 3rem;
 `;
 
-const OutfitList = () => {
+const OutfitList = ({ currentID }) => {
   const [outfitItems, setOutfitItems] = useState([]);
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
@@ -68,9 +68,9 @@ const OutfitList = () => {
   return (
     <ContainerParent>
       <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
-      <Add cardWidth={width} setOutfitItems={setOutfitItems} outfitItems={outfitItems} />
+      <Add cardWidth={width} setOutfitItems={setOutfitItems} outfitItems={outfitItems} currentID={currentID} />
       <CardContainer ref={containerRef}>
-        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} picture="https://images.unsplash.com/photo-1554260570-9140fd3b7614?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" cardWidth={Math.floor(width / 4)} />)}
+        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} cardWidth={Math.floor(width / 4)} key={index} name={item.name} default_price={item.default_price} category={item.category} pictures={item.pictures} />)}
       </CardContainer>
       <RightButton onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

@@ -79,4 +79,6 @@ router.put('/reviews/report', reviewControllers.reportReview);
 
 const relatedController = require('./controllers/relatedController.js');
 
-router.get('/outfit', relatedController.getItem);
+router.get('/currentItem', relatedController.getCurrentItem);
+
+router.get('/currentItem/styles', relatedController.getCurrentStyles);

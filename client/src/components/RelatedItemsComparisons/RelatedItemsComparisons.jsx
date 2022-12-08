@@ -18,9 +18,9 @@ const RelatedItemsComparisons = ({ currentID, setNewProduct }) => {
     <Container>
       {showModal && <CompareModal setShowModal={setShowModal} />}
       <h1>Related Items</h1>
-      <RelatedList setShowModal={setShowModal} showModal={showModal} />
+      <RelatedList setShowModal={setShowModal} showModal={showModal} setNewProduct={setNewProduct} />
       <h1>Your Outfit</h1>
-      <OutfitList />
+      <OutfitList currentID={currentID} />
     </Container>
   );
 };
