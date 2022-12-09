@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// import Overview from './components/Overview/Overview.jsx';
+import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers/QuestionsAnswers.jsx';
 import RatingsReviews from './components/RatingsReviews/RatingsReviews.jsx';
 import RelatedItemsComparisons from './components/RelatedItemsComparisons/RelatedItemsComparisons.jsx';
 
 const App = () => {
 
-  const [currendID, setCurrentID] = useState(40344);
-
-  const setNewProduct = (newProduct) => {
-    setCurrentID(newProduct);
-  };
+  const [currentID, setCurrentID] = useState(40344);
 
   return (
     <div>
-      <RelatedItemsComparisons currentID={currendID} setNewProduct={setNewProduct} />
-      <QuestionsAnswers currentID={currendID} />
-      <RatingsReviews currentID={currendID} />
+      <Overview currentID={40346} />
+      <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
+      <QuestionsAnswers currentID={currentID} />
+      <RatingsReviews currentID={currentID} />
     </div>
   );
 };
 
 export default App;
-
-
-// <Overview currentID={currendID} />
