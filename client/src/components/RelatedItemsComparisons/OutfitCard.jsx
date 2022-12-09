@@ -44,8 +44,13 @@ const StyledX = styled.img`
 const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, default_price, pictures }) => {
 
   const removeItem = () => {
-    const copy = [...outfitItems];
-    copy.pop();
+    const copy = JSON.parse(localStorage.getItem('yourOutfit'));
+    for (let i = 0; i < copy.length; i++) {
+      if (copy[i].pictures === pictures && copy[i].name === name) {
+        copy.splice(i, 1);
+      }
+    }
+    localStorage.setItem('yourOutfit', JSON.stringify(copy));
     setOutfitItems(copy);
   };
 
