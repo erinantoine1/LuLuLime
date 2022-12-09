@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// const QAController = require('./controllers/QuestonsAnswersController.js');
+const QAController = require('./controllers/QuestonsAnswersController.js');
 
 // module.exports = router;
 
@@ -33,8 +33,6 @@ router.get('/products', OverviewController.getAllProducts);
 router.get('/products/40346/styles', OverviewController.getAllProductStyles);
 router.get('/cart', OverviewController.getCartItems);
 router.post('/cart', OverviewController.addCartItem);
-
-module.exports = router;
 
 router.get('/questions', QAController.getQuestions);
 
@@ -115,3 +113,6 @@ const relatedController = require('./controllers/relatedController.js');
 router.get('/currentItem', relatedController.getCurrentItem);
 
 router.get('/currentItem/styles', relatedController.getCurrentStyles);
+
+
+module.exports = router;

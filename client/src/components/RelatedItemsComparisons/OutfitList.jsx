@@ -81,5 +81,4 @@ const OutfitList = ({ currentID }) => {
   );
 };
 
-
 export default OutfitList;

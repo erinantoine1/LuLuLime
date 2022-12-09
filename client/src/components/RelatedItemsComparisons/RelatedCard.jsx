@@ -10,9 +10,6 @@ const StyledCard = styled.div`
   position: relative;
   margin-bottom: 1rem;
 `;
-// &:first-child {
-//   margin-left: 2px;
-// }
 
 const StyledName = styled.h3`
   margin: 0.5rem 0;
