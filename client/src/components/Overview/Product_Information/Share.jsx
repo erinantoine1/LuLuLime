@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable no-lone-blocks */
-/* eslint-disable react/require-default-props */
 import React from 'react';
 
 const Share = () => {

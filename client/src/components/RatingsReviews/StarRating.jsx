@@ -21,7 +21,7 @@ const ReviewStarRating = ({ reviewForm, setReviewForm }) => {
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(starRating)}
           >
-            <span>&#9733;</span>
+            <styling.StarButtonInside>&#9733;</styling.StarButtonInside>
           </styling.StarButton>
         );
       })}

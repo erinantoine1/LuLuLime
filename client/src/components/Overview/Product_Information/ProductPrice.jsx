@@ -1,6 +1,4 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const OriginalPriceNoSale = styled.div`
@@ -32,28 +30,23 @@ font-size: 40px;
 color: red;
 `;
 
-const ProductPrice = ({ currentOriginalPrice, currentSalePrice }) => {
+const ProductPrice = ({ productStyleOriginalPrice, currentSalePrice }) => {
   let salePrice;
   let originalPrice;
   let originaNoSale;
 
   if (currentSalePrice === null || currentSalePrice === undefined) {
     originaNoSale = (
-      <OriginalPriceNoSale>{ `$${currentOriginalPrice}` }</OriginalPriceNoSale>
+      <OriginalPriceNoSale>{ `$${productStyleOriginalPrice}` }</OriginalPriceNoSale>
     );
   }
   return (
     <div>
-      <OriginalPriceNoSale style={currentSalePrice === null || currentSalePrice === undefined ? { display: 'block' } : { display: 'none' }}>{ `$${currentOriginalPrice}` }</OriginalPriceNoSale>
-      <OriginalPriceSale style={currentSalePrice ? { display: 'block' } : { display: 'none' }}>{ `$${currentOriginalPrice}` }</OriginalPriceSale>
+      <OriginalPriceNoSale style={currentSalePrice === null || currentSalePrice === undefined ? { display: 'block' } : { display: 'none' }}>{ `$${productStyleOriginalPrice}` }</OriginalPriceNoSale>
+      <OriginalPriceSale style={currentSalePrice ? { display: 'block' } : { display: 'none' }}>{ `$${productStyleOriginalPrice}` }</OriginalPriceSale>
       <SalePriceDiv style={currentSalePrice ? { display: 'block' } : { display: 'none' }}>{ `$${currentSalePrice}` }</SalePriceDiv>
     </div>
   );
-};
-
-ProductPrice.propTypes = {
-  currentOriginalPrice: PropTypes.string,
-  currentSalePrice: PropTypes.string,
 };
 
 export default ProductPrice;

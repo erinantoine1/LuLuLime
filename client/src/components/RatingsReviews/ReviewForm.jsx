@@ -55,15 +55,6 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
         <styling.recommendDiv>
           <label htmlFor="rating">
             Rating:
-            {/* <input
-              type="number"
-              id="rating"
-              name="rating"
-              min="1"
-              max="5"
-              value={reviewForm.rating}
-              onChange={(event) => setReviewForm({ ...reviewForm, rating: Number(event.target.value) })}
-            /> */}
             <ReviewStarRating reviewForm={reviewForm} setReviewForm={setReviewForm} />
           </label>
           <span>I recommend this product: </span>
