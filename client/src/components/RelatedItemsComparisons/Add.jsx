@@ -38,11 +38,12 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
 
   }, []);
   const addItem = () => {
-    localStorage.setItem('hello', JSON.stringify({one: 'test', two: 'thing'}));
-    console.log(JSON.parse(localStorage.getItem('hello')));
+    // localStorage.setItem('hello', JSON.stringify({ one: 'test', two: 'thing' }));
+    // console.log(JSON.parse(localStorage.getItem('hello')));
     if (!outfitItems.some(item => item.name === currentItem.name)) {
       const copy = [...outfitItems];
       const item = { ...currentItem, pictures: photo };
+      localStorage.setItem('yourOutfit', JSON.stringify(item));
       copy.unshift(item);
       setOutfitItems(copy);
     }

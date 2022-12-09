@@ -53,6 +53,8 @@ const OutfitList = ({ currentID }) => {
 
   useEffect(() => {
     setWidth(containerRef.current.offsetWidth);
+    console.log(JSON.parse(localStorage.getItem('yourOutfit')));
+    //setOutfitItems(JSON.parse(localStorage.getItem('yourOutfit')));
   }, []);
 
   const handleLeftClick = () => {
