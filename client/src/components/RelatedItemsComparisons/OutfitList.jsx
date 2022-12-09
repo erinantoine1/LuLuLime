@@ -52,9 +52,11 @@ const OutfitList = ({ currentID }) => {
   const containerRef = useRef();
 
   useEffect(() => {
+    if (typeof localStorage.getItem('yourOutfit') !== 'string') {
+      localStorage.setItem('yourOutfit', '[]');
+    }
     setWidth(containerRef.current.offsetWidth);
-    console.log(JSON.parse(localStorage.getItem('yourOutfit')));
-    //setOutfitItems(JSON.parse(localStorage.getItem('yourOutfit')));
+    setOutfitItems(JSON.parse(localStorage.getItem('yourOutfit')));
   }, []);
 
   const handleLeftClick = () => {
