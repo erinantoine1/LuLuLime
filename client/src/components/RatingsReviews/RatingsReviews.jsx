@@ -4,6 +4,7 @@ import * as styling from './Styling.js';
 import GlobalStyle from './globalStyles.js';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import Filters from './Filters.jsx';
+import ProductBreakdown from './ProductBreakdown.jsx';
 import StaticStars from './StaticStars.jsx';
 import ReviewList from './ReviewList.jsx';
 
@@ -85,7 +86,15 @@ const RatingsReviews = () => {
         </label>
       </styling.ReviewSectionHeader>
       <styling.ReviewSectionBody>
-        <Filters filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} totalRatings={totalRatings} />
+        <styling.SidebarDiv>
+          <Filters filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} totalRatings={totalRatings} />
+          {Object.entries(metaData.characteristics).map((characteristic) => (
+            <ProductBreakdown
+              key={characteristic[1].id}
+              characteristic={characteristic}
+            />
+          ))}
+        </styling.SidebarDiv>
         <ReviewList
           reviews={filterBy.length === 0 ? reviews : reviews.filter((review) => {
             return filterBy.includes(review.rating);
