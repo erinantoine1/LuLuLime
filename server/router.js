@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const QAController = require('./controllers/QuestonsAnswersController.js');
-
 const OverviewController = require('./controllers/OverviewControllers');
 
 router.get('/products', OverviewController.getAllProducts);
@@ -87,6 +86,8 @@ const relatedController = require('./controllers/relatedController.js');
 router.get('/currentItem', relatedController.getCurrentItem);
 
 router.get('/currentItem/styles', relatedController.getCurrentStyles);
+
+router.get('/currentItem/related', relatedController.getRelatedItems);
 
 
 module.exports = router;

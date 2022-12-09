@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 
 const StyledCard = styled.div`
   box-shadow: 0 1px 0.5rem -4px #000;

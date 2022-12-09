@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import RelatedCard from './RelatedCard.jsx';
 
@@ -48,7 +49,7 @@ const RightButton = styled.button`
   visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
 `;
 
-const RelatedList = ({ setShowModal, showModal, setNewProduct }) => {
+const RelatedList = ({ setShowModal, showModal, setNewProduct, currentID }) => {
   const [relatedItem, setRelatedItem] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
@@ -56,15 +57,28 @@ const RelatedList = ({ setShowModal, showModal, setNewProduct }) => {
 
   useEffect(() => {
     setWidth(containerRef.current.offsetWidth);
+    // axios.get('/related')
+    //   .then(res => console.log(res.data))
+    //   .catch(err => console.error(err));
+    axios.get('/currentItem/related', { params: { product_id: currentID } })
+      .then(res => {
+        console.log('related items: ', res.data);
+        return Promise.all([]);
+      })
+      .catch(err => console.error(err));
+
+    // Promise.all([axios.get('/related'), axios.get('/related')])
+    //   .then(res => console.log(res))
+    //   .catch(err => console.error(err));
   }, []);
 
   const handleLeftClick = () => {
-    containerRef.current.scrollLeft -= Math.floor(width / 4);
+    containerRef.current.scrollLeft -= Math.ceil(width / 4);
     setScrollCount(scrollCount - 1);
   };
 
   const handleRightClick = () => {
-    containerRef.current.scrollLeft += Math.floor(width / 4);
+    containerRef.current.scrollLeft += Math.ceil(width / 4);
     setScrollCount(scrollCount + 1);
   };
 
@@ -72,7 +86,7 @@ const RelatedList = ({ setShowModal, showModal, setNewProduct }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={Math.floor(width / 4)} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} key={`${item}+${index}`} setNewProduct={setNewProduct} />)}
+        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={Math.ceil(width / 4)} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} key={`${item}+${index}`} setNewProduct={setNewProduct} />)}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItem.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
