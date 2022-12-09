@@ -1,9 +1,5 @@
-/* eslint-disable max-len */
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import ProductTitle from './ProductTitle.jsx';
 import StarRating from './StarRating.jsx';
 import ProductCategory from './ProductCategory.jsx';
@@ -45,7 +41,7 @@ font-size: 28px;
 
 const ProductInformation = (
   ({
-    productTitle, productCategory, productDescription, currentOriginalPrice, currentSalePrice,
+    productTitle, productCategory, productOverview, productStyleOriginalPrice, productStyleSalePrice,
   }) => {
     return (
       <div>
@@ -59,10 +55,10 @@ const ProductInformation = (
         <CategoryOverviewDiv>
           <ProductCategory productCategory={productCategory} />
           <br />
-          <ProductOverview productDescription={productDescription} />
+          <ProductOverview productOverview={productOverview} />
         </CategoryOverviewDiv>
         <PriceDiv>
-          <ProductPrice currentOriginalPrice={currentOriginalPrice} currentSalePrice={currentSalePrice} />
+          <ProductPrice productStyleOriginalPrice={productStyleOriginalPrice} productStyleSalePrice={productStyleSalePrice} />
         </PriceDiv>
         <ShareDiv>
           <Share />
@@ -70,13 +66,5 @@ const ProductInformation = (
       </div>
     );
   });
-
-ProductInformation.propTypes = {
-  productTitle: PropTypes.string,
-  productCategory: PropTypes.string,
-  productDescription: PropTypes.string,
-  currentOriginalPrice: PropTypes.string,
-  currentSalePrice: PropTypes.string,
-};
 
 export default ProductInformation;

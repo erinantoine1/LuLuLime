@@ -20,8 +20,8 @@ const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewFor
         ))}
       </styling.ReviewTilesContainer>
       <styling.ReviewButtonContainer>
-        {reviews.length > displayedReviews ? <button type="submit" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</button> : null}
-        <button type="submit" onClick={() => displayReviewForm ? setDisplayReviewForm(false) : setDisplayReviewForm(true)}>Add Review</button>
+        {reviews.length > displayedReviews ? <styling.Buttons type="button" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</styling.Buttons> : null}
+        <styling.Buttons type="button" onClick={() => displayReviewForm ? setDisplayReviewForm(false) : setDisplayReviewForm(true)}>Add Review</styling.Buttons>
       </styling.ReviewButtonContainer>
       {displayReviewForm
         ? (

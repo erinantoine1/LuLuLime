@@ -21,6 +21,7 @@
     "arrow-parens": "off",
     "no-confusing-arrow": "off",
     "object-curly-newline": "off",
-    "react/forbid-prop-types": "off"
+    "react/forbid-prop-types": "off",
+    "disable no-plusplus": "off"
     }
 }
