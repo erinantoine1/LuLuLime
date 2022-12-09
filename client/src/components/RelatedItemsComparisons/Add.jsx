@@ -30,6 +30,7 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
         setCurrentItem({ ...currentItem, name: res.data.name, category: res.data.category, default_price: res.data.default_price });
       })
       .catch(err => console.error(err));
+
     axios.get('/currentItem/styles', { params: { product_id: currentID } })
       .then(res => {
         setPhoto(res.data.results[0].photos[0].url);
