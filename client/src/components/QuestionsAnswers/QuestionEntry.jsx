@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
+import * as styling from './Styling.js';
 
 const QuestionEntry = ({ question, loadQuestions }) => {
 
@@ -34,15 +35,19 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   return (
     <div>
-      <text>
-        <b>Q</b>
-        {`: ${question.question_body}?`}
-      </text>
-      <text>{'\nHelpful? '}</text>
-      <button onClick={setHelpful}>Yes</button>
-      <text>{` ${question.question_helpfulness}`}</text>
-      <text> | </text>
-      <button onClick={report}>Report</button>
+      <styling.QATileHeader>
+        <span>
+          <b>Q</b>
+          {`: ${question.question_body}?`}
+        </span>
+        <styling.QAHeaderButtons>
+          <span>{'\nHelpful? '}</span>
+          <button onClick={setHelpful}>Yes</button>
+          <span>{` ${question.question_helpfulness}`}</span>
+          <span> | </span>
+          <button onClick={report}>Report</button>
+        </styling.QAHeaderButtons>
+      </styling.QATileHeader>
       {getAnswers.map((answer, key) => (
         <AnswerEntry
           answer={answer}

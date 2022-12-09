@@ -1,17 +1,18 @@
 import React from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
+import * as styling from './Styling.js';
 
 const QuestionsList = ({ questions, loadQuestions }) => {
 
   return (
     questions.map((question, key) => (
-      <div>
+      <styling.QATileDiv>
         <QuestionEntry
           question={question}
           loadQuestions={loadQuestions}
           key={key}
         />
-      </div>
+      </styling.QATileDiv>
     ))
   );
 };

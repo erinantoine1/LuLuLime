@@ -5,6 +5,8 @@ import QuestionsList from './QuestionsList.jsx';
 import NewQuestionForm from './NewQuestionForm.jsx';
 import NewAnswerForm from './NewAnswerForm.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
+import * as styling from './Styling.js';
+
 
 const QuestionsAnswers = ({ currentID }) => {
 
@@ -39,8 +41,6 @@ const QuestionsAnswers = ({ currentID }) => {
       setFiltered(true);
       if (searchQs.length > 0) {
         setFilteredQuestions(searchQs);
-      } else {
-        setNotFound(true);
       }
     } else {
       setFiltered(false);
@@ -52,7 +52,7 @@ const QuestionsAnswers = ({ currentID }) => {
   };
 
   return (
-    <div>
+    <styling.QASectionContainer>
       <h2>Questions and Answers</h2>
       <SearchQuestions doSearch={doSearch} />
       <QuestionsList
@@ -64,9 +64,10 @@ const QuestionsAnswers = ({ currentID }) => {
         newQuestion={newQuestion}
         loadQuestions={loadQuestions}
         toggleNewQuestion={toggleNewQuestion}
+        product_id={product_id}
       />
       <button onClick={toggleNewQuestion}>Add a question</button>
-    </div>
+    </styling.QASectionContainer>
   );
 };
 
