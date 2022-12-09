@@ -1,13 +1,17 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 
-// eslint-disable-next-line no-unused-vars
-const StarRating = (props) => {
+const StarRating = () => {
+  const RatingDisplay = 'Star Rating: ***** (Read all [#] reviews)';
 
   return (
     <div>
-      Star Rating
+      { RatingDisplay }
     </div>
   );
 };
 
 export default StarRating;
+
+
+
