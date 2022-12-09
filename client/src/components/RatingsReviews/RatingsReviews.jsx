@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as styling from './Styling.js';
+import GlobalStyle from './globalStyles.js';
 import RatingBreakdown from './RatingBreakdown.jsx';
-import ProductBreakdown from './ProductBreakdown.jsx';
+import Filters from './Filters.jsx';
+import StaticStars from './StaticStars.jsx';
 import ReviewList from './ReviewList.jsx';
 
 
@@ -12,6 +14,9 @@ const RatingsReviews = () => {
   const [filterBy, setFilterBy] = useState([]);
   const [sortOrder, setSortOrder] = useState('relevant');
   const [metaData, setMetaData] = useState({});
+  const [totalRatings, setTotalRatings] = useState(0);
+
+  // Data loaded
   const [reviewsLoaded, setReviewsLoaded] = useState(false);
   const [metaDataLoaded, setMetaDataLoaded] = useState(false);
 
@@ -35,6 +40,14 @@ const RatingsReviews = () => {
     setSortOrder(value);
   };
 
+  const getTotalRatings = (ratings) => {
+    let totalVoters = 0;
+    Object.values(ratings).forEach((rating) => {
+      totalVoters += Number(rating);
+    });
+    return totalVoters;
+  };
+
   useEffect(() => {
     generateReviews(40344, 'relevant', 1000);
   }, []);
@@ -47,6 +60,7 @@ const RatingsReviews = () => {
     })
       .then((response) => {
         setMetaData(response.data);
+        setTotalRatings(getTotalRatings(response.data.ratings));
         setMetaDataLoaded(true);
       })
       .catch((error) => console.log(error));
@@ -57,10 +71,12 @@ const RatingsReviews = () => {
   }
   return (
     <styling.ReviewSectionContainer>
+      <GlobalStyle />
       <styling.ReviewSectionHeader>
-        <h2>Review List</h2>
+        <h1>Reviews</h1>
+        <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} totalRatings={totalRatings} />
         <label htmlFor="sort">
-          Sort-On:
+          <b>Sort By:</b>
           <select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
             <option value="relevant">Relevant</option>
             <option value="helpful">Helpful</option>
@@ -69,7 +85,7 @@ const RatingsReviews = () => {
         </label>
       </styling.ReviewSectionHeader>
       <styling.ReviewSectionBody>
-        <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} />
+        <Filters filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} totalRatings={totalRatings} />
         <ReviewList
           reviews={filterBy.length === 0 ? reviews : reviews.filter((review) => {
             return filterBy.includes(review.rating);
