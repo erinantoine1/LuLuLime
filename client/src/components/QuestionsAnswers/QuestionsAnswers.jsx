@@ -12,7 +12,7 @@ const QuestionsAnswers = ({ currentID }) => {
   const [questions, setQuestions] = useState([]);
   const [filterdQuestions, setFilteredQuestions] = useState([]);
   const [filtered, setFiltered] = useState(false);
-  const [render, setRender] = useState(true);
+  const [newQuestion, setNewQuestion] = useState(false);
 
   const loadQuestions = (page = 1, count = 5) => {
     const parameters = { product_id, page, count };
@@ -31,10 +31,6 @@ const QuestionsAnswers = ({ currentID }) => {
     loadQuestions();
   }, []);
 
-  const reRender = () => {
-    setRender(!render);
-  };
-
   const doSearch = (query) => {
     if (query) {
       const searchQs = questions.filter((question) => (
@@ -51,6 +47,10 @@ const QuestionsAnswers = ({ currentID }) => {
     }
   };
 
+  const toggleNewQuestion = () => {
+    setNewQuestion(!newQuestion);
+  };
+
   return (
     <div>
       <h2>Questions and Answers</h2>
@@ -60,7 +60,12 @@ const QuestionsAnswers = ({ currentID }) => {
         loadQuestions={loadQuestions}
       />
       <button>Load more questions</button>
-      <button>Add a question</button>
+      <NewQuestionForm
+        newQuestion={newQuestion}
+        loadQuestions={loadQuestions}
+        toggleNewQuestion={toggleNewQuestion}
+      />
+      <button onClick={toggleNewQuestion}>Add a question</button>
     </div>
   );
 };
