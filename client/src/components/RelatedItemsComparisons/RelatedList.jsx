@@ -49,28 +49,47 @@ const RightButton = styled.button`
   visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
 `;
 
-const RelatedList = ({ setShowModal, showModal, setNewProduct, currentID }) => {
-  const [relatedItem, setRelatedItem] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
+const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
+  const [relatedItems, setRelatedItems] = useState([]);
+  // {id, name, category, default_price, sale_price, picture}
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
   const containerRef = useRef();
 
   useEffect(() => {
     setWidth(containerRef.current.offsetWidth);
-    // axios.get('/related')
-    //   .then(res => console.log(res.data))
-    //   .catch(err => console.error(err));
+    setScrollCount(0);
+    containerRef.current.scrollLeft = 0;
+
+    const temp = [];
+
     axios.get('/currentItem/related', { params: { product_id: currentID } })
+      .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem', { params: { product_id: itemID } }))))
       .then(res => {
-        console.log('related items: ', res.data);
-        return Promise.all([]);
+        for (let i = 0; i < res.length; i++) {
+          const item = { id: res[i].data.id, name: res[i].data.name, category: res[i].data.category, default_price: res[i].data.default_price };
+          temp.push(item);
+        }
+      })
+      .then(() => axios.get('/currentItem/related', { params: { product_id: currentID } }))
+      .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem/styles', { params: { product_id: itemID } }))))
+      .then(res => {
+        for (let i = 0; i < res.length; i++) {
+          for (let j = 0; j < res[i].data.results.length; j++) {
+            if (res[i].data.results[j]['default?']) {
+              temp[i].photo = res[i].data.results[j].photos[0].url;
+              // get sale price
+            }
+          }
+          if (typeof temp[i].photo !== 'string') {
+            temp[i].photo = 'https://greenvilleidc.com/img/placeholder.jpeg';
+          }
+        }
+        console.log('new object : ', temp);
+        setRelatedItems(temp);
       })
       .catch(err => console.error(err));
-
-    // Promise.all([axios.get('/related'), axios.get('/related')])
-    //   .then(res => console.log(res))
-    //   .catch(err => console.error(err));
-  }, []);
+  }, [currentID]);
 
   const handleLeftClick = () => {
     containerRef.current.scrollLeft -= Math.ceil(width / 4);
@@ -86,9 +105,9 @@ const RelatedList = ({ setShowModal, showModal, setNewProduct, currentID }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {width && relatedItem.map((item, index) => <RelatedCard cardWidth={Math.ceil(width / 4)} picture="https://images.unsplash.com/photo-1511766566737-1740d1da79be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" setShowModal={setShowModal} key={`${item}+${index}`} setNewProduct={setNewProduct} />)}
+        {(width && relatedItems.length !== 0) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={item.photo} setShowModal={setShowModal} key={`${item}+${index}`} setCurrentID={setCurrentID} />)}
       </CardContainer>
-      <RightButton scrollCount={scrollCount} len={relatedItem.length} onClick={handleRightClick}>⇢</RightButton>
+      <RightButton scrollCount={scrollCount} len={relatedItems.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
   );
 };

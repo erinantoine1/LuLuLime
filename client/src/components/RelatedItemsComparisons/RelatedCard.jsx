@@ -41,19 +41,15 @@ const Image = styled.img`
     width: ${props => props.width}px;
 `;
 
-const RelatedCard = ({ picture, type, setShowModal, outfitItems, setOutfitItems, cardWidth, setNewProduct }) => {
-
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  // const [picture, setPicture] = useState('');
+const RelatedCard = ({ id, name, category, default_price, picture, type, setShowModal, outfitItems, setOutfitItems, cardWidth, setCurrentID }) => {
 
   return (
-    <StyledCard onClick={() => setNewProduct(40345)}>
+    <StyledCard>
       <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
-      <Image width={cardWidth} src={picture} alt="item" />
-      <StyledCategory>Category</StyledCategory>
-      <StyledName>Name</StyledName>
-      <StyledPrice>Price</StyledPrice>
+      <Image width={cardWidth} src={picture} alt="item" onClick={() => setCurrentID(id)} />
+      <StyledCategory>{category}</StyledCategory>
+      <StyledName>{name}</StyledName>
+      <StyledPrice>{default_price}</StyledPrice>
       <StyledName>☆☆☆☆☆</StyledName>
     </StyledCard>
   );
