@@ -1,7 +1,3 @@
-/* eslint-disable arrow-parens */
-/* eslint-disable object-curly-newline */
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -14,9 +10,6 @@ const StyledCard = styled.div`
   position: relative;
   margin-bottom: 1rem;
 `;
-// &:first-child {
-//   margin-left: 2px;
-// }
 
 const StyledName = styled.h3`
   margin: 0.5rem 0;
@@ -45,17 +38,17 @@ const StyledStar = styled.img`
 
 const Image = styled.img`
     height: 60%;
-    width: ${props => props.width / 4}px;
+    width: ${props => props.width}px;
 `;
 
-const RelatedCard = ({ picture, type, setShowModal, outfitItems, setOutfitItems, cardWidth }) => {
+const RelatedCard = ({ picture, type, setShowModal, outfitItems, setOutfitItems, cardWidth, setNewProduct }) => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   // const [picture, setPicture] = useState('');
 
   return (
-    <StyledCard>
+    <StyledCard onClick={() => setNewProduct(40345)}>
       <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
       <Image width={cardWidth} src={picture} alt="item" />
       <StyledCategory>Category</StyledCategory>
