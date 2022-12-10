@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import * as styling from './Styling.js';
+import React, { useState, useEffect, useRef } from 'react';
+import * as styling from './Styling/Styling.js';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
 const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewForm, setDisplayReviewForm }) => {
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
+  const [clickedReviews, setClickedReviews] = useState(false);
+  const divRef = useRef();
+
+
+  const handleMoreReviews = () => {
+    divRef.current.scrollIntoView({ behavior: 'smooth' });
+    setDisplayedReviews(displayedReviews + 2);
+  };
+
 
   return (
     <styling.ReviewListDiv>
@@ -19,8 +28,9 @@ const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewFor
           />
         ))}
       </styling.ReviewTilesContainer>
+      <div ref={divRef}></div>
       <styling.ReviewButtonContainer>
-        {reviews.length > displayedReviews ? <styling.Buttons type="button" onClick={() => setDisplayedReviews(displayedReviews + 2)}>More Reviews</styling.Buttons> : null}
+        {reviews.length > displayedReviews ? <styling.Buttons type="button" onClick={() => handleMoreReviews()}>More Reviews</styling.Buttons> : null}
         <styling.Buttons type="button" onClick={() => displayReviewForm ? setDisplayReviewForm(false) : setDisplayReviewForm(true)}>Add Review</styling.Buttons>
       </styling.ReviewButtonContainer>
       {displayReviewForm
@@ -30,6 +40,7 @@ const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewFor
             displayReviewForm={displayReviewForm}
             setDisplayReviewForm={setDisplayReviewForm}
             setReviews={setReviews}
+            sortOrder={sortOrder}
           />
         )
         : null}

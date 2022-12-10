@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styling from './Styling.js';
+import * as styling from './Styling/Styling.js';
 
 const BarGraph = ({ rating, percentage, toggleFilter }) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styling from './Styling.js';
+import * as styling from './Styling/Styling.js';
 import BarGraph from './BarGraph.jsx';
 
 const Filters = ({ filterBy, setFilterBy, metaData, totalRatings }) => {
@@ -31,7 +31,7 @@ const Filters = ({ filterBy, setFilterBy, metaData, totalRatings }) => {
             <BarGraph key={rating} rating={rating} percentage={getPercentRating(rating)} toggleFilter={toggleFilter} />
           );
         })}
-        {filterBy.length > 0 ? <span>{`Sorting By Reviews with ${filterBy} Star(s)`}</span> : null}
+        {filterBy.length > 0 ? <span>{`Sorting By Reviews with ${[...filterBy].sort()} Star(s)`}</span> : null}
       </styling.BarGraphContainer>
       <styling.ResetFiltersButton type="button" onClick={() => resetFilters()}>Reset Filters</styling.ResetFiltersButton>
     </styling.FiltersDiv>

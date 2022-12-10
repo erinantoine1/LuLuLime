@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import * as styling from './Styling.js';
+import * as styling from './Styling/Styling.js';
 import StaticStars from './StaticStars.jsx';
 
 const RatingBreakdown = ({ metaData, totalRatings }) => {
