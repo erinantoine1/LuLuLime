@@ -48,7 +48,7 @@ export const FullStars = styled.div`
   width: ${props => props.percentage}%;
 `;
 
-/********* Main Containter  *************/
+/********* Main Container  *************/
 
 export const Buttons = styled.button`
   border-radius: 0.25rem;
@@ -58,15 +58,16 @@ export const Buttons = styled.button`
 `;
 
 export const ReviewSectionContainer = styled.div`
-  margin-top: 150px;
+  margin-top: 5rem;
   border-top: solid 1px grey;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 150px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5rem;
+  height: 68rem;
 `;
 
 export const ReviewSectionHeader = styled.div`
@@ -87,8 +88,7 @@ export const ReviewSectionBody = styled.div`
 
 export const SidebarDiv = styled.div`
   padding: 1rem 1rem;
-  width: 30%;
-  min-width: fit-content;
+  width: 20%;
   margin-right: 2.5rem;
   background-color: #fafafa;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
@@ -111,7 +111,6 @@ export const BarGraphContainer = styled.div`
 
 export const BarGraphDiv = styled.div`
   display: flex;
-  width: fit-content;
   gap: 1rem;
   cursor: pointer;
 `;
@@ -168,8 +167,8 @@ export const IndicatorContainer = styled.div`
 export const FactorContainer = styled.div`
   width: 20%;
   height: 10px;
-  border: 1px solid black;
   background-color: ${props => props.shading ? 'black' : '#fafafa'}};
+  border: solid 1px black;
 `;
 export const FactorLabelsContainer = styled.div`
   width: 100%;
@@ -190,12 +189,14 @@ export const ResetFiltersButton = styled(Buttons)`
 export const ReviewListDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 78%;
 `;
 
 export const ReviewTilesContainer = styled.div`
   display: flex;
   flex-direction: column;
+  max-height: 60rem;
+  overflow: auto;
 `;
 
 export const ReviewButtonContainer = styled.div`
@@ -229,15 +230,21 @@ export const ReviewTileDiv = styled.div`
 `;
 
 export const ReviewTileContent = styled.div`
-  margin-left: 10px;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  width: 100%
 `;
 
 export const ReviewTileHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+`;
+
+export const ReviewBody = styled.div`
+  overflow-wrap: break-word;
+  width: 90%;
 `;
 
 export const ReviewPhotos = styled.div`

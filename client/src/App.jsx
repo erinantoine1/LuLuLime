@@ -16,9 +16,9 @@ const App = () => {
 
   return (
     <div>
-      {/* <Overview currentID={currendID} />
+      <Overview currentID={currendID} />
       <RelatedItemsComparisons currentID={currendID} setNewProduct={setNewProduct} />
-      <QuestionsAnswers currentID={currendID} /> */}
+      <QuestionsAnswers currentID={currendID} />
       <RatingsReviews currentID={currendID} />
     </div>
   );

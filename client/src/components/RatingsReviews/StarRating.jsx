@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import * as styling from './Styling.js';
+import * as styling from './Styling/Styling.js';
 
 const ReviewStarRating = ({ reviewForm, setReviewForm }) => {
   const [starRating, setStarRating] = useState(0);

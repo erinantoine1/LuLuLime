@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import * as styling from './Styling.js';
-import GlobalStyle from './globalStyles.js';
+import * as styling from './Styling/Styling.js';
+import GlobalStyle from './Styling/globalStyles.js';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import Filters from './Filters.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
@@ -68,10 +68,6 @@ const RatingsReviews = () => {
     generateReviews(40344, 'relevant', 1000);
     generateMetadata(40344);
   }, []);
-
-  // useEffect(() => {
-
-  // }, []);
 
   if (!reviewsLoaded || !metaDataLoaded) {
     return <div>Loading Reviews</div>;
