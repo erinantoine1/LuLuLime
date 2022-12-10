@@ -22,10 +22,13 @@ const NewQuestionForm = ({ newQuestion, loadQuestions, toggleNewQuestion, produc
   const handleSubmit = () => {
     if (question.length > 0 && name.length > 0 && email.length > 0) {
       axios.post('/questions', {
-        question, name, email, product_id
+        body: question, name, email, product_id
       })
         .then(() => {
           loadQuestions();
+        })
+        .catch(() => {
+          console.log('failed');
         })
         .then(() => {
           toggleNewQuestion();
@@ -50,6 +53,7 @@ const NewQuestionForm = ({ newQuestion, loadQuestions, toggleNewQuestion, produc
             placeholder='Email?'
             onChange={handleEmail}
           />
+          <button onClick={handleSubmit}>Submit</button>
         </div>
       )}
     </div>

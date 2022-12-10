@@ -8,7 +8,7 @@ import RelatedItemsComparisons from './components/RelatedItemsComparisons/Relate
 
 const App = () => {
 
-  const [currentID, setCurrentID] = useState(40344);
+  const [currentID, setCurrentID] = useState(40347);
 
   const setNewProduct = (newProduct) => {
     setCurrentID(newProduct);
@@ -26,3 +26,4 @@ const App = () => {
 
 export default App;
 
+// 40347

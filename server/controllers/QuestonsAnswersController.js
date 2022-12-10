@@ -40,6 +40,7 @@ module.exports = {
       });
   },
   postQuestion: (req, res) => {
+    console.log(req.body);
     axios({
       url: `${config.URL}/qa/questions`,
       method: 'post',
@@ -56,8 +57,9 @@ module.exports = {
       });
   },
   postAnswer: (req, res) => {
+    const { body: { question_id } } = req;
     axios({
-      url: `${config.URL}/qa/questions/:question_id/answers`,
+      url: `${config.URL}/qa/questions/${question_id}/answers`,
       method: 'post',
       data: req.body,
       headers: {
@@ -68,6 +70,7 @@ module.exports = {
         res.status(201).send();
       })
       .catch((error) => {
+        console.log(error);
         res.status(500).send(error);
       });
   },

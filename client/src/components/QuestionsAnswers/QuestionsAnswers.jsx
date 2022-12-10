@@ -12,12 +12,13 @@ const QuestionsAnswers = ({ currentID }) => {
 
   const [product_id, setProduct_id] = useState(currentID);
   const [questions, setQuestions] = useState([]);
+  const [questionsShown, setQuestionsShown] = useState(5);
   const [filterdQuestions, setFilteredQuestions] = useState([]);
   const [filtered, setFiltered] = useState(false);
   const [newQuestion, setNewQuestion] = useState(false);
 
-  const loadQuestions = (page = 1, count = 5) => {
-    const parameters = { product_id, page, count };
+  const loadQuestions = (page = 1) => {
+    const parameters = { product_id, page, count: questionsShown };
     axios.get('/questions', {
       params: parameters
     })
@@ -51,6 +52,11 @@ const QuestionsAnswers = ({ currentID }) => {
     setNewQuestion(!newQuestion);
   };
 
+  const showMoreQuestions = () => {
+    setQuestionsShown(questionsShown + 4);
+    loadQuestions();
+  };
+
   return (
     <styling.QASectionContainer>
       <h2>Questions and Answers</h2>
@@ -59,7 +65,7 @@ const QuestionsAnswers = ({ currentID }) => {
         questions={filtered ? filterdQuestions : questions}
         loadQuestions={loadQuestions}
       />
-      <button>Load more questions</button>
+      <button onClick={showMoreQuestions}>Load more questions</button>
       <NewQuestionForm
         newQuestion={newQuestion}
         loadQuestions={loadQuestions}
