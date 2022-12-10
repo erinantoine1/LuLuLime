@@ -5,17 +5,20 @@ import QuestionsList from './QuestionsList.jsx';
 import NewQuestionForm from './NewQuestionForm.jsx';
 import NewAnswerForm from './NewAnswerForm.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
+import * as styling from './Styling.js';
+
 
 const QuestionsAnswers = ({ currentID }) => {
 
   const [product_id, setProduct_id] = useState(currentID);
   const [questions, setQuestions] = useState([]);
+  const [questionsShown, setQuestionsShown] = useState(5);
   const [filterdQuestions, setFilteredQuestions] = useState([]);
   const [filtered, setFiltered] = useState(false);
-  const [render, setRender] = useState(true);
+  const [newQuestion, setNewQuestion] = useState(false);
 
-  const loadQuestions = (page = 1, count = 5) => {
-    const parameters = { product_id, page, count };
+  const loadQuestions = (page = 1) => {
+    const parameters = { product_id, page, count: questionsShown };
     axios.get('/questions', {
       params: parameters
     })
@@ -29,11 +32,7 @@ const QuestionsAnswers = ({ currentID }) => {
 
   useEffect(() => {
     loadQuestions();
-  }, []);
-
-  const reRender = () => {
-    setRender(!render);
-  };
+  }, currentID);
 
   const doSearch = (query) => {
     if (query) {
@@ -43,25 +42,38 @@ const QuestionsAnswers = ({ currentID }) => {
       setFiltered(true);
       if (searchQs.length > 0) {
         setFilteredQuestions(searchQs);
-      } else {
-        setNotFound(true);
       }
     } else {
       setFiltered(false);
     }
   };
 
+  const toggleNewQuestion = () => {
+    setNewQuestion(!newQuestion);
+  };
+
+  const showMoreQuestions = () => {
+    setQuestionsShown(questionsShown + 4);
+    loadQuestions();
+  };
+
   return (
-    <div>
+    <styling.QASectionContainer>
       <h2>Questions and Answers</h2>
       <SearchQuestions doSearch={doSearch} />
       <QuestionsList
         questions={filtered ? filterdQuestions : questions}
         loadQuestions={loadQuestions}
       />
-      <button>Load more questions</button>
-      <button>Add a question</button>
-    </div>
+      <button onClick={showMoreQuestions}>Load more questions</button>
+      <NewQuestionForm
+        newQuestion={newQuestion}
+        loadQuestions={loadQuestions}
+        toggleNewQuestion={toggleNewQuestion}
+        product_id={product_id}
+      />
+      <button onClick={toggleNewQuestion}>Add a question</button>
+    </styling.QASectionContainer>
   );
 };
 
