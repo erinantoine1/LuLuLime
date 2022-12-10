@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -14,7 +13,7 @@ const StyledCard = styled.div`
 
 const Image = styled.img`
   height: 60%;
-  width: ${props => props.width / 3}px;
+  width: ${props => props.width}px;
 `;
 
 const StyledName = styled.h3`
@@ -42,11 +41,7 @@ const StyledX = styled.img`
   position: absolute;
 `;
 
-const OutfitCard = ({ outfitItems, setOutfitItems, picture, cardWidth }) => {
-
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  // const [picture, setPicture] = useState('');
+const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, default_price, pictures }) => {
 
   const removeItem = () => {
     const copy = [...outfitItems];
@@ -57,10 +52,10 @@ const OutfitCard = ({ outfitItems, setOutfitItems, picture, cardWidth }) => {
   return (
     <StyledCard>
       <StyledX src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png" alt="X" onClick={removeItem} />
-      <Image width={cardWidth} alt="image" src={picture} />
-      <StyledCategory>Category</StyledCategory>
-      <StyledName>Name</StyledName>
-      <StyledPrice>Price</StyledPrice>
+      <Image width={cardWidth} alt="image" src={pictures} />
+      <StyledCategory>{category}</StyledCategory>
+      <StyledName>{name}</StyledName>
+      <StyledPrice>{default_price}</StyledPrice>
       <StyledName>☆☆☆☆☆</StyledName>
     </StyledCard>
   );

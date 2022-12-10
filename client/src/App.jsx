@@ -8,16 +8,12 @@ import RelatedItemsComparisons from './components/RelatedItemsComparisons/Relate
 
 const App = () => {
 
-  const [currentID, setCurrentID] = useState(40347);
-
-  const setNewProduct = (newProduct) => {
-    setCurrentID(newProduct);
-  };
+  const [currentID, setCurrentID] = useState(40344);
 
   return (
     <div>
       <Overview currentID={40346} />
-      <RelatedItemsComparisons currentID={currentID} setNewProduct={setNewProduct} />
+      <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
       <QuestionsAnswers currentID={currentID} />
       <RatingsReviews currentID={currentID} />
     </div>
@@ -25,5 +21,3 @@ const App = () => {
 };
 
 export default App;
-
-// 40347

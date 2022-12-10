@@ -32,7 +32,7 @@ const QuestionsAnswers = ({ currentID }) => {
 
   useEffect(() => {
     loadQuestions();
-  }, []);
+  }, currentID);
 
   const doSearch = (query) => {
     if (query) {
