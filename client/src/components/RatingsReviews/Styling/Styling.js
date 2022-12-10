@@ -92,6 +92,9 @@ export const SidebarDiv = styled.div`
   margin-right: 2.5rem;
   background-color: #fafafa;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  min-width: fit-content;
+  justify-content: center;
+  align-items: center;
 `;
 
 // Filters Styles
@@ -105,6 +108,7 @@ export const BarGraphContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap 10px;
+  width: 80%;
 `;
 
 // BarGraph Styles
@@ -116,7 +120,7 @@ export const BarGraphDiv = styled.div`
 `;
 
 export const Meter = styled.div`
-  width: 150px;
+  width: 100%;
   height: 20px;
   border-radius: 5px;
   border: 1px solid grey;
