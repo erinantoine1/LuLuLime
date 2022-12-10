@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import * as styling from './Styling.js';
-import GlobalStyle from './globalStyles.js';
+import * as styling from './Styling/Styling.js';
+import GlobalStyle from './Styling/globalStyles.js';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import Filters from './Filters.jsx';
+import ProductBreakdown from './ProductBreakdown.jsx';
 import StaticStars from './StaticStars.jsx';
 import ReviewList from './ReviewList.jsx';
 
@@ -48,14 +49,10 @@ const RatingsReviews = () => {
     return totalVoters;
   };
 
-  useEffect(() => {
-    generateReviews(40344, 'relevant', 1000);
-  }, []);
-
-  useEffect(() => {
+  const generateMetadata = (product_id) => {
     axios.get('/reviews/meta', {
       params: {
-        product_id: 40344
+        product_id
       }
     })
       .then((response) => {
@@ -64,6 +61,12 @@ const RatingsReviews = () => {
         setMetaDataLoaded(true);
       })
       .catch((error) => console.log(error));
+  };
+
+
+  useEffect(() => {
+    generateReviews(40344, 'relevant', 1000);
+    generateMetadata(40344);
   }, []);
 
   if (!reviewsLoaded || !metaDataLoaded) {
@@ -74,9 +77,14 @@ const RatingsReviews = () => {
       <GlobalStyle />
       <styling.ReviewSectionHeader>
         <h1>Reviews</h1>
-        <RatingBreakdown filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} totalRatings={totalRatings} />
+        <RatingBreakdown
+          filterBy={filterBy}
+          setFilterBy={setFilterBy}
+          metaData={metaData}
+          totalRatings={totalRatings}
+        />
         <label htmlFor="sort">
-          <b>Sort By:</b>
+          <b>Sort-By:</b>
           <select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
             <option value="relevant">Relevant</option>
             <option value="helpful">Helpful</option>
@@ -85,7 +93,22 @@ const RatingsReviews = () => {
         </label>
       </styling.ReviewSectionHeader>
       <styling.ReviewSectionBody>
-        <Filters filterBy={filterBy} setFilterBy={setFilterBy} metaData={metaData} totalRatings={totalRatings} />
+        <styling.SidebarDiv>
+          <Filters
+            filterBy={filterBy}
+            setFilterBy={setFilterBy}
+            metaData={metaData}
+            totalRatings={totalRatings}
+          />
+          <styling.ProductBreakdownContainer>
+            {Object.entries(metaData.characteristics).map((characteristic) => (
+              <ProductBreakdown
+                key={characteristic[1].id}
+                characteristic={characteristic}
+              />
+            ))}
+          </styling.ProductBreakdownContainer>
+        </styling.SidebarDiv>
         <ReviewList
           reviews={filterBy.length === 0 ? reviews : reviews.filter((review) => {
             return filterBy.includes(review.rating);

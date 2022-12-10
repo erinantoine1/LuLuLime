@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import * as styling from './Styling.js';
+import * as styling from './Styling/Styling.js';
 import StaticStars from './StaticStars.jsx';
 
 const ReviewTile = ({ review, setReviews, sortOrder }) => {
+
+  const [reviewLength, setReviewLength] = useState(250);
 
   const formatDate = (date) => {
     return new Date(review.date).toDateString().slice(4);
@@ -33,6 +35,14 @@ const ReviewTile = ({ review, setReviews, sortOrder }) => {
       .catch((error) => console.log(error));
   };
 
+  const toggleLongReview = (body) => {
+    return (
+      <styling.ReviewBody>{body.slice(0, reviewLength)}
+        {reviewLength === 250 && <button onClick={() => setReviewLength(1000)}>Show More</button>}
+      </styling.ReviewBody>
+    );
+  };
+
   return (
     <styling.ReviewTileDiv>
       <styling.ReviewTileContent>
@@ -43,7 +53,7 @@ const ReviewTile = ({ review, setReviews, sortOrder }) => {
         <span>
           <StaticStars rating={review.rating} size={12} />
         </span>
-        <div>{review.body}</div>
+        {review.body.length <= 250 ? <styling.ReviewBody>{review.body}</styling.ReviewBody> : toggleLongReview(review.body)}
         <styling.ReviewPhotos>
           {review.photos.map((photo) => {
             return <img key={photo.id} src={photo.url} alt="Clothing product" width="100" height="100" />;
@@ -51,7 +61,7 @@ const ReviewTile = ({ review, setReviews, sortOrder }) => {
         </styling.ReviewPhotos>
         {review.recommend ? <span>&#9989; I recommend this product</span> : null}
         <span>{`Posted By: ${review.reviewer_name}`}</span>
-        <div>{review.response}</div>
+        <div>{`Response From Seller: ${review.response}`}</div>
         {`${review.helpfulness} people found this helpful`}
         <styling.TileButtons>
           <styling.Buttons type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful</styling.Buttons>
