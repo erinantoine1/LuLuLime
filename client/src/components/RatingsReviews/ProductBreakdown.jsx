@@ -22,19 +22,18 @@ const ProductBreakdown = ({ characteristic }) => {
     choices[5] = 'Runs Long';
   }
   return (
-    <styling.ProductBreakdownContainer>
+    <styling.FactorBreakdownContainer>
       <styling.ProductBreakdownLabel>{characteristicName}</styling.ProductBreakdownLabel>
       <styling.IndicatorContainer>
         {[1, 2, 3, 4, 5].map((value, index) => {
-          return (<styling.FactorContainer color={value===characteristicRating}></styling.FactorContainer>);
+          return (<styling.FactorContainer key={index} shading={value===characteristicRating}></styling.FactorContainer>);
         })}
       </styling.IndicatorContainer>
       <styling.FactorLabelsContainer>
         <styling.FactorLabels>{choices[1]}</styling.FactorLabels>
         <styling.FactorLabels>{choices[5]}</styling.FactorLabels>
       </styling.FactorLabelsContainer>
-
-    </styling.ProductBreakdownContainer>
+    </styling.FactorBreakdownContainer>
   );
 
 };

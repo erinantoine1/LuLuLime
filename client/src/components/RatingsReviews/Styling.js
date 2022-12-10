@@ -88,6 +88,7 @@ export const ReviewSectionBody = styled.div`
 export const SidebarDiv = styled.div`
   padding: 1rem 1rem;
   width: 30%;
+  min-width: fit-content;
   margin-right: 2.5rem;
   background-color: #fafafa;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
@@ -136,11 +137,18 @@ export const Progress = styled.span`
   padding-right: 5px;
 `;
 
+// Product Breakdown
+
 export const ProductBreakdownContainer = styled.div`
+  width: 80%;
+`;
+
+export const FactorBreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 
 export const ProductBreakdownLabel = styled.div`
@@ -161,7 +169,7 @@ export const FactorContainer = styled.div`
   width: 20%;
   height: 10px;
   border: 1px solid black;
-  background-color: ${props => props.color ? 'black' : '#fafafa'}};
+  background-color: ${props => props.shading ? 'black' : '#fafafa'}};
 `;
 export const FactorLabelsContainer = styled.div`
   width: 100%;
@@ -296,11 +304,11 @@ export const styledForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 500px;
+  width: fit-content;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
   animation-name: ${props => props.out ? collapseAnimation : expandAnimation};
   animation-duration: 0.3s;
 `;
