@@ -1,40 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
-// Main container
-export const Buttons = styled.button`
-  border-radius: 0.25rem;
-  border: 0.0625 rem solid;
-  padding: 0.5rem;
-  cursor: pointer;
-`;
+/********* Hover Star Buttons  *************/
 
-export const ReviewSectionContainer = styled.div`
-  margin-top: 150px;
-  border-top: solid 1px grey;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 150px;
-`;
-
-export const ReviewSectionHeader = styled.div`
-  display: flex;
-  align-self: flex-start;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-`;
-
-export const ReviewSectionBody = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: flex-start;
-`;
-
-// Hover Stars
 export const StarButton = styled.button`
   background-color: transparent;
   border: none;
@@ -46,8 +13,8 @@ export const StarButtonInside = styled.div`
   -webkit-text-stroke: 1px #848484;
 `;
 
+/********* Quarter Stars *************/
 
-// Static Stars
 export const Ratings = styled.div`
   position: relative;
   vertical-align: middle;
@@ -81,43 +48,57 @@ export const FullStars = styled.div`
   width: ${props => props.percentage}%;
 `;
 
-// Review List Styles
+/********* Main Container  *************/
 
-export const ReviewListDiv = styled.div`
+export const Buttons = styled.button`
+  border-radius: 0.25rem;
+  border: 0.0625 rem solid;
+  padding: 0.5rem;
+  cursor: pointer;
+`;
+
+export const ReviewSectionContainer = styled.div`
+  margin-top: 5rem;
+  border-top: solid 1px grey;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5rem;
+  height: 68rem;
+`;
+
+export const ReviewSectionHeader = styled.div`
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
   width: 100%;
-`;
-
-export const ReviewTilesContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const ReviewButtonContainer = styled.div`
-  display: flex;
   justify-content: space-between;
 `;
 
-// Rating Breakdown Styles
-
-export const RatingBreakdownDiv = styled.div`
+export const ReviewSectionBody = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 50%;
+  width: 100%;
+  align-items: flex-start;
 `;
 
-export const AverageRatingDiv = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
+/********* Sidebar Styles  *************/
 
+export const SidebarDiv = styled.div`
+  padding: 1rem 1rem;
+  width: 20%;
+  margin-right: 2.5rem;
+  background-color: #fafafa;
+  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  min-width: fit-content;
+  justify-content: center;
+  align-items: center;
+`;
 
 // Filters Styles
 export const FiltersDiv = styled.div`
-  width: 33%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -127,24 +108,19 @@ export const BarGraphContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap 10px;
+  width: 80%;
 `;
-
-export const ResetFiltersButton = styled(Buttons)`
-  width: fit-content;
-`;
-
 
 // BarGraph Styles
 
 export const BarGraphDiv = styled.div`
   display: flex;
-  width: fit-content;
   gap: 1rem;
   cursor: pointer;
 `;
 
 export const Meter = styled.div`
-  width: 150px;
+  width: 100%;
   height: 20px;
   border-radius: 5px;
   border: 1px solid grey;
@@ -164,7 +140,89 @@ export const Progress = styled.span`
   padding-right: 5px;
 `;
 
-// ReviewTile Styles
+// Product Breakdown
+
+export const ProductBreakdownContainer = styled.div`
+  width: 80%;
+`;
+
+export const FactorBreakdownContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const ProductBreakdownLabel = styled.div`
+  margin-top: 1rem;
+  align-self: flex-start;
+  font-weight: bold;
+`;
+
+export const IndicatorContainer = styled.div`
+ display: flex;
+ width: 100%;
+ gap: 0.25rem;
+ margin-top: 1rem;
+ margin-bottom: 0.5rem;
+`;
+
+export const FactorContainer = styled.div`
+  width: 20%;
+  height: 10px;
+  background-color: ${props => props.shading ? 'black' : '#fafafa'}};
+  border: solid 1px black;
+`;
+export const FactorLabelsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const FactorLabels = styled.div`
+  font-size: 10pt;
+`;
+
+export const ResetFiltersButton = styled(Buttons)`
+  width: fit-content;
+`;
+
+/********* Review List Styles  *************/
+
+export const ReviewListDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 78%;
+`;
+
+export const ReviewTilesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 60rem;
+  overflow: auto;
+`;
+
+export const ReviewButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+/********* Rating Breakdown Styles  *************/
+
+export const RatingBreakdownDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+`;
+
+export const AverageRatingDiv = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+/********* Review Tile Styles  *************/
 
 export const ReviewTileDiv = styled.div`
   padding: 1rem 1rem;
@@ -176,15 +234,21 @@ export const ReviewTileDiv = styled.div`
 `;
 
 export const ReviewTileContent = styled.div`
-  margin-left: 10px;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  width: 100%
 `;
 
 export const ReviewTileHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+`;
+
+export const ReviewBody = styled.div`
+  overflow-wrap: break-word;
+  width: 90%;
 `;
 
 export const ReviewPhotos = styled.div`
@@ -209,7 +273,7 @@ export const ReportButton = styled(Buttons)`
   margin: 0;
 `;
 
-// Review Form Styles
+/********* Review Form Styles  *************/
 
 const fadeInAnimation = keyframes`
 0% { opacity: 0}
@@ -251,11 +315,11 @@ export const styledForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 500px;
+  width: fit-content;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
   animation-name: ${props => props.out ? collapseAnimation : expandAnimation};
   animation-duration: 0.3s;
 `;

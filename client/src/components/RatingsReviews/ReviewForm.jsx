@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import * as styling from './Styling.js';
+import * as styling from './Styling/Styling.js';
 import CharSection from './CharSection.jsx';
 import ReviewStarRating from './StarRating.jsx';
 
-const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setReviews }) => {
+const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setReviews, sortOrder }) => {
 
   const [reviewForm, setReviewForm] = useState({
     product_id: 40344,
@@ -32,7 +32,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
         return axios.get('/reviews', {
           params: {
             product_id: Number(metaData.product_id),
-            sort: 'relevant',
+            sort: sortOrder,
             count: 1000
           }
         });
