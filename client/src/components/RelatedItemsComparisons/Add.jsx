@@ -42,7 +42,7 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
           }
         }
         if (temp.photo === null || temp.photo === undefined) {
-          temp.photo = 'https://greenvilleidc.com/img/placeholder.jpeg';
+          temp.photo = 'https://media.allure.com/photos/5adba084276cd40c0eb8f42e/16:9/w_2560%2Cc_limit/GettyImages-826492462.jpg';
         }
         setStyle({ pictures: temp.photo, sale_price: temp.sale_price });
       })

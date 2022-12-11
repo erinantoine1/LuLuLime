@@ -76,7 +76,6 @@ const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
     axios.get('/currentItem/related', { params: { product_id: currentID } })
       .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem/styles', { params: { product_id: itemID } }))))
       .then(res => {
-        console.log('res', res);
         const temp = [];
 
         for (let i = 0; i < res.length; i++) {
@@ -96,7 +95,7 @@ const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
             if(typeof res[i].data.results[0].photos[0].url === 'string') {
               temp.push({ photo: res[i].data.results[0].photos[0].url });
             } else {
-              temp.push({ photo: 'https://greenvilleidc.com/img/placeholder.jpeg' });
+              temp.push({ photo: 'https://media.allure.com/photos/5adba084276cd40c0eb8f42e/16:9/w_2560%2Cc_limit/GettyImages-826492462.jpg' });
             }
           }
         }
