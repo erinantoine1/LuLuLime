@@ -3,6 +3,7 @@ import axios from 'axios';
 import * as styling from './Styling/Styling.js';
 import CharSection from './CharSection.jsx';
 import ReviewStarRating from './StarRating.jsx';
+import PhotoUpload from './PhotoUpload.jsx';
 
 const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setReviews, sortOrder }) => {
 
@@ -11,7 +12,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
     rating: 1,
     summary: '',
     body: '',
-    recommend: false,
+    recommend: null,
     name: '',
     email: '',
     photos: [],
@@ -19,6 +20,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
   });
 
   const [visible, setVisible] = useState(true);
+  const [errors, setErrors] = useState(false);
   const [photoView, setPhotoView] = useState(false);
 
   const handleRecommend = (value) => {
@@ -44,6 +46,27 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
     setVisible(false);
   };
 
+  const handleErrors = (event) => {
+    event.preventDefault();
+    if (reviewForm.recommend === null) {
+      setErrors(true);
+    } else if (Object.keys(metaData.characteristics).length !== Object.keys(reviewForm.characteristics).length) {
+      setErrors(true);
+    } else if (reviewForm.body.length < 50) {
+      setErrors(true);
+    } else if (reviewForm.name.length === 0) {
+      setErrors(true);
+    } else if (!reviewForm.email.split('').includes('@')) {
+      setErrors(true);
+    } else {
+      handleSubmit(event);
+    }
+  };
+
+
+
+
+
   return (
     <styling.ReviewFormContainer
       onClick={() => setVisible(false)}
@@ -52,6 +75,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
     >
       <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
         <h2>Review Form</h2>
+        {errors && <div>Please check your form</div>}
         <styling.recommendDiv>
           <label htmlFor="rating">
             Rating:
@@ -67,14 +91,16 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
             <input type="radio" id="no" name="recommend" value="false" onChange={(event) => handleRecommend(event.target.value)} />
           </label>
         </styling.recommendDiv>
-        {Object.entries(metaData.characteristics).map((characteristic) => (
-          <CharSection
-            key={characteristic[1].id}
-            characteristic={characteristic}
-            reviewForm={reviewForm}
-            setReviewForm={setReviewForm}
-          />
-        ))}
+        <styling.CharsContainer>
+          {Object.entries(metaData.characteristics).map((characteristic) => (
+            <CharSection
+              key={characteristic[1].id}
+              characteristic={characteristic}
+              reviewForm={reviewForm}
+              setReviewForm={setReviewForm}
+            />
+          ))}
+        </styling.CharsContainer>
         <styling.textAreaDiv>
           <styling.FormLabels htmlFor="summary">
             Summary:
@@ -106,11 +132,12 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
         </styling.textAreaDiv>
         <styling.UserInfoDiv>
           <styling.photoButton
-            type="submit"
-            onClick={(event) => event.preventDefault()}
+            type="button"
+            onClick={(event) => setPhotoView(true)}
           >
             Upload Photos
           </styling.photoButton>
+          {photoView && <PhotoUpload reviewForm={reviewForm} setReviewForm={setReviewForm} />}
           <styling.FormLabels htmlFor="nicname">
             Nickname:
             <input
@@ -136,7 +163,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
           </styling.FormLabels>
           <span>For authentication reasons, you will not be emailed</span>
         </styling.UserInfoDiv>
-        <styling.submitButton type="submit" value="Submit Review" onClick={(event) => handleSubmit(event)} />
+        <styling.submitButton type="submit" value="Submit Review" onClick={(event) => handleErrors(event)} />
       </styling.styledForm>
     </styling.ReviewFormContainer>
   );

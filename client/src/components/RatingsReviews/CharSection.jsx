@@ -10,21 +10,18 @@ const CharSection = ({ characteristic, reviewForm, setReviewForm }) => {
 
 
   return (
-    <styling.characteristicsDiv>
+    <styling.CharDiv>
       <styling.CharNames>{`${characteristicName}: `}</styling.CharNames>
-      <styling.characteristicsButtons>
+      <styling.RadioButtonsContainer>
         <CharRadios
           characteristicName={characteristicName}
           characteristicId={characteristicId}
           reviewForm={reviewForm}
           setReviewForm={setReviewForm}
+          choices={choices}
         />
-      </styling.characteristicsButtons>
-      <styling.characteristicsDescriptions>
-        <span>{choices[1]}</span>
-        <span>{choices[5]}</span>
-      </styling.characteristicsDescriptions>
-    </styling.characteristicsDiv>
+      </styling.RadioButtonsContainer>
+    </styling.CharDiv>
   );
 };
 
