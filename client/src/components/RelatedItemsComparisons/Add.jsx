@@ -49,7 +49,6 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
       .catch(err => console.error(err));
   }, [currentID]);
 
-
   const addItem = () => {
     if (!outfitItems.some(item => item.name === currentItem.name)) {
       const copy = [...outfitItems];
