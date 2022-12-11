@@ -47,13 +47,6 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
         setStyle({ pictures: temp.photo, sale_price: temp.sale_price });
       })
       .catch(err => console.error(err));
-
-    // Promise.all([axios.get('/currentItem', { params: { product_id: currentID } }), axios.get('/currentItem/styles', { params: { product_id: currentID } })])
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch();
-
   }, [currentID]);
 
 
