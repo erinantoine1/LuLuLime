@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const axios = require('axios');
+const config = require('../config.js');
 
 const QAController = require('./controllers/QuestonsAnswersController.js');
 
@@ -37,6 +39,12 @@ const relatedController = require('./controllers/relatedController.js');
 router.get('/currentItem', relatedController.getCurrentItem);
 router.get('/currentItem/styles', relatedController.getCurrentStyles);
 router.get('/currentItem/related', relatedController.getRelatedItems);
+
+router.get('/firstItem', (req, res) => {
+  axios.get(`${config.URL}/products/`, { headers: { Authorization: config.TOKEN } })
+    .then(item => res.status(200).send(item.data))
+    .catch(err => res.status(404).send());
+});
 
 
 module.exports = router;
