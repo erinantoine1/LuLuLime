@@ -53,23 +53,23 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
   const [currentItem, setCurrentItem] = useState({});
   const [relatedItem, setRelatedItem] = useState({});
 
-  useEffect(() => {
-    axios.get('/currentItem', { params: { product_id: currentID } })
-      .then(res => {
-        setCurrentItem(res.data);
-      })
-      .catch(err => console.error(err));
+  // useEffect(() => {
+  //   axios.get('/currentItem', { params: { product_id: currentID } })
+  //     .then(res => {
+  //       setCurrentItem(res.data);
+  //     })
+  //     .catch(err => console.error(err));
 
-    axios.get('/currentItem', { params: { product_id: id } })
-      .then(res => {
-        setRelatedItem(res.data);
-      })
-      .catch(err => console.error(err));
-  }, [currentID, id]);
+  //   axios.get('/currentItem', { params: { product_id: id } })
+  //     .then(res => {
+  //       setRelatedItem(res.data);
+  //     })
+  //     .catch(err => console.error(err));
+  // }, [currentID, id]);
 
   return (
     <Container>
-      {showModal && <CompareModal currentItem={currentItem} relatedItem={relatedItem} setShowModal={setShowModal} /> }
+      {/* {showModal && <CompareModal currentItem={currentItem} relatedItem={relatedItem} setShowModal={setShowModal} /> } */}
       <StyledCard>
         <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
         <Image width={cardWidth} src={picture} alt="item" onClick={() => setCurrentID(id)} />

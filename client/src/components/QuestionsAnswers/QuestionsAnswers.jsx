@@ -32,7 +32,7 @@ const QuestionsAnswers = ({ currentID }) => {
 
   useEffect(() => {
     loadQuestions();
-  }, currentID);
+  }, [currentID]); // fixed this
 
   const doSearch = (query) => {
     if (query) {
