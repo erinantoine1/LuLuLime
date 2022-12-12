@@ -22,7 +22,8 @@ const Title = styled.h2`
 
 const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
   const [currentItem, setCurrentItem] = useState({});
-  const [photo, setPhoto] = useState('');
+  const [style, setStyle] = useState({});
+  const [currentAddItem, setCurrentAddItem] = useState(0);
 
   useEffect(() => {
     axios.get('/currentItem', { params: { product_id: currentID } })
@@ -33,15 +34,33 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
 
     axios.get('/currentItem/styles', { params: { product_id: currentID } })
       .then(res => {
-        setPhoto(res.data.results[0].photos[0].url);
+        const temp = {};
+        for (let i = 0; i < res.data.results.length; i++) {
+          if (res.data.results[i]['default?']) {
+            temp.sale_price = res.data.results[i].sale_price;
+            temp.photo = res.data.results[i].photos[0].url;
+          }
+        }
+        if (temp.photo === null || temp.photo === undefined) {
+          temp.photo = 'https://greenvilleidc.com/img/placeholder.jpeg';
+        }
+        setStyle({ pictures: temp.photo, sale_price: temp.sale_price });
       })
       .catch(err => console.error(err));
 
-  }, []);
+    // Promise.all([axios.get('/currentItem', { params: { product_id: currentID } }), axios.get('/currentItem/styles', { params: { product_id: currentID } })])
+    //   .then(res => {
+    //     console.log(res);
+    //   })
+    //   .catch();
+
+  }, [currentID]);
+
+
   const addItem = () => {
     if (!outfitItems.some(item => item.name === currentItem.name)) {
       const copy = [...outfitItems];
-      const item = { ...currentItem, pictures: photo };
+      const item = { ...currentItem, ...style };
       copy.unshift(item);
       localStorage.setItem('yourOutfit', JSON.stringify(copy));
       setOutfitItems(copy);

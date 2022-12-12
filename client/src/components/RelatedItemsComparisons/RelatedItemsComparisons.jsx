@@ -11,14 +11,14 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const RelatedItemsComparisons = ({ currentID, setNewProduct }) => {
+const RelatedItemsComparisons = ({ currentID, setCurrentID }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <Container>
       {showModal && <CompareModal setShowModal={setShowModal} />}
       <h1>Related Items</h1>
-      <RelatedList setShowModal={setShowModal} showModal={showModal} setNewProduct={setNewProduct} />
+      <RelatedList setCurrentID={setCurrentID} setShowModal={setShowModal} showModal={showModal} currentID={currentID} />
       <h1>Your Outfit</h1>
       <OutfitList currentID={currentID} />
     </Container>

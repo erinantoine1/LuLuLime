@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 
 const StyledCard = styled.div`
   box-shadow: 0 1px 0.5rem -4px #000;
@@ -8,7 +7,7 @@ const StyledCard = styled.div`
   cursor: pointer;
   height: 375px;
   position: relative;
-  margin: 0;
+  margin-bottom: 1rem;
 `;
 
 const Image = styled.img`
@@ -44,8 +43,13 @@ const StyledX = styled.img`
 const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, default_price, pictures }) => {
 
   const removeItem = () => {
-    const copy = [...outfitItems];
-    copy.pop();
+    const copy = JSON.parse(localStorage.getItem('yourOutfit'));
+    for (let i = 0; i < copy.length; i++) {
+      if (copy[i].pictures === pictures && copy[i].name === name) {
+        copy.splice(i, 1);
+      }
+    }
+    localStorage.setItem('yourOutfit', JSON.stringify(copy));
     setOutfitItems(copy);
   };
 
