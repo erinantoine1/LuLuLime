@@ -23,9 +23,9 @@ left: 5px;
 
 const StyleThumbnail = (
   ({
-    productStyleId, setProductStyleId, styleId, productStyleName, setProductStyleName, styleName, productStyleOriginalPrice, setProductStyleOriginalPrice, styleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, styleSalePrice, productStylePhotos, setProductStylePhotos, stylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, styleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray
+    productStyleDefault, setProductStyleDefault, styleDefault, productStyleId, setProductStyleId, styleId, productStyleName, setProductStyleName, styleName, productStyleOriginalPrice, setProductStyleOriginalPrice, styleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, styleSalePrice, productStylePhotos, setProductStylePhotos, stylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, styleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray
   }) => {
-
+    console.log(productStyleDefault);
     const thumbnailClickHandler = (e) => {
       const skuKeys = Object.keys(styleSkus);
 
@@ -36,6 +36,7 @@ const StyleThumbnail = (
         styleQuantitiesArray.push(styleSkus[skuKeys[i]].quantity);
       }
 
+      setProductStyleDefault(styleDefault);
       setProductStyleId(styleId);
       setProductStyleName(styleName);
       setProductStyleOriginalPrice(styleOriginalPrice);

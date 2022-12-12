@@ -10,34 +10,29 @@ import AddToCart from './Add_To_Cart/AddToCart.jsx';
 /* ****************** styled-components ******************* */
 const NavigationDiv = styled.div`
 background: lightgrey;
-height: 200px;
+height: 115px;
 width: 100%;
 border: solid;
 font-size: 40px;
 `;
-const PlaceHolderDiv = styled.div`
-height: 150px;
-width: 750px;
-position: relative;
-left: 300px;
-`;
 const ImageGalleryDiv = styled.div`
 position: relative;
 left: 50px;
+top: 50px;
 `;
 const StyleSelectorDiv = styled.div`
 height: 200px;
 width: 350px;
 position: relative;
 left: 1200px;
-top: -600px;
+top: -450px;
 `;
 const AddToCartDiv = styled.div`
 height: 300px;
 width: 600px;
 position: relative;
 left: 1200px;
-top: -1300px;
+top: -1150px;
 `;
 
 const Overview = ({ currentID }) => {
@@ -78,40 +73,41 @@ const Overview = ({ currentID }) => {
 
   /* ****************** axios requests ******************* */
   useEffect(() => {
-    axios.get('/products')
-      .then((response) => {
-        setAllProducts(response.data);
-        setProductId(response.data[2].id);
-        setProductTitle(response.data[2].name);
-        setProductCategory(response.data[2].category);
-        setProductOverview(response.data[2].description);
-      }).then(() => {
-        axios.get(`/products/${currentID}/styles`)
-          .then((response) => {
-            setAllProductStyles(response.data.results);
-            for (let i = 0; i < response.data.results.length; i++) {
-              if (response.data.results[i]['default?']) {
-                setProductStyleDefault(response.data.results[i]['default?']);
-                setProductStyleId(response.data.results[i].style_id);
-                setProductStyleName(response.data.results[i].name);
-                setProductStyleOriginalPrice(response.data.results[i].original_price);
-                setProductStyleSalePrice(response.data.results[i].sale_price);
-                setProductStylePhotos(response.data.results[i].photos);
-                setProductStyleSkus(response.data.results[i].skus);
+    const parameters = { currentID };
+    axios.get('/products').then((response) => {
+      setAllProducts(response.data);
+      setProductId(response.data[2].id);
+      setProductTitle(response.data[2].name);
+      setProductCategory(response.data[2].category);
+      setProductOverview(response.data[2].description);
+    }).then(() => {
+      axios.get('/products/styles', {
+        params: parameters
+      }).then((response) => {
+        setAllProductStyles(response.data.results);
+        for (let i = 0; i < response.data.results.length; i++) {
+          if (response.data.results[i]['default?']) {
+            setProductStyleDefault(response.data.results[i]['default?']);
+            setProductStyleId(currentID);
+            setProductStyleName(response.data.results[i].name);
+            setProductStyleOriginalPrice(response.data.results[i].original_price);
+            setProductStyleSalePrice(response.data.results[i].sale_price);
+            setProductStylePhotos(response.data.results[i].photos);
+            setProductStyleSkus(response.data.results[i].skus);
 
-                const skuKeys = Object.keys(response.data.results[i].skus);
-                const productStyleSizesArray = [];
-                const productStyleQuantitiesArray = [];
-                for (let j = 0; j < skuKeys.length; j++) {
-                  productStyleSizesArray.push(response.data.results[i].skus[skuKeys[j]].size);
-                  productStyleQuantitiesArray.push(response.data.results[i].skus[skuKeys[j]].quantity);
-                }
-                setProductStyleQuantities(productStyleQuantitiesArray);
-                setProductStyleSizes(productStyleSizesArray);
-              }
+            const skuKeys = Object.keys(response.data.results[i].skus);
+            const productStyleSizesArray = [];
+            const productStyleQuantitiesArray = [];
+            for (let j = 0; j < skuKeys.length; j++) {
+              productStyleSizesArray.push(response.data.results[i].skus[skuKeys[j]].size);
+              productStyleQuantitiesArray.push(response.data.results[i].skus[skuKeys[j]].quantity);
             }
-          });
+            setProductStyleQuantities(productStyleQuantitiesArray);
+            setProductStyleSizes(productStyleSizesArray);
+          }
+        }
       });
+    });
   }, []);
 
   const AddToCartSubmit = () => {
@@ -142,7 +138,6 @@ const Overview = ({ currentID }) => {
   return (
     <div>
       <NavigationDiv>Future Navigation Div</NavigationDiv>
-      <PlaceHolderDiv />
       <ImageGalleryDiv>
         <ImageGallery
           allProductStyles={allProductStyles}

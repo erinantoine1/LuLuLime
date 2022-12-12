@@ -8,14 +8,14 @@ position: relative;
 top: -10px;
 left: 10px;
 font-size: 40px;
-color: red;
+color: limeGreen;
 `;
 const OriginalPriceSale = styled.div`
 height: 150px;
 width: 350px;
 position: relative;
 top: 0px;
-left: 125px;
+left: 160px;
 font-size: 20px;
 color: black;
 text-decoration: line-through;

@@ -18,7 +18,7 @@ const LeftButton = styled.button`
   position: absolute;
   top: 250px;
   z-index: 50;
-  left: 140px;
+  left: 100px;
 `;
 
 const RightButton = styled.button`
@@ -33,7 +33,7 @@ const RightButton = styled.button`
   cursor: pointer;
   font-size: 3rem;
   position: absolute;
-  left: 875px;
+  left: 800px;
   top: 250px;
 `;
 

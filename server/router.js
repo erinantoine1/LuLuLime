@@ -26,7 +26,7 @@ router.put('/reviews/report', reviewControllers.reportReview);
 const OverviewController = require('./controllers/OverviewControllers');
 
 router.get('/products', OverviewController.getAllProducts);
-router.get('/products/40346/styles', OverviewController.getAllProductStyles);
+router.get('/products/styles', OverviewController.getAllProductStyles);
 router.get('/cart', OverviewController.getCartItems);
 router.post('/cart', OverviewController.addCartItem);
 
