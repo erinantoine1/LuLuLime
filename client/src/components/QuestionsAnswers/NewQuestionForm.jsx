@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import * as styling from './Styling.js';
 
-const NewQuestionForm = ({ newQuestion, loadQuestions, toggleNewQuestion, product_id }) => {
+
+const NewQuestionForm = ({ loadQuestions, toggleNewQuestion, product_id }) => {
 
   const [question, setQuestion] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [visible, setVisible] = useState(true);
 
   const handleQuestion = (event) => {
     setQuestion(event.target.value);
@@ -36,11 +39,26 @@ const NewQuestionForm = ({ newQuestion, loadQuestions, toggleNewQuestion, produc
     }
   };
 
+  const handleCancel = () => {
+    setVisible(true);
+    toggleNewQuestion();
+  };
+
   return (
-    <div>
-      {!newQuestion ? null : (
-        <div>
-          <input
+    <styling.QAFormContainer
+      onClick={
+        () => {
+          setVisible(false);
+          toggleNewQuestion();
+        }
+      }
+      out={!visible}
+      onAnimationEnd={() => !visible}
+    >
+      <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
+        <h2>Ask a question</h2>
+        <styling.textAreaDiv>
+          <textarea
             type='textarea'
             placeholder='What is your question?'
             onChange={handleQuestion}
@@ -54,9 +72,10 @@ const NewQuestionForm = ({ newQuestion, loadQuestions, toggleNewQuestion, produc
             onChange={handleEmail}
           />
           <button onClick={handleSubmit}>Submit</button>
-        </div>
-      )}
-    </div>
+          <button onClick={handleCancel}>Cancel</button>
+        </styling.textAreaDiv>
+      </styling.styledForm>
+    </styling.QAFormContainer>
   );
 };
 

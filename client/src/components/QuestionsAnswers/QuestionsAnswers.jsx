@@ -32,7 +32,7 @@ const QuestionsAnswers = ({ currentID }) => {
 
   useEffect(() => {
     loadQuestions();
-  }, currentID);
+  }, [currentID]);
 
   const doSearch = (query) => {
     if (query) {
@@ -53,7 +53,7 @@ const QuestionsAnswers = ({ currentID }) => {
   };
 
   const showMoreQuestions = () => {
-    setQuestionsShown(questionsShown + 4);
+    setQuestionsShown(questionsShown + 5);
     loadQuestions();
   };
 
@@ -66,12 +66,13 @@ const QuestionsAnswers = ({ currentID }) => {
         loadQuestions={loadQuestions}
       />
       <button onClick={showMoreQuestions}>Load more questions</button>
-      <NewQuestionForm
-        newQuestion={newQuestion}
-        loadQuestions={loadQuestions}
-        toggleNewQuestion={toggleNewQuestion}
-        product_id={product_id}
-      />
+      {!newQuestion ? null : (
+        <NewQuestionForm
+          loadQuestions={loadQuestions}
+          toggleNewQuestion={toggleNewQuestion}
+          product_id={product_id}
+        />
+      )}
       <button onClick={toggleNewQuestion}>Add a question</button>
     </styling.QASectionContainer>
   );

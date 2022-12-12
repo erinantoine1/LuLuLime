@@ -8,6 +8,10 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   const [answers, setAnswers] = useState([]);
   const [answersShown, setAnswersShown] = useState(2);
+  const [timesClicked, setTimesClicked] = useState(0);
+  const [allAnswersShown, setAllAnswersShown] = useState(false);
+  const [helpfulPressed, setHelpfulPressed] = useState(false);
+  const [newAnswer, setNewAnswer] = useState(false);
 
   const loadAnswers = (count = 5, page = 1) => {
     const parameters = { question_id: question.question_id, page, count };
@@ -15,9 +19,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
       params: parameters
     })
       .then((response) => {
-        console.log(response.data.results);
         setAnswers(response.data.results);
-        // sortAndProcessAnswers();
       });
   };
 
@@ -25,8 +27,8 @@ const QuestionEntry = ({ question, loadQuestions }) => {
     loadAnswers();
   }, []);
 
-  let sortAnswers = Object.values(question.answers);
-  sortAnswers = sortAnswers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
+  let getAnswers = Object.values(question.answers);
+  getAnswers = getAnswers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
 
   const handleUpdate = (route) => {
     axios.put(`/question/${route}`, {
@@ -46,31 +48,58 @@ const QuestionEntry = ({ question, loadQuestions }) => {
   };
 
   const showAnswers = () => {
-    setAnswersShown(answers.length);
+    setAnswersShown(answersShown + 2);
+    if (timesClicked > 2 || answersShown >= answers.length) {
+      loadAnswers(40);
+      setAllAnswersShown(true);
+    }
+    setTimesClicked(timesClicked + 1);
   };
 
-  const getAnswers = sortAnswers.slice(0, answersShown);
+  if (!allAnswersShown) {
+    getAnswers = getAnswers.slice(0, answersShown);
+  }
+
+  const toggleNewAnswer = () => {
+    setNewAnswer(!newAnswer);
+  };
 
   return (
-    <div>
-      <text>
-        <b>Q</b>
-        {`: ${question.question_body}?`}
-      </text>
-      <text>{'\nHelpful? '}</text>
-      <button onClick={setHelpful}>Yes</button>
-      <text>{` ${question.question_helpfulness}`}</text>
-      <text> | </text>
-      <button onClick={report}>Report</button>
-      {getAnswers.map((answer, key) => (
-        <AnswerEntry
-          answer={answer}
-          loadQuestions={loadQuestions}
-          key={key}
-        />
-      ))}
-      <button onClick={showAnswers}>Load more answers</button>
-    </div>
+    <styling.QATileDiv>
+      <styling.QATileContent>
+        <styling.QATileHeader>
+          <span>
+            <b>Q</b>
+            {`: ${question.question_body}?`}
+          </span>
+          <styling.QAHeaderButtons>
+            <span>Helpful?</span>
+            {helpfulPressed ? null
+              : <styling.Buttons type="submit" onClick={setHelpful}>Yes</styling.Buttons>}
+            <span>{`${question.question_helpfulness}  `}</span>
+            <span> | </span>
+            <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
+            <button onClick={toggleNewAnswer}>Add Answer</button>
+            {!newAnswer ? null : (
+              <NewAnswerForm
+                loadAnswers={loadAnswers}
+                toggleNewAnswer={toggleNewAnswer}
+                question_id={question.question_id}
+              />
+            )}
+          </styling.QAHeaderButtons>
+        </styling.QATileHeader>
+        {getAnswers.map((answer, key) => (
+          <AnswerEntry
+            answer={answer}
+            loadQuestions={loadQuestions}
+            key={key}
+          />
+        ))}
+        {allAnswersShown ? null
+          : <button onClick={showAnswers}>Load more answers</button>}
+      </styling.QATileContent>
+    </styling.QATileDiv>
   );
 
 };
@@ -78,7 +107,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 export default QuestionEntry;
 
 
-
+/* <button onClick={report}>Report</button> */
 // const [answers, setAnswers] = useState([]);
 //   const [truncatedAnswers, setTruncatedAnswers] = useState([]);
 //   const [answersShown, setAnswersShown] = useState(2);

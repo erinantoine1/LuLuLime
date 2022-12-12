@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import * as styling from './Styling.js';
 
-const NewAnswerForm = ({ newAnswer, loadAnswers, toggleNewAnswer, question_id }) => {
+
+const NewAnswerForm = ({ loadAnswers, toggleNewAnswer, question_id }) => {
 
   const [answer, setAnswer] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
+  const [visible, setVisible] = useState(true);
 
   const handleAnswer = (event) => {
     setAnswer(event.target.value);
@@ -37,11 +40,26 @@ const NewAnswerForm = ({ newAnswer, loadAnswers, toggleNewAnswer, question_id })
     }
   };
 
+  const handleCancel = () => {
+    setVisible(true);
+    toggleNewAnswer();
+  };
+
   return (
-    <div>
-      {!newAnswer ? null : (
-        <div>
-          <input
+    <styling.QAFormContainer
+      onClick={
+        () => {
+          setVisible(false);
+          toggleNewAnswer();
+        }
+      }
+      out={!visible}
+      onAnimationEnd={() => !visible}
+    >
+      <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
+        <h2>Ask a question</h2>
+        <styling.textAreaDiv>
+          <textarea
             type='textarea'
             placeholder='What is your answer?'
             onChange={handleAnswer}
@@ -58,9 +76,10 @@ const NewAnswerForm = ({ newAnswer, loadAnswers, toggleNewAnswer, question_id })
             placeholder='Photos'
           />
           <button onClick={handleSubmit}>Submit</button>
-        </div>
-      )}
-    </div>
+          <button onClick={handleCancel}>Cancel</button>
+        </styling.textAreaDiv>
+      </styling.styledForm>
+    </styling.QAFormContainer>
   );
 };
 
