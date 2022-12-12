@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import ExpandedCurrentImages from './ExpandedCurrentImages';
+import ExpandedCurrentImages from './ExpandedCurrentImages.jsx';
 import ImageIcons from './ImageIcons.jsx';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import ImageArrows from './ImageArrows.jsx';

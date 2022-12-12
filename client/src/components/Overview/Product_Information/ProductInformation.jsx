@@ -11,29 +11,29 @@ const ShareDiv = styled.div`
 height: 200px;
 width: 350px;
 position: relative;
-top: -915px;
+top: -800px;
 left: 1325px;
 `;
 const PriceDiv = styled.div`
 height: 150px;
 width: 350px;
 position: relative;
-top: -1250px;
+top: -1100px;
 left: 1200px;
 `;
 const CategoryOverviewDiv = styled.div`
 height: 200px;
 width: 350px;
 position: relative;
-top: -1175px;
+top: -1025px;
 left: 1200px;
 `;
 const TitleRatingDiv = styled.div`
 height: 200px;
 width: 700px;
 position: relative;
-top: -1075px;
-left: 450px;
+top: -925px;
+left: 1250px;
 `;
 const TitleDiv = styled.div`
 font-size: 28px;

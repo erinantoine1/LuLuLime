@@ -8,11 +8,9 @@ margin-left: 12%;
 margin-right: 12%;
 display: flex;
 position: relative;
-top: -101px;
-left: -104px;
-border: solid;
-width: 850px;
-background-color: white;
+top: 25px;
+left: 0px;
+width: 500px;
 `;
 
 const ThumbnailsContainer = styled.div`
@@ -22,8 +20,8 @@ text-align: center;
 scroll-behavior: smooth;
 flex: 1;
 position: relative;
-height: 100px;
-width: 100px;
+height: 50px;
+width: 50px;
 `;
 
 const ThumbnailContainer = styled.div`
@@ -31,8 +29,8 @@ display: flex-wrap;
 text-align: center;
 object-fit: cover;
 position: relative;
-height: 100px;
-width: 100px;
+height: 50px;
+width: 50px;
 margin: auto;
 `;
 
@@ -40,22 +38,24 @@ const LeftButton = styled.button`
 float: left;
 text-align: center;
 background-color: white;
-height: 75px;
-width: 75px;
+height: 50px;
+width: 50px;
 border-radius: 50%;
 margin: auto 6px;
 border: none;
 cursor: pointer;
 font-size: 3rem;
 margin: auto;
+position: relative;
+left: -10px;
 `;
 
 const RightButton = styled.button`
 float: right;
 text-align: center;
 background-color: white;
-height: 75px;
-width: 75px;
+height: 50px;
+width: 50px;
 border-radius: 50%;
 margin: auto 6px;
 border: none;
