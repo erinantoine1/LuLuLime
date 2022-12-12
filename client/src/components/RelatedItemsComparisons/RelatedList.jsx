@@ -49,7 +49,7 @@ const RightButton = styled.button`
   visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
 `;
 
-const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
+const RelatedList = ({ setCurrentID, currentID }) => {
   const [relatedItems, setRelatedItems] = useState([]);
   const [styles, setStyles] = useState([]);
   const [scrollCount, setScrollCount] = useState(0);
@@ -119,7 +119,7 @@ const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {(width && relatedItems.length !== 0 && styles.length !== 0) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} setShowModal={setShowModal} key={`${item}+${index}`} setCurrentID={setCurrentID} />)}
+        {(width && relatedItems.length !== 0 && styles.length !== 0) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />)}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItems.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
