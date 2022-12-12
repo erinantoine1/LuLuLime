@@ -42,10 +42,10 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
       <br />
       <span>{`by ${answer.answerer_name}, ${formatDate()}   |   Helpful?  `}</span>
       {helpfulPressed ? null
-        : <button onClick={setHelpful}>Yes</button>}
+        : <styling.Buttons type="submit" onClick={setHelpful}>Yes</styling.Buttons>}
       <span>{`  ${answer.helpfulness}  `}</span>
       <span> | </span>
-      <button onClick={report}>Report</button>
+      <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
       <styling.QAPhotos>
         {answer.photos.map((photo) => (
           <img key={photo.id} src={photo.url} alt="Clothing product" width="100" height="100" />

@@ -10,6 +10,8 @@ const QuestionEntry = ({ question, loadQuestions }) => {
   const [answersShown, setAnswersShown] = useState(2);
   const [timesClicked, setTimesClicked] = useState(0);
   const [allAnswersShown, setAllAnswersShown] = useState(false);
+  const [helpfulPressed, setHelpfulPressed] = useState(false);
+  const [newAnswer, setNewAnswer] = useState(false);
 
   const loadAnswers = (count = 5, page = 1) => {
     const parameters = { question_id: question.question_id, page, count };
@@ -58,27 +60,47 @@ const QuestionEntry = ({ question, loadQuestions }) => {
     getAnswers = getAnswers.slice(0, answersShown);
   }
 
+  const toggleNewAnswer = () => {
+    setNewAnswer(!newAnswer);
+  };
+
   return (
-    <div>
-      <text>
-        <b>Q</b>
-        {`: ${question.question_body}?`}
-      </text>
-      <text>{'\nHelpful? '}</text>
-      <styling.Buttons type="submit" onClick={setHelpful}>Yes</styling.Buttons>
-      <text>{` ${question.question_helpfulness}`}</text>
-      <text> | </text>
-      <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
-      {getAnswers.map((answer, key) => (
-        <AnswerEntry
-          answer={answer}
-          loadQuestions={loadQuestions}
-          key={key}
-        />
-      ))}
-      {allAnswersShown ? null
-        : <button onClick={showAnswers}>Load more answers</button>}
-    </div>
+    <styling.QATileDiv>
+      <styling.QATileContent>
+        <styling.QATileHeader>
+          <span>
+            <b>Q</b>
+            {`: ${question.question_body}?`}
+          </span>
+          <styling.QAHeaderButtons>
+            <span>Helpful?</span>
+            {helpfulPressed ? null
+              : <styling.Buttons type="submit" onClick={setHelpful}>Yes</styling.Buttons>}
+            <span>{`${question.question_helpfulness}  `}</span>
+            <span> | </span>
+            <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
+            <button onClick={toggleNewAnswer}>Add Answer</button>
+            {!newAnswer ? null : (
+              <NewAnswerForm
+                newAnswer={newAnswer}
+                loadAnswers={loadAnswers}
+                toggleNewAnswer={toggleNewAnswer}
+                question_id={question.question_id}
+              />
+            )}
+          </styling.QAHeaderButtons>
+        </styling.QATileHeader>
+        {getAnswers.map((answer, key) => (
+          <AnswerEntry
+            answer={answer}
+            loadQuestions={loadQuestions}
+            key={key}
+          />
+        ))}
+        {allAnswersShown ? null
+          : <button onClick={showAnswers}>Load more answers</button>}
+      </styling.QATileContent>
+    </styling.QATileDiv>
   );
 
 };

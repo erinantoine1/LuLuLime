@@ -22,6 +22,13 @@ export const QATileDiv = styled.div`
   background-color: #fafafa;
 `;
 
+export const QATileContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%
+`;
+
 export const QATileHeader = styled.div`
   display: flex;
   justify-content: space-between;
