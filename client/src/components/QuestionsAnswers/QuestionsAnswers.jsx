@@ -53,7 +53,7 @@ const QuestionsAnswers = ({ currentID }) => {
   };
 
   const showMoreQuestions = () => {
-    setQuestionsShown(questionsShown + 4);
+    setQuestionsShown(questionsShown + 5);
     loadQuestions();
   };
 

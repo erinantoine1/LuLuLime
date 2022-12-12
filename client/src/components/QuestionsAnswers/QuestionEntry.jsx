@@ -8,6 +8,8 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   const [answers, setAnswers] = useState([]);
   const [answersShown, setAnswersShown] = useState(2);
+  const [timesClicked, setTimesClicked] = useState(0);
+  const [allAnswersShown, setAllAnswersShown] = useState(false);
 
   const loadAnswers = (count = 5, page = 1) => {
     const parameters = { question_id: question.question_id, page, count };
@@ -15,9 +17,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
       params: parameters
     })
       .then((response) => {
-        console.log(response.data.results);
         setAnswers(response.data.results);
-        // sortAndProcessAnswers();
       });
   };
 
@@ -25,8 +25,8 @@ const QuestionEntry = ({ question, loadQuestions }) => {
     loadAnswers();
   }, []);
 
-  let sortAnswers = Object.values(question.answers);
-  sortAnswers = sortAnswers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
+  let getAnswers = Object.values(question.answers);
+  getAnswers = getAnswers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
 
   const handleUpdate = (route) => {
     axios.put(`/question/${route}`, {
@@ -46,10 +46,17 @@ const QuestionEntry = ({ question, loadQuestions }) => {
   };
 
   const showAnswers = () => {
-    setAnswersShown(answers.length);
+    setAnswersShown(answersShown + 2);
+    if (timesClicked > 2 || answersShown >= answers.length) {
+      loadAnswers(40);
+      setAllAnswersShown(true);
+    }
+    setTimesClicked(timesClicked + 1);
   };
 
-  const getAnswers = sortAnswers.slice(0, answersShown);
+  if (!allAnswersShown) {
+    getAnswers = getAnswers.slice(0, answersShown);
+  }
 
   return (
     <div>
@@ -69,7 +76,8 @@ const QuestionEntry = ({ question, loadQuestions }) => {
           key={key}
         />
       ))}
-      <button onClick={showAnswers}>Load more answers</button>
+      {allAnswersShown ? null
+        : <button onClick={showAnswers}>Load more answers</button>}
     </div>
   );
 
