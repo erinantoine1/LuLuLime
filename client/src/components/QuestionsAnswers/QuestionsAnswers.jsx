@@ -66,12 +66,14 @@ const QuestionsAnswers = ({ currentID }) => {
         loadQuestions={loadQuestions}
       />
       <button onClick={showMoreQuestions}>Load more questions</button>
-      <NewQuestionForm
-        newQuestion={newQuestion}
-        loadQuestions={loadQuestions}
-        toggleNewQuestion={toggleNewQuestion}
-        product_id={product_id}
-      />
+      {!newQuestion ? null : (
+        <NewQuestionForm
+          newQuestion={newQuestion}
+          loadQuestions={loadQuestions}
+          toggleNewQuestion={toggleNewQuestion}
+          product_id={product_id}
+        />
+      )}
       <button onClick={toggleNewQuestion}>Add a question</button>
     </styling.QASectionContainer>
   );

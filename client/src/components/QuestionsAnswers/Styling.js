@@ -131,3 +131,20 @@ export const submitButton = styled.input`
   margin-top: 10px;
   width: fit-content;
 `;
+
+export const Buttons = styled.button`
+  border-radius: 0.25rem;
+  border: 0.0625 rem solid;
+  padding: 0.5rem;
+  cursor: pointer;
+`;
+
+
+export const ReportButton = styled(Buttons)`
+  background-color: transparent;
+  border: none;
+  height: fit-content;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+`;

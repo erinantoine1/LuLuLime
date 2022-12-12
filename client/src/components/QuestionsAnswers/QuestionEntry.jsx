@@ -65,10 +65,10 @@ const QuestionEntry = ({ question, loadQuestions }) => {
         {`: ${question.question_body}?`}
       </text>
       <text>{'\nHelpful? '}</text>
-      <button onClick={setHelpful}>Yes</button>
+      <styling.Buttons type="submit" onClick={setHelpful}>Yes</styling.Buttons>
       <text>{` ${question.question_helpfulness}`}</text>
       <text> | </text>
-      <button onClick={report}>Report</button>
+      <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
       {getAnswers.map((answer, key) => (
         <AnswerEntry
           answer={answer}
@@ -86,7 +86,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 export default QuestionEntry;
 
 
-
+/* <button onClick={report}>Report</button> */
 // const [answers, setAnswers] = useState([]);
 //   const [truncatedAnswers, setTruncatedAnswers] = useState([]);
 //   const [answersShown, setAnswersShown] = useState(2);

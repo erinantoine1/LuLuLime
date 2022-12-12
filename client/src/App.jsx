@@ -8,7 +8,9 @@ import RelatedItemsComparisons from './components/RelatedItemsComparisons/Relate
 
 const App = () => {
 
-  const [currentID, setCurrentID] = useState(40347);
+
+
+  const [currentID, setCurrentID] = useState(40344);
 
   return (
     <div>

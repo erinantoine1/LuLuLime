@@ -39,31 +39,41 @@ const NewQuestionForm = ({ newQuestion, loadQuestions, toggleNewQuestion, produc
     }
   };
 
+  const handleCancel = () => {
+    setVisible(true);
+    toggleNewQuestion();
+  };
+
   return (
     <styling.QAFormContainer
-      onClick={() => setVisible(false)}
+      onClick={
+        () => {
+          setVisible(false);
+          toggleNewQuestion();
+        }
+      }
       out={!visible}
-      onAnimationEnd={() => !visible && newQuestion}
+      onAnimationEnd={() => !visible}
     >
       <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
-        {!newQuestion ? null : (
-          <div>
-            <input
-              type='textarea'
-              placeholder='What is your question?'
-              onChange={handleQuestion}
-            />
-            <input
-              placeholder='Nickname?'
-              onChange={handleName}
-            />
-            <input
-              placeholder='Email?'
-              onChange={handleEmail}
-            />
-            <button onClick={handleSubmit}>Submit</button>
-          </div>
-        )}
+        <h2>Ask a question</h2>
+        <styling.textAreaDiv>
+          <textarea
+            type='textarea'
+            placeholder='What is your question?'
+            onChange={handleQuestion}
+          />
+          <input
+            placeholder='Nickname?'
+            onChange={handleName}
+          />
+          <input
+            placeholder='Email?'
+            onChange={handleEmail}
+          />
+          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={handleCancel}>Cancel</button>
+        </styling.textAreaDiv>
       </styling.styledForm>
     </styling.QAFormContainer>
   );
