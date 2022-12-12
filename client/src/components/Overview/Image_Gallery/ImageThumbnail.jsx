@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ImageThumbnailImg = styled.img`
-height: 100px;
-width: 100px;
+height: 50px;
+width: 50px;
 border: solid;
 z-index: 50;
 position: relative;

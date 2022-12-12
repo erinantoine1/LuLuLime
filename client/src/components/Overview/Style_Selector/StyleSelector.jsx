@@ -26,6 +26,9 @@ const StyleSelector = (
     const thumbnails = allProductStyles.map((styles) => {
       return (
         <StyleThumbnail
+          productStyleDefault={productStyleDefault}
+          setProductStyleDefault={setProductStyleDefault}
+          styleDefault={styles['default?']}
           productStyleId={productStyleId}
           setProductStyleId={setProductStyleId}
           styleId={styles.style_id}
