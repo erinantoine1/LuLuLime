@@ -1,4 +1,6 @@
-const generateChoices = (characteristicName) => {
+import axios from 'axios';
+
+export const generateChoices = (characteristicName) => {
   const choices = {};
   if (characteristicName === 'Size') {
     choices[1] = 'A size too small';
@@ -34,4 +36,16 @@ const generateChoices = (characteristicName) => {
   return choices;
 };
 
-export default generateChoices;
+export const getReviewsData = (url, product_id, sort, count) => {
+  const queries = { product_id, sort, count };
+  if (url === '/reviews') {
+    return axios.get(`${url}`, {
+      params: queries
+    });
+  }
+  return axios.get(`${url}`, {
+    params: {
+      product_id
+    }
+  });
+};

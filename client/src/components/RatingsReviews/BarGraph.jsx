@@ -4,11 +4,11 @@ import * as styling from './Styling/Styling.js';
 const BarGraph = ({ rating, percentage, toggleFilter }) => {
   return (
     <styling.BarGraphDiv>
-      <div>{`${rating} star`}</div>
+      <styling.BarGraphLabels>{`${rating} star`}</styling.BarGraphLabels>
       <styling.Meter onClick={() => toggleFilter(rating)}>
         <styling.Progress percentage={percentage}></styling.Progress>
       </styling.Meter>
-      <div>{`${percentage}%`}</div>
+      <styling.BarGraphLabels>{`${percentage}%`}</styling.BarGraphLabels>
     </styling.BarGraphDiv>
   );
 };
