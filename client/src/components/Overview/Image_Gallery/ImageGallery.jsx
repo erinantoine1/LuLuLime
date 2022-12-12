@@ -4,7 +4,7 @@ import ExpandedImageView from './ExpandedImageView.jsx';
 
 const ImageGallery = (
   ({
-    allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray, currentThumbnailUrl, setCurrentThumbnailUrl, currentPhotoUrl, setCurrentPhotoUrl, currentImageIndex, setCurrentImageIndex
+    allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray, currentThumbnailUrl, setCurrentThumbnailUrl, currentPhotoUrl, setCurrentPhotoUrl, currentImageIndex, setCurrentImageIndex, expandedImageViewActive, setExpandedImageViewActive, ImageIsZoomed, setImageIsZoomed
   }) => {
 
     return (
@@ -48,8 +48,10 @@ const ImageGallery = (
           setCurrentPhotoUrl={setCurrentPhotoUrl}
           currentImageIndex={currentImageIndex}
           setCurrentImageIndex={setCurrentImageIndex}
+          expandedImageViewActive={expandedImageViewActive}
+          setExpandedImageViewActive={setExpandedImageViewActive}
         />
-        {/* <ExpandedImageView
+        <ExpandedImageView
           allProductStyles={allProductStyles}
           setAllProductStyles={setAllProductStyles}
           productStyleDefault={productStyleDefault}
@@ -88,7 +90,11 @@ const ImageGallery = (
           setCurrentPhotoUrl={setCurrentPhotoUrl}
           currentImageIndex={currentImageIndex}
           setCurrentImageIndex={setCurrentImageIndex}
-        /> */}
+          expandedImageViewActive={expandedImageViewActive}
+          setExpandedImageViewActive={setExpandedImageViewActive}
+          ImageIsZoomed={ImageIsZoomed}
+          setImageIsZoomed={setImageIsZoomed}
+        />
       </div>
     );
   }

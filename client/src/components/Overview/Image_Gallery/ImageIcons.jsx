@@ -10,9 +10,7 @@ display: flex;
 position: relative;
 top: -101px;
 left: -104px;
-border: solid;
 width: 850px;
-background-color: white;
 `;
 
 const IconsContainer = styled.div`
@@ -29,40 +27,9 @@ width: 75px;
 
 const IconContainer = styled.div`
 display: flex;
-overflow: hidden;
-text-align: center;
-object-fit: cover;
 position: relative;
-height: 100px;
-width: 100px;
-margin: auto;
-`;
-
-const LeftButton = styled.button`
-float: left;
-text-align: center;
-background-color: white;
-height: 75px;
-width: 75px;
-border-radius: 50%;
-margin: auto 6px;
-border: none;
-cursor: pointer;
-font-size: 3rem;
-margin: auto;
-`;
-
-const RightButton = styled.button`
-float: right;
-text-align: center;
-background-color: white;
-height: 75px;
-width: 75px;
-border-radius: 50%;
-margin: auto 6px;
-border: none;
-cursor: pointer;
-font-size: 3rem;
+height: 40px;
+width: 40px;
 margin: auto;
 `;
 
@@ -137,11 +104,9 @@ const ImageIcons = (
 
     return (
       <ContainerParent>
-        <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
         <IconsContainer ref={containerRef}>
           {iconMap}
         </IconsContainer>
-        <RightButton onClick={handleRightClick}>⇢</RightButton>
       </ContainerParent>
     );
   });

@@ -22,26 +22,22 @@ position: relative;
 left: 300px;
 `;
 const ImageGalleryDiv = styled.div`
-height: 650px;
-width: 850px;
 position: relative;
-left: 200px;
-border: dotted;
-border-width: 3px;
+left: 50px;
 `;
 const StyleSelectorDiv = styled.div`
 height: 200px;
-width: 340px;
+width: 350px;
 position: relative;
-left: 1250px;
-top: -475px;
+left: 1200px;
+top: -600px;
 `;
 const AddToCartDiv = styled.div`
 height: 300px;
 width: 600px;
 position: relative;
-left: 1250px;
-top: -1175px;
+left: 1200px;
+top: -1300px;
 `;
 
 const Overview = ({ currentID }) => {
@@ -58,7 +54,7 @@ const Overview = ({ currentID }) => {
   const [productStyleName, setProductStyleName] = useState();
   const [productStyleOriginalPrice, setProductStyleOriginalPrice] = useState();
   const [productStyleSalePrice, setProductStyleSalePrice] = useState();
-  const [productStylePhotos, setProductStylePhotos] = useState();
+  const [productStylePhotos, setProductStylePhotos] = useState([]);
   const [productStyleSku, setProductStyleSku] = useState();
   const [productStyleSkus, setProductStyleSkus] = useState();
   const [productStyleSize, setProductStyleSize] = useState();
@@ -71,6 +67,14 @@ const Overview = ({ currentID }) => {
   const [currentThumbnailUrl, setCurrentThumbnailUrl] = useState('');
   const [currentPhotoUrl, setCurrentPhotoUrl] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [expandedImageViewActive, setExpandedImageViewActive] = useState(false);
+  const [ImageIsZoomed, setImageIsZoomed] = useState(false);
+
+  const [allQuantitiesZero, setAllQuantitiesZero] = useState(true);
+  const [addToCartButtonIsVisible, setAddToCartButtonIsVisible] = useState(true);
+  const [addToCartButtonIsDisabled, setAddToCartButtonIsDisabled] = useState(false);
+  const [sizeSelectorIsDisabled, setSizeSelectorIsDisabled] = useState(false);
+  const [productStyleSizeDropdownLength, setProductStyleSizeDropdownLength] = useState();
 
   /* ****************** axios requests ******************* */
   useEffect(() => {
@@ -102,9 +106,8 @@ const Overview = ({ currentID }) => {
                   productStyleSizesArray.push(response.data.results[i].skus[skuKeys[j]].size);
                   productStyleQuantitiesArray.push(response.data.results[i].skus[skuKeys[j]].quantity);
                 }
-
-                setProductStyleSizes(productStyleSizesArray);
                 setProductStyleQuantities(productStyleQuantitiesArray);
+                setProductStyleSizes(productStyleSizesArray);
               }
             }
           });
@@ -121,18 +124,19 @@ const Overview = ({ currentID }) => {
     }
     if (productStyleSize === undefined || productStyleSize === 'Select Size') {
       setUndefinedSizeSubmitted(true);
-    }
-    for (let i = 0; i < Number(addToCartObject.count); i++) {
-      axios.post('/cart', addToCartObject, { headers: { 'content-type': 'application/json' } }).then(() => {
-        return axios.get('/cart');
-      }).then((response) => {
-        console.log('Database after POST: ', response.data);
-      });
-    }
-  };
+      setProductStyleSizeDropdownLength(productStyleSizes.length + 1);
 
-  // then set default settings again
-  // setUndefinedSizeSubmitted(false);
+    } else {
+      for (let i = 0; i < Number(addToCartObject.count); i++) {
+        axios.post('/cart', addToCartObject, { headers: { 'content-type': 'application/json' } }).then(() => {
+          return axios.get('/cart');
+        }).then((response) => {
+          console.log('Database after POST: ', response.data);
+        });
+      }
+    }
+
+  };
 
   /* ****************** mapping products ******************* */
   return (
@@ -179,6 +183,10 @@ const Overview = ({ currentID }) => {
           setCurrentPhotoUrl={setCurrentPhotoUrl}
           currentImageIndex={currentImageIndex}
           setCurrentImageIndex={setCurrentImageIndex}
+          expandedImageViewActive={expandedImageViewActive}
+          setExpandedImageViewActive={setExpandedImageViewActive}
+          ImageIsZoomed={ImageIsZoomed}
+          setImageIsZoomed={setImageIsZoomed}
         />
       </ImageGalleryDiv>
       <br />
@@ -264,6 +272,16 @@ const Overview = ({ currentID }) => {
           setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
           dropdownQuantitiesArray={dropdownQuantitiesArray}
           setDropdownQuantitiesArray={setDropdownQuantitiesArray}
+          allQuantitiesZero={allQuantitiesZero}
+          setAllQuantitiesZero={setAllQuantitiesZero}
+          addToCartButtonIsVisible={addToCartButtonIsVisible}
+          setAddToCartButtonIsVisible={setAddToCartButtonIsVisible}
+          addToCartButtonIsDisabled={addToCartButtonIsDisabled}
+          setAddToCartButtonIsDisabled={setAddToCartButtonIsDisabled}
+          sizeSelectorIsDisabled={sizeSelectorIsDisabled}
+          setSizeSelectorIsDisabled={setSizeSelectorIsDisabled}
+          productStyleSizeDropdownLength={productStyleSizeDropdownLength}
+          setProductStyleSizeDropdownLength={setProductStyleSizeDropdownLength}
         />
       </AddToCartDiv>
     </div>

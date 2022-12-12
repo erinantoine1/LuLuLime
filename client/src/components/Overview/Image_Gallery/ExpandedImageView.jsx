@@ -1,21 +1,91 @@
-/* eslint-disable max-len */
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
-import CurrentImages from './CurrentImages.jsx';
+import styled, { keyframes } from 'styled-components';
+import ExpandedCurrentImages from './ExpandedCurrentImages';
 import ImageIcons from './ImageIcons.jsx';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import ImageArrows from './ImageArrows.jsx';
 
+const fadeInAnimation = keyframes`
+0% { opacity: 0}
+100% { opacity: 1}
+`;
+
+const fadeOutAnimation = keyframes`
+  0% { opacity: 1}
+  100% { opacity: 0}
+`;
+
+const ExpandedImageViewContainer = styled.div`
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation-name: ${props => props.out ? fadeOutAnimation : fadeInAnimation};
+  animation-duration: 0.3s;
+`;
+
+const LeftButton = styled.button`
+  float: left;
+  text-align: center;
+  background-color: white;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin: auto 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  position: relative;
+  top: 500px;
+  left: -900px;
+  z-index: 100;
+`;
+
+const RightButton = styled.button`
+  float: right;
+  text-align: center;
+  background-color: white;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin: auto 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  position: absolute;
+  left: 1800px;
+  top: 400px;
+  z-index: 100;
+`;
+
 const ExpandedImageView = (
   ({
-    allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray, currentThumbnailUrl, setCurrentThumbnailUrl, currentPhotoUrl, setCurrentPhotoUrl, currentImageIndex, setCurrentImageIndex
+    allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray, currentThumbnailUrl, setCurrentThumbnailUrl, currentPhotoUrl, setCurrentPhotoUrl, currentImageIndex, setCurrentImageIndex, expandedImageViewActive, setExpandedImageViewActive, ImageIsZoomed, setImageIsZoomed
   }) => {
 
+    const handleLeftClick = () => {
+      if ((currentImageIndex - 1) >= 0) {
+        setCurrentImageIndex(currentImageIndex - 1);
+      }
+    };
+
+    const handleRightClick = () => {
+      if ((currentImageIndex + 1) !== productStylePhotos.length) {
+        setCurrentImageIndex(currentImageIndex + 1);
+      }
+    };
+
     return (
-      <div>
-        <CurrentImages
+      <ExpandedImageViewContainer style={expandedImageViewActive === true ? { visibility: 'visible' } : { visibility: 'hidden' }}>
+        <LeftButton style={currentImageIndex === 0 || !expandedImageViewActive || ImageIsZoomed ? { visibility: 'hidden' } : { visibility: 'visible' }} onClick={handleLeftClick}>⇠</LeftButton>
+        <ExpandedCurrentImages
           allProductStyles={allProductStyles}
           setAllProductStyles={setAllProductStyles}
           productStyleDefault={productStyleDefault}
@@ -54,8 +124,14 @@ const ExpandedImageView = (
           setCurrentPhotoUrl={setCurrentPhotoUrl}
           currentImageIndex={currentImageIndex}
           setCurrentImageIndex={setCurrentImageIndex}
+          expandedImageViewActive={expandedImageViewActive}
+          setExpandedImageViewActive={setExpandedImageViewActive}
+          ImageIsZoomed={ImageIsZoomed}
+          setImageIsZoomed={setImageIsZoomed}
         />
+        <RightButton style={(currentImageIndex + 1) === productStylePhotos.length - 1 || !expandedImageViewActive || ImageIsZoomed ? { visibility: 'hidden' } : { visibility: 'visible' }} onClick={handleRightClick}>⇢</RightButton>
         <ImageIcons
+          style={(ImageIsZoomed === true) ? { visibility: 'hidden' } : { visibility: 'visible' }}
           allProductStyles={allProductStyles}
           setAllProductStyles={setAllProductStyles}
           productStyleDefault={productStyleDefault}
@@ -94,50 +170,13 @@ const ExpandedImageView = (
           setCurrentPhotoUrl={setCurrentPhotoUrl}
           currentImageIndex={currentImageIndex}
           setCurrentImageIndex={setCurrentImageIndex}
+          expandedImageViewActive={expandedImageViewActive}
+          setExpandedImageViewActive={setExpandedImageViewActive}
+          ImageIsZoomed={ImageIsZoomed}
+          setImageIsZoomed={setImageIsZoomed}
         />
-      </div>
+      </ExpandedImageViewContainer>
     );
   });
-
-ExpandedImageView.propTypes = {
-  allProductStyles: PropTypes.array,
-  setAllProductStyles: PropTypes.func,
-  productStyleDefault: PropTypes.bool,
-  setProductStyleDefault: PropTypes.func,
-  productStyleId: PropTypes.number,
-  setProductStyleId: PropTypes.func,
-  productStyleName: PropTypes.string,
-  setProductStyleName: PropTypes.func,
-  productStyleOriginalPrice: PropTypes.string,
-  setProductStyleOriginalPrice: PropTypes.func,
-  productStyleSalePrice: PropTypes.string,
-  setProductStyleSalePrice: PropTypes.func,
-  productStylePhotos: PropTypes.array,
-  setProductStylePhotos: PropTypes.func,
-  productStyleSku: PropTypes.string,
-  setProductStyleSku: PropTypes.func,
-  productStyleSkus: PropTypes.object,
-  setProductStyleSkus: PropTypes.func,
-  productStyleSize: PropTypes.string,
-  setProductStyleSize: PropTypes.func,
-  productStyleQuantity: PropTypes.number,
-  setProductStyleQuantity: PropTypes.func,
-  productStyleSizes: PropTypes.array,
-  setProductStyleSizes: PropTypes.func,
-  productStyleQuantities: PropTypes.array,
-  setProductStyleQuantities: PropTypes.func,
-  undefinedSizeSubmitted: PropTypes.bool,
-  setUndefinedSizeSubmitted: PropTypes.func,
-  quantitySelectorIsDisabled: PropTypes.bool,
-  setQuantitySelectorIsDisabled: PropTypes.func,
-  dropdownQuantitiesArray: PropTypes.array,
-  setDropdownQuantitiesArray: PropTypes.func,
-  currentThumbnailUrl: PropTypes.string,
-  setCurrentThumbnailUrl: PropTypes.func,
-  currentPhotoUrl: PropTypes.string,
-  setCurrentPhotoUrl: PropTypes.func,
-  currentImageIndex: PropTypes.number,
-  setCurrentImageIndex: PropTypes.string,
-};
 
 export default ExpandedImageView;
