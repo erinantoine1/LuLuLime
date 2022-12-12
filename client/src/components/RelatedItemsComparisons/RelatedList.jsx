@@ -49,9 +49,9 @@ const RightButton = styled.button`
   visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
 `;
 
-const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
+const RelatedList = ({ setCurrentID, currentID }) => {
   const [relatedItems, setRelatedItems] = useState([]);
-  // {id, name, category, default_price, sale_price, picture}
+  const [styles, setStyles] = useState([]);
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
   const containerRef = useRef();
@@ -61,32 +61,46 @@ const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
     setScrollCount(0);
     containerRef.current.scrollLeft = 0;
 
-    const temp = [];
-
     axios.get('/currentItem/related', { params: { product_id: currentID } })
       .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem', { params: { product_id: itemID } }))))
       .then(res => {
+        const temp = [];
+
         for (let i = 0; i < res.length; i++) {
-          const item = { id: res[i].data.id, name: res[i].data.name, category: res[i].data.category, default_price: res[i].data.default_price };
-          temp.push(item);
+          temp.push(res[i].data);
         }
+        setRelatedItems(temp);
       })
-      .then(() => axios.get('/currentItem/related', { params: { product_id: currentID } }))
+      .catch(err => console.error(err));
+
+    axios.get('/currentItem/related', { params: { product_id: currentID } })
       .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem/styles', { params: { product_id: itemID } }))))
       .then(res => {
+        const temp = [];
+
         for (let i = 0; i < res.length; i++) {
+          let hasDefault = false;
           for (let j = 0; j < res[i].data.results.length; j++) {
             if (res[i].data.results[j]['default?']) {
-              temp[i].photo = res[i].data.results[j].photos[0].url;
-              // get sale price
+              hasDefault = true;
+              if (typeof res[i].data.results[j].photos[0].url === 'string') {
+                temp.push({ photo: res[i].data.results[j].photos[0].url });
+              } else {
+                temp.push({ photo: 'https://media.allure.com/photos/5adba084276cd40c0eb8f42e/16:9/w_2560%2Cc_limit/GettyImages-826492462.jpg' });
+              }
             }
           }
-          if (typeof temp[i].photo !== 'string') {
-            temp[i].photo = 'https://greenvilleidc.com/img/placeholder.jpeg';
+
+          if (!hasDefault) {
+            if(typeof res[i].data.results[0].photos[0].url === 'string') {
+              temp.push({ photo: res[i].data.results[0].photos[0].url });
+            } else {
+              temp.push({ photo: 'https://media.allure.com/photos/5adba084276cd40c0eb8f42e/16:9/w_2560%2Cc_limit/GettyImages-826492462.jpg' });
+            }
           }
         }
-        console.log('new object : ', temp);
-        setRelatedItems(temp);
+
+        setStyles(temp);
       })
       .catch(err => console.error(err));
   }, [currentID]);
@@ -105,7 +119,7 @@ const RelatedList = ({ setShowModal, showModal, setCurrentID, currentID }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {(width && relatedItems.length !== 0) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={item.photo} setShowModal={setShowModal} key={`${item}+${index}`} setCurrentID={setCurrentID} />)}
+        {(width && relatedItems.length !== 0 && styles.length !== 0) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />)}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItems.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import CompareModal from './CompareModal.jsx';
 
 const StyledCard = styled.div`
   box-shadow: 0 1px 0.5rem -4px #000;
@@ -41,17 +42,43 @@ const Image = styled.img`
     width: ${props => props.width}px;
 `;
 
-const RelatedCard = ({ id, name, category, default_price, picture, type, setShowModal, outfitItems, setOutfitItems, cardWidth, setCurrentID }) => {
+const Container = styled.div`
+  margin: 0;
+  padding: 0;
+`;
+
+const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_price, picture, type, outfitItems, setOutfitItems, cardWidth }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const [currentItem, setCurrentItem] = useState({});
+  const [relatedItem, setRelatedItem] = useState({});
+
+  useEffect(() => {
+    axios.get('/currentItem', { params: { product_id: currentID } })
+      .then(res => {
+        setCurrentItem(res.data);
+      })
+      .catch(err => console.error(err));
+
+    axios.get('/currentItem', { params: { product_id: id } })
+      .then(res => {
+        setRelatedItem(res.data);
+      })
+      .catch(err => console.error(err));
+  }, [currentID, id]);
 
   return (
-    <StyledCard>
-      <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
-      <Image width={cardWidth} src={picture} alt="item" onClick={() => setCurrentID(id)} />
-      <StyledCategory>{category}</StyledCategory>
-      <StyledName>{name}</StyledName>
-      <StyledPrice>{default_price}</StyledPrice>
-      <StyledName>☆☆☆☆☆</StyledName>
-    </StyledCard>
+    <Container>
+      {showModal && <CompareModal currentItem={currentItem} relatedItem={relatedItem} setShowModal={setShowModal} /> }
+      <StyledCard>
+        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
+        <Image width={cardWidth} src={picture} alt="item" onClick={() => setCurrentID(id)} />
+        <StyledCategory>{category}</StyledCategory>
+        <StyledName>{name}</StyledName>
+        <StyledPrice>{default_price}</StyledPrice>
+        <StyledName>☆☆☆☆☆</StyledName>
+      </StyledCard>
+    </Container>
   );
 };
 
