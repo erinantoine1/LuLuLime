@@ -3,10 +3,11 @@ import * as styling from './Styling/Styling.js';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
-const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewForm, setDisplayReviewForm }) => {
+const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displayReviewForm, setDisplayReviewForm }) => {
+
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
-  const [clickedReviews, setClickedReviews] = useState(false);
+  const [helpfulReviews, setHelpfulReviews] = useState([]);
   const divRef = useRef();
 
 
@@ -15,6 +16,9 @@ const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewFor
     setDisplayedReviews(displayedReviews + 2);
   };
 
+  useEffect(() => {
+    setHelpfulReviews(JSON.parse(localStorage.getItem('helpful')));
+  }, []);
 
   return (
     <styling.ReviewListDiv>
@@ -22,9 +26,12 @@ const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewFor
         {reviews.slice(0, displayedReviews).map((review) => (
           <ReviewTile
             key={review.review_id}
+            currentID={currentID}
             review={review}
             setReviews={setReviews}
             sortOrder={sortOrder}
+            helpfulReviews={helpfulReviews}
+            setHelpfulReviews={setHelpfulReviews}
           />
         ))}
       </styling.ReviewTilesContainer>
@@ -36,6 +43,7 @@ const ReviewList = ({ reviews, metaData, setReviews, sortOrder, displayReviewFor
       {displayReviewForm
         ? (
           <ReviewForm
+            currentID={currentID}
             metaData={metaData}
             displayReviewForm={displayReviewForm}
             setDisplayReviewForm={setDisplayReviewForm}

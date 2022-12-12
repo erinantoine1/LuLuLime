@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Modal = styled.div`
   z-index: 999;
@@ -13,8 +14,9 @@ const Modal = styled.div`
 
 const InnerModal = styled.div`
   background-color: white;
-  margin: 8% 30%;
-  height: 60vh;
+  margin: 6% 20%;
+  height: 65vh;
+  text-align: center;
 
   @media screen and (max-width: 1100px) {
     margin: 8% 25%;
@@ -31,55 +33,44 @@ const StyledColumn = styled.div`
 `;
 
 const SpaceHolder = styled.h2`
+  font-size: 1.5rem;
+  margin: 1rem 10%;
+  display: inline;
   visibility: hidden;
 `;
 
-const StyledTitle = styled.div`
+const StyledTitle = styled.h1`
   padding-top: 1rem;
 `;
 
 const StyledText = styled.p`
-  font-size: 1.5rem;
-  margin-top: 2rem;
+  display: inline;
+  margin: 5%;
 `;
 
 
-const CompareModal = ({ setShowModal }) => {
-  // add states for comparisons
+const CompareModal = ({ setShowModal, currentItem, relatedItem }) => {
+  // return 30% divs in the map
 
   return (
     <Modal onClick={() => setShowModal(false)}>
-      <InnerModal>
-        <StyledTitle>
-          <h1>Comparing</h1>
-        </StyledTitle>
-        <StyledColumn>
-          <h2>Item1</h2>
-          <StyledText>✔</StyledText>
-          <StyledText>✘</StyledText>
-          <StyledText>✔</StyledText>
-          <StyledText>✔</StyledText>
-          <StyledText>✘</StyledText>
-        </StyledColumn>
-        <StyledColumn>
-          <SpaceHolder>nothing</SpaceHolder>
-          <StyledText>Something1</StyledText>
-          <StyledText>Something2</StyledText>
-          <StyledText>Something3</StyledText>
-          <StyledText>Something4</StyledText>
-          <StyledText>Something5</StyledText>
-        </StyledColumn>
-        <StyledColumn>
-          <h2>Item2</h2>
-          <StyledText>✘</StyledText>
-          <StyledText>✔</StyledText>
-          <StyledText>✔</StyledText>
-          <StyledText>✘</StyledText>
-          <StyledText>✔</StyledText>
-        </StyledColumn>
+      <InnerModal onClick={(e) => e.stopPropagation()}>
+      <StyledTitle>Comparing</StyledTitle>
+        <StyledText>{currentItem.name}</StyledText><StyledText>Feature</StyledText><StyledText>{relatedItem.name}</StyledText>
+        {currentItem['features']?.map(item => <div><StyledText>✔</StyledText><StyledText>{item['value']}</StyledText><StyledText>✘</StyledText></div>)}
+        {relatedItem['features']?.map(item => <div><StyledText>✘</StyledText><StyledText>{item['value']}</StyledText><StyledText>✔</StyledText></div>)}
       </InnerModal>
     </Modal>
   );
 };
 
 export default CompareModal;
+
+// <StyledTitle>Comparing</StyledTitle>
+//         <StyledText>Hello</StyledText><StyledText>Hello</StyledText><StyledText>Hello</StyledText>
+
+//         <StyledText>✘</StyledText>
+//           <StyledText>✔</StyledText>
+//           <StyledText>✔</StyledText>
+//           <StyledText>✘</StyledText>
+//           <StyledText>✔</StyledText>

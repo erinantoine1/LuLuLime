@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import RelatedList from './RelatedList.jsx';
 import OutfitList from './OutfitList.jsx';
-import CompareModal from './CompareModal.jsx';
 
 const Container = styled.div`
   margin: 0;
@@ -11,14 +10,12 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const RelatedItemsComparisons = ({ currentID, setNewProduct }) => {
-  const [showModal, setShowModal] = useState(false);
+const RelatedItemsComparisons = ({ currentID, setCurrentID }) => {
 
   return (
     <Container>
-      {showModal && <CompareModal setShowModal={setShowModal} />}
       <h1>Related Items</h1>
-      <RelatedList setShowModal={setShowModal} showModal={showModal} setNewProduct={setNewProduct} />
+      <RelatedList setCurrentID={setCurrentID} currentID={currentID} />
       <h1>Your Outfit</h1>
       <OutfitList currentID={currentID} />
     </Container>
