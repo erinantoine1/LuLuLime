@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import * as styling from './Styling/Styling.js';
 import BarGraph from './BarGraph.jsx';
+import Search from './Search.jsx';
 
-const Filters = ({ filterBy, setFilterBy, metaData, totalRatings }) => {
+const Filters = ({ filterBy, setFilterBy, metaData, totalRatings, searchText, setSearchText }) => {
 
   const [filtersVisible, setFiltersVisible] = useState(false);
 
@@ -28,6 +29,7 @@ const Filters = ({ filterBy, setFilterBy, metaData, totalRatings }) => {
   return (
     <styling.FiltersDiv>
       <h3>Filters</h3>
+      <Search searchText={searchText} setSearchText={setSearchText} />
       <styling.BarGraphContainer>
         {[5, 4, 3, 2, 1,].map((rating, index) => {
           return (

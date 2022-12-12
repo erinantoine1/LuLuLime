@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as styling from './Styling/Styling.js';
 import CharRadios from './CharRadios.jsx';
-import generateChoices from './Utils.js';
+import { generateChoices } from './Utils.js';
 
 const CharSection = ({ characteristic, reviewForm, setReviewForm }) => {
   const characteristicName = characteristic[0];

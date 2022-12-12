@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as styling from './Styling/Styling.js';
-import generateChoices from './Utils.js';
+import { generateChoices } from './Utils.js';
 
 const ProductBreakdown = ({ characteristic }) => {
   const characteristicName = characteristic[0];

@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as styling from './Styling/Styling.js';
 import StaticStars from './StaticStars.jsx';
+import { getReviewsData } from './Utils.js';
 
-const ReviewTile = ({ review, setReviews, sortOrder, helpfulReviews, setHelpfulReviews }) => {
+const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, setHelpfulReviews }) => {
 
   const [reviewLength, setReviewLength] = useState(250);
   const [displayPhoto, setDisplayPhoto] = useState({
@@ -33,13 +34,7 @@ const ReviewTile = ({ review, setReviews, sortOrder, helpfulReviews, setHelpfulR
       }
     })
       .then(() => {
-        return axios.get('/reviews', {
-          params: {
-            product_id: 40344,
-            sort: sortOrder,
-            count: 1000
-          }
-        });
+        return getReviewsData('/reviews', currentID, sortOrder, 1000);
       })
       .then((response) => {
         setReviews(response.data.results);

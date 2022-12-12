@@ -15,10 +15,21 @@ const PhotoUpload = ({ reviewForm, setReviewForm }) => {
   };
 
   return (
-    <div>
-      <input type="text" value={photoUrl} onChange={(event) => setPhotoUrl(event.target.value)} />
-      {reviewForm.photos.length < 5 && <button type="button" onClick={() => handleAddPhoto(photoUrl)}>Add Photo</button>}
-    </div>
+    <styling.AnimatedDiv>
+      <div>Add up to 5 Photos!</div>
+      <div>
+        Current Photos:
+        {reviewForm.photos.map((photo, index) => {
+          return <div key={index}>{photo}</div>;
+        })}
+      </div>
+      {reviewForm.photos.length < 5 && (
+        <div>
+          <input type="text" value={photoUrl} onChange={(event) => setPhotoUrl(event.target.value)} />
+          <button type="button" onClick={() => handleAddPhoto(photoUrl)}>Add Photo</button>
+        </div>
+      )}
+    </styling.AnimatedDiv>
   );
 };
 

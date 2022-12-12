@@ -4,11 +4,12 @@ import * as styling from './Styling/Styling.js';
 import CharSection from './CharSection.jsx';
 import ReviewStarRating from './StarRating.jsx';
 import PhotoUpload from './PhotoUpload.jsx';
+import { getReviewsData } from './Utils.js';
 
-const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setReviews, sortOrder }) => {
+const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewForm, setReviews, sortOrder }) => {
 
   const [reviewForm, setReviewForm] = useState({
-    product_id: 40344,
+    product_id: currentID,
     rating: 1,
     summary: '',
     body: '',
@@ -31,13 +32,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
     event.preventDefault();
     axios.post('/reviews', reviewForm)
       .then(() => {
-        return axios.get('/reviews', {
-          params: {
-            product_id: Number(metaData.product_id),
-            sort: sortOrder,
-            count: 1000
-          }
-        });
+        return getReviewsData('/reviews', currentID, sortOrder, 1000);
       })
       .then((response) => {
         setReviews(response.data.results);
@@ -56,7 +51,7 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
       setErrors(true);
     } else if (reviewForm.name.length === 0) {
       setErrors(true);
-    } else if (!reviewForm.email.split('').includes('@')) {
+    } else if (!reviewForm.email.toLowerCase().match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       setErrors(true);
     } else {
       handleSubmit(event);
@@ -131,13 +126,15 @@ const ReviewForm = ({ metaData, displayReviewForm, setDisplayReviewForm, setRevi
           {reviewForm.body.length < 50 ? `Minimum Required Characters Left: ${50 - reviewForm.body.length}` : 'Minimum Reached'}
         </styling.textAreaDiv>
         <styling.UserInfoDiv>
-          <styling.photoButton
-            type="button"
-            onClick={(event) => setPhotoView(true)}
-          >
-            Upload Photos
-          </styling.photoButton>
-          {photoView && <PhotoUpload reviewForm={reviewForm} setReviewForm={setReviewForm} />}
+          {photoView ? <PhotoUpload reviewForm={reviewForm} setReviewForm={setReviewForm} />
+            : (
+              <styling.photoButton
+                type="button"
+                onClick={(event) => setPhotoView(true)}
+              >
+                Upload Photos
+              </styling.photoButton>
+            )}
           <styling.FormLabels htmlFor="nicname">
             Nickname:
             <input
