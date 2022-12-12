@@ -1,9 +1,11 @@
-import React from 'react';
+/* eslint-disable no-plusplus */
+import React, { useEffect, useState } from 'react';
 
 const SizeSelector = (
   ({
-    productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray
+    productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray, addToCartButtonIsVisible, setAddToCartButtonIsVisible, addToCartButtonIsDisabled, setAddToCartButtonIsDisabled, allQuantitiesZero, setAllQuantitiesZero, sizeSelectorIsDisabled, setSizeSelectorIsDisabled, productStyleSizeDropdownLength, setProductStyleSizeDropdownLength
   }) => {
+
     const updateCurrentSize = ((e) => {
       setProductStyleSize(e.target.value);
 
@@ -29,19 +31,34 @@ const SizeSelector = (
       }
 
       setUndefinedSizeSubmitted(false);
+      setProductStyleSizeDropdownLength(1);
       e.preventDefault();
     });
 
+    if (!sizeSelectorIsDisabled) {
+      return (
+        <div>
+          <select size={productStyleSizeDropdownLength} value={productStyleSize} onChange={(e) => { updateCurrentSize(e); }}>
+            <option>Select Size</option>
+            {productStyleSizes.map((size) => {
+              return <option>{size}</option>;
+            })}
+          </select>
+        </div>
+      );
+    }
     return (
       <div>
-        <select value={productStyleSize} onChange={(e) => { updateCurrentSize(e); }}>
-          <option>Select Size</option>
+        <select value={productStyleSize} onChange={(e) => { updateCurrentSize(e); }} disabled>
+          <option>Out of Stock</option>
           {productStyleSizes.map((size) => {
             return <option>{size}</option>;
           })}
         </select>
       </div>
     );
+
+
   });
 
 export default SizeSelector;

@@ -20,38 +20,7 @@ const PhotoContainer = styled.div`
   display: block;
   margin: auto;
   top: -50px;
-`;
-
-const LeftButton = styled.button`
-  float: left;
-  text-align: center;
-  background-color: white;
-  height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  margin: auto 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 3rem;
-  position: absolute;
-  top: 250px;
-  z-index: 50;
-`;
-
-const RightButton = styled.button`
-  float: right;
-  text-align: center;
-  background-color: white;
-  height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  margin: auto 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 3rem;
-  position: absolute;
-  left: 765px;
-  top: 250px;
+  left: -400px;
 `;
 
 const MagnifyingGlassIcon = styled.img`
@@ -61,21 +30,16 @@ width: 50px;
 
 const CurrentImages = (
   ({
-    allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray, currentThumbnailUrl, setCurrentThumbnailUrl, currentPhotoUrl, setCurrentPhotoUrl, currentImageIndex, setCurrentImageIndex
+    allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray, currentThumbnailUrl, setCurrentThumbnailUrl, currentPhotoUrl, setCurrentPhotoUrl, currentImageIndex, setCurrentImageIndex, expandedImageViewActive, setExpandedImageViewActive
   }) => {
     let photoMap = [];
     const containerRef = useRef(null);
 
-    const handleLeftClick = () => {
-      if ((currentImageIndex - 1) >= 0) {
-        setCurrentImageIndex(currentImageIndex - 1);
-      }
-    };
 
-    const handleRightClick = () => {
-      if ((currentImageIndex + 1) !== photoMap.length) {
-        setCurrentImageIndex(currentImageIndex + 1);
-      }
+
+    const handlePhotoClick = (e) => {
+      setExpandedImageViewActive(true);
+      e.preventDefault();
     };
 
     if (productStylePhotos) {
@@ -123,18 +87,18 @@ const CurrentImages = (
               setCurrentPhotoUrl={setCurrentPhotoUrl}
               currentImageIndex={currentImageIndex}
               setCurrentImageIndex={setCurrentImageIndex}
+              expandedImageViewActive={expandedImageViewActive}
+              setExpandedImageViewActive={setExpandedImageViewActive}
             />
           );
         })
       );
     }
     return (
-      <ContainerParent>
-        <LeftButton style={currentImageIndex === 0 ? { visibility: 'hidden' } : { visibility: 'visible' }} onClick={handleLeftClick}>⇠</LeftButton>
-        <PhotoContainer ref={containerRef}>
+      <ContainerParent style={expandedImageViewActive === true ? { maxHeight: '100%', maxWidth: '100%' } : { maxHeight: '650px', maxWidth: '750px' }}>
+        <PhotoContainer ref={containerRef} onClick={(e) => { handlePhotoClick(e); }}>
           {photoMap[currentImageIndex]}
         </PhotoContainer>
-        <RightButton style={(currentImageIndex + 1) === photoMap.length ? { visibility: 'hidden' } : { visibility: 'visible' }} onClick={handleRightClick}>⇢</RightButton>
       </ContainerParent>
     );
   });
