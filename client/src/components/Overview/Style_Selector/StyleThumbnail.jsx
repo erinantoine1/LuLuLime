@@ -1,12 +1,24 @@
+/* eslint-disable no-plusplus */
 import React from 'react';
 import styled from 'styled-components';
 
 const StyleThumbnailImg = styled.img`
 height: 50px;
 width: 50px;
-border: solid;
-z-index: 50;
+margin: -10px;
+float: right;
 position: relative;
+top: 30px;
+left: -50px;
+right: 50px;
+`;
+
+const StyleThumbnailOverlayImg = styled.img`
+height: 80px;
+width: 80px;
+position: relative;
+top: 5px;
+left: 5px;
 `;
 
 const StyleThumbnail = (
@@ -20,7 +32,6 @@ const StyleThumbnail = (
       const styleSizesArray = [];
       const styleQuantitiesArray = [];
       for (let i = 0; i < skuKeys.length; i++) {
-        console.log(styleSkus[skuKeys[i]].quantity);
         styleSizesArray.push(styleSkus[skuKeys[i]].size);
         styleQuantitiesArray.push(styleSkus[skuKeys[i]].quantity);
       }
@@ -39,7 +50,11 @@ const StyleThumbnail = (
     };
 
     return (
-      <StyleThumbnailImg src={stylePhotos[0].thumbnail_url} style={productStyleId === styleId ? { borderColor: 'red' } : { borderColor: 'black' }} alt="select style" onClick={(e) => thumbnailClickHandler(e)} />
+      <div>
+        <StyleThumbnailImg src={stylePhotos[0].thumbnail_url} alt="select style" onClick={(e) => thumbnailClickHandler(e)} />
+        <StyleThumbnailOverlayImg src="https://cdn-icons-png.flaticon.com/512/8968/8968525.png" alt="" style={productStyleId === styleId ? { visibility: 'visible' } : { visibility: 'hidden' }} />
+      </div>
+
     );
   });
 

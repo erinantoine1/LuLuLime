@@ -21,15 +21,13 @@ overflow: hidden;
 text-align: center;
 scroll-behavior: smooth;
 flex: 1;
-object-fit: cover;
 position: relative;
 height: 100px;
-width: 75px;
+width: 100px;
 `;
 
 const ThumbnailContainer = styled.div`
-display: flex;
-overflow: hidden;
+display: flex-wrap;
 text-align: center;
 object-fit: cover;
 position: relative;
@@ -75,11 +73,11 @@ const ImageThumbnails = (
     const containerRef = useRef(null);
 
     const handleLeftClick = () => {
-      containerRef.current.scrollLeft -= containerRef.current.offsetWidth * 0.7;
+      containerRef.current.scrollLeft -= containerRef.current.offsetWidth * (1 / 7);
     };
 
     const handleRightClick = () => {
-      containerRef.current.scrollLeft += containerRef.current.offsetWidth * 0.7;
+      containerRef.current.scrollLeft += containerRef.current.offsetWidth * (1 / 7);
     };
 
     if (productStylePhotos) {
