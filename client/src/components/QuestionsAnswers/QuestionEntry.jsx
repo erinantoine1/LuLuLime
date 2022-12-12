@@ -82,7 +82,6 @@ const QuestionEntry = ({ question, loadQuestions }) => {
             <button onClick={toggleNewAnswer}>Add Answer</button>
             {!newAnswer ? null : (
               <NewAnswerForm
-                newAnswer={newAnswer}
                 loadAnswers={loadAnswers}
                 toggleNewAnswer={toggleNewAnswer}
                 question_id={question.question_id}

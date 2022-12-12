@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as styling from './Styling.js';
 
 
-const NewAnswerForm = ({ newAnswer, loadAnswers, toggleNewAnswer, question_id }) => {
+const NewAnswerForm = ({ loadAnswers, toggleNewAnswer, question_id }) => {
 
   const [answer, setAnswer] = useState('');
   const [name, setName] = useState('');

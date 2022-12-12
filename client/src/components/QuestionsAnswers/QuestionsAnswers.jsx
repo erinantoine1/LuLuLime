@@ -32,7 +32,7 @@ const QuestionsAnswers = ({ currentID }) => {
 
   useEffect(() => {
     loadQuestions();
-  }, currentID);
+  }, [currentID]);
 
   const doSearch = (query) => {
     if (query) {
@@ -68,7 +68,6 @@ const QuestionsAnswers = ({ currentID }) => {
       <button onClick={showMoreQuestions}>Load more questions</button>
       {!newQuestion ? null : (
         <NewQuestionForm
-          newQuestion={newQuestion}
           loadQuestions={loadQuestions}
           toggleNewQuestion={toggleNewQuestion}
           product_id={product_id}
