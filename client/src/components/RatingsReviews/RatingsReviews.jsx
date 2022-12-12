@@ -75,6 +75,9 @@ const RatingsReviews = ({ currentID }) => {
         setMetaDataLoaded(true);
       })
       .catch((error) => console.log(error));
+    if (!localStorage.getItem('helpful')) {
+      localStorage.setItem('helpful', JSON.stringify([]));
+    }
   }, [currentID]);
 
   if (!reviewsLoaded || !metaDataLoaded) {
