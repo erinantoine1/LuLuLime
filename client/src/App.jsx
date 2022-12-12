@@ -31,8 +31,8 @@ const App = () => {
 
   return (
     <div>
-      {/* <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
-      <RatingsReviews currentID={currentID} /> */}
+      {/* <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} /> */}
+      <RatingsReviews currentID={40346} />
     </div>
   );
 };
