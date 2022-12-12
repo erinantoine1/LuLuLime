@@ -30,21 +30,21 @@ font-size: 40px;
 color: red;
 `;
 
-const ProductPrice = ({ productStyleOriginalPrice, currentSalePrice }) => {
+const ProductPrice = ({ productStyleOriginalPrice, productStyleSalePrice }) => {
   let salePrice;
   let originalPrice;
   let originaNoSale;
 
-  if (currentSalePrice === null || currentSalePrice === undefined) {
+  if (productStyleSalePrice === null || productStyleSalePrice === undefined) {
     originaNoSale = (
       <OriginalPriceNoSale>{ `$${productStyleOriginalPrice}` }</OriginalPriceNoSale>
     );
   }
   return (
     <div>
-      <OriginalPriceNoSale style={currentSalePrice === null || currentSalePrice === undefined ? { display: 'block' } : { display: 'none' }}>{ `$${productStyleOriginalPrice}` }</OriginalPriceNoSale>
-      <OriginalPriceSale style={currentSalePrice ? { display: 'block' } : { display: 'none' }}>{ `$${productStyleOriginalPrice}` }</OriginalPriceSale>
-      <SalePriceDiv style={currentSalePrice ? { display: 'block' } : { display: 'none' }}>{ `$${currentSalePrice}` }</SalePriceDiv>
+      <OriginalPriceNoSale style={productStyleSalePrice === null || productStyleSalePrice === undefined ? { display: 'block' } : { display: 'none' }}>{ `$${productStyleOriginalPrice}` }</OriginalPriceNoSale>
+      <OriginalPriceSale style={productStyleSalePrice ? { display: 'block' } : { display: 'none' }}>{ `$${productStyleOriginalPrice}` }</OriginalPriceSale>
+      <SalePriceDiv style={productStyleSalePrice ? { display: 'block' } : { display: 'none' }}>{ `$${productStyleSalePrice}` }</SalePriceDiv>
     </div>
   );
 };
