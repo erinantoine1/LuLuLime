@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/jsx-no-duplicate-props */
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as styling from './Styling.js';
@@ -40,15 +42,19 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
         {`: ${answer.body}?`}
       </span>
       <br />
-      <span>{`by ${answer.answerer_name}, ${formatDate()}   |   Helpful?  `}</span>
-      {helpfulPressed ? null
-        : <styling.Buttons type="submit" onClick={setHelpful}>Yes</styling.Buttons>}
-      <span>{`  ${answer.helpfulness}  `}</span>
-      <span> | </span>
-      <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
+      <styling.AnswerButtons>
+        <span>{`by ${answer.answerer_name}, ${formatDate()}`}</span>
+        <span>|</span>
+        <span>Helpful?</span>
+        {helpfulPressed ? null
+          : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
+        <span>{answer.helpfulness}</span>
+        <span>|</span>
+        <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
+      </styling.AnswerButtons>
       <styling.QAPhotos>
-        {answer.photos.map((photo) => (
-          <img key={photo.id} src={photo.url} alt="Clothing product" width="100" height="100" />
+        {answer.photos.map((photo, index) => (
+          <img key={index} src={photo.url} alt="Clothing product" width="100" height="100" />
         ))}
       </styling.QAPhotos>
     </div>

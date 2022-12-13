@@ -68,40 +68,45 @@ const QuestionEntry = ({ question, loadQuestions }) => {
     <styling.QATileDiv>
       <styling.QATileContent>
         <styling.QATileHeader>
-          <span>
-            <b>Q</b>
-            {`: ${question.question_body}?`}
-          </span>
-          <styling.QAHeaderButtons>
-            <span>Helpful?</span>
-            {helpfulPressed ? null
-              : <styling.Buttons type="submit" onClick={setHelpful}>Yes</styling.Buttons>}
-            <span>{`${question.question_helpfulness}  `}</span>
-            <span> | </span>
-            <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
-            <button onClick={toggleNewAnswer}>Add Answer</button>
-            {!newAnswer ? null : (
-              <NewAnswerForm
-                loadAnswers={loadAnswers}
-                toggleNewAnswer={toggleNewAnswer}
-                question_id={question.question_id}
-              />
-            )}
-          </styling.QAHeaderButtons>
+          <styling.QABodyContainer>
+            <span>
+              <b>Q</b>
+              {`: ${question.question_body}?`}
+            </span>
+          </styling.QABodyContainer>
+          <styling.QuestionButtons>
+            <styling.Buttons type="submit" onClick={toggleNewAnswer}>Add Answer</styling.Buttons>
+            <styling.QAHeaderButtons>
+              <span>Helpful?</span>
+              {helpfulPressed ? null
+                : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
+              <span>{question.question_helpfulness}</span>
+              <span>|</span>
+              <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
+              {!newAnswer ? null : (
+                <NewAnswerForm
+                  loadAnswers={loadAnswers}
+                  toggleNewAnswer={toggleNewAnswer}
+                  question_id={question.question_id}
+                />
+              )}
+            </styling.QAHeaderButtons>
+          </styling.QuestionButtons>
         </styling.QATileHeader>
-        {getAnswers.map((answer, key) => (
-          <AnswerEntry
-            answer={answer}
-            loadQuestions={loadQuestions}
-            key={key}
-          />
-        ))}
+        <styling.ScrollableAnswers>
+          {getAnswers.map((answer, key) => (
+            <AnswerEntry
+              answer={answer}
+              loadQuestions={loadQuestions}
+              key={key}
+            />
+          ))}
+        </styling.ScrollableAnswers>
         {allAnswersShown ? null
           : <button onClick={showAnswers}>Load more answers</button>}
       </styling.QATileContent>
     </styling.QATileDiv>
   );
-
 };
 
 export default QuestionEntry;
@@ -223,3 +228,25 @@ export default QuestionEntry;
 //         : <button onClick={showAnswers}>Load more answers</button>}
 //     </div>
 //   );
+
+
+
+// {!answersShown
+//   ? getAnswers.map((answer, key) => (
+//     <AnswerEntry
+//       answer={answer}
+//       loadQuestions={loadQuestions}
+//       key={key}
+//     />
+//   ))
+//   : (
+//     <styling.ScrollableAnswers>
+//       {getAnswers.map((answer, key) => (
+//         <AnswerEntry
+//           answer={answer}
+//           loadQuestions={loadQuestions}
+//           key={key}
+//         />
+//       ))}
+//     </styling.ScrollableAnswers>
+//   )}

@@ -6,11 +6,17 @@ export const QASectionContainer = styled.div`
   border-top: solid 1px grey;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
+  justify-content: center;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 150px;
+`;
+
+export const QAInfoDiv = styled.div`
+  align-items: center;
+  width: 100%;
 `;
 
 export const QATileDiv = styled.div`
@@ -30,22 +36,51 @@ export const QATileContent = styled.div`
   flex-direction: column;
   gap: 0.75rem;
   width: 100%
+  border: 1px;
+  border-radius: 10%;
+`;
+
+export const QABodyContainer = styled.div`
+  width: 100%;
 `;
 
 export const QATileHeader = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  border: 1px solid blue;
+`;
+
+export const QuestionButtons = styled.div`
+  width: 100%;
+  border: 1px solid red;
+  justify-content: flex-end;
+  margin-right: 0;
 `;
 
 export const QAHeaderButtons = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 30%;
+  border: 1px solid black;
+  float: right;
+  padding-right: 5%;
 `;
 
 export const QAPhotos = styled.div`
   display: flex;
   gap: 1rem;
   width: 50%;
+`;
+
+export const ScrollableAnswers = styled.div`
+  width: 100%;
+  max-height: 600px;
+  position: relative;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 10px;
+    border: 1px solid black;
+  }
 `;
 
 const fadeInAnimation = keyframes`
@@ -88,11 +123,9 @@ export const styledForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: fit-content;
+  width: 35%;
+  height: 55%;
   align-items: center;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 5%;
   animation-name: ${props => props.out ? collapseAnimation : expandAnimation};
   animation-duration: 0.3s;
 `;
@@ -123,7 +156,23 @@ export const FormLabels = styled.label`
 export const textAreaDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  height: 100%;
+  width: 50%;
+  margin: 10%;
+  margin-top: 15%;
+  text-align: center;
+`;
+
+export const StyledHeader = styled.div`
+  height 10%;
+`;
+
+export const StyledTextArea = styled.textarea`
+  margin-bottom: 2rem;
+`;
+
+export const StyledInput = styled.input`
+  margin-bottom: 2rem;
 `;
 
 export const UserInfoDiv = styled.div`
@@ -144,17 +193,59 @@ export const submitButton = styled.input`
 
 export const Buttons = styled.button`
   border-radius: 0.25rem;
-  border: 0.0625 rem solid;
-  padding: 0.5rem;
   cursor: pointer;
+  border: 0.0625rem solid;
+  border-color: #038081;
+  background-color: #038081;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  color: white;
+  width: 10%;
+  float: right;
 `;
 
+export const YesButtons = styled.div`
+  background-color: transparent;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  color: black;
+  text-decoration: underline;
+  &: hover {
+    color: blue;
+    cursor: pointer;
+  }
+  font-size: 90%;
+`;
 
 export const ReportButton = styled(Buttons)`
   background-color: transparent;
+  padding-left: 0.75rem;
+  font-size: 1rem;
   border: none;
-  height: fit-content;
-  width: fit-content;
-  padding: 0;
-  margin: 0;
+  color: black;
+  text-decoration: underline;
+  &: hover {
+    color: blue;
+    cursor: pointer;
+  }
+  font-size: 90%;
 `;
+
+export const ButtonContainer = styled.div`
+  padding-top: 2.5rem;
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AnswerButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  border: 1px solid black;
+  font-size: 90%;
+`;
+

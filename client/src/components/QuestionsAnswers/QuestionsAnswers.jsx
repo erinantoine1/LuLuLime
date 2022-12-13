@@ -18,7 +18,6 @@ const QuestionsAnswers = ({ currentID }) => {
   const [newQuestion, setNewQuestion] = useState(false);
 
   const loadQuestions = (page = 1) => {
-    console.log('inside load questions');
     const parameters = { product_id: currentID, page, count: questionsShown };
     axios.get('/questions', {
       params: parameters
@@ -62,19 +61,23 @@ const QuestionsAnswers = ({ currentID }) => {
     <styling.QASectionContainer>
       <h2>Questions and Answers</h2>
       <SearchQuestions doSearch={doSearch} />
-      <QuestionsList
-        questions={filtered ? filterdQuestions : questions}
-        loadQuestions={loadQuestions}
-      />
-      <button onClick={showMoreQuestions}>Load more questions</button>
-      {!newQuestion ? null : (
-        <NewQuestionForm
+      <styling.QAInfoDiv>
+        <QuestionsList
+          questions={filtered ? filterdQuestions : questions}
           loadQuestions={loadQuestions}
-          toggleNewQuestion={toggleNewQuestion}
-          product_id={product_id}
         />
-      )}
-      <button onClick={toggleNewQuestion}>Add a question</button>
+      </styling.QAInfoDiv>
+      <styling.ButtonContainer>
+        <styling.Buttons type="submit" onClick={showMoreQuestions}>Load more questions</styling.Buttons>
+        {!newQuestion ? null : (
+          <NewQuestionForm
+            loadQuestions={loadQuestions}
+            toggleNewQuestion={toggleNewQuestion}
+            product_id={currentID}
+          />
+        )}
+        <styling.Buttons type="submit" onClick={toggleNewQuestion}>Add a question</styling.Buttons>
+      </styling.ButtonContainer>
     </styling.QASectionContainer>
   );
 };
