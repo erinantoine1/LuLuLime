@@ -45,13 +45,13 @@ const RatingsReviews = ({ currentID }) => {
   const filterReviews = () => {
     if (filterBy.length === 0 && searchText.length >= 3) {
       return reviews.filter((review) => {
-        return review.body.includes(searchText);
+        return review.body.includes(searchText) || review.summary.includes(searchText);
       });
     }
     if (filterBy.length > 0) {
       if (searchText.length >= 3) {
         return reviews.filter((review) => {
-          return filterBy.includes(review.rating) && review.body.includes(searchText);
+          return filterBy.includes(review.rating) && (review.body.includes(searchText) || review.summary.includes(searchText));
         });
       }
       return reviews.filter((review) => {

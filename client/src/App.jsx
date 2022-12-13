@@ -44,10 +44,10 @@ const App = () => {
   return (
     <AppBackground change={!theme}>
       <AppContainer change={!theme}>
-        {/* <button type="button" onClick={() => setTheme(!theme)}>Change Theme</button>
+        <button type="button" onClick={() => setTheme(!theme)}>Change Theme</button>
         <Overview currentID={currentID} />
         <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
-        <QuestionsAnswers currentID={currentID} /> */}
+        <QuestionsAnswers currentID={currentID} />
         <RatingsReviews currentID={currentID} />
       </AppContainer>
     </AppBackground>

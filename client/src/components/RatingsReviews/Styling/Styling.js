@@ -65,7 +65,7 @@ export const StarButton = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 14pt;
+  font-size: 16pt;
   color: ${props => props.clicked ? 'black' : '#fafafa'}
 `;
 export const StarButtonInside = styled.div`
@@ -196,7 +196,8 @@ export const SearchBarContainer = styled.div`
   display: flex;
   background-color: white;
   height: 2.5rem;
-  border-bottom: solid 0.75px black;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1rem;
 `;
 
 export const SearchInput = styled.input`
@@ -230,7 +231,7 @@ export const FiltersDiv = styled.div`
 export const BarGraphContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
   width: 100%;
   padding-bottom: 1rem;
 `;
@@ -444,6 +445,7 @@ export const ReportButton = styled(Buttons)`
 /********* Review Form Styles  *************/
 
 export const ReviewFormContainer = styled(ModalBackground)`
+  font-size: 12pt;
 `;
 
 export const styledForm = styled.form`
@@ -468,6 +470,34 @@ export const recommendDiv = styled(Cards)`
   width: 100%;
 `;
 
+export const InfoMessage = styled.div`
+  font-size: 8pt;
+  opacity: 0.5;
+  margin-bottom: 2rem;
+  font-weight: lighter;
+`;
+
+export const StarLabel = styled.label`
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+`;
+
+export const RecommendHeader = styled.div`
+  margin-top: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+`;
+
+export const RecommendLabel = styled.label`
+  font-weight: bold;
+`;
+
+export const RecommendRadios = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+`;
+
 export const CharsContainer = styled.div`
   width: 100%;
   display: flex;
@@ -487,8 +517,9 @@ export const CharDiv = styled.div`
 `;
 
 export const CharNames = styled.span`
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-bottom: 1rem;
 `;
 
 export const RadioButtonsContainer = styled.div`
@@ -497,6 +528,7 @@ export const RadioButtonsContainer = styled.div`
 `;
 
 export const RadioInput = styled.input`
+  transform: scale(1.25);
 `;
 
 export const RadioButtonDiv = styled.div`
@@ -516,11 +548,13 @@ export const FormLabels = styled.label`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  font-weight: bold;
 `;
 
 export const textAreaDiv = styled(Cards)`
   align-self: flex-start;
   width: 100%;
+  border-radius: 10px;
 `;
 
 export const FormSummaryContainer = styled.div`
@@ -532,27 +566,94 @@ export const FormBodyContainer = styled.div`
 
 export const TextBox = styled.textarea`
   resize: none;
+  font-size: 12pt;
 `;
 
 export const FormCounters = styled.div`
   margin-top: 0.5rem;
-  opacity: 0.5;
+  opacity: 0.65;
+  font-size: 10pt;
 `;
 
-export const UserInfoDiv = styled.div`
-  align-self: flex-start;
+export const PhotoAreaDiv = styled(Cards)`
+  width: 100%;
 `;
 
-export const photoButton = styled.button`
-  width: fit-content;
-  margin-top: 10px;
-  margin-bottom: 10px;
+export const PhotoAreaHeader = styled.div`
+  font-weight: bold;
+  margin-bottom: 1rem;
 `;
 
+export const PhotoUploadContainer = styled(AnimatedDiv)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const UploadedPhotosContainer = styled.div`
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const UploadedPhoto = styled.img`
+  height: 100px;
+  width: 100px;
+`;
+export const AddPhotoBar = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+export const PhotoInput = styled.input`
+  width: 60%;
+  font-size: 12pt;
+`;
+
+export const PhotoError = styled.div`
+  margin-top: 0.5rem;
+  font-size: 12pt;
+  color: red;
+  font-weight: bold;
+  `;
+
+export const photoButton = styled(Buttons)`
+`;
+
+export const UserInfoDiv = styled(Cards)`
+  width: 100%;
+`;
+
+export const UserInputs = styled.input`
+  width: 60%;
+  font-size: 12pt;
+  margin-bottom: 1rem;
+`;
+
+export const UserDisclaimer = styled.div`
+  margin-bottom: 1rem;
+`;
 
 export const submitButton = styled.input`
-  margin-top: 10px;
-  width: fit-content;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  cursor: pointer;
+  border: 0.0625rem solid;
+  border-color: black;
+  background-color: black;
+  color: white;
+  width: 15%;
+  overflow-wrap: break-word;
+  min-width: fit-content;
+  max-width: fit-content;
+  align-self: center;
+`;
+
+export const ErrorMessage = styled.div`
+  color: red;
+  font-weight: bold;
+  align-self: center;
+  margin-top: 1rem;
 `;
 
 

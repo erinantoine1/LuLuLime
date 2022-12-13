@@ -65,22 +65,24 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
       onAnimationEnd={() => !visible && setDisplayReviewForm(false)}
     >
       <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
-        <h2>Review Form</h2>
-        {errors && <div>Please check your form</div>}
+        <h2>Review</h2>
         <styling.recommendDiv>
-          <label htmlFor="rating">
+          <styling.StarLabel htmlFor="rating">
+            <styling.InfoMessage>All Fields Are Mandatory Unless Marked Optional</styling.InfoMessage>
             Rating:
             <ReviewStarRating reviewForm={reviewForm} setReviewForm={setReviewForm} />
-          </label>
-          <span>I recommend this product: </span>
-          <label htmlFor="recommend">
-            Yes
-            <input type="radio" id="yes" name="recommend" value="true" onChange={(event) => handleRecommend(event.target.value)} />
-          </label>
-          <label htmlFor="recommend">
-            No
-            <input type="radio" id="no" name="recommend" value="false" onChange={(event) => handleRecommend(event.target.value)} />
-          </label>
+          </styling.StarLabel>
+          <styling.RecommendHeader>Do you recommend this product? </styling.RecommendHeader>
+          <styling.RecommendRadios>
+            <styling.RecommendLabel htmlFor="recommend">
+              Yes
+              <styling.RadioInput type="radio" id="yes" name="recommend" value="true" onChange={(event) => handleRecommend(event.target.value)} />
+            </styling.RecommendLabel>
+            <styling.RecommendLabel htmlFor="recommend">
+              No
+              <styling.RadioInput type="radio" id="no" name="recommend" value="false" onChange={(event) => handleRecommend(event.target.value)} />
+            </styling.RecommendLabel>
+          </styling.RecommendRadios>
         </styling.recommendDiv>
         <styling.CharsContainer>
           {Object.entries(metaData.characteristics).map((characteristic) => (
@@ -126,19 +128,22 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
             <styling.FormCounters>{reviewForm.body.length < 50 ? `Minimum Required Characters Left: ${50 - reviewForm.body.length}` : `${reviewForm.body.length} / 1000`}</styling.FormCounters>
           </styling.FormBodyContainer>
         </styling.textAreaDiv>
-        <styling.UserInfoDiv>
+        <styling.PhotoAreaDiv>
+          <styling.PhotoAreaHeader>Upload Photos (Optional)</styling.PhotoAreaHeader>
           {photoView ? <PhotoUpload reviewForm={reviewForm} setReviewForm={setReviewForm} />
             : (
               <styling.photoButton
                 type="button"
                 onClick={(event) => setPhotoView(true)}
               >
-                Upload Photos
+                Add Photos
               </styling.photoButton>
             )}
+        </styling.PhotoAreaDiv>
+        <styling.UserInfoDiv>
           <styling.FormLabels htmlFor="nicname">
             Nickname:
-            <input
+            <styling.UserInputs
               type="text"
               id="nickname"
               name="nickname"
@@ -147,10 +152,10 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
               onChange={(event) => setReviewForm({ ...reviewForm, name: event.target.value })}
             />
           </styling.FormLabels>
-          <span>For privacy reasons, do not use your full name or email address</span>
+          <styling.UserDisclaimer>For privacy reasons, do not use your full name or email address</styling.UserDisclaimer>
           <styling.FormLabels htmlFor="email">
             Email:
-            <input
+            <styling.UserInputs
               type="email"
               id="email"
               name="email"
@@ -159,9 +164,10 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
               onChange={(event) => setReviewForm({ ...reviewForm, email: event.target.value })}
             />
           </styling.FormLabels>
-          <span>For authentication reasons, you will not be emailed</span>
+          <styling.UserDisclaimer>For authentication reasons, you will not be emailed</styling.UserDisclaimer>
+          <styling.submitButton type="submit" value="Submit Review" onClick={(event) => handleErrors(event)} />
+          {errors && <styling.ErrorMessage>Please Ensure All Required Fields Have Been Filled Out</styling.ErrorMessage>}
         </styling.UserInfoDiv>
-        <styling.submitButton type="submit" value="Submit Review" onClick={(event) => handleErrors(event)} />
       </styling.styledForm>
     </styling.ReviewFormContainer>
   );
