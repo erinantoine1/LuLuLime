@@ -6,24 +6,26 @@ import StyleThumbnail from './StyleThumbnail.jsx';
 
 const StyleThumbnailsDiv = styled.div`
 width: 440px;
-position: relative;
 display: flex;
 flex-wrap: wrap;
 z-index: 40;
+position: absolute;
+left: 59%;
+top: 40%;
 `;
 const ThumbnailStyleName = styled.div`
 height: 30px;
 width: 400px;
-position: relative;
-left: 0px;
-top: 0px;
+position: absolute;
+left: 59%;
+top: 38%;
 `;
 
 const StyleSelector = (
   ({
     allProductStyles, setAllProductStyles, productStyleDefault, setProductStyleDefault, productStyleId, setProductStyleId, productStyleName, setProductStyleName, productStyleOriginalPrice, setProductStyleOriginalPrice, productStyleSalePrice, setProductStyleSalePrice, productStylePhotos, setProductStylePhotos, productStyleSku, setProductStyleSku, productStyleSkus, setProductStyleSkus, productStyleSize, setProductStyleSize, productStyleQuantity, setProductStyleQuantity, productStyleSizes, setProductStyleSizes, productStyleQuantities, setProductStyleQuantities, undefinedSizeSubmitted, setUndefinedSizeSubmitted, quantitySelectorIsDisabled, setQuantitySelectorIsDisabled, dropdownQuantitiesArray, setDropdownQuantitiesArray
   }) => {
-    const thumbnails = allProductStyles.map((styles) => {
+    const thumbnails = allProductStyles.map((styles, index) => {
       return (
         <StyleThumbnail
           productStyleDefault={productStyleDefault}
@@ -61,13 +63,14 @@ const StyleSelector = (
           setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
           dropdownQuantitiesArray={dropdownQuantitiesArray}
           setDropdownQuantitiesArray={setDropdownQuantitiesArray}
+          key={index}
         />
       );
     });
 
     return (
       <div>
-        <ThumbnailStyleName>{productStyleName}</ThumbnailStyleName>
+        <ThumbnailStyleName>{`Select Style:  ${productStyleName}`}</ThumbnailStyleName>
         <StyleThumbnailsDiv>
           {thumbnails}
         </StyleThumbnailsDiv>

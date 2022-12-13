@@ -10,36 +10,53 @@ import Share from './Share.jsx';
 const ShareDiv = styled.div`
 height: 200px;
 width: 350px;
-position: relative;
-top: -800px;
-left: 1325px;
+position: absolute;
+top: 10%;
+left: 67%;
 `;
 const PriceDiv = styled.div`
 height: 150px;
 width: 350px;
-position: relative;
-top: -1100px;
-left: 1200px;
+position: absolute;
+top: 26%;
+left: 59%;
 `;
-const CategoryOverviewDiv = styled.div`
+const CategoryDiv = styled.div`
 height: 200px;
 width: 350px;
-position: relative;
-top: -1025px;
-left: 1200px;
+font-size: 14px;
+text-decoration: underline;
+position: absolute;
+top: 10%;
+left: 59%;
 `;
-const TitleRatingDiv = styled.div`
+const RatingDiv = styled.div`
 height: 200px;
 width: 700px;
-position: relative;
-top: -925px;
-left: 1250px;
+position: absolute;
+top: 20%;
+left: 59%;
+`;
+const OverviewDiv = styled.div`
+height: 200px;
+width: 400px;
+position: absolute;
+top: 32%;
+left: 59%;
 `;
 const TitleDiv = styled.div`
-font-size: 28px;
+font-size: 40px;
+height: 200px;
+width: 700px;
+position: absolute;
+top: 15%;
+left: 59%
 `;
 const ProductInformationDiv = styled.div`
 height: 1rem;
+display: flex;
+flex-wrap: wrap;
+margin-top: 5%;
 `;
 const ProductInformation = (
   ({
@@ -47,21 +64,21 @@ const ProductInformation = (
   }) => {
     return (
       <ProductInformationDiv>
-        <TitleRatingDiv>
-          <TitleDiv>
-            <ProductTitle productTitle={productTitle} />
-          </TitleDiv>
-          <br />
-          <StarRating />
-        </TitleRatingDiv>
-        <CategoryOverviewDiv>
+        <CategoryDiv>
           <ProductCategory productCategory={productCategory} />
-          <br />
-          <ProductOverview productOverview={productOverview} />
-        </CategoryOverviewDiv>
+        </CategoryDiv>
+        <TitleDiv>
+          <ProductTitle productTitle={productTitle} />
+        </TitleDiv>
+        <RatingDiv>
+          <StarRating />
+        </RatingDiv>
         <PriceDiv>
           <ProductPrice productStyleOriginalPrice={productStyleOriginalPrice} productStyleSalePrice={productStyleSalePrice} />
         </PriceDiv>
+        <OverviewDiv>
+          <ProductOverview productOverview={productOverview} />
+        </OverviewDiv>
         <ShareDiv>
           <Share />
         </ShareDiv>

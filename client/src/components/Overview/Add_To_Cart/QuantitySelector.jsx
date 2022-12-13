@@ -53,8 +53,8 @@ const QuantitySelector = (
     return (
       <div>
         <select value={productStyleQuantity} onChange={(e) => { updateCurrentQuantity(e); }} disabled={quantitySelectorIsDisabled}>
-          {dropdownQuantitiesArray.map((quantity) => {
-            return <option>{quantity}</option>;
+          {dropdownQuantitiesArray.map((quantity, index) => {
+            return <option key={index}>{quantity}</option>;
           })}
         </select>
       </div>
