@@ -2,25 +2,10 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import CurrentImage from './CurrentImage.jsx';
 
-const ContainerParent = styled.div`
-  display: flex;
-  position: relative;
-  height: 661px;
-  width: 810px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
 const PhotoContainer = styled.div`
   display: flex;
-  text-align: center;
-  flex: 1;
-  object-fit: contain;
-  position: relative;
-  display: block;
-  margin: auto;
-  top: 0px;
-  left: -425px;
+  max-height: 90%;
+  width: 90%;
 `;
 
 const MagnifyingGlassIcon = styled.img`
@@ -44,7 +29,7 @@ const CurrentImages = (
 
     if (productStylePhotos) {
       photoMap = (
-        productStylePhotos.map((photo) => {
+        productStylePhotos.map((photo, index) => {
           return (
             <CurrentImage
               photoUrl={photo.url}
@@ -89,17 +74,16 @@ const CurrentImages = (
               setCurrentImageIndex={setCurrentImageIndex}
               expandedImageViewActive={expandedImageViewActive}
               setExpandedImageViewActive={setExpandedImageViewActive}
+              key={index}
             />
           );
         })
       );
     }
     return (
-      <ContainerParent style={expandedImageViewActive === true ? { maxHeight: '100%', maxWidth: '100%' } : { maxHeight: '650px', maxWidth: '750px' }}>
-        <PhotoContainer ref={containerRef} onClick={(e) => { handlePhotoClick(e); }}>
-          {photoMap[currentImageIndex]}
-        </PhotoContainer>
-      </ContainerParent>
+      <PhotoContainer ref={containerRef} onClick={(e) => { handlePhotoClick(e); }}>
+        {photoMap[currentImageIndex]}
+      </PhotoContainer>
     );
   });
 
