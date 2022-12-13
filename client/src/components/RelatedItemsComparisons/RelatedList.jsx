@@ -52,6 +52,7 @@ const RightButton = styled.button`
 const RelatedList = ({ setCurrentID, currentID }) => {
   const [relatedItems, setRelatedItems] = useState([]);
   const [styles, setStyles] = useState([]);
+  const [ratings, setRatings] = useState([]);
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
   const containerRef = useRef();
@@ -103,7 +104,33 @@ const RelatedList = ({ setCurrentID, currentID }) => {
         setStyles(temp);
       })
       .catch(err => console.error(err));
+
+      axios.get('/currentItem/related', { params: { product_id: currentID } })
+      .then(res => Promise.all(res.data.map(itemID => axios.get('/reviews/meta', { params: { product_id: itemID } }))))
+      .then(res => {
+        console.log('should be array of reviews objects:', res);
+        const temp = [];
+
+        for (let i = 0; i < res.length; i++) {
+          temp.push(getAverageRating(res[i].data.ratings))
+        }
+
+        setRatings(temp);
+      })
+      .catch(err => console.error(err));
+
   }, [currentID]);
+
+
+  const getAverageRating = (ratings) => {
+    let totalRating = 0;
+    let totalRatings = 0;
+    Object.entries(ratings).forEach((pair) => {
+      totalRating += (Number(pair[0]) * Number(pair[1]));
+      totalRatings += (Number(pair[1]))
+    });
+    return Math.round((totalRating / totalRatings) * 10) / 10;
+  };
 
   const handleLeftClick = () => {
     containerRef.current.scrollLeft -= Math.ceil(width / 4);
@@ -119,7 +146,7 @@ const RelatedList = ({ setCurrentID, currentID }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {(width && relatedItems.length !== 0 && styles.length !== 0) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />)}
+        {(width && relatedItems.length && styles.length && ratings.length) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} ratings={ratings[index]} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />)}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItems.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

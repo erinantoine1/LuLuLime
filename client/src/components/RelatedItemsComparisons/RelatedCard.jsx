@@ -1,7 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import CompareModal from './CompareModal.jsx';
+// import CompareModal from './CompareModal.jsx';
+import StaticStars from '../RatingsReviews/StaticStars.jsx';
+
+
+const Ratings = styled.div`
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #fafafa;
+  overflow: hidden;
+  width: fit-content;
+  min-width: fit-content;
+`;
+
+const EmptyStars = styled.div`
+  &:before {
+    content: "★★★★★";
+    font-size: ${props => props.size}pt;
+    -webkit-text-stroke: 1px #848484;
+  }
+`;
+
+const FullStars = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  &:before {
+    content: "★★★★★";
+    font-size: ${props => props.size}pt;
+    -webkit-text-stroke: 1px black;
+  }
+  width: ${props => props.percentage}%;
+`;
+
 
 const StyledCard = styled.div`
   box-shadow: 0 1px 0.5rem -4px #000;
@@ -47,7 +83,7 @@ const Container = styled.div`
   padding: 0;
 `;
 
-const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_price, picture, type, outfitItems, setOutfitItems, cardWidth }) => {
+const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_price, picture, type, outfitItems, setOutfitItems, cardWidth, ratings }) => {
   const [showModal, setShowModal] = useState(false);
 
   const [currentItem, setCurrentItem] = useState({});
@@ -76,7 +112,7 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
         <StyledCategory>{category}</StyledCategory>
         <StyledName>{name}</StyledName>
         <StyledPrice>{default_price}</StyledPrice>
-        <StyledName>☆☆☆☆☆</StyledName>
+        <StaticStars rating={ratings} size={12} />
       </StyledCard>
     </Container>
   );
