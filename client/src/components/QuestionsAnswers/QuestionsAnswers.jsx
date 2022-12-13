@@ -10,7 +10,7 @@ import * as styling from './Styling.js';
 
 const QuestionsAnswers = ({ currentID }) => {
 
-  const [product_id, setProduct_id] = useState(currentID);
+  // const [product_id, setProduct_id] = useState(currentID);
   const [questions, setQuestions] = useState([]);
   const [questionsShown, setQuestionsShown] = useState(5);
   const [filterdQuestions, setFilteredQuestions] = useState([]);
@@ -18,7 +18,8 @@ const QuestionsAnswers = ({ currentID }) => {
   const [newQuestion, setNewQuestion] = useState(false);
 
   const loadQuestions = (page = 1) => {
-    const parameters = { product_id, page, count: questionsShown };
+    console.log('inside load questions');
+    const parameters = { product_id: currentID, page, count: questionsShown };
     axios.get('/questions', {
       params: parameters
     })

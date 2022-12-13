@@ -17,7 +17,10 @@ export const QATileDiv = styled.div`
   padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  margin-left: 2%;
+  margin-right: 2%;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
   background-color: #fafafa;
 `;
