@@ -1,4 +1,5 @@
 import axios from 'axios';
+import React, { createContext } from 'react';
 
 export const generateChoices = (characteristicName) => {
   const choices = {};
@@ -49,3 +50,5 @@ export const getReviewsData = (url, product_id, sort, count) => {
     }
   });
 };
+
+export const StarContext = createContext({ starRatings: 0, setStarRatings: () => {} });

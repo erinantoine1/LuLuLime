@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
 import axios from 'axios';
 import * as styling from './Styling/Styling.js';
 import GlobalStyle from './Styling/globalStyles.js';
@@ -93,6 +93,7 @@ const RatingsReviews = ({ currentID }) => {
           setFilterBy={setFilterBy}
           metaData={metaData}
           totalRatings={totalRatings}
+          currentID={currentID}
         />
         <styling.DropDownDiv>
           <label htmlFor="sort">

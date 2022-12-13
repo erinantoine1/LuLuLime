@@ -406,6 +406,20 @@ export const ReviewTileSummary = styled.div`
 export const ReviewBody = styled.div`
   overflow-wrap: break-word;
   width: 90%;
+  font-size: 1rem;
+  line-height: 1.5;
+`;
+
+export const ShowMoreButton = styled.button`
+  background-color: transparent;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  text-decoration: underline;
+  &: hover {
+    color: blue;
+    cursor: pointer;
+  }
 `;
 
 export const ReviewPhotos = styled.div`

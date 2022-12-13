@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as styling from './Styling/Styling.js';
 import StaticStars from './StaticStars.jsx';
+import { StarContext } from './Utils.js';
 
-const RatingBreakdown = ({ metaData, totalRatings }) => {
+const RatingBreakdown = ({ metaData, totalRatings, currentID }) => {
+
+  const { starRating, setStarRatings } = useContext(StarContext);
 
   const [averageRating, setAverageRating] = useState(0);
   const [percentRecommend, setPercentRecommend] = useState(0);
@@ -16,13 +19,19 @@ const RatingBreakdown = ({ metaData, totalRatings }) => {
     Object.entries(ratings).forEach((pair) => {
       totalRating += (Number(pair[0]) * Number(pair[1]));
     });
-    return Math.round((totalRating / totalRatings) * 10) / 10;
+    let roundedAverage = Math.round((totalRating / totalRatings) * 10) / 10;
+    if (roundedAverage.toString().length === 1) {
+      roundedAverage = roundedAverage.toFixed(1);
+      return roundedAverage;
+    }
+    return roundedAverage;
   };
 
   useEffect(() => {
     setAverageRating(getAverageRating(metaData.ratings));
     setPercentRecommend(getPercentRecommend());
-  }, []);
+    setStarRatings(getAverageRating(metaData.ratings));
+  }, [currentID, metaData]);
 
   return (
     <styling.RatingBreakdownDiv>
