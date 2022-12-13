@@ -111,6 +111,15 @@ export const FullStars = styled.div`
 
 //#038081
 
+export const Cards = styled.div`
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  background-color: white;
+  border-radius: 10px;
+`;
 
 export const Buttons = styled.button`
   border-radius: 0.25rem;
@@ -158,6 +167,9 @@ export const Select = styled.select`
   font-weight: bold;
   font-family: Helvetica;
   font-size: 12pt;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const ReviewSectionBody = styled.div`
@@ -435,9 +447,9 @@ export const ReviewFormContainer = styled(ModalBackground)`
 `;
 
 export const styledForm = styled.form`
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
-  background-color: white;
   width: fit-content;
   align-items: center;
   padding-left: 10%;
@@ -452,24 +464,26 @@ export const styledForm = styled.form`
   overflow: auto;
 `;
 
-export const recommendDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
+export const recommendDiv = styled(Cards)`
+  width: 100%;
 `;
 
 export const CharsContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 60%;
 `;
 
 export const CharDiv = styled.div`
+  height: 100%;
+  width: 100%;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  background-color: white;
+  border-radius: 10px;
 `;
 
 export const CharNames = styled.span`
@@ -501,14 +515,28 @@ export const RadioLabels = styled.div`
 export const FormLabels = styled.label`
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  gap: 5px;
+  gap: 1rem;
 `;
 
-export const textAreaDiv = styled.div`
-  display: flex;
-  flex-direction: column;
+export const textAreaDiv = styled(Cards)`
   align-self: flex-start;
+  width: 100%;
+`;
+
+export const FormSummaryContainer = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const FormBodyContainer = styled.div`
+`;
+
+export const TextBox = styled.textarea`
+  resize: none;
+`;
+
+export const FormCounters = styled.div`
+  margin-top: 0.5rem;
+  opacity: 0.5;
 `;
 
 export const UserInfoDiv = styled.div`
