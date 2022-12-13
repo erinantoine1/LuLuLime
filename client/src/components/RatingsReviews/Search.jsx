@@ -3,10 +3,10 @@ import * as styling from './Styling/Styling.js';
 
 const Search = ({ searchText, setSearchText }) => {
   return (
-    <div>
-      <input type="text" value={searchText} onChange={(event) => setSearchText(event.target.value)} />
-      <button type="button" onClick={() => setSearchText('')}>Clear Search</button>
-    </div>
+    <styling.SearchBarContainer>
+      <styling.SearchInput type="text" placeholder="Search Reviews" value={searchText} onChange={(event) => setSearchText(event.target.value)} />
+      {searchText.length > 0 && <styling.ClearSearchButton type="button" onClick={() => setSearchText('')}>X</styling.ClearSearchButton>}
+    </styling.SearchBarContainer>
   );
 };
 

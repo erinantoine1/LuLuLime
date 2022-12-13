@@ -9,7 +9,6 @@ import RelatedItemsComparisons from './components/RelatedItemsComparisons/Relate
 
 const AppBackground = styled.div`
   background-color: ${props => props.change ? '#fafafa' : 'black'};
-
 `;
 
 const AppContainer = styled.div`
