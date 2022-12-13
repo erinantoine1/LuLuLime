@@ -64,7 +64,7 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
     <styling.ReviewTileDiv>
       <styling.ReviewTileContent>
         <styling.ReviewTileHeader>
-          <h3>{review.summary}</h3>
+          <styling.ReviewTileSummary>{review.summary}</styling.ReviewTileSummary>
           <span>{formatDate(review.date)}</span>
         </styling.ReviewTileHeader>
         <span>
@@ -90,7 +90,7 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
         {review.response && <div>`Response From Seller: ${review.response}`</div>}
         {`${review.helpfulness} people found this helpful`}
         <styling.TileButtons>
-          {helpfulReviews.includes(review.review_id) ? <styling.Buttons>Helpful &#9989;</styling.Buttons> : <styling.Buttons type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful</styling.Buttons>}
+          {helpfulReviews.includes(review.review_id) ? <styling.HelpfulButton>Helpful &#9989;</styling.HelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful</styling.HelpfulButton>}
           <styling.ReportButton type="submit" onClick={() => handleUpdate('report', review.review_id)}>Report</styling.ReportButton>
         </styling.TileButtons>
       </styling.ReviewTileContent>

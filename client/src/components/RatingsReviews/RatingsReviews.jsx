@@ -94,14 +94,16 @@ const RatingsReviews = ({ currentID }) => {
           metaData={metaData}
           totalRatings={totalRatings}
         />
-        <label htmlFor="sort">
-          <b>Sort-By:</b>
-          <select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
-            <option value="relevant">Relevant</option>
-            <option value="helpful">Helpful</option>
-            <option value="newest">Newest</option>
-          </select>
-        </label>
+        <styling.DropDownDiv>
+          <label htmlFor="sort">
+            <b>Sort-By:</b>
+            <styling.Select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
+              <option value="relevant">Relevant</option>
+              <option value="helpful">Helpful</option>
+              <option value="newest">Newest</option>
+            </styling.Select>
+          </label>
+        </styling.DropDownDiv>
       </styling.ReviewSectionHeader>
       <styling.ReviewSectionBody>
         <styling.SidebarDiv>

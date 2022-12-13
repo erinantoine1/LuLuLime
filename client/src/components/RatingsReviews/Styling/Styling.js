@@ -109,15 +109,21 @@ export const FullStars = styled.div`
 
 /********* Main Container  *************/
 
+//#038081
+
+
 export const Buttons = styled.button`
   border-radius: 0.25rem;
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: #038081;
-  background-color: #038081;
+  border-color: black;
+  background-color: black;
   color: white;
-  width: 10%;
+  width: 15%;
+  overflow-wrap: break-word;
+  min-width: fit-content;
+  max-width: fit-content;
 `;
 
 export const ReviewSectionContainer = styled.div`
@@ -130,7 +136,7 @@ export const ReviewSectionContainer = styled.div`
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 5rem;
-  height: 68rem;
+  height: 71rem;
   padding: 1.5rem;
 `;
 
@@ -140,6 +146,18 @@ export const ReviewSectionHeader = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  font-size: 14pt;
+`;
+export const DropDownDiv = styled.div`
+  display: flex;
+`;
+
+export const Select = styled.select`
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 12pt;
 `;
 
 export const ReviewSectionBody = styled.div`
@@ -152,12 +170,38 @@ export const ReviewSectionBody = styled.div`
 
 export const SidebarDiv = styled.div`
   width: 20%;
-  background-color: #fafafa;
+  background-color: white;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
   min-width: fit-content;
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
+  border-radius: 10px;
+`;
+
+export const SearchBarContainer = styled.div`
+  width: 90%;
+  display: flex;
+  background-color: white;
+  height: 2.5rem;
+  border-bottom: solid 0.75px black;
+`;
+
+export const SearchInput = styled.input`
+  width: 100%;
+  height: 90%;
+  font-size: 1.0625rem;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const ClearSearchButton = styled.button`
+  background: transparent;
+  border: none;
+  font-size: 12pt;
+  cursor: pointer;
 `;
 
 // Filters Styles
@@ -220,10 +264,13 @@ export const sortingByDiv = styled(AnimatedDiv)`
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  font-weight: bold;
 `;
 
 export const ResetFiltersButton = styled(Buttons)`
   width: fit-content;
+  background-color: black;
 `;
 
 // Product Breakdown
@@ -314,12 +361,13 @@ export const AverageRatingDiv = styled.div`
 /********* Review Tile Styles  *************/
 
 export const ReviewTileDiv = styled.div`
-  padding: 1rem 1rem;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
-  background-color: #fafafa;
+  background-color: white;
+  border-radius: 10px;
 `;
 
 export const ReviewTileContent = styled.div`
@@ -333,6 +381,11 @@ export const ReviewTileHeader = styled.div`
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+`;
+
+export const ReviewTileSummary = styled.div`
+  font-weight: bold;
+  font-size: 14pt;
 `;
 
 export const ReviewBody = styled.div`
@@ -358,11 +411,20 @@ export const TileButtons = styled.div`
   justify-content: space-between;
 `;
 
+export const HelpfulButton = styled(Buttons)`
+  width: 10%;
+  padding: 0.5rem;
+  border: none;
+  background-color: transparent;
+  color: black;
+`;
+
 export const ReportButton = styled(Buttons)`
   background-color: transparent;
   border: none;
   height: fit-content;
   width: fit-content;
+  color: black;
   padding: 0;
   margin: 0;
 `;
@@ -464,3 +526,5 @@ export const submitButton = styled.input`
   margin-top: 10px;
   width: fit-content;
 `;
+
+
