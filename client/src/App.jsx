@@ -8,8 +8,12 @@ import RatingsReviews from './components/RatingsReviews/RatingsReviews.jsx';
 import RelatedItemsComparisons from './components/RelatedItemsComparisons/RelatedItemsComparisons.jsx';
 
 const AppBackground = styled.div`
+<<<<<<< HEAD
   background-color: ${props => props.change ? '#F3F3F3' : 'black'};
 
+=======
+  background-color: ${props => props.change ? '#fafafa' : 'black'};
+>>>>>>> main
 `;
 
 const AppContainer = styled.div`

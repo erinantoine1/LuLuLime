@@ -45,13 +45,13 @@ const RatingsReviews = ({ currentID }) => {
   const filterReviews = () => {
     if (filterBy.length === 0 && searchText.length >= 3) {
       return reviews.filter((review) => {
-        return review.body.includes(searchText);
+        return review.body.toLowerCase().includes(searchText) || review.summary.toLowerCase().includes(searchText);
       });
     }
     if (filterBy.length > 0) {
       if (searchText.length >= 3) {
         return reviews.filter((review) => {
-          return filterBy.includes(review.rating) && review.body.includes(searchText);
+          return filterBy.includes(review.rating) && (review.body.toLowerCase().includes(searchText) || review.summary.toLowerCase().includes(searchText));
         });
       }
       return reviews.filter((review) => {
@@ -94,14 +94,16 @@ const RatingsReviews = ({ currentID }) => {
           metaData={metaData}
           totalRatings={totalRatings}
         />
-        <label htmlFor="sort">
-          <b>Sort-By:</b>
-          <select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
-            <option value="relevant">Relevant</option>
-            <option value="helpful">Helpful</option>
-            <option value="newest">Newest</option>
-          </select>
-        </label>
+        <styling.DropDownDiv>
+          <label htmlFor="sort">
+            <b>Sort-By:</b>
+            <styling.Select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
+              <option value="relevant">Relevant</option>
+              <option value="helpful">Helpful</option>
+              <option value="newest">Newest</option>
+            </styling.Select>
+          </label>
+        </styling.DropDownDiv>
       </styling.ReviewSectionHeader>
       <styling.ReviewSectionBody>
         <styling.SidebarDiv>

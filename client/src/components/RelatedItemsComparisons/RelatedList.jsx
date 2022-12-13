@@ -24,7 +24,7 @@ const CardContainer = styled.div`
 const LeftButton = styled.button`
   float: left;
   text-align: center;
-  background-color: white;
+  background-color: #fafafa;
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -38,7 +38,7 @@ const LeftButton = styled.button`
 const RightButton = styled.button`
   float: right;
   text-align: center;
-  background-color: white;
+  background-color: #fafafa;
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -49,9 +49,20 @@ const RightButton = styled.button`
   visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
 `;
 
+const getAverageRating = (ratings) => {
+  let totalRating = 0;
+  let totalRatings = 0;
+  Object.entries(ratings).forEach((pair) => {
+    totalRating += (Number(pair[0]) * Number(pair[1]));
+    totalRatings += (Number(pair[1]))
+  });
+  return Math.round((totalRating / totalRatings) * 10) / 10;
+};
+
 const RelatedList = ({ setCurrentID, currentID }) => {
   const [relatedItems, setRelatedItems] = useState([]);
   const [styles, setStyles] = useState([]);
+  const [ratings, setRatings] = useState([]);
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
   const containerRef = useRef();
@@ -65,7 +76,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
       .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem', { params: { product_id: itemID } }))))
       .then(res => {
         const temp = [];
-
         for (let i = 0; i < res.length; i++) {
           temp.push(res[i].data);
         }
@@ -77,7 +87,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
       .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem/styles', { params: { product_id: itemID } }))))
       .then(res => {
         const temp = [];
-
         for (let i = 0; i < res.length; i++) {
           let hasDefault = false;
           for (let j = 0; j < res[i].data.results.length; j++) {
@@ -90,7 +99,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
               }
             }
           }
-
           if (!hasDefault) {
             if(typeof res[i].data.results[0].photos[0].url === 'string') {
               temp.push({ photo: res[i].data.results[0].photos[0].url });
@@ -99,8 +107,18 @@ const RelatedList = ({ setCurrentID, currentID }) => {
             }
           }
         }
-
         setStyles(temp);
+      })
+      .catch(err => console.error(err));
+
+      axios.get('/currentItem/related', { params: { product_id: currentID } })
+      .then(res => Promise.all(res.data.map(itemID => axios.get('/reviews/meta', { params: { product_id: itemID } }))))
+      .then(res => {
+        const temp = [];
+        for (let i = 0; i < res.length; i++) {
+          temp.push(getAverageRating(res[i].data.ratings))
+        }
+        setRatings(temp);
       })
       .catch(err => console.error(err));
   }, [currentID]);
@@ -119,7 +137,7 @@ const RelatedList = ({ setCurrentID, currentID }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {(width && relatedItems.length !== 0 && styles.length !== 0) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />)}
+        {(width && relatedItems.length && styles.length && ratings.length) ? relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} ratings={ratings[index]} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />) : null}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItems.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

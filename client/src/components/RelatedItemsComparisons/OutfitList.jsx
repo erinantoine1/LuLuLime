@@ -23,7 +23,7 @@ const CardContainer = styled.div`
 const LeftButton = styled.button`
   float: left;
   text-align: center;
-  background-color: white;
+  background-color: #fafafa;
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -36,7 +36,7 @@ const LeftButton = styled.button`
 const RightButton = styled.button`
   float: right;
   text-align: center;
-  background-color: white;
+  background-color: #fafafa;
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -46,7 +46,7 @@ const RightButton = styled.button`
   font-size: 3rem;
 `;
 
-const OutfitList = ({ currentID }) => {
+const OutfitList = ({ currentID, setCurrentID }) => {
   const [outfitItems, setOutfitItems] = useState([]);
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
@@ -75,7 +75,7 @@ const OutfitList = ({ currentID }) => {
       <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
       <Add cardWidth={width} setOutfitItems={setOutfitItems} outfitItems={outfitItems} currentID={currentID} />
       <CardContainer ref={containerRef}>
-        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} cardWidth={Math.ceil(width / 4)} key={index} name={item.name} default_price={item.default_price} category={item.category} pictures={item.pictures} />)}
+        {outfitItems.map((item, index) => <OutfitCard id={item.id} setCurrentID={setCurrentID} outfitItems={outfitItems} setOutfitItems={setOutfitItems} cardWidth={Math.ceil(width / 4)} key={index} name={item.name} default_price={item.default_price} category={item.category} pictures={item.pictures} ratings={item.ratings} />)}
       </CardContainer>
       <RightButton onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

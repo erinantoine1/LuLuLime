@@ -65,7 +65,7 @@ export const StarButton = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 14pt;
+  font-size: 16pt;
   color: ${props => props.clicked ? 'black' : '#fafafa'}
 `;
 export const StarButtonInside = styled.div`
@@ -109,15 +109,30 @@ export const FullStars = styled.div`
 
 /********* Main Container  *************/
 
+//#038081
+
+export const Cards = styled.div`
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  background-color: white;
+  border-radius: 10px;
+`;
+
 export const Buttons = styled.button`
   border-radius: 0.25rem;
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: #038081;
-  background-color: #038081;
+  border-color: black;
+  background-color: black;
   color: white;
-  width: 10%;
+  width: 15%;
+  overflow-wrap: break-word;
+  min-width: fit-content;
+  max-width: fit-content;
 `;
 
 export const ReviewSectionContainer = styled.div`
@@ -130,7 +145,7 @@ export const ReviewSectionContainer = styled.div`
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 5rem;
-  height: 68rem;
+  height: 71rem;
   padding: 1.5rem;
 `;
 
@@ -140,6 +155,21 @@ export const ReviewSectionHeader = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  font-size: 14pt;
+`;
+export const DropDownDiv = styled.div`
+  display: flex;
+`;
+
+export const Select = styled.select`
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 12pt;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const ReviewSectionBody = styled.div`
@@ -152,12 +182,39 @@ export const ReviewSectionBody = styled.div`
 
 export const SidebarDiv = styled.div`
   width: 20%;
-  background-color: #fafafa;
+  background-color: white;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
   min-width: fit-content;
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
+  border-radius: 10px;
+`;
+
+export const SearchBarContainer = styled.div`
+  width: 90%;
+  display: flex;
+  background-color: white;
+  height: 2.5rem;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1rem;
+`;
+
+export const SearchInput = styled.input`
+  width: 100%;
+  height: 90%;
+  font-size: 1.0625rem;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const ClearSearchButton = styled.button`
+  background: transparent;
+  border: none;
+  font-size: 12pt;
+  cursor: pointer;
 `;
 
 // Filters Styles
@@ -174,7 +231,7 @@ export const FiltersDiv = styled.div`
 export const BarGraphContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
   width: 100%;
   padding-bottom: 1rem;
 `;
@@ -220,10 +277,13 @@ export const sortingByDiv = styled(AnimatedDiv)`
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  font-weight: bold;
 `;
 
 export const ResetFiltersButton = styled(Buttons)`
   width: fit-content;
+  background-color: black;
 `;
 
 // Product Breakdown
@@ -314,12 +374,15 @@ export const AverageRatingDiv = styled.div`
 /********* Review Tile Styles  *************/
 
 export const ReviewTileDiv = styled.div`
-  padding: 1rem 1rem;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
-  background-color: #fafafa;
+  background-color: white;
+  border-radius: 10px;
+  animation-name: ${fadeInAnimation};
+  animation-duration: 0.3s;
 `;
 
 export const ReviewTileContent = styled.div`
@@ -333,6 +396,11 @@ export const ReviewTileHeader = styled.div`
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+`;
+
+export const ReviewTileSummary = styled.div`
+  font-weight: bold;
+  font-size: 14pt;
 `;
 
 export const ReviewBody = styled.div`
@@ -358,11 +426,20 @@ export const TileButtons = styled.div`
   justify-content: space-between;
 `;
 
+export const HelpfulButton = styled(Buttons)`
+  width: 10%;
+  padding: 0.5rem;
+  border: none;
+  background-color: transparent;
+  color: black;
+`;
+
 export const ReportButton = styled(Buttons)`
   background-color: transparent;
   border: none;
   height: fit-content;
   width: fit-content;
+  color: black;
   padding: 0;
   margin: 0;
 `;
@@ -370,12 +447,13 @@ export const ReportButton = styled(Buttons)`
 /********* Review Form Styles  *************/
 
 export const ReviewFormContainer = styled(ModalBackground)`
+  font-size: 12pt;
 `;
 
 export const styledForm = styled.form`
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
-  background-color: white;
   width: fit-content;
   align-items: center;
   padding-left: 10%;
@@ -390,29 +468,60 @@ export const styledForm = styled.form`
   overflow: auto;
 `;
 
-export const recommendDiv = styled.div`
+export const recommendDiv = styled(Cards)`
+  width: 100%;
+`;
+
+export const InfoMessage = styled.div`
+  font-size: 8pt;
+  opacity: 0.5;
+  margin-bottom: 2rem;
+  font-weight: lighter;
+`;
+
+export const StarLabel = styled.label`
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+`;
+
+export const RecommendHeader = styled.div`
+  margin-top: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+`;
+
+export const RecommendLabel = styled.label`
+  font-weight: bold;
+`;
+
+export const RecommendRadios = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-self: flex-start;
+  gap: 2rem;
 `;
 
 export const CharsContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 60%;
 `;
 
 export const CharDiv = styled.div`
+  height: 100%;
+  width: 100%;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  background-color: white;
+  border-radius: 10px;
 `;
 
 export const CharNames = styled.span`
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-bottom: 1rem;
 `;
 
 export const RadioButtonsContainer = styled.div`
@@ -421,6 +530,8 @@ export const RadioButtonsContainer = styled.div`
 `;
 
 export const RadioInput = styled.input`
+  transform: scale(1.25);
+  accent-color: black;
 `;
 
 export const RadioButtonDiv = styled.div`
@@ -439,28 +550,129 @@ export const RadioLabels = styled.div`
 export const FormLabels = styled.label`
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  gap: 5px;
+  gap: 1rem;
+  font-weight: bold;
 `;
 
-export const textAreaDiv = styled.div`
+export const textAreaDiv = styled(Cards)`
+  align-self: flex-start;
+  width: 100%;
+  border-radius: 10px;
+`;
+
+export const FormSummaryContainer = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const FormBodyContainer = styled.div`
+`;
+
+export const TextBox = styled.textarea`
+  resize: none;
+  font-size: 12pt;
+  border: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  &: focus {
+    outline: none;
+  }
+`;
+
+export const FormCounters = styled.div`
+  margin-top: 0.5rem;
+  opacity: 0.65;
+  font-size: 10pt;
+`;
+
+export const PhotoAreaDiv = styled(Cards)`
+  width: 100%;
+`;
+
+export const PhotoAreaHeader = styled.div`
+  font-weight: bold;
+  margin-bottom: 1rem;
+`;
+
+export const PhotoUploadContainer = styled(AnimatedDiv)`
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  width: 100%;
 `;
 
-export const UserInfoDiv = styled.div`
-  align-self: flex-start;
+export const UploadedPhotosContainer = styled.div`
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
 `;
 
-export const photoButton = styled.button`
-  width: fit-content;
-  margin-top: 10px;
-  margin-bottom: 10px;
+export const UploadedPhoto = styled.img`
+  height: 100px;
+  width: 100px;
+`;
+export const AddPhotoBar = styled.div`
+  display: flex;
+  gap: 1rem;
 `;
 
+export const PhotoInput = styled.input`
+  width: 60%;
+  font-size: 12pt;
+  border: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  &: focus {
+    outline: none;
+  }
+`;
+
+export const PhotoError = styled.div`
+  margin-top: 0.5rem;
+  font-size: 12pt;
+  color: red;
+  font-weight: bold;
+  `;
+
+export const photoButton = styled(Buttons)`
+`;
+
+export const UserInfoDiv = styled(Cards)`
+  width: 100%;
+`;
+
+export const UserInputs = styled.input`
+  width: 60%;
+  font-size: 12pt;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  &: focus {
+    outline: none;
+  }
+`;
+
+export const UserDisclaimer = styled.div`
+  margin-bottom: 2.5rem;
+  opacity: 0.5;
+`;
 
 export const submitButton = styled.input`
-  margin-top: 10px;
-  width: fit-content;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  cursor: pointer;
+  border: 0.0625rem solid;
+  border-color: black;
+  background-color: black;
+  color: white;
+  width: 15%;
+  overflow-wrap: break-word;
+  min-width: fit-content;
+  max-width: fit-content;
+  align-self: center;
 `;
+
+export const ErrorMessage = styled.div`
+  color: red;
+  font-weight: bold;
+  align-self: center;
+  margin-top: 1rem;
+`;
+
+
