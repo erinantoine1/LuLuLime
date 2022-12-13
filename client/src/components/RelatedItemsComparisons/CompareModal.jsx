@@ -17,25 +17,35 @@ const InnerModal = styled.div`
   margin: 6% 20%;
   height: 65vh;
   text-align: center;
+  border-radius: 1rem;
 
   @media screen and (max-width: 1100px) {
-    margin: 8% 25%;
+    margin: 8% 15%;
   }
 
   @media screen and (max-width: 800px) {
-    margin 8% 15%;
+    margin 8% 10%;
   }
+`;
+
+const StyledColumn1 = styled.div`
+  float: left;
+  width: 33%;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
 `;
 
 const StyledColumn = styled.div`
   float: left;
   width: 33%;
+  margin: 1rem 0;
+  font-size: 1.5rem;
 `;
 
-const SpaceHolder = styled.h2`
-  font-size: 1.5rem;
-  margin: 1rem 10%;
-  display: inline;
+const SpaceHolder = styled.div`
+  float: left;
+  width: 33%;
   visibility: hidden;
 `;
 
@@ -49,28 +59,35 @@ const StyledText = styled.p`
 `;
 
 
-const CompareModal = ({ setShowModal, currentItem, relatedItem }) => {
-  // return 30% divs in the map
+const CompareModal = ({ setShowModal, id, currentID }) => {
+
+  const [currentItem, setCurrentItem] = useState({});
+  const [relatedItem, setRelatedItem] = useState({});
+
+  useEffect(() => {
+    axios.get('/currentItem', { params: { product_id: currentID } })
+      .then(res => {
+        setCurrentItem(res.data);
+      })
+      .catch(err => console.error(err));
+
+    axios.get('/currentItem', { params: { product_id: id } })
+      .then(res => {
+        setRelatedItem(res.data);
+      })
+      .catch(err => console.error(err));
+  }, [currentID, id]);
 
   return (
     <Modal onClick={() => setShowModal(false)}>
-      <InnerModal onClick={(e) => e.stopPropagation()}>
+      {(Object.keys(currentItem).length && Object.keys(relatedItem).length) ? <InnerModal onClick={(e) => e.stopPropagation()}>
       <StyledTitle>Comparing</StyledTitle>
-        <StyledText>{currentItem.name}</StyledText><StyledText>Feature</StyledText><StyledText>{relatedItem.name}</StyledText>
-        {currentItem['features']?.map(item => <div><StyledText>✔</StyledText><StyledText>{item['value']}</StyledText><StyledText>✘</StyledText></div>)}
-        {relatedItem['features']?.map(item => <div><StyledText>✘</StyledText><StyledText>{item['value']}</StyledText><StyledText>✔</StyledText></div>)}
-      </InnerModal>
+        <StyledColumn1>{currentItem.name}</StyledColumn1><SpaceHolder>Feature</SpaceHolder><StyledColumn1>{relatedItem.name}</StyledColumn1>
+        {currentItem['features']?.map(item => <div><StyledColumn>✔</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>✘</StyledColumn></div>)}
+        {relatedItem['features']?.map(item => <div><StyledColumn>✘</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>✔</StyledColumn></div>)}
+      </InnerModal> : null}
     </Modal>
   );
 };
 
 export default CompareModal;
-
-// <StyledTitle>Comparing</StyledTitle>
-//         <StyledText>Hello</StyledText><StyledText>Hello</StyledText><StyledText>Hello</StyledText>
-
-//         <StyledText>✘</StyledText>
-//           <StyledText>✔</StyledText>
-//           <StyledText>✔</StyledText>
-//           <StyledText>✘</StyledText>
-//           <StyledText>✔</StyledText>
