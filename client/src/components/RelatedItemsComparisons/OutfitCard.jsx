@@ -74,7 +74,12 @@ const StyledX = styled.img`
   position: absolute;
 `;
 
-const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, default_price, pictures, ratings }) => {
+const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, default_price, pictures, ratings, setCurrentID, id }) => {
+
+  const handleClick = () => {
+    setCurrentID(id);
+    window.scrollTo({ top: 0 });
+  };
 
   const removeItem = () => {
     const copy = JSON.parse(localStorage.getItem('yourOutfit'));
@@ -90,7 +95,7 @@ const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, de
   return (
     <StyledCard>
       <StyledX src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png" alt="X" onClick={removeItem} />
-      <Image width={cardWidth} alt="image" src={pictures} />
+      <Image width={cardWidth} alt="image" src={pictures} onClick={handleClick} />
       <StyledCategory>{category}</StyledCategory>
       <StyledName>{name}</StyledName>
       <StyledPrice>{default_price}</StyledPrice>

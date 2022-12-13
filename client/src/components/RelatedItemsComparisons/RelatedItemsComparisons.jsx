@@ -17,7 +17,7 @@ const RelatedItemsComparisons = ({ currentID, setCurrentID }) => {
       <h1>Related Items</h1>
       <RelatedList setCurrentID={setCurrentID} currentID={currentID} />
       <h1>Your Outfit</h1>
-      <OutfitList currentID={currentID} />
+      <OutfitList currentID={currentID} setCurrentID={setCurrentID} />
     </Container>
   );
 };

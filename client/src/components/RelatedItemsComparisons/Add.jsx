@@ -34,12 +34,11 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
   const [currentItem, setCurrentItem] = useState({});
   const [style, setStyle] = useState({});
   const [ratings, setRatings] = useState(0);
-  const [currentAddItem, setCurrentAddItem] = useState(0);
 
   useEffect(() => {
     axios.get('/currentItem', { params: { product_id: currentID } })
       .then(res => {
-        setCurrentItem({ ...currentItem, name: res.data.name, category: res.data.category, default_price: res.data.default_price });
+        setCurrentItem({ ...currentItem, name: res.data.name, category: res.data.category, default_price: res.data.default_price, id: res.data.id });
       })
       .catch(err => console.error(err));
 
