@@ -381,6 +381,8 @@ export const ReviewTileDiv = styled.div`
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
   background-color: white;
   border-radius: 10px;
+  animation-name: ${fadeInAnimation};
+  animation-duration: 0.3s;
 `;
 
 export const ReviewTileContent = styled.div`
@@ -529,6 +531,7 @@ export const RadioButtonsContainer = styled.div`
 
 export const RadioInput = styled.input`
   transform: scale(1.25);
+  accent-color: black;
 `;
 
 export const RadioButtonDiv = styled.div`
@@ -567,6 +570,11 @@ export const FormBodyContainer = styled.div`
 export const TextBox = styled.textarea`
   resize: none;
   font-size: 12pt;
+  border: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  &: focus {
+    outline: none;
+  }
 `;
 
 export const FormCounters = styled.div`
@@ -608,6 +616,11 @@ export const AddPhotoBar = styled.div`
 export const PhotoInput = styled.input`
   width: 60%;
   font-size: 12pt;
+  border: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  &: focus {
+    outline: none;
+  }
 `;
 
 export const PhotoError = styled.div`
@@ -628,10 +641,16 @@ export const UserInputs = styled.input`
   width: 60%;
   font-size: 12pt;
   margin-bottom: 1rem;
+  border: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+  &: focus {
+    outline: none;
+  }
 `;
 
 export const UserDisclaimer = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.5;
 `;
 
 export const submitButton = styled.input`
