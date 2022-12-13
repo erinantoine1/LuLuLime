@@ -4,13 +4,11 @@ import ImageThumbnail from './ImageThumbnail.jsx';
 
 
 const ContainerParent = styled.div`
-margin-left: 12%;
-margin-right: 12%;
 display: flex;
 position: relative;
-top: 25px;
-left: 0px;
-width: 500px;
+width: 78%;
+top: -3%;
+left: -1%;
 `;
 
 const ThumbnailsContainer = styled.div`
@@ -19,7 +17,6 @@ overflow: hidden;
 text-align: center;
 scroll-behavior: smooth;
 flex: 1;
-position: relative;
 height: 50px;
 width: 50px;
 `;
@@ -28,7 +25,6 @@ const ThumbnailContainer = styled.div`
 display: flex-wrap;
 text-align: center;
 object-fit: cover;
-position: relative;
 height: 50px;
 width: 50px;
 margin: auto;
@@ -41,13 +37,12 @@ background-color: white;
 height: 50px;
 width: 50px;
 border-radius: 50%;
-margin: auto 6px;
 border: none;
 cursor: pointer;
 font-size: 3rem;
-margin: auto;
 position: relative;
-left: -10px;
+top: -2%;
+left: -1%;
 `;
 
 const RightButton = styled.button`
@@ -56,12 +51,11 @@ text-align: center;
 background-color: white;
 height: 50px;
 width: 50px;
-border-radius: 50%;
-margin: auto 6px;
+border-radius: 50%;;
 border: none;
 cursor: pointer;
 font-size: 3rem;
-margin: auto;
+top: -2%;
 `;
 
 const ImageThumbnails = (
@@ -82,7 +76,7 @@ const ImageThumbnails = (
 
     if (productStylePhotos) {
       thumbnailMap = (
-        productStylePhotos.map((photo) => {
+        productStylePhotos.map((photo, index) => {
           return (
             <ThumbnailContainer>
               <ImageThumbnail
@@ -127,6 +121,7 @@ const ImageThumbnails = (
                 setCurrentPhotoUrl={setCurrentPhotoUrl}
                 currentImageIndex={currentImageIndex}
                 setCurrentImageIndex={setCurrentImageIndex}
+                key={index}
               />
             </ThumbnailContainer>
           );

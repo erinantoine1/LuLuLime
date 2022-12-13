@@ -51,8 +51,8 @@ const SizeSelector = (
       <div>
         <select value={productStyleSize} onChange={(e) => { updateCurrentSize(e); }} disabled>
           <option>Out of Stock</option>
-          {productStyleSizes.map((size) => {
-            return <option>{size}</option>;
+          {productStyleSizes.map((size, index) => {
+            return <option key={index}>{size}</option>;
           })}
         </select>
       </div>

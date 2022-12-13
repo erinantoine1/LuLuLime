@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CurrentImg = styled.img`
-max-height: 661px;
-max-width: 810px;
 &:hover {
   cursor: zoom-in;
 }
+max-height: 90%;
+width: 30vw;
 `;
 
 const CurrentImage = (
