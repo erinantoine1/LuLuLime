@@ -28,7 +28,7 @@ const Filters = ({ filterBy, setFilterBy, metaData, totalRatings, searchText, se
 
   return (
     <styling.FiltersDiv>
-      <h3>Filters</h3>
+      <h2>Filters</h2>
       <Search searchText={searchText} setSearchText={setSearchText} />
       <styling.BarGraphContainer>
         {[5, 4, 3, 2, 1,].map((rating, index) => {
@@ -39,7 +39,10 @@ const Filters = ({ filterBy, setFilterBy, metaData, totalRatings, searchText, se
       </styling.BarGraphContainer>
       {filtersVisible && (
         <styling.sortingByDiv out={filterBy.length === 0} onAnimationEnd={() => filterBy.length === 0 && setFiltersVisible(false)}>
-          {`Sorting By Reviews with ${[...filterBy].sort()} Star(s)`}
+          <div>
+            <div>Sorting By Reviews with:</div>
+            <div>{`${[...filterBy].sort().join(', ')} Star(s)`}</div>
+          </div>
           <styling.ResetFiltersButton type="button" onClick={() => resetFilters()}>Reset Filters</styling.ResetFiltersButton>
         </styling.sortingByDiv>
       )}
