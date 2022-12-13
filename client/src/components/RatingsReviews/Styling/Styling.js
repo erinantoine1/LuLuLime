@@ -111,9 +111,13 @@ export const FullStars = styled.div`
 
 export const Buttons = styled.button`
   border-radius: 0.25rem;
-  border: 0.0625 rem solid;
-  padding: 0.5rem;
+  padding: 1rem;
   cursor: pointer;
+  border: 0.0625rem solid;
+  border-color: #038081;
+  background-color: #038081;
+  color: white;
+  width: 10%;
 `;
 
 export const ReviewSectionContainer = styled.div`
@@ -122,11 +126,12 @@ export const ReviewSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 5rem;
   height: 68rem;
+  padding: 1.5rem;
 `;
 
 export const ReviewSectionHeader = styled.div`
