@@ -664,7 +664,8 @@ export const UserInputs = styled.input`
 
 export const UserDisclaimer = styled.div`
   margin-bottom: 2.5rem;
-  opacity: 0.5;
+  font-size: 10pt;
+  opacity: 0.75;
 `;
 
 export const submitButton = styled.input`

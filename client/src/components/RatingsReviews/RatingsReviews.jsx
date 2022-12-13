@@ -78,6 +78,8 @@ const RatingsReviews = ({ currentID }) => {
     if (!localStorage.getItem('helpful')) {
       localStorage.setItem('helpful', JSON.stringify([]));
     }
+    setSearchText('');
+    setSortOrder('relevant');
   }, [currentID]);
 
   if (!reviewsLoaded || !metaDataLoaded) {
@@ -98,7 +100,7 @@ const RatingsReviews = ({ currentID }) => {
         <styling.DropDownDiv>
           <label htmlFor="sort">
             <b>Sort-By:</b>
-            <styling.Select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
+            <styling.Select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort" value={sortOrder}>
               <option value="relevant">Relevant</option>
               <option value="helpful">Helpful</option>
               <option value="newest">Newest</option>
