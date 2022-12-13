@@ -41,29 +41,39 @@ export const QATileContent = styled.div`
 `;
 
 export const QABodyContainer = styled.div`
-  width: 100%;
+  justify-content: space-between;
 `;
 
 export const QATileHeader = styled.div`
   display: flex;
   width: 100%;
-  border: 1px solid blue;
 `;
 
 export const QuestionButtons = styled.div`
-  width: 100%;
-  border: 1px solid red;
+  width: 70%;
   justify-content: flex-end;
   margin-right: 0;
+  border: 1px solid red;
 `;
 
 export const QAHeaderButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 30%;
-  border: 1px solid black;
+  width: 14%;
   float: right;
-  padding-right: 5%;
+  padding-right: 3%;
+  border: 1px solid lightblue;
+  font-size: 90%;
+`;
+
+export const QAHelpfulContainer = styled.div`
+  width: 37%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  justify-content: space-between;
+  border: 1px solid green;
+  font-size: 90%;
 `;
 
 export const QAPhotos = styled.div`
@@ -206,7 +216,6 @@ export const Buttons = styled.button`
 
 export const YesButtons = styled.div`
   background-color: transparent;
-  padding-left: 0.75rem;
   font-size: 1rem;
   border: none;
   color: black;
@@ -220,7 +229,6 @@ export const YesButtons = styled.div`
 
 export const ReportButton = styled(Buttons)`
   background-color: transparent;
-  padding-left: 0.75rem;
   font-size: 1rem;
   border: none;
   color: black;
@@ -241,11 +249,30 @@ export const ButtonContainer = styled.div`
   justify-content: center;
 `;
 
+export const AnswerDataContainer = styled.div`
+  display: flex;
+  width: 15%;
+  font-size: 90%;
+  border: 1px solid pink;
+`;
+
 export const AnswerButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 20%;
+  width: 100%;
   border: 1px solid black;
   font-size: 90%;
+  float: right;
 `;
+
+export const AnswersHelpfulContainer = styled.div`
+  width: 12%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  justify-content: space-between;
+  border: 1px solid green;
+  font-size: 90%;
+`;
+
 

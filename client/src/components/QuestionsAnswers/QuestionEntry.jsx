@@ -78,9 +78,11 @@ const QuestionEntry = ({ question, loadQuestions }) => {
             <styling.Buttons type="submit" onClick={toggleNewAnswer}>Add Answer</styling.Buttons>
             <styling.QAHeaderButtons>
               <span>Helpful?</span>
-              {helpfulPressed ? null
-                : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
-              <span>{question.question_helpfulness}</span>
+              <styling.QAHelpfulContainer>
+                {helpfulPressed ? null
+                  : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
+                <span>{`(${question.question_helpfulness})`}</span>
+              </styling.QAHelpfulContainer>
               <span>|</span>
               <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
               {!newAnswer ? null : (
@@ -103,7 +105,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
           ))}
         </styling.ScrollableAnswers>
         {allAnswersShown ? null
-          : <button onClick={showAnswers}>Load more answers</button>}
+          : <styling.Buttons type="submit" onClick={showAnswers}>Load more answers</styling.Buttons>}
       </styling.QATileContent>
     </styling.QATileDiv>
   );

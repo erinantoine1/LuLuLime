@@ -42,16 +42,20 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
         {`: ${answer.body}?`}
       </span>
       <br />
-      <styling.AnswerButtons>
-        <span>{`by ${answer.answerer_name}, ${formatDate()}`}</span>
-        <span>|</span>
-        <span>Helpful?</span>
-        {helpfulPressed ? null
-          : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
-        <span>{answer.helpfulness}</span>
-        <span>|</span>
-        <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
-      </styling.AnswerButtons>
+      <styling.AnswerDataContainer>
+        <styling.AnswerButtons>
+          <span>{`by ${answer.answerer_name}, ${formatDate()}`}</span>
+          <span>|</span>
+          <span>Helpful?</span>
+          <styling.AnswersHelpfulContainer>
+            {helpfulPressed ? null
+              : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
+            <span>{`(${answer.helpfulness})`}</span>
+          </styling.AnswersHelpfulContainer>
+          <span>|</span>
+          <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
+        </styling.AnswerButtons>
+      </styling.AnswerDataContainer>
       <styling.QAPhotos>
         {answer.photos.map((photo, index) => (
           <img key={index} src={photo.url} alt="Clothing product" width="100" height="100" />
@@ -62,3 +66,13 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
 };
 
 export default AnswerEntry;
+
+
+// <span>{`by ${answer.answerer_name}, ${formatDate()}`}</span>
+//         <span>|</span>
+//         <span>Helpful?</span>
+//         {helpfulPressed ? null
+//           : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
+//         <span>{answer.helpfulness}</span>
+//         <span>|</span>
+//         <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
