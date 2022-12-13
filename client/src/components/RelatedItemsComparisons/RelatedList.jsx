@@ -24,7 +24,7 @@ const CardContainer = styled.div`
 const LeftButton = styled.button`
   float: left;
   text-align: center;
-  background-color: white;
+  background-color: #fafafa;
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -38,7 +38,7 @@ const LeftButton = styled.button`
 const RightButton = styled.button`
   float: right;
   text-align: center;
-  background-color: white;
+  background-color: #fafafa;
   height: 75px;
   width: 75px;
   border-radius: 50%;
