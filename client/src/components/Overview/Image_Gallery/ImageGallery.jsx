@@ -1,6 +1,6 @@
 import React from 'react';
 import DefaultImageView from './DefaultImageView.jsx';
-import ExpandedImageView from './ExpandedImageView.jsx';
+// import ExpandedImageView from './ExpandedImageView.jsx';
 
 const ImageGallery = (
   ({
@@ -51,7 +51,7 @@ const ImageGallery = (
           expandedImageViewActive={expandedImageViewActive}
           setExpandedImageViewActive={setExpandedImageViewActive}
         />
-        <ExpandedImageView
+        {/* <ExpandedImageView
           allProductStyles={allProductStyles}
           setAllProductStyles={setAllProductStyles}
           productStyleDefault={productStyleDefault}
@@ -94,7 +94,7 @@ const ImageGallery = (
           setExpandedImageViewActive={setExpandedImageViewActive}
           ImageIsZoomed={ImageIsZoomed}
           setImageIsZoomed={setImageIsZoomed}
-        />
+        /> */}
       </div>
     );
   }

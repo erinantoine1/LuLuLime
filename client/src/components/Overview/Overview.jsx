@@ -35,10 +35,14 @@ left: 1200px;
 top: -1150px;
 `;
 
+const OverviewDiv = styled.div`
+height: fit-content;
+
+`;
+
 const Overview = ({ currentID }) => {
   /* ****************** initial state declarations ******************* */
   const [allProducts, setAllProducts] = useState([]);
-  const [productId, setProductId] = useState();
   const [productTitle, setProductTitle] = useState();
   const [productCategory, setProductCategory] = useState();
   const [productOverview, setProductOverview] = useState();
@@ -76,7 +80,7 @@ const Overview = ({ currentID }) => {
     const parameters = { currentID };
     axios.get('/products').then((response) => {
       setAllProducts(response.data);
-      setProductId(response.data[2].id);
+      // setProductId(response.data[2].id);
       setProductTitle(response.data[2].name);
       setProductCategory(response.data[2].category);
       setProductOverview(response.data[2].description);
@@ -108,7 +112,7 @@ const Overview = ({ currentID }) => {
         }
       });
     });
-  }, []);
+  }, [currentID]);
 
   const AddToCartSubmit = () => {
     const addToCartObject = {
@@ -136,7 +140,7 @@ const Overview = ({ currentID }) => {
 
   /* ****************** mapping products ******************* */
   return (
-    <div>
+    <OverviewDiv>
       <NavigationDiv>Future Navigation Div</NavigationDiv>
       <ImageGalleryDiv>
         <ImageGallery
@@ -223,8 +227,8 @@ const Overview = ({ currentID }) => {
         />
       </StyleSelectorDiv>
       <ProductInformation
-        productId={productId}
-        setProductId={setProductId}
+        productId={currentID}
+        // setProductId={setProductId}
         productTitle={productTitle}
         setProductTitle={setProductTitle}
         productCategory={productCategory}
@@ -238,8 +242,8 @@ const Overview = ({ currentID }) => {
       />
       <AddToCartDiv>
         <AddToCart
-          productStyleId={productStyleId}
-          setProductStyleId={setProductStyleId}
+          productStyleId={currentID}
+          // setProductStyleId={setProductStyleId}
           productStyleName={productStyleName}
           setProductStyleName={setProductStyleName}
           productStyleOriginalPrice={productStyleOriginalPrice}
@@ -279,7 +283,7 @@ const Overview = ({ currentID }) => {
           setProductStyleSizeDropdownLength={setProductStyleSizeDropdownLength}
         />
       </AddToCartDiv>
-    </div>
+    </OverviewDiv>
   );
 };
 

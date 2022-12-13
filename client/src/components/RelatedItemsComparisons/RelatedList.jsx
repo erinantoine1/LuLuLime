@@ -7,7 +7,6 @@ const ContainerParent = styled.div`
   margin-left: 12%;
   margin-right: 12%;
   display: flex;
-  border: solid 2px black;
 `;
 // align-items: center
 // justify-content: center;
@@ -20,7 +19,6 @@ const CardContainer = styled.div`
   flex: 1;
   object-fit: cover;
   position: relative;
-  border: solid 2px blue;
 `;
 
 const LeftButton = styled.button`

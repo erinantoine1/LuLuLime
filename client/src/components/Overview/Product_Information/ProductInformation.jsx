@@ -38,13 +38,15 @@ left: 1250px;
 const TitleDiv = styled.div`
 font-size: 28px;
 `;
-
+const ProductInformationDiv = styled.div`
+height: 1rem;
+`;
 const ProductInformation = (
   ({
     productTitle, productCategory, productOverview, productStyleOriginalPrice, productStyleSalePrice,
   }) => {
     return (
-      <div>
+      <ProductInformationDiv>
         <TitleRatingDiv>
           <TitleDiv>
             <ProductTitle productTitle={productTitle} />
@@ -63,7 +65,7 @@ const ProductInformation = (
         <ShareDiv>
           <Share />
         </ShareDiv>
-      </div>
+      </ProductInformationDiv>
     );
   });
 
