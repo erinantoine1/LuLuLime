@@ -3,7 +3,7 @@ import * as styling from './Styling/Styling.js';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
-const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displayReviewForm, setDisplayReviewForm }) => {
+const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displayReviewForm, setDisplayReviewForm, searchText }) => {
 
 
   const [displayedReviews, setDisplayedReviews] = useState(2);
@@ -32,6 +32,7 @@ const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displ
             sortOrder={sortOrder}
             helpfulReviews={helpfulReviews}
             setHelpfulReviews={setHelpfulReviews}
+            searchText={searchText}
           />
         ))}
       </styling.ReviewTilesContainer>

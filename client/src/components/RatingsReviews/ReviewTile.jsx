@@ -5,7 +5,7 @@ import * as styling from './Styling/Styling.js';
 import StaticStars from './StaticStars.jsx';
 import { getReviewsData } from './Utils.js';
 
-const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, setHelpfulReviews }) => {
+const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, setHelpfulReviews, searchText }) => {
 
   const [reviewLength, setReviewLength] = useState(250);
   const [displayPhoto, setDisplayPhoto] = useState({
@@ -52,9 +52,27 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
     setDisplayPhoto({ ...displayPhoto, viewing: newViewing, url });
   };
 
-  const toggleLongReview = (body) => {
+  const highlightText = (text) => {
+    if (searchText < 3) {
+      return text;
+    }
+    const parts = text.split(new RegExp(`(${searchText})`, 'gi'));
     return (
-      <styling.ReviewBody>{body.slice(0, reviewLength)}
+      <span>
+        {parts.map((part, index) =>
+          <span key={index} style={part.toLowerCase() === searchText.toLowerCase() ? { backgroundColor: 'yellow'} : {} }>
+            {part}
+          </span>)}
+      </span>
+    );
+  };
+
+  const toggleLongReview = (body) => {
+    if (body.length < 250) {
+      return highlightText(body.slice(0, 250));
+    }
+    return (
+      <styling.ReviewBody>{highlightText(body.slice(0, reviewLength))}
         {reviewLength === 250 && <styling.ShowMoreButton onClick={() => setReviewLength(1000)}>Show More...</styling.ShowMoreButton>}
       </styling.ReviewBody>
     );
@@ -64,13 +82,13 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
     <styling.ReviewTileDiv>
       <styling.ReviewTileContent>
         <styling.ReviewTileHeader>
-          <styling.ReviewTileSummary>{review.summary}</styling.ReviewTileSummary>
+          <styling.ReviewTileSummary>{highlightText(review.summary)}</styling.ReviewTileSummary>
           <span>{formatDate(review.date)}</span>
         </styling.ReviewTileHeader>
         <span>
           <StaticStars rating={review.rating} size={12} />
         </span>
-        {review.body.length <= 250 ? <styling.ReviewBody>{review.body}</styling.ReviewBody> : toggleLongReview(review.body)}
+        <styling.ReviewBody>{toggleLongReview(review.body)}</styling.ReviewBody>
         <styling.ReviewPhotos>
           {review.photos.map((photo, index) => {
             return <img key={photo.id} src={photo.url} alt="Clothing product" width="100" height="100" onClick={() => handlePhotoClick(photo.url)} />;

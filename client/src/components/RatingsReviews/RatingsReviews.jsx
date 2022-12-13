@@ -45,13 +45,13 @@ const RatingsReviews = ({ currentID }) => {
   const filterReviews = () => {
     if (filterBy.length === 0 && searchText.length >= 3) {
       return reviews.filter((review) => {
-        return review.body.toLowerCase().includes(searchText) || review.summary.toLowerCase().includes(searchText);
+        return review.body.toLowerCase().includes(searchText.toLowerCase()) || review.summary.toLowerCase().includes(searchText.toLowerCase());
       });
     }
     if (filterBy.length > 0) {
       if (searchText.length >= 3) {
         return reviews.filter((review) => {
-          return filterBy.includes(review.rating) && (review.body.toLowerCase().includes(searchText) || review.summary.toLowerCase().includes(searchText));
+          return filterBy.includes(review.rating) && (review.body.toLowerCase().includes(searchText.toLowerCase()) || review.summary.toLowerCase().includes(searchText.toLowerCase()));
         });
       }
       return reviews.filter((review) => {
@@ -133,6 +133,7 @@ const RatingsReviews = ({ currentID }) => {
           sortOrder={sortOrder}
           displayReviewForm={displayReviewForm}
           setDisplayReviewForm={setDisplayReviewForm}
+          searchText={searchText}
         />
       </styling.ReviewSectionBody>
     </styling.ReviewSectionContainer>
