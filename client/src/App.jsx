@@ -43,14 +43,6 @@ const App = () => {
   // }, []);
 
   return (
-<<<<<<< HEAD
-    <div>
-      {/* <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} /> */}
-      <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
-      <QuestionsAnswers currentID={currentID} />
-      <RatingsReviews currentID={currentID} />
-    </div>
-=======
     <AppBackground change={!theme}>
       <AppContainer change={!theme}>
         <button type="button" onClick={() => setTheme(!theme)}>Change Theme</button>
@@ -60,7 +52,6 @@ const App = () => {
         <RatingsReviews currentID={currentID} />
       </AppContainer>
     </AppBackground>
->>>>>>> e49254814fe8509309e9aec27ced69097168892f
   );
 };
 
