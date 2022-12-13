@@ -75,7 +75,7 @@ const OutfitList = ({ currentID }) => {
       <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
       <Add cardWidth={width} setOutfitItems={setOutfitItems} outfitItems={outfitItems} currentID={currentID} />
       <CardContainer ref={containerRef}>
-        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} cardWidth={Math.ceil(width / 4)} key={index} name={item.name} default_price={item.default_price} category={item.category} pictures={item.pictures} />)}
+        {outfitItems.map((item, index) => <OutfitCard outfitItems={outfitItems} setOutfitItems={setOutfitItems} cardWidth={Math.ceil(width / 4)} key={index} name={item.name} default_price={item.default_price} category={item.category} pictures={item.pictures} ratings={item.ratings} />)}
       </CardContainer>
       <RightButton onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

@@ -49,6 +49,16 @@ const RightButton = styled.button`
   visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
 `;
 
+const getAverageRating = (ratings) => {
+  let totalRating = 0;
+  let totalRatings = 0;
+  Object.entries(ratings).forEach((pair) => {
+    totalRating += (Number(pair[0]) * Number(pair[1]));
+    totalRatings += (Number(pair[1]))
+  });
+  return Math.round((totalRating / totalRatings) * 10) / 10;
+};
+
 const RelatedList = ({ setCurrentID, currentID }) => {
   const [relatedItems, setRelatedItems] = useState([]);
   const [styles, setStyles] = useState([]);
@@ -112,17 +122,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
       })
       .catch(err => console.error(err));
   }, [currentID]);
-
-
-  const getAverageRating = (ratings) => {
-    let totalRating = 0;
-    let totalRatings = 0;
-    Object.entries(ratings).forEach((pair) => {
-      totalRating += (Number(pair[0]) * Number(pair[1]));
-      totalRatings += (Number(pair[1]))
-    });
-    return Math.round((totalRating / totalRatings) * 10) / 10;
-  };
 
   const handleLeftClick = () => {
     containerRef.current.scrollLeft -= Math.ceil(width / 4);

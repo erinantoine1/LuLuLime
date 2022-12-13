@@ -91,12 +91,3 @@ const CompareModal = ({ setShowModal, id, currentID }) => {
 };
 
 export default CompareModal;
-
-// <StyledTitle>Comparing</StyledTitle>
-//         <StyledText>Hello</StyledText><StyledText>Hello</StyledText><StyledText>Hello</StyledText>
-
-//         <StyledText>✘</StyledText>
-//           <StyledText>✔</StyledText>
-//           <StyledText>✔</StyledText>
-//           <StyledText>✘</StyledText>
-//           <StyledText>✔</StyledText>
