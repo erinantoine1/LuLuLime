@@ -66,7 +66,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
       .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem', { params: { product_id: itemID } }))))
       .then(res => {
         const temp = [];
-
         for (let i = 0; i < res.length; i++) {
           temp.push(res[i].data);
         }
@@ -78,7 +77,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
       .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem/styles', { params: { product_id: itemID } }))))
       .then(res => {
         const temp = [];
-
         for (let i = 0; i < res.length; i++) {
           let hasDefault = false;
           for (let j = 0; j < res[i].data.results.length; j++) {
@@ -91,7 +89,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
               }
             }
           }
-
           if (!hasDefault) {
             if(typeof res[i].data.results[0].photos[0].url === 'string') {
               temp.push({ photo: res[i].data.results[0].photos[0].url });
@@ -100,7 +97,6 @@ const RelatedList = ({ setCurrentID, currentID }) => {
             }
           }
         }
-
         setStyles(temp);
       })
       .catch(err => console.error(err));
@@ -108,17 +104,13 @@ const RelatedList = ({ setCurrentID, currentID }) => {
       axios.get('/currentItem/related', { params: { product_id: currentID } })
       .then(res => Promise.all(res.data.map(itemID => axios.get('/reviews/meta', { params: { product_id: itemID } }))))
       .then(res => {
-        console.log('should be array of reviews objects:', res);
         const temp = [];
-
         for (let i = 0; i < res.length; i++) {
           temp.push(getAverageRating(res[i].data.ratings))
         }
-
         setRatings(temp);
       })
       .catch(err => console.error(err));
-
   }, [currentID]);
 
 
@@ -146,7 +138,7 @@ const RelatedList = ({ setCurrentID, currentID }) => {
     <ContainerParent>
       <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <CardContainer ref={containerRef}>
-        {(width && relatedItems.length && styles.length && ratings.length) && relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} ratings={ratings[index]} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />)}
+        {(width && relatedItems.length && styles.length && ratings.length) ? relatedItems.map((item, index) => <RelatedCard id={item.id} name={item.name} default_price={item.default_price} category={item.category} cardWidth={Math.ceil(width / 4)} picture={styles[index]?.photo} ratings={ratings[index]} key={`${item}+${index}`} currentID={currentID} setCurrentID={setCurrentID} />) : null}
       </CardContainer>
       <RightButton scrollCount={scrollCount} len={relatedItems.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>

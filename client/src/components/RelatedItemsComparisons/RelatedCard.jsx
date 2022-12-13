@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-// import CompareModal from './CompareModal.jsx';
+import CompareModal from './CompareModal.jsx';
 import StaticStars from '../RatingsReviews/StaticStars.jsx';
 
 
@@ -86,29 +86,17 @@ const Container = styled.div`
 const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_price, picture, type, outfitItems, setOutfitItems, cardWidth, ratings }) => {
   const [showModal, setShowModal] = useState(false);
 
-  const [currentItem, setCurrentItem] = useState({});
-  const [relatedItem, setRelatedItem] = useState({});
-
-  // useEffect(() => {
-  //   axios.get('/currentItem', { params: { product_id: currentID } })
-  //     .then(res => {
-  //       setCurrentItem(res.data);
-  //     })
-  //     .catch(err => console.error(err));
-
-  //   axios.get('/currentItem', { params: { product_id: id } })
-  //     .then(res => {
-  //       setRelatedItem(res.data);
-  //     })
-  //     .catch(err => console.error(err));
-  // }, [currentID, id]);
+  const handleClick = () => {
+    setCurrentID(id);
+    window.scrollTo({ top: 0 });
+  };
 
   return (
     <Container>
-      {/* {showModal && <CompareModal currentItem={currentItem} relatedItem={relatedItem} setShowModal={setShowModal} /> } */}
+      {showModal && <CompareModal id={id} currentID={currentID} setShowModal={setShowModal} /> }
       <StyledCard>
         <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
-        <Image width={cardWidth} src={picture} alt="item" onClick={() => setCurrentID(id)} />
+        <Image width={cardWidth} src={picture} alt="item" onClick={handleClick} />
         <StyledCategory>{category}</StyledCategory>
         <StyledName>{name}</StyledName>
         <StyledPrice>{default_price}</StyledPrice>
