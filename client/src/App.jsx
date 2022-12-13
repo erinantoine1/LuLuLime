@@ -32,9 +32,13 @@ const App = () => {
   return (
     <div>
       {/* <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} /> */}
-      <RatingsReviews currentID={40346} />
+      <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
+      <QuestionsAnswers currentID={currentID} />
+      <RatingsReviews currentID={currentID} />
     </div>
   );
 };
 
 export default App;
+
+// <Overview currentID={40346} />
