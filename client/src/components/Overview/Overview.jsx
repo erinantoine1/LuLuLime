@@ -19,6 +19,7 @@ border-bottom: solid 1px grey;
 box-shadow: 0.0625rem 0.125rem #e8e7e4;
 background-color: white;
 border-radius: 10px;
+margin-top: 6rem;
 `;
 
 const LeftOverviewDiv = styled.div`

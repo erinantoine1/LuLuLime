@@ -9,13 +9,45 @@ import RelatedItemsComparisons from './components/RelatedItemsComparisons/Relate
 import { StarContext } from './components/RatingsReviews/Utils.js';
 
 const AppBackground = styled.div`
-  background-color: ${props => props.change ? 'white' : 'black'};
+  background-color: ${props => props.change ? '#EAFAF1' : 'black'};
 `;
 
 const AppContainer = styled.div`
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color:  ${props => props.change ? '#fafafa' : 'grey'};
+  border-left: solid 1px rgba(0, 0, 0, 0.25);
+  border-right: solid 1px rgba(0, 0, 0, 0.25);
+  border-top: solid 1px rgba(0, 0, 0, 0);
+  border-bottom: solid 1px rgba(0, 0, 0, 0);
+  margin-left: 4%;
+  margin-right: 4%;
+  background-color:  ${props => props.change ? '#EAFAF1' : 'grey'};
+`;
+
+const Header = styled.div`
+  border: 1px solid black;
+  background-color: teal;
+  width: 100%;
+  height: 6rem;
+  text-align: center;
+  display: flex;
+`;
+
+export const Buttons = styled.button`
+  border-radius: 0.25rem;
+  padding: 1rem;
+  cursor: pointer;
+  border: 0.0625rem solid;
+  border-color: black;
+  background-color: teal;
+  color: white;
+  width: 15%;
+  overflow-wrap: break-word;
+  min-width: fit-content;
+  max-width: fit-content;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+  }
 `;
 
 const App = () => {
@@ -48,8 +80,10 @@ const App = () => {
 
   return (
     <AppBackground change={!theme}>
+      <Header>
+        <h1 style={{ fontSize: '3rem', color: '#bfe3b4', margin: 'auto' }}>Lululime</h1>
+      </Header>
       <AppContainer change={!theme}>
-        <button type="button" onClick={() => setTheme(!theme)}>Change Theme</button>
         <Overview currentID={currentID} />
         <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
         <QuestionsAnswers currentID={currentID} />

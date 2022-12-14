@@ -35,7 +35,7 @@ export const QASectionContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   margin-left: 10%;
   margin-right: 10%;
 `;
@@ -57,6 +57,20 @@ export const QAInfoDiv = styled.div`
   width: 100%;
 `;
 
+export const QATileDiv2 = styled.div`
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  margin-left: 2%;
+  margin-right: 2%;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+`;
+
 export const QATileDiv = styled.div`
   padding: 1rem 1rem;
   display: flex;
@@ -65,8 +79,9 @@ export const QATileDiv = styled.div`
   margin-bottom: 1.2rem;
   margin-left: 2%;
   margin-right: 2%;
-  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  border-radius: 10px;
   background-color: white;
+  border: none;
 `;
 
 export const QATileContent = styled.div`
@@ -74,7 +89,6 @@ export const QATileContent = styled.div`
   flex-direction: column;
   gap: 0.75rem;
   width: 100%
-  border: 1px;
   border-radius: 10%;
 `;
 
@@ -247,12 +261,17 @@ export const Buttons = styled.button`
   cursor: pointer;
   border: 0.0625rem solid;
   border-color: black;
-  background-color: black;
+  background-color: teal;
   color: white;
   width: 15%;
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+  }
 `;
 
 export const YesButtons = styled.div`
@@ -305,7 +324,7 @@ export const AnswerContainer = styled.div`
   margin-left: 2%;
   margin-right: 2%;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
-  background-color: white;
+  background-color: #fafafa;
 `;
 
 export const AnswerButtons = styled.div`
