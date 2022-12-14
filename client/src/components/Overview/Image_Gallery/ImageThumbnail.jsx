@@ -22,7 +22,7 @@ const ImageThumbnail = (
     };
 
     return (
-      <ImageThumbnailImg src={thumbnailUrl} alt="select style" style={currentImageIndex === photoIndex ? { border: 'solid 3px', borderColor: 'limeGreen' } : { borderColor: 'black' }} onClick={(e) => { handleThumbnailClick(e); }} />
+      <ImageThumbnailImg src={thumbnailUrl} alt="select style" style={currentImageIndex === photoIndex ? { border: 'solid 5px', borderColor: 'teal' } : { borderColor: 'black' }} onClick={(e) => { handleThumbnailClick(e); }} />
     );
   });
 

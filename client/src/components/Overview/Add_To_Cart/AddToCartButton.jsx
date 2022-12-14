@@ -7,12 +7,17 @@ const ATCButton = styled.button`
   cursor: pointer;
   border: 0.0625rem solid;
   border-color: black;
-  background-color: black;
+  background-color: teal;
   color: white;
   overflow-wrap: break-word;
   min-width: fit-content;
   height: 50px;
   width: 250px;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+  }
 `;
 
 const AddToCartButton = (

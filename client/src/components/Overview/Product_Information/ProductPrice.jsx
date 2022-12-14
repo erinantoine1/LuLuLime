@@ -8,7 +8,7 @@ position: relative;
 top: -10px;
 left: 10px;
 font-size: 40px;
-color: limeGreen;
+color: teal;
 `;
 const OriginalPriceSale = styled.div`
 height: 150px;

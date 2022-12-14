@@ -11,15 +11,14 @@ const ShareDiv = styled.div`
 height: 200px;
 width: 350px;
 position: absolute;
-top: 10%;
-left: 70%;
+left: 50%;
 `;
 const PriceDiv = styled.div`
 height: 150px;
 width: 350px;
 position: absolute;
-margin-top: 125%;
-left:-5%;
+margin-top: 68%;
+margin-left: -2%;
 `;
 const CategoryDiv = styled.div`
 height: 200px;
@@ -27,34 +26,31 @@ width: 350px;
 font-size: 14px;
 text-decoration: underline;
 position: absolute;
-top: 10%;
-left: 0%;
 `;
 const RatingDiv = styled.div`
 height: 200px;
 width: 700px;
 position: absolute;
-margin-top: 58%;
-left: 0%
+margin-top: 30%;
 `;
 const OverviewDiv = styled.div`
 height: 200px;
 width: 400px;
-position: absolute;
-margin-top: 80%;
-left: 0%;
+position: relative;
+margin-top: 40%;
 `;
 const TitleDiv = styled.div`
 font-size: 36px;
 height: 200px;
 width: 700px;
 position: absolute;
-margin-top: 2%;
-left: 0%
 `;
 const ProductInformationDiv = styled.div`
 height: 1rem;
 margin-top: 5%;
+position: relative;
+display: flex;
+flex-wrap: wrap;
 `;
 const ProductInformation = (
   ({
