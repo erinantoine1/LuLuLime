@@ -701,7 +701,7 @@ export const UserInputs = styled.input`
 `;
 
 export const UserDisclaimer = styled.div`
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
   font-size: 10pt;
   opacity: 0.75;
 `;
@@ -727,8 +727,19 @@ export const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
+export const UserInfoErrorMessage = styled(ErrorMessage)`
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+`;
+
+export const CharErrorMessage = styled(ErrorMessage)`
+  margin-top: 0;
+  margin-bottom: 1rem;
+`;
+
 export const SubmitErrorMessage = styled(ErrorMessage)`
   align-self: center;
+  margin-top: 1rem;
 `;
 
 

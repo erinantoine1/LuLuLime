@@ -86,12 +86,15 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
           {(errors && reviewForm.recommend === null) && <styling.ErrorMessage>Please Indicate If You Recommend This Product</styling.ErrorMessage>}
         </styling.recommendDiv>
         <styling.CharsContainer>
-          {Object.entries(metaData.characteristics).map((characteristic) => (
+          {Object.entries(metaData.characteristics).map((characteristic, index) => (
             <CharSection
               key={characteristic[1].id}
+              index={index}
               characteristic={characteristic}
               reviewForm={reviewForm}
               setReviewForm={setReviewForm}
+              metaData={metaData}
+              errors={errors}
             />
           ))}
         </styling.CharsContainer>
@@ -110,6 +113,7 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
               />
             </styling.FormLabels>
             <styling.FormCounters>{`${reviewForm.summary.length} / 60`}</styling.FormCounters>
+            {(errors && reviewForm.summary.length < 1) && <styling.ErrorMessage>Please Fill Out A Summary</styling.ErrorMessage>}
           </styling.FormSummaryContainer>
           <styling.FormBodyContainer>
             <styling.FormLabels htmlFor="body">
@@ -155,7 +159,7 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
             />
           </styling.FormLabels>
           <styling.UserDisclaimer>For privacy reasons, do not use your full name or email address</styling.UserDisclaimer>
-          {(errors && reviewForm.name.length < 1) && <styling.ErrorMessage>Please Fill Out A Nickname</styling.ErrorMessage>}
+          {(errors && reviewForm.name.length < 1) && <styling.UserInfoErrorMessage>Please Fill Out A Nickname</styling.UserInfoErrorMessage>}
           <styling.FormLabels htmlFor="email">
             Email:
             <styling.UserInputs
@@ -168,6 +172,7 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
             />
           </styling.FormLabels>
           <styling.UserDisclaimer>For authentication reasons, you will not be emailed</styling.UserDisclaimer>
+          {(errors && !reviewForm.email.toLowerCase().match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) && <styling.UserInfoErrorMessage>Please Fill Out A Valid Email Address</styling.UserInfoErrorMessage>}
           <styling.submitButton type="submit" value="Submit Review" onClick={(event) => handleErrors(event)} />
           {errors && <styling.SubmitErrorMessage>Please Ensure All Required Fields Have Been Filled Out</styling.SubmitErrorMessage>}
         </styling.UserInfoDiv>
