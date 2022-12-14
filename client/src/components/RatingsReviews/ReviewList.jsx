@@ -23,7 +23,7 @@ const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displ
   return (
     <styling.ReviewListDiv>
       <styling.ReviewTilesContainer>
-        {reviews.slice(0, displayedReviews).map((review) => (
+        {reviews.length > 0 ? reviews.slice(0, displayedReviews).map((review) => (
           <ReviewTile
             key={review.review_id}
             currentID={currentID}
@@ -34,7 +34,7 @@ const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displ
             setHelpfulReviews={setHelpfulReviews}
             searchText={searchText}
           />
-        ))}
+        )) : <styling.SearchResultsDiv>No Reviews Matched Your Search</styling.SearchResultsDiv>}
       </styling.ReviewTilesContainer>
       <div ref={divRef}></div>
       <styling.ReviewButtonContainer>
