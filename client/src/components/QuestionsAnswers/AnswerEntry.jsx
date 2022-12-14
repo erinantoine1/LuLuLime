@@ -13,7 +13,6 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
   };
 
   const handleUpdate = (route) => {
-    console.log(answer);
     axios.put(`/answer/${route}`, {
       answer_id: answer.answer_id
     })
@@ -33,6 +32,10 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
 
   const report = () => {
     handleUpdate('report');
+  };
+
+  const hide = (event) => {
+    event.target.style.display = 'none';
   };
 
   return (
@@ -57,7 +60,13 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
       </styling.AnswerButtons>
       <styling.QAPhotos>
         {answer.photos.map((photo, index) => (
-          <img key={index} src={photo.url} alt="Clothing product" width="100" height="100" />
+          <img
+            key={index}
+            src={photo.url}
+            alt=" "
+            width="100"
+            height="100"
+          />
         ))}
       </styling.QAPhotos>
     </styling.AnswerContainer>

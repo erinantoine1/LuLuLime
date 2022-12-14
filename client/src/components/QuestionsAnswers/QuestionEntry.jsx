@@ -29,6 +29,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   let getAnswers = Object.values(question.answers);
   getAnswers = getAnswers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
+  console.log(getAnswers);
 
   const handleUpdate = (route) => {
     axios.put(`/question/${route}`, {
