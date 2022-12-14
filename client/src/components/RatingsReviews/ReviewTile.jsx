@@ -103,12 +103,17 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
           <styling.ModalImage onClick={(event) => event.stopPropagation() }src={displayPhoto.url} alt="Clothing product" />
         </styling.ModalBackground>
         )}
-        {review.recommend ? <span>&#9989; I recommend this product</span> : null}
-        <span>{`Posted By: ${review.reviewer_name}`}</span>
-        {review.response && <div>`Response From Seller: ${review.response}`</div>}
-        {`${review.helpfulness} people found this helpful`}
+        {review.recommend && <styling.ReviewLabels>&#10003; User Recommended</styling.ReviewLabels>}
+        <styling.UsernameContainer>
+          <styling.UserIcon>
+            {review.reviewer_name.slice(0, 1)}
+          </styling.UserIcon>
+          <styling.Username>{review.reviewer_name}</styling.Username>
+        </styling.UsernameContainer>
+        {review.response && <styling.SellerResponse>{`Seller: ${review.response}`}</styling.SellerResponse>}
+        {<styling.ReviewLabels>{`${review.helpfulness} people found this helpful`}</styling.ReviewLabels>}
         <styling.TileButtons>
-          {helpfulReviews.includes(review.review_id) ? <styling.HelpfulButton>Helpful &#9989;</styling.HelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful?</styling.HelpfulButton>}
+          {helpfulReviews.includes(review.review_id) ? <styling.HelpfulButton>Helpful &#10003;</styling.HelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful?</styling.HelpfulButton>}
           <styling.ReportButton type="submit" onClick={() => handleUpdate('report', review.review_id)}>Report</styling.ReportButton>
         </styling.TileButtons>
       </styling.ReviewTileContent>
