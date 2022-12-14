@@ -69,7 +69,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
       <styling.QATileContent>
         <styling.QATileHeader>
           <styling.QABodyContainer>
-            <span>
+            <span style={{ fontSize: '1.7rem' }}>
               <b>Q</b>
               {`: ${question.question_body}?`}
             </span>

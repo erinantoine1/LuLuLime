@@ -38,9 +38,11 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
     event.target.style.display = 'none';
   };
 
+  console.log(answer.photos);
+
   return (
     <styling.AnswerContainer>
-      <span>
+      <span style={{ fontSize: '1.3rem' }}>
         <b>A</b>
         {`: ${answer.body}?`}
       </span>
@@ -64,6 +66,7 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
             key={index}
             src={photo.url}
             alt=" "
+            onerror="this.style.display='none'"
             width="100"
             height="100"
           />
