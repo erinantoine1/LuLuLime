@@ -3,7 +3,6 @@ import QuestionEntry from './QuestionEntry.jsx';
 import * as styling from './Styling.js';
 
 const QuestionsList = ({ questions, loadQuestions }) => {
-
   return (
     questions.map((question, index) => (
       <styling.QATileDiv key={index}>

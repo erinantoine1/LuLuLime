@@ -12,14 +12,14 @@ height: 200px;
 width: 350px;
 position: absolute;
 top: 10%;
-left: 67%;
+left: 70%;
 `;
 const PriceDiv = styled.div`
 height: 150px;
 width: 350px;
 position: absolute;
-top: 26%;
-left: 59%;
+margin-top: 125%;
+left:-5%;
 `;
 const CategoryDiv = styled.div`
 height: 200px;
@@ -28,39 +28,37 @@ font-size: 14px;
 text-decoration: underline;
 position: absolute;
 top: 10%;
-left: 59%;
+left: 0%;
 `;
 const RatingDiv = styled.div`
 height: 200px;
 width: 700px;
 position: absolute;
-top: 20%;
-left: 59%;
+margin-top: 58%;
+left: 0%
 `;
 const OverviewDiv = styled.div`
 height: 200px;
 width: 400px;
 position: absolute;
-top: 32%;
-left: 59%;
+margin-top: 80%;
+left: 0%;
 `;
 const TitleDiv = styled.div`
-font-size: 40px;
+font-size: 36px;
 height: 200px;
 width: 700px;
 position: absolute;
-top: 15%;
-left: 59%
+margin-top: 2%;
+left: 0%
 `;
 const ProductInformationDiv = styled.div`
 height: 1rem;
-display: flex;
-flex-wrap: wrap;
 margin-top: 5%;
 `;
 const ProductInformation = (
   ({
-    productTitle, productCategory, productOverview, productStyleOriginalPrice, productStyleSalePrice,
+    productTitle, productCategory, productOverview, productStyleOriginalPrice, productStyleSalePrice, starRating
   }) => {
     return (
       <ProductInformationDiv>
@@ -71,14 +69,14 @@ const ProductInformation = (
           <ProductTitle productTitle={productTitle} />
         </TitleDiv>
         <RatingDiv>
-          <StarRating />
+          <StarRating starRating={starRating} />
         </RatingDiv>
-        <PriceDiv>
-          <ProductPrice productStyleOriginalPrice={productStyleOriginalPrice} productStyleSalePrice={productStyleSalePrice} />
-        </PriceDiv>
         <OverviewDiv>
           <ProductOverview productOverview={productOverview} />
         </OverviewDiv>
+        <PriceDiv>
+          <ProductPrice productStyleOriginalPrice={productStyleOriginalPrice} productStyleSalePrice={productStyleSalePrice} />
+        </PriceDiv>
         <ShareDiv>
           <Share />
         </ShareDiv>

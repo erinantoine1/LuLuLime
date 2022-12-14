@@ -9,8 +9,8 @@ margin-right: 12%;
 display: flex;
 position: relative;
 top: -101px;
-left: -104px;
-width: 850px;
+width: 550px;
+align-content: center;
 `;
 
 const IconsContainer = styled.div`
@@ -23,6 +23,7 @@ object-fit: cover;
 position: relative;
 height: 100px;
 width: 75px;
+
 `;
 
 const IconContainer = styled.div`
