@@ -7,7 +7,7 @@ height: 1rem;
 `;
 
 const StarRating = () => {
-  const RatingDisplay = 'Star Rating: ***** (Read all [#] reviews)';
+  const RatingDisplay = '***** (Read all [#] reviews)';
 
   return (
     <StarRatingDiv>

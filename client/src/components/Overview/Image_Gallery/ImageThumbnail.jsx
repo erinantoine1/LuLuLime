@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ImageThumbnailImg = styled.img`
 height: 50px;
 width: 50px;
-border: solid;
+border: solid 3px;
 z-index: 50;
 position: relative;
 `;
@@ -22,7 +22,7 @@ const ImageThumbnail = (
     };
 
     return (
-      <ImageThumbnailImg src={thumbnailUrl} alt="select style" style={currentImageIndex === photoIndex ? { borderColor: 'red' } : { borderColor: 'black' }} onClick={(e) => { handleThumbnailClick(e); }} />
+      <ImageThumbnailImg src={thumbnailUrl} alt="select style" style={currentImageIndex === photoIndex ? { borderColor: 'limeGreen' } : { borderColor: 'black' }} onClick={(e) => { handleThumbnailClick(e); }} />
     );
   });
 

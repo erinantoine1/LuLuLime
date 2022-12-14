@@ -8,38 +8,15 @@ import StyleSelector from './Style_Selector/StyleSelector.jsx';
 import AddToCart from './Add_To_Cart/AddToCart.jsx';
 
 /* ****************** styled-components ******************* */
-const NavigationDiv = styled.div`
-background: lightgrey;
-height: 115px;
-width: 100%;
-border: solid;
-font-size: 40px;
-`;
-const ImageGalleryDiv = styled.div`
-position: relative;
-left: 50px;
-top: 50px;
-`;
-const StyleSelectorDiv = styled.div`
-height: 200px;
-width: 350px;
-position: relative;
-left: 1200px;
-top: -450px;
-`;
-const AddToCartDiv = styled.div`
-height: 300px;
-width: 600px;
-position: relative;
-left: 1200px;
-top: -1150px;
-`;
-
 const OverviewDiv = styled.div`
-height: fit-content;
-
+display: flex;
+flex-wrap: wrap;
+width: 80vw;
+height: 85vh;
+align-content: center;
+margins: auto;
+font-family: Helvetica;
 `;
-
 const Overview = ({ currentID }) => {
   /* ****************** initial state declarations ******************* */
   const [allProducts, setAllProducts] = useState([]);
@@ -141,91 +118,50 @@ const Overview = ({ currentID }) => {
   /* ****************** mapping products ******************* */
   return (
     <OverviewDiv>
-      <NavigationDiv>Future Navigation Div</NavigationDiv>
-      <ImageGalleryDiv>
-        <ImageGallery
-          allProductStyles={allProductStyles}
-          setAllProductStyles={setAllProductStyles}
-          productStyleDefault={productStyleDefault}
-          setProductStyleDefault={setProductStyleDefault}
-          productStyleId={productStyleId}
-          setProductStyleId={setProductStyleId}
-          productStyleName={productStyleName}
-          setProductStyleName={setProductStyleName}
-          productStyleOriginalPrice={productStyleOriginalPrice}
-          setProductStyleOriginalPrice={setProductStyleOriginalPrice}
-          productStyleSalePrice={productStyleSalePrice}
-          setProductStyleSalePrice={setProductStyleSalePrice}
-          productStylePhotos={productStylePhotos}
-          setProductStylePhotos={setProductStylePhotos}
-          productStyleSku={productStyleSku}
-          setProductStyleSku={setProductStyleSku}
-          productStyleSkus={productStyleSkus}
-          setProductStyleSkus={setProductStyleSkus}
-          productStyleSize={productStyleSize}
-          setProductStyleSize={setProductStyleSize}
-          productStyleQuantity={productStyleQuantity}
-          setProductStyleQuantity={setProductStyleQuantity}
-          productStyleSizes={productStyleSizes}
-          setProductStyleSizes={setProductStyleSizes}
-          productStyleQuantities={productStyleQuantities}
-          setProductStyleQuantities={setProductStyleQuantities}
-          undefinedSizeSubmitted={undefinedSizeSubmitted}
-          setUndefinedSizeSubmitted={setUndefinedSizeSubmitted}
-          quantitySelectorIsDisabled={quantitySelectorIsDisabled}
-          setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
-          dropdownQuantitiesArray={dropdownQuantitiesArray}
-          setDropdownQuantitiesArray={setDropdownQuantitiesArray}
-          currentThumbnailUrl={currentThumbnailUrl}
-          setCurrentThumbnailUrl={setCurrentThumbnailUrl}
-          currentPhotoUrl={currentPhotoUrl}
-          setCurrentPhotoUrl={setCurrentPhotoUrl}
-          currentImageIndex={currentImageIndex}
-          setCurrentImageIndex={setCurrentImageIndex}
-          expandedImageViewActive={expandedImageViewActive}
-          setExpandedImageViewActive={setExpandedImageViewActive}
-          ImageIsZoomed={ImageIsZoomed}
-          setImageIsZoomed={setImageIsZoomed}
-        />
-      </ImageGalleryDiv>
-      <br />
-      <StyleSelectorDiv>
-        Select Style:
-        <StyleSelector
-          allProductStyles={allProductStyles}
-          setAllProductStyles={setAllProductStyles}
-          productStyleDefault={productStyleDefault}
-          setProductStyleDefault={setProductStyleDefault}
-          productStyleId={productStyleId}
-          setProductStyleId={setProductStyleId}
-          productStyleName={productStyleName}
-          setProductStyleName={setProductStyleName}
-          productStyleOriginalPrice={productStyleOriginalPrice}
-          setProductStyleOriginalPrice={setProductStyleOriginalPrice}
-          productStyleSalePrice={productStyleSalePrice}
-          setProductStyleSalePrice={setProductStyleSalePrice}
-          productStylePhotos={productStylePhotos}
-          setProductStylePhotos={setProductStylePhotos}
-          productStyleSku={productStyleSku}
-          setProductStyleSku={setProductStyleSku}
-          productStyleSkus={productStyleSkus}
-          setProductStyleSkus={setProductStyleSkus}
-          productStyleSize={productStyleSize}
-          setProductStyleSize={setProductStyleSize}
-          productStyleQuantity={productStyleQuantity}
-          setProductStyleQuantity={setProductStyleQuantity}
-          productStyleSizes={productStyleSizes}
-          setProductStyleSizes={setProductStyleSizes}
-          productStyleQuantities={productStyleQuantities}
-          setProductStyleQuantities={setProductStyleQuantities}
-          undefinedSizeSubmitted={undefinedSizeSubmitted}
-          setUndefinedSizeSubmitted={setUndefinedSizeSubmitted}
-          quantitySelectorIsDisabled={quantitySelectorIsDisabled}
-          setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
-          dropdownQuantitiesArray={dropdownQuantitiesArray}
-          setDropdownQuantitiesArray={setDropdownQuantitiesArray}
-        />
-      </StyleSelectorDiv>
+      <ImageGallery
+        allProductStyles={allProductStyles}
+        setAllProductStyles={setAllProductStyles}
+        productStyleDefault={productStyleDefault}
+        setProductStyleDefault={setProductStyleDefault}
+        productStyleId={productStyleId}
+        setProductStyleId={setProductStyleId}
+        productStyleName={productStyleName}
+        setProductStyleName={setProductStyleName}
+        productStyleOriginalPrice={productStyleOriginalPrice}
+        setProductStyleOriginalPrice={setProductStyleOriginalPrice}
+        productStyleSalePrice={productStyleSalePrice}
+        setProductStyleSalePrice={setProductStyleSalePrice}
+        productStylePhotos={productStylePhotos}
+        setProductStylePhotos={setProductStylePhotos}
+        productStyleSku={productStyleSku}
+        setProductStyleSku={setProductStyleSku}
+        productStyleSkus={productStyleSkus}
+        setProductStyleSkus={setProductStyleSkus}
+        productStyleSize={productStyleSize}
+        setProductStyleSize={setProductStyleSize}
+        productStyleQuantity={productStyleQuantity}
+        setProductStyleQuantity={setProductStyleQuantity}
+        productStyleSizes={productStyleSizes}
+        setProductStyleSizes={setProductStyleSizes}
+        productStyleQuantities={productStyleQuantities}
+        setProductStyleQuantities={setProductStyleQuantities}
+        undefinedSizeSubmitted={undefinedSizeSubmitted}
+        setUndefinedSizeSubmitted={setUndefinedSizeSubmitted}
+        quantitySelectorIsDisabled={quantitySelectorIsDisabled}
+        setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
+        dropdownQuantitiesArray={dropdownQuantitiesArray}
+        setDropdownQuantitiesArray={setDropdownQuantitiesArray}
+        currentThumbnailUrl={currentThumbnailUrl}
+        setCurrentThumbnailUrl={setCurrentThumbnailUrl}
+        currentPhotoUrl={currentPhotoUrl}
+        setCurrentPhotoUrl={setCurrentPhotoUrl}
+        currentImageIndex={currentImageIndex}
+        setCurrentImageIndex={setCurrentImageIndex}
+        expandedImageViewActive={expandedImageViewActive}
+        setExpandedImageViewActive={setExpandedImageViewActive}
+        ImageIsZoomed={ImageIsZoomed}
+        setImageIsZoomed={setImageIsZoomed}
+      />
       <ProductInformation
         productId={currentID}
         // setProductId={setProductId}
@@ -240,49 +176,82 @@ const Overview = ({ currentID }) => {
         productStyleSalePrice={productStyleSalePrice}
         setProductStyleSalePrice={setProductStyleSalePrice}
       />
-      <AddToCartDiv>
-        <AddToCart
-          productStyleId={currentID}
+      <AddToCart
+        productStyleId={currentID}
           // setProductStyleId={setProductStyleId}
-          productStyleName={productStyleName}
-          setProductStyleName={setProductStyleName}
-          productStyleOriginalPrice={productStyleOriginalPrice}
-          setProductStyleOriginalPrice={setProductStyleOriginalPrice}
-          productStyleSalePrice={productStyleSalePrice}
-          setProductStyleSalePrice={setProductStyleSalePrice}
-          productStylePhotos={productStylePhotos}
-          setProductStylePhotos={setProductStylePhotos}
-          productStyleSku={productStyleSku}
-          setProductStyleSku={setProductStyleSku}
-          productStyleSkus={productStyleSkus}
-          setProductStyleSkus={setProductStyleSkus}
-          productStyleSize={productStyleSize}
-          setProductStyleSize={setProductStyleSize}
-          productStyleQuantity={productStyleQuantity}
-          setProductStyleQuantity={setProductStyleQuantity}
-          productStyleSizes={productStyleSizes}
-          setProductStyleSizes={setProductStyleSizes}
-          productStyleQuantities={productStyleQuantities}
-          setProductStyleQuantities={setProductStyleQuantities}
-          AddToCartSubmit={AddToCartSubmit}
-          undefinedSizeSubmitted={undefinedSizeSubmitted}
-          setUndefinedSizeSubmitted={setUndefinedSizeSubmitted}
-          quantitySelectorIsDisabled={quantitySelectorIsDisabled}
-          setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
-          dropdownQuantitiesArray={dropdownQuantitiesArray}
-          setDropdownQuantitiesArray={setDropdownQuantitiesArray}
-          allQuantitiesZero={allQuantitiesZero}
-          setAllQuantitiesZero={setAllQuantitiesZero}
-          addToCartButtonIsVisible={addToCartButtonIsVisible}
-          setAddToCartButtonIsVisible={setAddToCartButtonIsVisible}
-          addToCartButtonIsDisabled={addToCartButtonIsDisabled}
-          setAddToCartButtonIsDisabled={setAddToCartButtonIsDisabled}
-          sizeSelectorIsDisabled={sizeSelectorIsDisabled}
-          setSizeSelectorIsDisabled={setSizeSelectorIsDisabled}
-          productStyleSizeDropdownLength={productStyleSizeDropdownLength}
-          setProductStyleSizeDropdownLength={setProductStyleSizeDropdownLength}
-        />
-      </AddToCartDiv>
+        productStyleName={productStyleName}
+        setProductStyleName={setProductStyleName}
+        productStyleOriginalPrice={productStyleOriginalPrice}
+        setProductStyleOriginalPrice={setProductStyleOriginalPrice}
+        productStyleSalePrice={productStyleSalePrice}
+        setProductStyleSalePrice={setProductStyleSalePrice}
+        productStylePhotos={productStylePhotos}
+        setProductStylePhotos={setProductStylePhotos}
+        productStyleSku={productStyleSku}
+        setProductStyleSku={setProductStyleSku}
+        productStyleSkus={productStyleSkus}
+        setProductStyleSkus={setProductStyleSkus}
+        productStyleSize={productStyleSize}
+        setProductStyleSize={setProductStyleSize}
+        productStyleQuantity={productStyleQuantity}
+        setProductStyleQuantity={setProductStyleQuantity}
+        productStyleSizes={productStyleSizes}
+        setProductStyleSizes={setProductStyleSizes}
+        productStyleQuantities={productStyleQuantities}
+        setProductStyleQuantities={setProductStyleQuantities}
+        AddToCartSubmit={AddToCartSubmit}
+        undefinedSizeSubmitted={undefinedSizeSubmitted}
+        setUndefinedSizeSubmitted={setUndefinedSizeSubmitted}
+        quantitySelectorIsDisabled={quantitySelectorIsDisabled}
+        setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
+        dropdownQuantitiesArray={dropdownQuantitiesArray}
+        setDropdownQuantitiesArray={setDropdownQuantitiesArray}
+        allQuantitiesZero={allQuantitiesZero}
+        setAllQuantitiesZero={setAllQuantitiesZero}
+        addToCartButtonIsVisible={addToCartButtonIsVisible}
+        setAddToCartButtonIsVisible={setAddToCartButtonIsVisible}
+        addToCartButtonIsDisabled={addToCartButtonIsDisabled}
+        setAddToCartButtonIsDisabled={setAddToCartButtonIsDisabled}
+        sizeSelectorIsDisabled={sizeSelectorIsDisabled}
+        setSizeSelectorIsDisabled={setSizeSelectorIsDisabled}
+        productStyleSizeDropdownLength={productStyleSizeDropdownLength}
+        setProductStyleSizeDropdownLength={setProductStyleSizeDropdownLength}
+      />
+
+      <StyleSelector
+        allProductStyles={allProductStyles}
+        setAllProductStyles={setAllProductStyles}
+        productStyleDefault={productStyleDefault}
+        setProductStyleDefault={setProductStyleDefault}
+        productStyleId={productStyleId}
+        setProductStyleId={setProductStyleId}
+        productStyleName={productStyleName}
+        setProductStyleName={setProductStyleName}
+        productStyleOriginalPrice={productStyleOriginalPrice}
+        setProductStyleOriginalPrice={setProductStyleOriginalPrice}
+        productStyleSalePrice={productStyleSalePrice}
+        setProductStyleSalePrice={setProductStyleSalePrice}
+        productStylePhotos={productStylePhotos}
+        setProductStylePhotos={setProductStylePhotos}
+        productStyleSku={productStyleSku}
+        setProductStyleSku={setProductStyleSku}
+        productStyleSkus={productStyleSkus}
+        setProductStyleSkus={setProductStyleSkus}
+        productStyleSize={productStyleSize}
+        setProductStyleSize={setProductStyleSize}
+        productStyleQuantity={productStyleQuantity}
+        setProductStyleQuantity={setProductStyleQuantity}
+        productStyleSizes={productStyleSizes}
+        setProductStyleSizes={setProductStyleSizes}
+        productStyleQuantities={productStyleQuantities}
+        setProductStyleQuantities={setProductStyleQuantities}
+        undefinedSizeSubmitted={undefinedSizeSubmitted}
+        setUndefinedSizeSubmitted={setUndefinedSizeSubmitted}
+        quantitySelectorIsDisabled={quantitySelectorIsDisabled}
+        setQuantitySelectorIsDisabled={setQuantitySelectorIsDisabled}
+        dropdownQuantitiesArray={dropdownQuantitiesArray}
+        setDropdownQuantitiesArray={setDropdownQuantitiesArray}
+      />
     </OverviewDiv>
   );
 };

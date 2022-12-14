@@ -9,8 +9,6 @@ import styled, { keyframes } from 'styled-components';
 
 const CurrentImg = styled.img`
 height: 100%;
-position: absolute;
-overflow: hidden;
 `;
 
 const ExpandedCurrentImage = (
@@ -51,31 +49,29 @@ const ExpandedCurrentImage = (
     };
 
     const getCursor = (e) => {
-      if (ImageIsZoomed) {
-        const zoomedRect = e.target.getBoundingClientRect();
-        setPhotoDivLeft(zoomedRect.left);
-        setPhotoDivTop(zoomedRect.top);
-        setPrevPointerX(pointerX);
-        setPrevPointerY(pointerY);
-        setPointerX(e.clientX);
-        setPointerY(e.clientY);
+      // if (ImageIsZoomed) {
+      //   const zoomedRect = e.target.getBoundingClientRect();
+      //   setPhotoDivLeft(zoomedRect.left);
+      //   setPhotoDivTop(zoomedRect.top);
+      //   setPrevPointerX(pointerX);
+      //   setPrevPointerY(pointerY);
+      //   setPointerX(e.clientX);
+      //   setPointerY(e.clientY);
 
-        const getDiff = () => {
-          setZoomedXDiff(pointerX - prevPointerX);
-          setZoomedYDiff(pointerY - prevPointerY);
-        };
-        getDiff();
-        setTranslateZoomedImageX(-zoomedXDiff / 2.5);
-        setTranslateZoomedImageY(-zoomedYDiff / 2.5);
-      }
-      e.preventDefault();
+      //   const getDiff = () => {
+      //     setZoomedXDiff(pointerX - prevPointerX);
+      //     setZoomedYDiff(pointerY - prevPointerY);
+      //   };
+      //   getDiff();
+      //   setTranslateZoomedImageX(-zoomedXDiff / 2.5);
+      //   setTranslateZoomedImageY(-zoomedYDiff / 2.5);
+      // }
+      // e.preventDefault();
     };
 
 
     return (
-    // <Translate>
-      <CurrentImg src={photoUrl} alt='' onClick={expandedCurrentImageZoom} onMouseMove={getCursor} style={ImageIsZoomed ? { transform: `scale(2.5) translateX(${translateZoomedImageX}px) translateY(${translateZoomedImageY}px)`, cursor: 'zoom-out', transformOrigin: `${xDiff}px ${yDiff}px` } : { transform: 'scale(1)', cursor: 'zoom-in' }} />
-    // </Translate>
+      <CurrentImg src={photoUrl} alt='' onClick={expandedCurrentImageZoom} onMouseMove={getCursor} style={ImageIsZoomed ? { transform: 'scale(2.5)', cursor: 'zoom-out', /* transformOrigin: `${xDiff}px ${yDiff}px` */ } : { transform: 'scale(1)', cursor: 'zoom-in' }} />
     );
   });
 
