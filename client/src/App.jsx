@@ -21,7 +21,6 @@ const AppContainer = styled.div`
 `;
 
 const Header = styled.div`
-  border: 1px solid black;
   background-color: teal;
   width: 100%;
   height: 6rem;

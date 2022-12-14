@@ -106,7 +106,6 @@ export const QuestionButtons = styled.div`
   display: flex;
   width: 30%;
   justify-content: flex-end;
-  margin-right: 0;
   right: 0;
   float: right;
 `;
@@ -118,16 +117,15 @@ export const QAHeaderButtons = styled.div`
   height: 48%;
   font-size: 90%;
   align-items: center;
-  padding-right: 1%;
+  margin-right: 3%;
 `;
 
 export const QAHelpfulContainer = styled.div`
-  width: 25%;
+  width: 24%;
   display:flex;
   justify-content:center;
   align-items:center;
-  justify-content: space-between;
-  font-size: 90%;
+  justify-content:center;
 `;
 
 export const QAPhotos = styled.div`
@@ -330,20 +328,20 @@ export const AnswerContainer = styled.div`
 export const AnswerButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 30%;
   height: 48%;
   font-size: 90%;
   align-items: center;
   padding-right: 1%;
+  font-size: 90%;
 `;
 
 export const AnswersHelpfulContainer = styled.div`
-  width: 7%;
+  width: 20%;
   display:flex;
   justify-content:center;
   align-items:center;
-  justify-content: space-between;
-  font-size: 90%;
+  justify-content: center;
 `;
 
 

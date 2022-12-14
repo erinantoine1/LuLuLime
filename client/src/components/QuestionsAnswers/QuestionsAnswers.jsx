@@ -10,7 +10,6 @@ import * as styling from './Styling.js';
 
 const QuestionsAnswers = ({ currentID }) => {
 
-  // const [product_id, setProduct_id] = useState(currentID);
   const [questions, setQuestions] = useState([]);
   const [questionsRequested, setQuestionsRequested] = useState(100);
   const [questionsShown, setQuestionsShown] = useState(2);
@@ -39,7 +38,6 @@ const QuestionsAnswers = ({ currentID }) => {
   }, [currentID]);
 
   let getQuestions = Object.values(questions);
-  // getQuestions = getQuestions.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
 
   const doSearch = (query) => {
     console.log(query);
@@ -66,7 +64,6 @@ const QuestionsAnswers = ({ currentID }) => {
 
   if (!allQuestionsShown) {
     getQuestions = getQuestions.slice(0, questionsShown);
-    console.log('getQuestions', getQuestions);
   }
 
   const handleSearchPressed = () => {
@@ -85,6 +82,7 @@ const QuestionsAnswers = ({ currentID }) => {
         <styling.QAInfoDiv>
           <QuestionsList
             questions={filtered ? filteredQuestions : getQuestions}
+            loadQuestions={loadQuestions}
           />
         </styling.QAInfoDiv>
         <styling.ButtonContainer>

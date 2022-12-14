@@ -10,7 +10,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
   const [answersShown, setAnswersShown] = useState(2);
   const [timesClicked, setTimesClicked] = useState(0);
   const [allAnswersShown, setAllAnswersShown] = useState(false);
-  const [helpfulPressed, setHelpfulPressed] = useState(false);
+  const [helpfulPressed, setHelpfulPressed] = useState(localStorage.getItem(`${question.question_id}helpful`));
   const [newAnswer, setNewAnswer] = useState(false);
 
   const loadAnswers = (count = 5, page = 1) => {
@@ -25,6 +25,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   useEffect(() => {
     loadAnswers();
+    localStorage.setItem(`${question.question_id}helpful`, false);
   }, [question]);
 
   let getAnswers = Object.values(question.answers);
@@ -41,6 +42,8 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   const setHelpful = () => {
     handleUpdate('helpful');
+    setHelpfulPressed(true);
+    localStorage.setItem(`${question.question_id}helpful`, true);
   };
 
   const report = () => {
@@ -99,12 +102,12 @@ const QuestionEntry = ({ question, loadQuestions }) => {
           {getAnswers.map((answer, key) => (
             <AnswerEntry
               answer={answer}
-              loadQuestions={loadQuestions}
+              loadAnswers={loadAnswers}
               key={key}
             />
           ))}
         </styling.ScrollableAnswers>
-        {allAnswersShown ? null
+        {allAnswersShown || answers.length < 2 ? null
           : <styling.Buttons type="submit" onClick={showAnswers}>Load more answers</styling.Buttons>}
       </styling.QATileContent>
     </styling.QATileDiv>
