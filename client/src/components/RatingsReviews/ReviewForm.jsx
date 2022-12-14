@@ -65,8 +65,8 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
       onAnimationEnd={() => !visible && setDisplayReviewForm(false)}
     >
       <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
-        <h2>Review</h2>
         <styling.recommendDiv>
+          <styling.ReviewFormHeader>Leave A Review</styling.ReviewFormHeader>
           <styling.StarLabel htmlFor="rating">
             <styling.InfoMessage>All Fields Are Mandatory Unless Marked Optional</styling.InfoMessage>
             Rating:

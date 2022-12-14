@@ -257,7 +257,7 @@ export const Meter = styled.div`
   width: 50%;
   height: 20px;
   border-radius: 5px;
-  border: 1px solid grey;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   overflow: hidden;
   position: relative;
   background-color: #fafafa;
@@ -323,8 +323,9 @@ export const IndicatorContainer = styled.div`
 export const FactorContainer = styled.div`
   width: 20%;
   height: 10px;
+  border-radius: 2px;
   background-color: ${props => props.shading ? 'black' : '#fafafa'}};
-  border: solid 1px black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 `;
 export const FactorLabelsContainer = styled.div`
   width: 100%;
@@ -350,6 +351,7 @@ export const ReviewTilesContainer = styled.div`
   flex-direction: column;
   max-height: 60rem;
   overflow: auto;
+  margin-bottom: 0.5rem;
 `;
 
 export const ReviewButtonContainer = styled.div`
@@ -388,7 +390,7 @@ export const ReviewTileDiv = styled.div`
 export const ReviewTileContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   width: 100%
 `;
 
@@ -408,6 +410,7 @@ export const ReviewBody = styled.div`
   width: 90%;
   font-size: 1rem;
   line-height: 1.5;
+  margin-top: 1rem;
 `;
 
 export const UsernameContainer = styled.div`
@@ -445,6 +448,11 @@ export const SellerResponse = styled.div`
 
 export const ReviewLabels = styled.span`
   opacity: 0.75;
+  margin-bottom: 0.5rem;
+`;
+
+export const HelpfulLabel = styled(ReviewLabels)`
+  margin-bottom: 0;
 `;
 
 export const ShowMoreButton = styled.button`
@@ -496,10 +504,16 @@ export const ReportButton = styled(Buttons)`
   margin: 0;
 `;
 
+export const SearchResultsDiv = styled(ReviewTileDiv)`
+  font-weight: normal;
+  font-size: 14pt;
+`;
+
 /********* Review Form Styles  *************/
 
 export const ReviewFormContainer = styled(ModalBackground)`
   font-size: 12pt;
+  z-index: 999;
 `;
 
 export const styledForm = styled.form`
@@ -520,15 +534,23 @@ export const styledForm = styled.form`
   overflow: auto;
 `;
 
+export const ReviewFormHeader = styled.h2`
+  align-self: center;
+`;
+
 export const recommendDiv = styled(Cards)`
+  padding-top: 0;
+  margin-top: 2rem;
   width: 100%;
 `;
 
 export const InfoMessage = styled.div`
-  font-size: 8pt;
+  font-size: 10pt;
   opacity: 0.5;
   margin-bottom: 2rem;
   font-weight: lighter;
+  align-self: center;
+  text-align: center;
 `;
 
 export const StarLabel = styled.label`
