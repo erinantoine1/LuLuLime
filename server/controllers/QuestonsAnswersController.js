@@ -3,9 +3,11 @@ const config = require('../../config.js');
 
 module.exports = {
   getQuestions: (req, res) => {
+
     const { query: { product_id } } = req;
     const { query: { page } } = req;
     const { query: { count } } = req;
+    console.log(`${config.URL}/qa/questions/?product_id=${product_id}&page=${page}&count=${count}`);
     axios({
       url: `${config.URL}/qa/questions/?product_id=${product_id}&page=${page}&count=${count}`,
       method: 'get',

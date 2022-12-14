@@ -15,7 +15,7 @@ const SearchQuestions = ({ doSearch, unfilter }) => {
 
   return (
     <div>
-      <input type='text' placeholder='Have a question?' onChange={handleInput} />
+      <input type='text' placeholder='What is your question?' onChange={handleInput} />
     </div>
   );
 };

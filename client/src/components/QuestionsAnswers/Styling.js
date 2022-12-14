@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 // eslint-disable-next-line import/prefer-default-export
 
 export const QASectionTopBorders = styled.div`
-  border-top: solid 1px black;
+  border-top: solid 1px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +16,8 @@ export const QASectionTopBorders = styled.div`
 `;
 
 export const QASectionSideBorders = styled.div`
-  border-left: solid 1px black;
-  border-right: solid 1px black;
+  border-left: solid 1px rgba(0, 0, 0, 0.25);
+  border-right: solid 1px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,7 +84,6 @@ export const QABodyContainer = styled.div`
 `;
 
 export const QATileHeader = styled.div`
-  border: 1px solid brown;
   display: flex;
   width: 100%;
 `;
@@ -94,7 +93,6 @@ export const QuestionButtons = styled.div`
   width: 30%;
   justify-content: flex-end;
   margin-right: 0;
-  border: 1px solid red;
   right: 0;
   float: right;
 `;
@@ -103,7 +101,6 @@ export const QAHeaderButtons = styled.div`
   display: flex;
   justify-content: space-between;
   width: 37%;
-  border: 1px solid lightblue;
   height: 48%;
   font-size: 90%;
   align-items: center;
@@ -116,7 +113,6 @@ export const QAHelpfulContainer = styled.div`
   justify-content:center;
   align-items:center;
   justify-content: space-between;
-  border: 1px solid green;
   font-size: 90%;
 `;
 
@@ -316,7 +312,6 @@ export const AnswerButtons = styled.div`
   display: flex;
   justify-content: space-between;
   width: 35%;
-  border: 1px solid green;
   height: 48%;
   font-size: 90%;
   align-items: center;
@@ -329,7 +324,6 @@ export const AnswersHelpfulContainer = styled.div`
   justify-content:center;
   align-items:center;
   justify-content: space-between;
-  border: 1px solid green;
   font-size: 90%;
 `;
 

@@ -63,7 +63,7 @@ const NewQuestionForm = ({ loadQuestions, toggleNewQuestion, product_id }) => {
             cols="48"
             rows="8"
             type='textarea'
-            placeholder='What is your answer?'
+            placeholder='What is your question?'
             onChange={handleQuestion}
           />
           <styling.StyledInput
