@@ -111,9 +111,9 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
           <styling.Username>{review.reviewer_name}</styling.Username>
         </styling.UsernameContainer>
         {review.response && <styling.SellerResponse>{`Seller: ${review.response}`}</styling.SellerResponse>}
-        {<styling.HelpfulLabel>{`${review.helpfulness} people found this helpful`}</styling.HelpfulLabel>}
+        {<styling.HelpfulLabel>{review.helpfulness === 1 ? `1 person found this helpful`:`${review.helpfulness} people found this helpful`}</styling.HelpfulLabel>}
         <styling.TileButtons>
-          {helpfulReviews.includes(review.review_id) ? <styling.HelpfulButton>Helpful &#10004;</styling.HelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful?</styling.HelpfulButton>}
+          {helpfulReviews.includes(review.review_id) ? <styling.MarkedHelpfulButton>Helpful &#10004;</styling.MarkedHelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful?</styling.HelpfulButton>}
           <styling.ReportButton type="submit" onClick={() => handleUpdate('report', review.review_id)}>Report</styling.ReportButton>
         </styling.TileButtons>
       </styling.ReviewTileContent>
