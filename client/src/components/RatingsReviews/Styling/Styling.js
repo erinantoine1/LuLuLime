@@ -148,8 +148,7 @@ export const ReviewSectionContainer = styled.div`
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-bottom: 5rem;
-  height: 71rem;
+  padding-bottom: 10rem;
 `;
 
 export const ReviewSectionHeader = styled.div`
@@ -541,6 +540,7 @@ export const ReportButton = styled(Buttons)`
   &: hover {
     color: blue;
     cursor: pointer;
+    background-color: transparent;
   }
 `;
 
@@ -785,7 +785,7 @@ export const submitButton = styled.input`
     background-color: #bfe3b4;
     color: black;
     cursor: pointer;
-    border-color: #bfe3b4;
+    border-color: teal;
   }
 `;
 
