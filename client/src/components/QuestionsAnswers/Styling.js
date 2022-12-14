@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
 // eslint-disable-next-line import/prefer-default-export
-export const QASectionContainer = styled.div`
-  margin-top: 150px;
-  border-top: solid 1px grey;
+
+export const QASectionTopBorders = styled.div`
+  border-top: solid 1px black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,10 +11,48 @@ export const QASectionContainer = styled.div`
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-bottom: 150px;
+  margin-top: 5%;
+  margin-top: 5%;
+`;
+
+export const QASectionSideBorders = styled.div`
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+`;
+
+
+export const QASectionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+`;
+
+export const QATilesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
 `;
 
 export const QAInfoDiv = styled.div`
+  margin-top: 3%;
   align-items: center;
   width: 100%;
 `;
@@ -28,7 +66,7 @@ export const QATileDiv = styled.div`
   margin-left: 2%;
   margin-right: 2%;
   box-shadow: 0.0625rem 0.125rem #e8e7e4;
-  background-color: #fafafa;
+  background-color: white;
 `;
 
 export const QATileContent = styled.div`
@@ -42,32 +80,38 @@ export const QATileContent = styled.div`
 
 export const QABodyContainer = styled.div`
   justify-content: space-between;
+  width: 70%;
 `;
 
 export const QATileHeader = styled.div`
+  border: 1px solid brown;
   display: flex;
   width: 100%;
 `;
 
 export const QuestionButtons = styled.div`
-  width: 70%;
+  display: flex;
+  width: 30%;
   justify-content: flex-end;
   margin-right: 0;
   border: 1px solid red;
+  right: 0;
+  float: right;
 `;
 
 export const QAHeaderButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 14%;
-  float: right;
-  padding-right: 3%;
+  width: 37%;
   border: 1px solid lightblue;
+  height: 48%;
   font-size: 90%;
+  align-items: center;
+  padding-right: 1%;
 `;
 
 export const QAHelpfulContainer = styled.div`
-  width: 37%;
+  width: 25%;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -203,15 +247,16 @@ export const submitButton = styled.input`
 
 export const Buttons = styled.button`
   border-radius: 0.25rem;
+  padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: #038081;
-  background-color: #038081;
-  padding-left: .5rem;
-  padding-right: .5rem;
+  border-color: black;
+  background-color: black;
   color: white;
-  width: 10%;
-  float: right;
+  width: 15%;
+  overflow-wrap: break-word;
+  min-width: fit-content;
+  max-width: fit-content;
 `;
 
 export const YesButtons = styled.div`
@@ -227,7 +272,7 @@ export const YesButtons = styled.div`
   font-size: 90%;
 `;
 
-export const ReportButton = styled(Buttons)`
+export const ReportButton = styled.button`
   background-color: transparent;
   font-size: 1rem;
   border: none;
@@ -240,6 +285,12 @@ export const ReportButton = styled(Buttons)`
   font-size: 90%;
 `;
 
+export const HelpfulSpan = styled.span`
+  display: flex;
+  font-size: 90%;
+  vertical-align: middle;
+`;
+
 export const ButtonContainer = styled.div`
   padding-top: 2.5rem;
   display: flex;
@@ -249,24 +300,31 @@ export const ButtonContainer = styled.div`
   justify-content: center;
 `;
 
-export const AnswerDataContainer = styled.div`
+export const AnswerContainer = styled.div`
+  padding: 1rem 1rem;
   display: flex;
-  width: 15%;
-  font-size: 90%;
-  border: 1px solid pink;
+  flex-direction: column;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  margin-left: 2%;
+  margin-right: 2%;
+  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  background-color: white;
 `;
 
 export const AnswerButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  border: 1px solid black;
+  width: 35%;
+  border: 1px solid green;
+  height: 48%;
   font-size: 90%;
-  float: right;
+  align-items: center;
+  padding-right: 1%;
 `;
 
 export const AnswersHelpfulContainer = styled.div`
-  width: 12%;
+  width: 7%;
   display:flex;
   justify-content:center;
   align-items:center;

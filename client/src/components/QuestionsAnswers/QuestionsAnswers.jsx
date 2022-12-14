@@ -58,27 +58,31 @@ const QuestionsAnswers = ({ currentID }) => {
   };
 
   return (
-    <styling.QASectionContainer>
-      <h2>Questions and Answers</h2>
-      <SearchQuestions doSearch={doSearch} />
-      <styling.QAInfoDiv>
-        <QuestionsList
-          questions={filtered ? filterdQuestions : questions}
-          loadQuestions={loadQuestions}
-        />
-      </styling.QAInfoDiv>
-      <styling.ButtonContainer>
-        <styling.Buttons type="submit" onClick={showMoreQuestions}>Load more questions</styling.Buttons>
-        {!newQuestion ? null : (
-          <NewQuestionForm
-            loadQuestions={loadQuestions}
-            toggleNewQuestion={toggleNewQuestion}
-            product_id={currentID}
-          />
-        )}
-        <styling.Buttons type="submit" onClick={toggleNewQuestion}>Add a question</styling.Buttons>
-      </styling.ButtonContainer>
-    </styling.QASectionContainer>
+    <styling.QASectionTopBorders>
+      <styling.QASectionSideBorders>
+        <styling.QASectionContainer>
+          <h2>Questions and Answers</h2>
+          <SearchQuestions doSearch={doSearch} />
+          <styling.QAInfoDiv>
+            <QuestionsList
+              questions={filtered ? filterdQuestions : questions}
+              loadQuestions={loadQuestions}
+            />
+          </styling.QAInfoDiv>
+          <styling.ButtonContainer>
+            <styling.Buttons type="submit" onClick={showMoreQuestions}>Load more questions</styling.Buttons>
+            {!newQuestion ? null : (
+              <NewQuestionForm
+                loadQuestions={loadQuestions}
+                toggleNewQuestion={toggleNewQuestion}
+                product_id={currentID}
+              />
+            )}
+            <styling.Buttons type="submit" onClick={toggleNewQuestion}>Add a question</styling.Buttons>
+          </styling.ButtonContainer>
+        </styling.QASectionContainer>
+      </styling.QASectionSideBorders>
+    </styling.QASectionTopBorders>
   );
 };
 
