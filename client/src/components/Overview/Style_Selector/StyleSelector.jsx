@@ -5,21 +5,21 @@ import styled from 'styled-components';
 import StyleThumbnail from './StyleThumbnail.jsx';
 
 const StyleThumbnailsDiv = styled.div`
-width: 400px;
+width: 450px;
 min-height: fit-content;
 display: flex;
 flex-wrap: wrap;
 z-index: 40;
 position: relative;
-margin-top: 3%;
-left: -12%;
+left: -53%;
+padding: 1%;
 `;
 const ThumbnailStyleName = styled.div`
 height: 30px;
 width: 400px;
 position: relative;
-left: 0%;
-top: 0%;
+left: -44%;
+margin-top: 5%;
 `;
 
 const StyleSelector = (

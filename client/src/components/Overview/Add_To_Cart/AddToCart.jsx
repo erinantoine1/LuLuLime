@@ -34,7 +34,7 @@ top: -2%;
 
 const SizeWarningDiv = styled.div`
 position: absolute;
-margin-top: -10%;
+margin-top: -8%;
 left: 0%;
 z-index: 100;
 `;
