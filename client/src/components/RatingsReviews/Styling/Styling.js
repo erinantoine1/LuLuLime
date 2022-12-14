@@ -144,7 +144,6 @@ export const ReviewSectionContainer = styled.div`
   margin-right: 10%;
   margin-bottom: 5rem;
   height: 71rem;
-  padding: 1.5rem;
 `;
 
 export const ReviewSectionHeader = styled.div`
@@ -181,7 +180,7 @@ export const ReviewSectionBody = styled.div`
 export const SidebarDiv = styled.div`
   width: 20%;
   background-color: white;
-  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   min-width: fit-content;
   justify-content: center;
   align-items: center;
@@ -382,16 +381,19 @@ export const AverageRatingDiv = styled.div`
 
 /********* Review Tile Styles  *************/
 
+//box-shadow: 0.0625rem 0.125rem #e8e7e4;
+
 export const ReviewTileDiv = styled.div`
   padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   background-color: white;
   border-radius: 10px;
   animation-name: ${fadeInAnimation};
   animation-duration: 0.3s;
+  width: 98%;
 `;
 
 export const ReviewTileContent = styled.div`
