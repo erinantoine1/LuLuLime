@@ -66,7 +66,7 @@ export const StarButton = styled.button`
   border: none;
   outline: none;
   font-size: 16pt;
-  color: ${props => props.clicked ? 'black' : '#fafafa'}
+  color: ${props => props.clicked ? 'teal' : 'transparent'}
 `;
 export const StarButtonInside = styled.div`
   -webkit-text-stroke: 1px #848484;
@@ -98,11 +98,11 @@ export const FullStars = styled.div`
   top: 0;
   white-space: nowrap;
   overflow: hidden;
-  color: black;
+  color: teal;
   &:before {
     content: "★★★★★";
     font-size: ${props => props.size}pt;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 1px teal;
   }
   width: ${props => props.percentage}%;
 `;
@@ -124,13 +124,19 @@ export const Buttons = styled.button`
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: black;
-  background-color: black;
+  border-color: teal;
+  background-color: teal;
   color: white;
   width: 15%;
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+    border-color: teal;
+  }
 `;
 
 export const ReviewSectionContainer = styled.div`
@@ -180,7 +186,7 @@ export const ReviewSectionBody = styled.div`
 export const SidebarDiv = styled.div`
   width: 20%;
   background-color: white;
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e8e7e4;
   min-width: fit-content;
   justify-content: center;
   align-items: center;
@@ -273,7 +279,7 @@ export const Progress = styled.span`
   height: 100%;
   display: block;
   width: ${props => props.percentage}%;
-  background-color: black;
+  background-color: teal;
   line-height: 30px;
   position: absolute;
   text-align: end;
@@ -330,7 +336,7 @@ export const FactorContainer = styled.div`
   width: 20%;
   height: 10px;
   border-radius: 2px;
-  background-color: ${props => props.shading ? 'black' : '#fafafa'}};
+  background-color: ${props => props.shading ? 'teal' : '#fafafa'}};
   border: 1px solid rgba(0, 0, 0, 0.5);
 `;
 export const FactorLabelsContainer = styled.div`
@@ -388,12 +394,12 @@ export const ReviewTileDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e8e7e4;
   background-color: white;
   border-radius: 10px;
   animation-name: ${fadeInAnimation};
   animation-duration: 0.3s;
-  width: 98%;
+  width: 99%;
 `;
 
 export const ReviewTileContent = styled.div`
@@ -433,7 +439,7 @@ export const UsernameContainer = styled.div`
 `;
 
 export const UserIcon = styled.div`
-  background-color: #959595;
+  background-color: teal;
   border-radius: 50%;
   color: #fff;
   font-size: 1.125rem;
@@ -505,12 +511,22 @@ export const HelpfulButton = styled(Buttons)`
   background-color: transparent;
   color: black;
   font-size: 12pt;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+    border-color: #bfe3b4;
+  }
 `;
 
 export const MarkedHelpfulButton = styled(HelpfulButton)`
   animation-name: ${fadeInAnimation};
   animation-duration: 0.3s;
   cursor: auto;
+  &: hover{
+    cursor: auto;
+    background-color: transparent;
+  }
 `;
 
 export const ReportButton = styled(Buttons)`
@@ -541,7 +557,7 @@ export const ReviewFormContainer = styled(ModalBackground)`
 `;
 
 export const styledForm = styled.form`
-  background-color: #fafafa;
+  background-color: #EAFAF1;
   display: flex;
   flex-direction: column;
   width: fit-content;
@@ -629,7 +645,7 @@ export const RadioButtonsContainer = styled.div`
 
 export const RadioInput = styled.input`
   transform: scale(1.25);
-  accent-color: black;
+  accent-color: teal;
 `;
 
 export const RadioButtonDiv = styled.div`
@@ -757,14 +773,20 @@ export const submitButton = styled.input`
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: black;
-  background-color: black;
+  border-color: teal;
+  background-color: teal;
   color: white;
   width: 15%;
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
   align-self: center;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+    border-color: #bfe3b4;
+  }
 `;
 
 export const ErrorMessage = styled.div`
