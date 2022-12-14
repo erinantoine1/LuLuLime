@@ -5,7 +5,8 @@ import CurrentImage from './CurrentImage.jsx';
 const PhotoContainer = styled.div`
   display: flex;
   max-height: 90%;
-  width: 90%;
+  width: 100%;
+  margin-top: 10%
 `;
 
 const MagnifyingGlassIcon = styled.img`

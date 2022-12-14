@@ -5,20 +5,19 @@ import styled from 'styled-components';
 const StyleThumbnailImg = styled.img`
 height: 50px;
 width: 50px;
-margin: -10px;
 float: right;
+margin: auto
 position: relative;
 top: 30px;
-left: -50px;
-right: 50px;
+border-radius: 50%;
 `;
 
 const StyleThumbnailOverlayImg = styled.img`
-height: 80px;
-width: 80px;
+height: 50px;
+width: 50px;
 position: relative;
-top: 5px;
-left: 5px;
+top: 0px;
+left: 50px;
 `;
 
 const StyleThumbnail = (
@@ -53,7 +52,7 @@ const StyleThumbnail = (
     return (
       <div>
         <StyleThumbnailImg src={stylePhotos[0].thumbnail_url} alt="select style" onClick={(e) => thumbnailClickHandler(e)} />
-        <StyleThumbnailOverlayImg src="https://cdn-icons-png.flaticon.com/512/8968/8968525.png" alt="" style={productStyleId === styleId ? { visibility: 'visible' } : { visibility: 'hidden' }} />
+        <StyleThumbnailOverlayImg src="https://cdn-icons-png.flaticon.com/512/709/709605.png" alt="" style={productStyleId === styleId ? { visibility: 'visible' } : { visibility: 'hidden' }} />
       </div>
 
     );

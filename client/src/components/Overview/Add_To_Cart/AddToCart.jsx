@@ -9,32 +9,34 @@ import AddToCartButton from './AddToCartButton.jsx';
 
 const AddToCartComponentsDiv = styled.div`
 display: flex;
+flex-wrap: wrap;
 z-index: 40;
-position: absolute;
-left: 64%;
-top: 57%;
+position: relative;
+left: -5%;
+top: 75%;
+width: 400px;
 `;
 const AddToCartButtonDiv = styled.div`
-position: relative;
-left: -92%;
-top: 10%;
+position: absolute;
+left: 0%;
 
 `;
 const QuantitySelectorDiv = styled.div`
-position: relative;
-left: 130%;
-top: -41%;
+position: absolute;
+left: 96%;
 `;
 const SizeSelectorDiv = styled.div`
-position: relative;
-left: 25%;
-top: -63%;
+position: absolute;
+left: 68%;
+top: -2%;
+
 `;
 
 const SizeWarningDiv = styled.div`
 position: absolute;
-left: -15%;
-top: 15%;
+margin-top: -10%;
+left: 0%;
+z-index: 100;
 `;
 
 const AddToCart = ({
@@ -75,6 +77,7 @@ const AddToCart = ({
 
   return (
     <AddToCartComponentsDiv>
+      <SizeWarningDiv style={undefinedSizeSubmitted ? { visibility: 'visible' } : { visibility: 'hidden' }}>Please select a size.</SizeWarningDiv>
       <form onSubmit={(e) => { AddToCartOnSubmit(e); }}>
         <AddToCartButtonDiv>
           <AddToCartButton
@@ -196,7 +199,6 @@ const AddToCart = ({
             setProductStyleSizeDropdownLength={setProductStyleSizeDropdownLength}
           />
         </SizeSelectorDiv>
-        {/* <SizeWarningDiv style={undefinedSizeSubmitted ? { visibility: 'visible' } : { visibility: 'hidden' }}>Please select a size.</SizeWarningDiv> */}
       </form>
     </AddToCartComponentsDiv>
   );

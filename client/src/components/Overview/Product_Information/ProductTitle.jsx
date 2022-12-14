@@ -3,9 +3,9 @@ import React from 'react';
 const ProductTitle = ({ productTitle }) => {
 
   return (
-    <div>
+    <h2>
       { productTitle }
-    </div>
+    </h2>
   );
 };
 
