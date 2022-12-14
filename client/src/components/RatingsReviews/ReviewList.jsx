@@ -20,10 +20,6 @@ const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displ
     setHelpfulReviews(JSON.parse(localStorage.getItem('helpful')));
   }, []);
 
-  useEffect(() => {
-    displayReviewForm ? document.body.style.overflow='hidden' : document.body.style.overflow = 'auto';
-  }, [displayReviewForm]);
-
   return (
     <styling.ReviewListDiv>
       <styling.ReviewTilesContainer>
