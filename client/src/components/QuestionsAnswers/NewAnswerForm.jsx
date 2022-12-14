@@ -23,8 +23,9 @@ const NewAnswerForm = ({ loadAnswers, toggleNewAnswer, question_id }) => {
     setEmail(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     if (answer.length > 0 && name.length > 0 && email.length > 0) {
+      event.preventDefault();
       axios.post('/answers', {
         question_id, body: answer, name, email, photos
       })
@@ -40,7 +41,7 @@ const NewAnswerForm = ({ loadAnswers, toggleNewAnswer, question_id }) => {
     }
   };
 
-  const handleCancel = () => {
+  const handleCancel = (e) => {
     setVisible(true);
     toggleNewAnswer();
   };
@@ -57,26 +58,31 @@ const NewAnswerForm = ({ loadAnswers, toggleNewAnswer, question_id }) => {
       onAnimationEnd={() => !visible}
     >
       <styling.styledForm out={!visible} onClick={(event) => event.stopPropagation()}>
-        <h2>Ask a question</h2>
         <styling.textAreaDiv>
-          <textarea
+
+          <h2>Answer a question</h2>
+          <styling.StyledTextArea
+            cols="48"
+            rows="8"
             type='textarea'
             placeholder='What is your answer?'
             onChange={handleAnswer}
           />
-          <input
+          <styling.StyledInput
             placeholder='Nickname?'
             onChange={handleName}
           />
-          <input
+          <styling.StyledInput
             placeholder='Email?'
             onChange={handleEmail}
           />
-          <input
+          <styling.StyledInput
             placeholder='Photos'
           />
-          <button onClick={handleSubmit}>Submit</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <styling.ButtonContainer>
+            <styling.Buttons type="submit" onClick={handleSubmit}>Submit</styling.Buttons>
+            <styling.Buttons type="submit" onClick={handleCancel}>Cancel</styling.Buttons>
+          </styling.ButtonContainer>
         </styling.textAreaDiv>
       </styling.styledForm>
     </styling.QAFormContainer>

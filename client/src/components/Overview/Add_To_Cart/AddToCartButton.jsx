@@ -1,4 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const ATCButton = styled.button`
+  border-radius: 0.25rem;
+  padding: 1rem;
+  cursor: pointer;
+  border: 0.0625rem solid;
+  border-color: black;
+  background-color: black;
+  color: white;
+  overflow-wrap: break-word;
+  min-width: fit-content;
+  height: 50px;
+  width: 250px;
+`;
 
 const AddToCartButton = (
   ({
@@ -7,7 +22,7 @@ const AddToCartButton = (
 
     // console.log(addToCartButtonIsVisible);
     return (
-      <button type="submit" style={!allQuantitiesZero ? { visibility: 'visible', height: '50px', width: '100px', backgroundColor: 'limeGreen', color: 'white' } : { visibility: 'hidden' }}>Add to Cart</button>
+      <ATCButton type="submit" style={!allQuantitiesZero ? { visibility: 'visible' } : { visibility: 'hidden' }}>Add to Cart</ATCButton>
     );
   });
 

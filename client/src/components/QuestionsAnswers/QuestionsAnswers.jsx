@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import QuestionEntry from './QuestionEntry.jsx';
@@ -7,19 +8,20 @@ import NewAnswerForm from './NewAnswerForm.jsx';
 import SearchQuestions from './SearchQuestions.jsx';
 import * as styling from './Styling.js';
 
-
 const QuestionsAnswers = ({ currentID }) => {
 
   // const [product_id, setProduct_id] = useState(currentID);
   const [questions, setQuestions] = useState([]);
-  const [questionsShown, setQuestionsShown] = useState(5);
-  const [filterdQuestions, setFilteredQuestions] = useState([]);
+  const [questionsRequested, setQuestionsRequested] = useState(100);
+  const [questionsShown, setQuestionsShown] = useState(2);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
   const [filtered, setFiltered] = useState(false);
   const [newQuestion, setNewQuestion] = useState(false);
+  const [allQuestionsShown, setAllAnswersShown] = useState(false);
+  const [searchPressed, setSearchedPressed] = useState(false);
 
   const loadQuestions = (page = 1) => {
-    console.log('inside load questions');
-    const parameters = { product_id: currentID, page, count: questionsShown };
+    const parameters = { product_id: currentID, page, count: questionsRequested };
     axios.get('/questions', {
       params: parameters
     })
@@ -33,11 +35,16 @@ const QuestionsAnswers = ({ currentID }) => {
 
   useEffect(() => {
     loadQuestions();
+    setQuestionsShown(2);
   }, [currentID]);
 
+  let getQuestions = Object.values(questions);
+  // getQuestions = getQuestions.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
+
   const doSearch = (query) => {
+    console.log(query);
     if (query) {
-      const searchQs = questions.filter((question) => (
+      const searchQs = getQuestions.filter((question) => (
         question.question_body.toLowerCase().includes(query.toLowerCase())
       ));
       setFiltered(true);
@@ -54,34 +61,65 @@ const QuestionsAnswers = ({ currentID }) => {
   };
 
   const showMoreQuestions = () => {
-    setQuestionsShown(questionsShown + 5);
-    loadQuestions();
+    setQuestionsShown(questionsShown + 2);
+  };
+
+  if (!allQuestionsShown) {
+    getQuestions = getQuestions.slice(0, questionsShown);
+    console.log('getQuestions', getQuestions);
+  }
+
+  const handleSearchPressed = () => {
+    setSearchedPressed(true);
   };
 
   return (
-    <styling.QASectionContainer>
-      <h2>Questions and Answers</h2>
-      <SearchQuestions doSearch={doSearch} />
-      <QuestionsList
-        questions={filtered ? filterdQuestions : questions}
-        loadQuestions={loadQuestions}
-      />
-      <button onClick={showMoreQuestions}>Load more questions</button>
-      {!newQuestion ? null : (
-        <NewQuestionForm
-          loadQuestions={loadQuestions}
-          toggleNewQuestion={toggleNewQuestion}
-          product_id={product_id}
-        />
-      )}
-      <button onClick={toggleNewQuestion}>Add a question</button>
-    </styling.QASectionContainer>
+    <styling.QASectionTopBorders>
+      <styling.QASectionSideBorders>
+        <styling.QASectionContainer>
+          <h2>Questions and Answers</h2>
+          {searchPressed ? (
+            <SearchQuestions doSearch={doSearch} />
+          ) : (
+            <styling.Buttons type="submit" onClick={handleSearchPressed}>Search</styling.Buttons>
+          )}
+          <styling.QAInfoDiv>
+            <QuestionsList
+              questions={filtered ? filteredQuestions : getQuestions}
+            />
+          </styling.QAInfoDiv>
+          <styling.ButtonContainer>
+            <styling.Buttons type="submit" onClick={showMoreQuestions}>Load more questions</styling.Buttons>
+            {!newQuestion ? null : (
+              <NewQuestionForm
+                loadQuestions={loadQuestions}
+                toggleNewQuestion={toggleNewQuestion}
+                product_id={currentID}
+              />
+            )}
+            <styling.Buttons type="submit" onClick={toggleNewQuestion}>Add a question</styling.Buttons>
+          </styling.ButtonContainer>
+        </styling.QASectionContainer>
+      </styling.QASectionSideBorders>
+    </styling.QASectionTopBorders>
   );
 };
 
 export default QuestionsAnswers;
 
 
+// {questions.length === 0 ? (
+//   <QuestionsList
+//     questions={questions}
+//   />
+// ) : null }
+
+
+/* <QuestionsList
+              questions={filtered ? filteredQuestions
+                : questions.length < 0 ? [] : questions}
+              loadQuestions={loadQuestions}
+            /> */
 
 // return (
 //   <div>
@@ -154,3 +192,45 @@ export default QuestionsAnswers;
 //     }
 //   }
 // }];
+
+
+// const loadQuestions = (page = 1) => {
+//   const parameters = { product_id: currentID, page, count: questionsShown };
+//   console.log(parameters);
+//   return axios.get('/questions', {
+//     params: parameters
+//   })
+//     .then((response) => {
+//       console.log('this', response.data.results);
+//       setQuestions(response.data.results);
+//       console.log(questions);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+
+
+// const showMoreQuestions = () => {
+//   setQuestionsShown(questionsShown + 5);
+//   loadQuestions();
+// };
+
+// useEffect(() => {
+//   loadQuestions();
+// }, [currentID]);
+
+// const loadQuestions = (page = 1) => {
+//   const parameters = { product_id: currentID, page, count: questionsShown };
+//   return axios.get('/questions', {
+//     params: parameters
+//   });
+// };
+
+// const showMoreQuestions = () => {
+//   loadQuestions()
+//     .then((response) => {
+//       setQuestions(response.data.results);
+//     });
+// };

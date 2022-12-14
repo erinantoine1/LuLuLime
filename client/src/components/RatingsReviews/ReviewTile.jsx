@@ -60,7 +60,7 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
     return (
       <span>
         {parts.map((part, index) =>
-          <span key={index} style={part.toLowerCase() === searchText.toLowerCase() ? { backgroundColor: 'yellow'} : {} }>
+          <span key={index} style={part.toLowerCase() === searchText.toLowerCase() ? { backgroundColor: '#ffec00'} : {} }>
             {part}
           </span>)}
       </span>
@@ -103,7 +103,7 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
           <styling.ModalImage onClick={(event) => event.stopPropagation() }src={displayPhoto.url} alt="Clothing product" />
         </styling.ModalBackground>
         )}
-        {review.recommend && <styling.ReviewLabels>&#10003; User Recommended</styling.ReviewLabels>}
+        {review.recommend && <styling.ReviewLabels>&#10004; User Recommended</styling.ReviewLabels>}
         <styling.UsernameContainer>
           <styling.UserIcon>
             {review.reviewer_name.slice(0, 1)}
@@ -111,9 +111,9 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
           <styling.Username>{review.reviewer_name}</styling.Username>
         </styling.UsernameContainer>
         {review.response && <styling.SellerResponse>{`Seller: ${review.response}`}</styling.SellerResponse>}
-        {<styling.ReviewLabels>{`${review.helpfulness} people found this helpful`}</styling.ReviewLabels>}
+        {<styling.HelpfulLabel>{review.helpfulness === 1 ? `1 person found this helpful`:`${review.helpfulness} people found this helpful`}</styling.HelpfulLabel>}
         <styling.TileButtons>
-          {helpfulReviews.includes(review.review_id) ? <styling.HelpfulButton>Helpful &#10003;</styling.HelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful?</styling.HelpfulButton>}
+          {helpfulReviews.includes(review.review_id) ? <styling.MarkedHelpfulButton>Helpful &#10004;</styling.MarkedHelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful?</styling.HelpfulButton>}
           <styling.ReportButton type="submit" onClick={() => handleUpdate('report', review.review_id)}>Report</styling.ReportButton>
         </styling.TileButtons>
       </styling.ReviewTileContent>
