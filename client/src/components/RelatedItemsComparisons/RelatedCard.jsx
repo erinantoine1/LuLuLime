@@ -95,7 +95,7 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
     <Container>
       {showModal && <CompareModal id={id} currentID={currentID} setShowModal={setShowModal} /> }
       <StyledCard>
-        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
+        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVyPxB9kLfrOIiFkuFWThAIBmwSh8FPvOlgA&usqp=CAU" />
         <Image width={cardWidth} src={picture} alt="item" onClick={handleClick} />
         <StyledCategory>{category}</StyledCategory>
         <StyledName>{name}</StyledName>
