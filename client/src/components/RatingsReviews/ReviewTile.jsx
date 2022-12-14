@@ -5,7 +5,7 @@ import * as styling from './Styling/Styling.js';
 import StaticStars from './StaticStars.jsx';
 import { getReviewsData } from './Utils.js';
 
-const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, setHelpfulReviews }) => {
+const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, setHelpfulReviews, searchText }) => {
 
   const [reviewLength, setReviewLength] = useState(250);
   const [displayPhoto, setDisplayPhoto] = useState({
@@ -52,10 +52,28 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
     setDisplayPhoto({ ...displayPhoto, viewing: newViewing, url });
   };
 
-  const toggleLongReview = (body) => {
+  const highlightText = (text) => {
+    if (searchText < 3) {
+      return text;
+    }
+    const parts = text.split(new RegExp(`(${searchText})`, 'gi'));
     return (
-      <styling.ReviewBody>{body.slice(0, reviewLength)}
-        {reviewLength === 250 && <button onClick={() => setReviewLength(1000)}>Show More</button>}
+      <span>
+        {parts.map((part, index) =>
+          <span key={index} style={part.toLowerCase() === searchText.toLowerCase() ? { backgroundColor: 'yellow'} : {} }>
+            {part}
+          </span>)}
+      </span>
+    );
+  };
+
+  const toggleLongReview = (body) => {
+    if (body.length < 250) {
+      return highlightText(body.slice(0, 250));
+    }
+    return (
+      <styling.ReviewBody>{highlightText(body.slice(0, reviewLength))}
+        {reviewLength === 250 && <styling.ShowMoreButton onClick={() => setReviewLength(1000)}>Show More...</styling.ShowMoreButton>}
       </styling.ReviewBody>
     );
   };
@@ -64,13 +82,13 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
     <styling.ReviewTileDiv>
       <styling.ReviewTileContent>
         <styling.ReviewTileHeader>
-          <styling.ReviewTileSummary>{review.summary}</styling.ReviewTileSummary>
+          <styling.ReviewTileSummary>{highlightText(review.summary)}</styling.ReviewTileSummary>
           <span>{formatDate(review.date)}</span>
         </styling.ReviewTileHeader>
         <span>
           <StaticStars rating={review.rating} size={12} />
         </span>
-        {review.body.length <= 250 ? <styling.ReviewBody>{review.body}</styling.ReviewBody> : toggleLongReview(review.body)}
+        <styling.ReviewBody>{toggleLongReview(review.body)}</styling.ReviewBody>
         <styling.ReviewPhotos>
           {review.photos.map((photo, index) => {
             return <img key={photo.id} src={photo.url} alt="Clothing product" width="100" height="100" onClick={() => handlePhotoClick(photo.url)} />;
@@ -85,12 +103,17 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
           <styling.ModalImage onClick={(event) => event.stopPropagation() }src={displayPhoto.url} alt="Clothing product" />
         </styling.ModalBackground>
         )}
-        {review.recommend ? <span>&#9989; I recommend this product</span> : null}
-        <span>{`Posted By: ${review.reviewer_name}`}</span>
-        {review.response && <div>`Response From Seller: ${review.response}`</div>}
-        {`${review.helpfulness} people found this helpful`}
+        {review.recommend && <styling.ReviewLabels>&#10003; User Recommended</styling.ReviewLabels>}
+        <styling.UsernameContainer>
+          <styling.UserIcon>
+            {review.reviewer_name.slice(0, 1)}
+          </styling.UserIcon>
+          <styling.Username>{review.reviewer_name}</styling.Username>
+        </styling.UsernameContainer>
+        {review.response && <styling.SellerResponse>{`Seller: ${review.response}`}</styling.SellerResponse>}
+        {<styling.ReviewLabels>{`${review.helpfulness} people found this helpful`}</styling.ReviewLabels>}
         <styling.TileButtons>
-          {helpfulReviews.includes(review.review_id) ? <styling.HelpfulButton>Helpful &#9989;</styling.HelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful</styling.HelpfulButton>}
+          {helpfulReviews.includes(review.review_id) ? <styling.HelpfulButton>Helpful &#10003;</styling.HelpfulButton> : <styling.HelpfulButton type="submit" onClick={() => handleUpdate('helpful', review.review_id)}>Helpful?</styling.HelpfulButton>}
           <styling.ReportButton type="submit" onClick={() => handleUpdate('report', review.review_id)}>Report</styling.ReportButton>
         </styling.TileButtons>
       </styling.ReviewTileContent>

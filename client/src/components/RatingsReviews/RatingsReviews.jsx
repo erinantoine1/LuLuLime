@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
 import axios from 'axios';
 import * as styling from './Styling/Styling.js';
 import GlobalStyle from './Styling/globalStyles.js';
@@ -45,13 +45,13 @@ const RatingsReviews = ({ currentID }) => {
   const filterReviews = () => {
     if (filterBy.length === 0 && searchText.length >= 3) {
       return reviews.filter((review) => {
-        return review.body.toLowerCase().includes(searchText) || review.summary.toLowerCase().includes(searchText);
+        return review.body.toLowerCase().includes(searchText.toLowerCase()) || review.summary.toLowerCase().includes(searchText.toLowerCase());
       });
     }
     if (filterBy.length > 0) {
       if (searchText.length >= 3) {
         return reviews.filter((review) => {
-          return filterBy.includes(review.rating) && (review.body.toLowerCase().includes(searchText) || review.summary.toLowerCase().includes(searchText));
+          return filterBy.includes(review.rating) && (review.body.toLowerCase().includes(searchText.toLowerCase()) || review.summary.toLowerCase().includes(searchText.toLowerCase()));
         });
       }
       return reviews.filter((review) => {
@@ -78,6 +78,8 @@ const RatingsReviews = ({ currentID }) => {
     if (!localStorage.getItem('helpful')) {
       localStorage.setItem('helpful', JSON.stringify([]));
     }
+    setSearchText('');
+    setSortOrder('relevant');
   }, [currentID]);
 
   if (!reviewsLoaded || !metaDataLoaded) {
@@ -93,11 +95,12 @@ const RatingsReviews = ({ currentID }) => {
           setFilterBy={setFilterBy}
           metaData={metaData}
           totalRatings={totalRatings}
+          currentID={currentID}
         />
         <styling.DropDownDiv>
           <label htmlFor="sort">
             <b>Sort-By:</b>
-            <styling.Select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort">
+            <styling.Select onChange={(event) => handleSort(event.target.value)} name="sort" id="sort" value={sortOrder}>
               <option value="relevant">Relevant</option>
               <option value="helpful">Helpful</option>
               <option value="newest">Newest</option>
@@ -132,6 +135,7 @@ const RatingsReviews = ({ currentID }) => {
           sortOrder={sortOrder}
           displayReviewForm={displayReviewForm}
           setDisplayReviewForm={setDisplayReviewForm}
+          searchText={searchText}
         />
       </styling.ReviewSectionBody>
     </styling.ReviewSectionContainer>

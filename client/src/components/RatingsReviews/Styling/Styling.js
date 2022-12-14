@@ -406,6 +406,57 @@ export const ReviewTileSummary = styled.div`
 export const ReviewBody = styled.div`
   overflow-wrap: break-word;
   width: 90%;
+  font-size: 1rem;
+  line-height: 1.5;
+`;
+
+export const UsernameContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const UserIcon = styled.div`
+  background-color: #959595;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.125rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  width: 1.5rem;
+`;
+
+export const Username = styled.span`
+  font-weight: bold;
+`;
+
+export const SellerResponse = styled.div`
+  overflow-wrap: break-word;
+  background-color: lightgrey;
+  width: 90%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  border-radius: 10px;
+`;
+
+export const ReviewLabels = styled.span`
+  opacity: 0.75;
+`;
+
+export const ShowMoreButton = styled.button`
+  background-color: transparent;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  text-decoration: underline;
+  &: hover {
+    color: blue;
+    cursor: pointer;
+  }
 `;
 
 export const ReviewPhotos = styled.div`
@@ -432,6 +483,7 @@ export const HelpfulButton = styled(Buttons)`
   border: none;
   background-color: transparent;
   color: black;
+  font-size: 12pt;
 `;
 
 export const ReportButton = styled(Buttons)`
@@ -627,7 +679,7 @@ export const PhotoError = styled.div`
   margin-top: 0.5rem;
   font-size: 12pt;
   color: red;
-  font-weight: bold;
+  font-weight: normal;
   `;
 
 export const photoButton = styled(Buttons)`
@@ -650,7 +702,8 @@ export const UserInputs = styled.input`
 
 export const UserDisclaimer = styled.div`
   margin-bottom: 2.5rem;
-  opacity: 0.5;
+  font-size: 10pt;
+  opacity: 0.75;
 `;
 
 export const submitButton = styled.input`
@@ -670,9 +723,12 @@ export const submitButton = styled.input`
 
 export const ErrorMessage = styled.div`
   color: red;
-  font-weight: bold;
-  align-self: center;
+  font-weight: normal;
   margin-top: 1rem;
+`;
+
+export const SubmitErrorMessage = styled(ErrorMessage)`
+  align-self: center;
 `;
 
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -6,6 +6,7 @@ import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers/QuestionsAnswers.jsx';
 import RatingsReviews from './components/RatingsReviews/RatingsReviews.jsx';
 import RelatedItemsComparisons from './components/RelatedItemsComparisons/RelatedItemsComparisons.jsx';
+import { StarContext } from './components/RatingsReviews/Utils.js';
 
 const AppBackground = styled.div`
   background-color: ${props => props.change ? '#fafafa' : 'black'};
@@ -23,6 +24,10 @@ const App = () => {
   const [currentID, setCurrentID] = useState(40344);
   const [appStyles, setAppStyles] = useState({});
   const [theme, setTheme] = useState(false);
+  const [starRating, setStarRatings] = useState(0);
+
+  // Context
+  const starControl = useMemo(() => ({ starRating, setStarRatings }), []);
 
   // useEffect(() => {
   //   let current;
@@ -48,7 +53,9 @@ const App = () => {
         <Overview currentID={currentID} />
         <RelatedItemsComparisons currentID={currentID} setCurrentID={setCurrentID} />
         <QuestionsAnswers currentID={currentID} />
-        <RatingsReviews currentID={currentID} />
+        <StarContext.Provider value={starControl}>
+          <RatingsReviews currentID={currentID} />
+        </StarContext.Provider>
       </AppContainer>
     </AppBackground>
   );

@@ -83,6 +83,7 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
               <styling.RadioInput type="radio" id="no" name="recommend" value="false" onChange={(event) => handleRecommend(event.target.value)} />
             </styling.RecommendLabel>
           </styling.RecommendRadios>
+          {(errors && reviewForm.recommend === null) && <styling.ErrorMessage>Please Indicate If You Recommend This Product</styling.ErrorMessage>}
         </styling.recommendDiv>
         <styling.CharsContainer>
           {Object.entries(metaData.characteristics).map((characteristic) => (
@@ -126,6 +127,7 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
               />
             </styling.FormLabels>
             <styling.FormCounters>{reviewForm.body.length < 50 ? `Minimum Required Characters Left: ${50 - reviewForm.body.length}` : `${reviewForm.body.length} / 1000`}</styling.FormCounters>
+            {(errors && reviewForm.body.length < 50) && <styling.ErrorMessage>Please Fill Out The Review Body With At Least 50 Characters</styling.ErrorMessage>}
           </styling.FormBodyContainer>
         </styling.textAreaDiv>
         <styling.PhotoAreaDiv>
@@ -153,6 +155,7 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
             />
           </styling.FormLabels>
           <styling.UserDisclaimer>For privacy reasons, do not use your full name or email address</styling.UserDisclaimer>
+          {(errors && reviewForm.name.length < 1) && <styling.ErrorMessage>Please Fill Out A Nickname</styling.ErrorMessage>}
           <styling.FormLabels htmlFor="email">
             Email:
             <styling.UserInputs
@@ -166,7 +169,7 @@ const ReviewForm = ({ currentID, metaData, displayReviewForm, setDisplayReviewFo
           </styling.FormLabels>
           <styling.UserDisclaimer>For authentication reasons, you will not be emailed</styling.UserDisclaimer>
           <styling.submitButton type="submit" value="Submit Review" onClick={(event) => handleErrors(event)} />
-          {errors && <styling.ErrorMessage>Please Ensure All Required Fields Have Been Filled Out</styling.ErrorMessage>}
+          {errors && <styling.SubmitErrorMessage>Please Ensure All Required Fields Have Been Filled Out</styling.SubmitErrorMessage>}
         </styling.UserInfoDiv>
       </styling.styledForm>
     </styling.ReviewFormContainer>
