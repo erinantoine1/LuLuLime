@@ -409,13 +409,17 @@ export const ReviewTileHeader = styled.div`
 
 export const ReviewTileSummary = styled.div`
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 1.30rem;
+`;
+
+export const ReviewDate = styled.span`
+  opacity: 0.75;
 `;
 
 export const ReviewBody = styled.div`
   overflow-wrap: break-word;
   width: 90%;
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.5;
   margin-top: 1rem;
 `;

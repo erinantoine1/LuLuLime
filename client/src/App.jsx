@@ -13,8 +13,6 @@ const AppBackground = styled.div`
 `;
 
 const AppContainer = styled.div`
-  border-left: solid 1px rgba(0, 0, 0, 0.25);
-  border-right: solid 1px rgba(0, 0, 0, 0.25);
   border-top: solid 1px rgba(0, 0, 0, 0);
   border-bottom: solid 1px rgba(0, 0, 0, 0);
   margin-left: 4%;
