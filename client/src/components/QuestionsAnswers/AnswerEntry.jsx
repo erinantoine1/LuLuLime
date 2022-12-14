@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as styling from './Styling.js';
+import AnswerPhoto from './AnswerPhoto.jsx';
 
 const AnswerEntry = ({ answer, loadAnswers }) => {
 
-  const [helpfulPressed, setHelpfulPressed] = useState(false);
+  const [helpfulPressed, setHelpfulPressed] = useState(localStorage.getItem(`${answer.id}helpful`));
 
   const formatDate = () => {
     return new Date(answer.date).toDateString().slice(4);
@@ -14,31 +15,22 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
 
   const handleUpdate = (route) => {
     axios.put(`/answer/${route}`, {
-      answer_id: answer.answer_id
+      answer_id: answer.id
     })
       .then(() => {
         loadAnswers();
-      })
-      .then(() => {
-        if (route === 'helpful') {
-          setHelpfulPressed(true);
-        }
       });
   };
 
   const setHelpful = () => {
     handleUpdate('helpful');
+    setHelpfulPressed(true);
+    localStorage.setItem(`${answer.id}helpful`, true);
   };
 
   const report = () => {
     handleUpdate('report');
   };
-
-  const hide = (event) => {
-    event.target.style.display = 'none';
-  };
-
-  console.log(answer.photos);
 
   return (
     <styling.AnswerContainer>
@@ -50,9 +42,8 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
       <styling.AnswerButtons>
         <span>{`by ${answer.answerer_name}, ${formatDate()}`}</span>
         <span>|</span>
-
-        <span>Helpful?</span>
         <styling.AnswersHelpfulContainer>
+          <span>Helpful?&nbsp;&nbsp;</span>
           {helpfulPressed ? null
             : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
           <span>{`(${answer.helpfulness})`}</span>
@@ -61,15 +52,8 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
         <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
       </styling.AnswerButtons>
       <styling.QAPhotos>
-        {answer.photos.map((photo, index) => (
-          <img
-            key={index}
-            src={photo.url}
-            alt=" "
-            onerror="this.style.display='none'"
-            width="100"
-            height="100"
-          />
+        {answer.photos.map((photo, key) => (
+          <AnswerPhoto photo={photo} key={key} />
         ))}
       </styling.QAPhotos>
     </styling.AnswerContainer>
@@ -77,13 +61,3 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
 };
 
 export default AnswerEntry;
-
-
-// <span>{`by ${answer.answerer_name}, ${formatDate()}`}</span>
-//         <span>|</span>
-//         <span>Helpful?</span>
-//         {helpfulPressed ? null
-//           : <styling.YesButtons type="submit" onClick={setHelpful}>Yes</styling.YesButtons>}
-//         <span>{answer.helpfulness}</span>
-//         <span>|</span>
-//         <styling.ReportButton type="submit" onClick={report}>Report</styling.ReportButton>
