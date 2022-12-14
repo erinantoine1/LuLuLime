@@ -109,8 +109,6 @@ export const FullStars = styled.div`
 
 /********* Main Container  *************/
 
-//#038081
-
 export const Cards = styled.div`
   padding: 2rem 2rem;
   display: flex;
@@ -137,7 +135,7 @@ export const Buttons = styled.button`
 
 export const ReviewSectionContainer = styled.div`
   margin-top: 5rem;
-  border-top: solid 1px grey;
+  border-top: solid 1px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
