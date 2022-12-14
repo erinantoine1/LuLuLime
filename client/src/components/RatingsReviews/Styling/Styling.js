@@ -251,6 +251,15 @@ export const BarGraphLabels = styled.div`
   justify-content: center;
 `;
 
+export const BarGraphStarLabels = styled(BarGraphLabels)`
+  text-decoration: underline;
+  &: hover {
+    color: blue;
+    cursor: pointer;
+  }
+`;
+
+
 export const Meter = styled.div`
   width: 50%;
   height: 20px;
@@ -492,6 +501,12 @@ export const HelpfulButton = styled(Buttons)`
   font-size: 12pt;
 `;
 
+export const MarkedHelpfulButton = styled(HelpfulButton)`
+  animation-name: ${fadeInAnimation};
+  animation-duration: 0.3s;
+  cursor: auto;
+`;
+
 export const ReportButton = styled(Buttons)`
   background-color: transparent;
   border: none;
@@ -500,6 +515,11 @@ export const ReportButton = styled(Buttons)`
   color: black;
   padding: 0;
   margin: 0;
+  text-decoration: underline;
+  &: hover {
+    color: blue;
+    cursor: pointer;
+  }
 `;
 
 export const SearchResultsDiv = styled(ReviewTileDiv)`
