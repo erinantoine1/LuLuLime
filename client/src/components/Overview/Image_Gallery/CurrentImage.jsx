@@ -6,8 +6,9 @@ const CurrentImg = styled.img`
   cursor: zoom-in;
 }
 max-height: 650px;
-width: 25vw;
+width: 450px;
 border-radius: 3%;
+margin-bottom: 0;
 `;
 
 const CurrentImage = (

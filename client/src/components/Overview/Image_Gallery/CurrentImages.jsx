@@ -6,7 +6,7 @@ const PhotoContainer = styled.div`
   display: flex;
   max-height: 90%;
   width: 100%;
-  margin-top: 10%
+  margin-top: 8%
 `;
 
 const MagnifyingGlassIcon = styled.img`
