@@ -12,13 +12,13 @@ const OverviewDiv = styled.div`
 display: flex;
 flex-wrap: wrap;
 width: 80vw;
-height: 85vh;
+height: 80vh;
 flex-direction: columns;
 margin: auto;
-border-bottom: solid 1px grey;
-box-shadow: 0.0625rem 0.125rem #e8e7e4;
+box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
 background-color: white;
 border-radius: 10px;
+margin-top: 6rem;
 `;
 
 const LeftOverviewDiv = styled.div`
@@ -35,32 +35,37 @@ const ImageGalleryDiv = styled.div`
 const RightOverviewDiv = styled.div`
   order: 2;
   display: flex;
-  height: 88%;
+  height: 89%;
   width: 30%;
   border-radius: 10px;
   position: relative;
   align-self: center;
+  align-content: space-around;
+  background-color: #FAFAFA;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  padding-left: 1%;
+  left: -5%;
 `;
 
 const AddToCartDiv = styled.div`
 order: 3;
 position: absolute;
 align-content: center;
-top: 78%;
-left: 5%
+top: 90%;
+left: 7%
 `;
 
 const StyleSelectorDiv = styled.div`
 order: 2;
-position: relative;
-top: 46%;
+position: absolute;
+top: 50%;
+left: 50%;
 `;
 
 const ProductInformationDiv = styled.div`
-  position: absolute;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
   order: 1;
 `;
 

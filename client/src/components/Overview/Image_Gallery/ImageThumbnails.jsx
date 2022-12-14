@@ -7,8 +7,7 @@ const ContainerParent = styled.div`
 display: flex;
 position: relative;
 width: 78%;
-top: -3%;
-left: -1%;
+margin-top: -1%;
 `;
 
 const ThumbnailsContainer = styled.div`

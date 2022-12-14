@@ -10,7 +10,6 @@ import * as styling from './Styling.js';
 
 const QuestionsAnswers = ({ currentID }) => {
 
-  // const [product_id, setProduct_id] = useState(currentID);
   const [questions, setQuestions] = useState([]);
   const [questionsRequested, setQuestionsRequested] = useState(100);
   const [questionsShown, setQuestionsShown] = useState(2);
@@ -39,7 +38,6 @@ const QuestionsAnswers = ({ currentID }) => {
   }, [currentID]);
 
   let getQuestions = Object.values(questions);
-  // getQuestions = getQuestions.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
 
   const doSearch = (query) => {
     console.log(query);
@@ -66,7 +64,6 @@ const QuestionsAnswers = ({ currentID }) => {
 
   if (!allQuestionsShown) {
     getQuestions = getQuestions.slice(0, questionsShown);
-    console.log('getQuestions', getQuestions);
   }
 
   const handleSearchPressed = () => {
@@ -75,32 +72,31 @@ const QuestionsAnswers = ({ currentID }) => {
 
   return (
     <styling.QASectionTopBorders>
-      <styling.QASectionSideBorders>
-        <styling.QASectionContainer>
-          <h2>Questions and Answers</h2>
-          {searchPressed ? (
-            <SearchQuestions doSearch={doSearch} />
-          ) : (
-            <styling.Buttons type="submit" onClick={handleSearchPressed}>Search</styling.Buttons>
-          )}
-          <styling.QAInfoDiv>
-            <QuestionsList
-              questions={filtered ? filteredQuestions : getQuestions}
+      <styling.QASectionContainer>
+        <h1 style={{ fontSize: '3rem' }}>Questions and Answers</h1>
+        {searchPressed ? (
+          <SearchQuestions doSearch={doSearch} />
+        ) : (
+          <styling.Buttons type="submit" onClick={handleSearchPressed}>Search</styling.Buttons>
+        )}
+        <styling.QAInfoDiv>
+          <QuestionsList
+            questions={filtered ? filteredQuestions : getQuestions}
+            loadQuestions={loadQuestions}
+          />
+        </styling.QAInfoDiv>
+        <styling.ButtonContainer>
+          <styling.Buttons type="submit" onClick={showMoreQuestions}>Load more questions</styling.Buttons>
+          {!newQuestion ? null : (
+            <NewQuestionForm
+              loadQuestions={loadQuestions}
+              toggleNewQuestion={toggleNewQuestion}
+              product_id={currentID}
             />
-          </styling.QAInfoDiv>
-          <styling.ButtonContainer>
-            <styling.Buttons type="submit" onClick={showMoreQuestions}>Load more questions</styling.Buttons>
-            {!newQuestion ? null : (
-              <NewQuestionForm
-                loadQuestions={loadQuestions}
-                toggleNewQuestion={toggleNewQuestion}
-                product_id={currentID}
-              />
-            )}
-            <styling.Buttons type="submit" onClick={toggleNewQuestion}>Add a question</styling.Buttons>
-          </styling.ButtonContainer>
-        </styling.QASectionContainer>
-      </styling.QASectionSideBorders>
+          )}
+          <styling.Buttons type="submit" onClick={toggleNewQuestion}>Add a question</styling.Buttons>
+        </styling.ButtonContainer>
+      </styling.QASectionContainer>
     </styling.QASectionTopBorders>
   );
 };
@@ -234,3 +230,36 @@ export default QuestionsAnswers;
 //       setQuestions(response.data.results);
 //     });
 // };
+
+
+
+
+{/* <styling.QASectionTopBorders>
+<styling.QASectionSideBorders>
+  <styling.QASectionContainer>
+    <h1 style={{ fontSize: '3rem' }}>Questions and Answers</h1>
+    {searchPressed ? (
+      <SearchQuestions doSearch={doSearch} />
+    ) : (
+      <styling.Buttons type="submit" onClick={handleSearchPressed}>Search</styling.Buttons>
+    )}
+    <styling.QAInfoDiv>
+      <QuestionsList
+        questions={filtered ? filteredQuestions : getQuestions}
+      />
+    </styling.QAInfoDiv>
+    <styling.ButtonContainer>
+      <styling.Buttons type="submit" onClick={showMoreQuestions}>Load more questions</styling.Buttons>
+      {!newQuestion ? null : (
+        <NewQuestionForm
+          loadQuestions={loadQuestions}
+          toggleNewQuestion={toggleNewQuestion}
+          product_id={currentID}
+        />
+      )}
+      <styling.Buttons type="submit" onClick={toggleNewQuestion}>Add a question</styling.Buttons>
+    </styling.ButtonContainer>
+  </styling.QASectionContainer>
+</styling.QASectionSideBorders>
+</styling.QASectionTopBorders>
+); */}

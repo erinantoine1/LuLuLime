@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import * as styling from './Styling/Styling.js';
 import CharSection from './CharSection.jsx';

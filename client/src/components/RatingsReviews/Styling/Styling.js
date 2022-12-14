@@ -310,7 +310,7 @@ export const FactorBreakdownContainer = styled.div`
   justify-content: center;
   width: 95%;
   padding-left: 10%;
-  padding-right: 10%;
+  padding-right: 20%;
 `;
 
 export const ProductBreakdownLabel = styled.div`
