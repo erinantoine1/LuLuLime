@@ -5,20 +5,21 @@ import styled from 'styled-components';
 import StyleThumbnail from './StyleThumbnail.jsx';
 
 const StyleThumbnailsDiv = styled.div`
-width: 440px;
+width: 400px;
+min-height: fit-content;
 display: flex;
 flex-wrap: wrap;
 z-index: 40;
-position: absolute;
-left: 59%;
-top: 40%;
+position: relative;
+margin-top: 3%;
+left: -12%;
 `;
 const ThumbnailStyleName = styled.div`
 height: 30px;
 width: 400px;
-position: absolute;
-left: 59%;
-top: 38%;
+position: relative;
+left: 0%;
+top: 0%;
 `;
 
 const StyleSelector = (
@@ -70,7 +71,10 @@ const StyleSelector = (
 
     return (
       <div>
-        <ThumbnailStyleName>{`Select Style:  ${productStyleName}`}</ThumbnailStyleName>
+        <ThumbnailStyleName>
+          <b>Style: </b>
+          {`${productStyleName}`}
+        </ThumbnailStyleName>
         <StyleThumbnailsDiv>
           {thumbnails}
         </StyleThumbnailsDiv>

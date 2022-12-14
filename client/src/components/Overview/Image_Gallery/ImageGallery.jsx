@@ -1,6 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 import DefaultImageView from './DefaultImageView.jsx';
 import ExpandedImageView from './ExpandedImageView.jsx';
+
+const AnotherImageGalleryDiv = styled.div`
+  height: 100%;
+`;
 
 const ImageGallery = (
   ({
@@ -8,7 +13,7 @@ const ImageGallery = (
   }) => {
 
     return (
-      <div>
+      <AnotherImageGalleryDiv>
         <DefaultImageView
           allProductStyles={allProductStyles}
           setAllProductStyles={setAllProductStyles}
@@ -93,7 +98,7 @@ const ImageGallery = (
           expandedImageViewActive={expandedImageViewActive}
           setExpandedImageViewActive={setExpandedImageViewActive}
         />
-      </div>
+      </AnotherImageGalleryDiv>
 
     );
   }

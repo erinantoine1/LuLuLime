@@ -41,7 +41,7 @@ border: none;
 cursor: pointer;
 font-size: 3rem;
 position: relative;
-top: -2%;
+top: 5%;
 left: -1%;
 `;
 
@@ -51,11 +51,11 @@ text-align: center;
 background-color: white;
 height: 50px;
 width: 50px;
-border-radius: 50%;;
+border-radius: 50%;
 border: none;
 cursor: pointer;
 font-size: 3rem;
-top: -2%;
+top: 5%;
 `;
 
 const ImageThumbnails = (
