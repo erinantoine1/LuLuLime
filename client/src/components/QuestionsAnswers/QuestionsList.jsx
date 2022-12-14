@@ -5,12 +5,11 @@ import * as styling from './Styling.js';
 const QuestionsList = ({ questions, loadQuestions }) => {
 
   return (
-    questions.map((question, key) => (
-      <styling.QATileDiv>
+    questions.map((question, index) => (
+      <styling.QATileDiv key={index}>
         <QuestionEntry
           question={question}
           loadQuestions={loadQuestions}
-          key={key}
         />
       </styling.QATileDiv>
     ))

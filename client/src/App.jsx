@@ -9,7 +9,7 @@ import RelatedItemsComparisons from './components/RelatedItemsComparisons/Relate
 import { StarContext } from './components/RatingsReviews/Utils.js';
 
 const AppBackground = styled.div`
-  background-color: ${props => props.change ? '#fafafa' : 'black'};
+  background-color: ${props => props.change ? 'white' : 'black'};
 `;
 
 const AppContainer = styled.div`
@@ -62,3 +62,5 @@ const App = () => {
 };
 
 export default App;
+
+// <Overview currentID={40346} />
