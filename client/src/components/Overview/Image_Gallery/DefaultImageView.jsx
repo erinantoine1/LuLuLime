@@ -46,7 +46,7 @@ const ThumbnailsDiv = styled.div`
   bottom: 0;
   justify-content: space-around;
   margin-left: 20%;
-  margin-bottom: 2%;
+  margin-bottom: 0%;
 `;
 
 
