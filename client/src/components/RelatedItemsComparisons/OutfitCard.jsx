@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import StaticStars from '../RatingsReviews/StaticStars.jsx';
+import TealX from './images/newtealex.png';
 
 const Ratings = styled.div`
   position: relative;
@@ -36,7 +37,9 @@ const FullStars = styled.div`
 `;
 
 const StyledCard = styled.div`
-  box-shadow: 0 1px 0.5rem -4px #000;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -moz-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   background: #fff;
   cursor: pointer;
   height: 375px;
@@ -94,7 +97,7 @@ const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, de
 
   return (
     <StyledCard>
-      <StyledX src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png" alt="X" onClick={removeItem} />
+      <StyledX src={TealX} alt="X" onClick={removeItem} />
       <Image width={cardWidth} alt="image" src={pictures} onClick={handleClick} />
       <StyledCategory>{category}</StyledCategory>
       <StyledName>{name}</StyledName>

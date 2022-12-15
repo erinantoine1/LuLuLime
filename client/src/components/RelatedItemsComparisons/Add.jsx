@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import PNGPlus from './images/betterplus.png';
 
 const StyledCard = styled.div`
-  box-shadow: 0 1px 0.5rem -4px #000;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -moz-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   background: #fff;
   cursor: pointer;
   height: 375px;
   position: relative;
   width: ${props => props.width / 4}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const Plus = styled.h1`
-  font-size: 5rem;
-  margin-top: 25%;
+const StyledPlus = styled.img`
+  height: 25px;
+  width: 25px;
+  top: 0.5rem;
+  right: 0.5rem;
+  position: absolute;
 `;
 
 const Title = styled.h2`
@@ -25,7 +34,7 @@ const getAverageRating = (ratings) => {
   let totalRatings = 0;
   Object.entries(ratings).forEach((pair) => {
     totalRating += (Number(pair[0]) * Number(pair[1]));
-    totalRatings += (Number(pair[1]))
+    totalRatings += (Number(pair[1]));
   });
   return Math.round((totalRating / totalRatings) * 10) / 10;
 };
@@ -88,7 +97,7 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
   return (
     <StyledCard width={cardWidth} onClick={addItem}>
       <Title>Add to Outfit</Title>
-      <Plus>+</Plus>
+      <StyledPlus src={PNGPlus} alt="+" />
     </StyledCard>
   );
 };

@@ -19,6 +19,10 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.(jpg|png|jpeg|webp)$/,
+        use: ['file-loader']
+      }
     ]
   },
   plugins: [
