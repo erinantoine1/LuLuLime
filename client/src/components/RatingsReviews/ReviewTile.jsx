@@ -83,10 +83,10 @@ const ReviewTile = ({ currentID, review, setReviews, sortOrder, helpfulReviews, 
       <styling.ReviewTileContent>
         <styling.ReviewTileHeader>
           <styling.ReviewTileSummary>{highlightText(review.summary)}</styling.ReviewTileSummary>
-          <span>{formatDate(review.date)}</span>
+          <styling.ReviewDate>{formatDate(review.date)}</styling.ReviewDate>
         </styling.ReviewTileHeader>
         <span>
-          <StaticStars rating={review.rating} size={12} />
+          <StaticStars rating={review.rating} size={14} />
         </span>
         <styling.ReviewBody>{toggleLongReview(review.body)}</styling.ReviewBody>
         <styling.ReviewPhotos>

@@ -12,8 +12,10 @@ const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displ
 
 
   const handleMoreReviews = () => {
-    divRef.current.scrollIntoView({ behavior: 'smooth' });
     setDisplayedReviews(displayedReviews + 2);
+    setTimeout(() => {
+      divRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 30);
   };
 
   useEffect(() => {
