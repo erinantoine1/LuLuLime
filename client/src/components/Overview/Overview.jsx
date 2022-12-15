@@ -59,7 +59,6 @@ const StyleSelectorDiv = styled.div`
 order: 2;
 position: absolute;
 top: 50%;
-left: 50%;
 `;
 
 const ProductInformationDiv = styled.div`
