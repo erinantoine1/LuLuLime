@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import StaticStars from '../RatingsReviews/StaticStars.jsx';
+import TealX from './images/newtealex.png';
 
 const Ratings = styled.div`
   position: relative;
@@ -96,7 +97,7 @@ const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, de
 
   return (
     <StyledCard>
-      <StyledX src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Eo_circle_teal_letter-x.svg/1024px-Eo_circle_teal_letter-x.svg.png" alt="X" onClick={removeItem} />
+      <StyledX src={TealX} alt="X" onClick={removeItem} />
       <Image width={cardWidth} alt="image" src={pictures} onClick={handleClick} />
       <StyledCategory>{category}</StyledCategory>
       <StyledName>{name}</StyledName>

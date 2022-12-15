@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import PNGPlus from './images/betterplus.png';
 
 const StyledCard = styled.div`
   box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
@@ -13,9 +14,12 @@ const StyledCard = styled.div`
   width: ${props => props.width / 4}px;
 `;
 
-const Plus = styled.h1`
-  font-size: 5rem;
-  margin-top: 25%;
+const StyledPlus = styled.img`
+  height: 25px;
+  width: 25px;
+  top: 0.5rem;
+  right: 0.5rem;
+  position: absolute;
 `;
 
 const Title = styled.h2`
@@ -90,8 +94,7 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
   return (
     <StyledCard width={cardWidth} onClick={addItem}>
       <Title>Add to Outfit</Title>
-      <img src="https://w7.pngwing.com/pngs/977/124/png-transparent-round-green-cross-icon-hospital-nurse-in-vitro-fertilisation-medicine-health-ambulance-cross-hospital-icon-miscellaneous-service-logo-thumbnail.png"/>
-      <Plus>+</Plus>
+      <StyledPlus src={PNGPlus} alt="+" />
     </StyledCard>
   );
 };

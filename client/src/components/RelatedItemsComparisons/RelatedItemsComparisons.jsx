@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 2.5rem;
 `;
 
 const RelatedItemsComparisons = ({ currentID, setCurrentID }) => {

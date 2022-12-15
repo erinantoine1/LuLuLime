@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import CompareModal from './CompareModal.jsx';
 import StaticStars from '../RatingsReviews/StaticStars.jsx';
+import TealStar from './images/star-987445_1280.webp';
 
 const Ratings = styled.div`
   position: relative;
@@ -96,7 +97,7 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
     <Container>
       {showModal && <CompareModal id={id} currentID={currentID} setShowModal={setShowModal} /> }
       <StyledCard>
-        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://cdn.pixabay.com/photo/2015/10/14/10/23/star-987445_1280.png" />
+        <StyledStar onClick={() => setShowModal(true)} alt="star" src={TealStar} />
         <Image width={cardWidth} src={picture} alt="item" onClick={handleClick} />
         <StyledCategory>{category}</StyledCategory>
         <StyledName>{name}</StyledName>
