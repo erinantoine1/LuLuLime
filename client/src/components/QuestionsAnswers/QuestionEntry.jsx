@@ -7,18 +7,21 @@ import * as styling from './Styling.js';
 const QuestionEntry = ({ question, loadQuestions }) => {
 
   const [answers, setAnswers] = useState([]);
+  const [answersRequested, setAnswersRequested] = useState(100);
   const [answersShown, setAnswersShown] = useState(2);
   const [timesClicked, setTimesClicked] = useState(0);
   const [allAnswersShown, setAllAnswersShown] = useState(false);
   const [helpfulPressed, setHelpfulPressed] = useState(localStorage.getItem(`${question.question_id}helpful`));
   const [newAnswer, setNewAnswer] = useState(false);
 
-  const loadAnswers = (count = 5, page = 1) => {
-    const parameters = { question_id: question.question_id, page, count };
+  const loadAnswers = (page = 1) => {
+    console.log('load answers called');
+    const parameters = { question_id: question.question_id, page, count: answersRequested };
     axios.get('/answers', {
       params: parameters
     })
       .then((response) => {
+        console.log(response.data.results);
         setAnswers(response.data.results);
       });
   };
@@ -30,6 +33,8 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   let getAnswers = Object.values(question.answers);
   getAnswers = getAnswers.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
+
+  console.log(getAnswers);
 
   const handleUpdate = (route) => {
     axios.put(`/question/${route}`, {

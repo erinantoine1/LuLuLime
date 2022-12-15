@@ -35,9 +35,9 @@ const ProductPrice = ({ productStyleOriginalPrice, productStyleSalePrice }) => {
   let originalPrice;
   let originaNoSale;
 
-  if (productStyleSalePrice === null || productStyleSalePrice === undefined) {
+  if ((productStyleSalePrice === null || productStyleSalePrice === undefined)) {
     originaNoSale = (
-      <OriginalPriceNoSale>{ `$${productStyleOriginalPrice}` }</OriginalPriceNoSale>
+      <OriginalPriceNoSale style={productStyleOriginalPrice !== undefined ? { visibility: 'visible' } : { visibility: 'hidden' }}>{ `$${productStyleOriginalPrice}` }</OriginalPriceNoSale>
     );
   }
   return (
