@@ -11,6 +11,7 @@ import { StarContext } from './components/RatingsReviews/Utils.js';
 
 const AppBackground = styled.div`
   background-color: ${props => props.change ? '#EAFAF1' : 'black'};
+  font-family: Helvetica;
 `;
 
 const AppContainer = styled.div`
@@ -25,6 +26,7 @@ const LogoContainer = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
+  gap: 5%;
 `;
 
 const Logo = styled.img`

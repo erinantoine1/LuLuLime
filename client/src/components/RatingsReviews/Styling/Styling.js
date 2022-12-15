@@ -152,6 +152,10 @@ export const ReviewSectionContainer = styled.div`
   padding-bottom: 10rem;
 `;
 
+export const ReviewHeader = styled.h1`
+  font-size: 2.5rem;
+`;
+
 export const ReviewSectionHeader = styled.div`
   display: flex;
   align-self: flex-start;
@@ -159,7 +163,7 @@ export const ReviewSectionHeader = styled.div`
   width: 100%;
   justify-content: space-between;
   font-size: 1.35rem;
-  margin-top: 2%;
+  margin-top: 1.5%;
 `;
 export const DropDownDiv = styled.div`
   display: flex;
@@ -369,6 +373,7 @@ export const ReviewTilesContainer = styled.div`
 export const ReviewButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-right: ${props => props.shrink ? '1.7%' : '0.5%'};
 `;
 /********* Rating Breakdown Styles  *************/
 

@@ -89,7 +89,7 @@ const RatingsReviews = ({ currentID }) => {
     <styling.ReviewSectionContainer>
       <GlobalStyle />
       <styling.ReviewSectionHeader>
-        <h1 style={{ fontSize: '1.75rem;' }}>Reviews</h1>
+        <styling.ReviewHeader>Reviews</styling.ReviewHeader>
         <RatingBreakdown
           filterBy={filterBy}
           setFilterBy={setFilterBy}
