@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import RelatedCard from './RelatedCard.jsx';
+import Glasses from './images/greenglasses.webp';
 
 const ContainerParent = styled.div`
   display: flex;
@@ -64,6 +65,9 @@ const RelatedList = ({ setCurrentID, currentID }) => {
   const [scrollCount, setScrollCount] = useState(0);
   const [width, setWidth] = useState(0);
   const containerRef = useRef();
+
+
+  console.log('glasses: ', Glasses);
 
   useEffect(() => {
     setWidth(containerRef.current.offsetWidth);

@@ -12,6 +12,9 @@ const StyledCard = styled.div`
   height: 375px;
   position: relative;
   width: ${props => props.width / 4}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StyledPlus = styled.img`
