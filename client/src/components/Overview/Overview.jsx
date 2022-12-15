@@ -11,7 +11,7 @@ import AddToCart from './Add_To_Cart/AddToCart.jsx';
 const OverviewDiv = styled.div`
 display: flex;
 flex-wrap: wrap;
-width: 80vw;
+width: 70vw;
 height: 80vh;
 flex-direction: columns;
 margin: auto;
@@ -26,6 +26,7 @@ const LeftOverviewDiv = styled.div`
   height: 100%;
   width: 60%;
   border-radius: 10px;
+  left: -5%;
 `;
 
 const ImageGalleryDiv = styled.div`
@@ -35,30 +36,32 @@ const ImageGalleryDiv = styled.div`
 const RightOverviewDiv = styled.div`
   order: 2;
   display: flex;
-  height: 89%;
-  width: 30%;
+  height: 91%;
+  width: 35%;
   border-radius: 10px;
   position: relative;
   align-self: center;
   align-content: space-around;
   background-color: #FAFAFA;
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  border-bottom: #e8e7e4;
+  border-right: #e8e7e4;
   padding-left: 1%;
   left: -5%;
+  box-shadow: 0.05rem 0.05rem 0.05rem 0.05rem #e8e7e4;
 `;
 
 const AddToCartDiv = styled.div`
 order: 3;
 position: absolute;
 align-content: center;
-top: 90%;
+top: 85%;
 left: 7%
 `;
 
 const StyleSelectorDiv = styled.div`
 order: 2;
 position: absolute;
-top: 50%;
+top: 45%;
 `;
 
 const ProductInformationDiv = styled.div`

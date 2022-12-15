@@ -3,10 +3,14 @@ import styled from 'styled-components';
 import CurrentImage from './CurrentImage.jsx';
 
 const PhotoContainer = styled.div`
-  display: flex;
-  max-height: 90%;
-  width: 100%;
-  margin-top: 8%
+  position: absolute;
+  width: auto; /* to keep proportions */
+  height: auto; /* to keep proportions */
+  max-width: 100%; /* not to stand out from div */
+  max-height: 100%; /* not to stand out from div */
+  bottom: 0%;
+  margin-top: -10%;
+  left: 18%;
 `;
 
 const MagnifyingGlassIcon = styled.img`
