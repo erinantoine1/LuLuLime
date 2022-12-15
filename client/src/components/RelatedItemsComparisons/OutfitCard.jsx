@@ -36,7 +36,9 @@ const FullStars = styled.div`
 `;
 
 const StyledCard = styled.div`
-  box-shadow: 0 1px 0.5rem -4px #000;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -moz-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   background: #fff;
   cursor: pointer;
   height: 375px;

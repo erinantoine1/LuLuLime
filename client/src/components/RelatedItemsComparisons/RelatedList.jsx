@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import RelatedCard from './RelatedCard.jsx';
 
 const ContainerParent = styled.div`
-  margin-left: 12%;
-  margin-right: 12%;
   display: flex;
 `;
 // align-items: center
@@ -24,7 +22,7 @@ const CardContainer = styled.div`
 const LeftButton = styled.button`
   float: left;
   text-align: center;
-  background-color: #fafafa;
+  background-color: ##EAFAF1;
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -38,7 +36,7 @@ const LeftButton = styled.button`
 const RightButton = styled.button`
   float: right;
   text-align: center;
-  background-color: #fafafa;
+  background-color: ##EAFAF1;
   height: 75px;
   width: 75px;
   border-radius: 50%;

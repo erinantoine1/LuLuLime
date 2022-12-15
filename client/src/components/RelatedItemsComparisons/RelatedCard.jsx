@@ -40,7 +40,9 @@ const FullStars = styled.div`
 
 
 const StyledCard = styled.div`
-  box-shadow: 0 1px 0.5rem -4px #000;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -moz-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   background: #fff;
   cursor: pointer;
   height: 375px;
@@ -95,7 +97,7 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
     <Container>
       {showModal && <CompareModal id={id} currentID={currentID} setShowModal={setShowModal} /> }
       <StyledCard>
-        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVyPxB9kLfrOIiFkuFWThAIBmwSh8FPvOlgA&usqp=CAU" />
+        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://banner2.cleanpng.com/20180715/ezq/kisspng-slinky-senegal-asterisk-5b4b180c101f17.7661747715316480120661.jpg" />
         <Image width={cardWidth} src={picture} alt="item" onClick={handleClick} />
         <StyledCategory>{category}</StyledCategory>
         <StyledName>{name}</StyledName>

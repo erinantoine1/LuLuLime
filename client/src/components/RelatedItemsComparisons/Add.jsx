@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const StyledCard = styled.div`
-  box-shadow: 0 1px 0.5rem -4px #000;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -moz-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   background: #fff;
   cursor: pointer;
   height: 375px;
@@ -25,7 +27,7 @@ const getAverageRating = (ratings) => {
   let totalRatings = 0;
   Object.entries(ratings).forEach((pair) => {
     totalRating += (Number(pair[0]) * Number(pair[1]));
-    totalRatings += (Number(pair[1]))
+    totalRatings += (Number(pair[1]));
   });
   return Math.round((totalRating / totalRatings) * 10) / 10;
 };
