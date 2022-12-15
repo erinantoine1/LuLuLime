@@ -17,7 +17,7 @@ const PriceDiv = styled.div`
 height: 150px;
 width: 350px;
 position: absolute;
-margin-top: 68%;
+margin-top: 67%;
 margin-left: -2%;
 `;
 const CategoryDiv = styled.div`

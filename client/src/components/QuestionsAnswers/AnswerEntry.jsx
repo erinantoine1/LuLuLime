@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/jsx-no-duplicate-props */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as styling from './Styling.js';
 import AnswerPhoto from './AnswerPhoto.jsx';
@@ -31,6 +31,11 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
   const report = () => {
     handleUpdate('report');
   };
+
+  // console.log(answer.id + ' ' + answer.helpfulness);
+  // setTimeout(() => {
+  //   console.log(answer.id + ' ' + answer.helpfulness);
+  // }, 1000);
 
   return (
     <styling.AnswerContainer>

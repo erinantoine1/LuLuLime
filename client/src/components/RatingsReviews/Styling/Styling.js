@@ -66,7 +66,7 @@ export const StarButton = styled.button`
   border: none;
   outline: none;
   font-size: 16pt;
-  color: ${props => props.clicked ? 'black' : '#fafafa'}
+  color: ${props => props.clicked ? 'teal' : 'transparent'}
 `;
 export const StarButtonInside = styled.div`
   -webkit-text-stroke: 1px #848484;
@@ -98,11 +98,11 @@ export const FullStars = styled.div`
   top: 0;
   white-space: nowrap;
   overflow: hidden;
-  color: black;
+  color: teal;
   &:before {
     content: "★★★★★";
     font-size: ${props => props.size}pt;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 1px teal;
   }
   width: ${props => props.percentage}%;
 `;
@@ -124,13 +124,19 @@ export const Buttons = styled.button`
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: black;
-  background-color: black;
+  border-color: teal;
+  background-color: teal;
   color: white;
   width: 15%;
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+    border-color: teal;
+  }
 `;
 
 export const ReviewSectionContainer = styled.div`
@@ -142,9 +148,7 @@ export const ReviewSectionContainer = styled.div`
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-bottom: 5rem;
-  height: 71rem;
-  padding: 1.5rem;
+  padding-bottom: 10rem;
 `;
 
 export const ReviewSectionHeader = styled.div`
@@ -181,7 +185,7 @@ export const ReviewSectionBody = styled.div`
 export const SidebarDiv = styled.div`
   width: 20%;
   background-color: white;
-  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e8e7e4;
   min-width: fit-content;
   justify-content: center;
   align-items: center;
@@ -274,7 +278,7 @@ export const Progress = styled.span`
   height: 100%;
   display: block;
   width: ${props => props.percentage}%;
-  background-color: black;
+  background-color: teal;
   line-height: 30px;
   position: absolute;
   text-align: end;
@@ -290,7 +294,6 @@ export const sortingByDiv = styled(AnimatedDiv)`
 
 export const ResetFiltersButton = styled(Buttons)`
   width: fit-content;
-  background-color: black;
 `;
 
 // Product Breakdown
@@ -331,7 +334,7 @@ export const FactorContainer = styled.div`
   width: 20%;
   height: 10px;
   border-radius: 2px;
-  background-color: ${props => props.shading ? 'black' : '#fafafa'}};
+  background-color: ${props => props.shading ? 'teal' : '#fafafa'}};
   border: 1px solid rgba(0, 0, 0, 0.5);
 `;
 export const FactorLabelsContainer = styled.div`
@@ -382,16 +385,19 @@ export const AverageRatingDiv = styled.div`
 
 /********* Review Tile Styles  *************/
 
+//box-shadow: 0.0625rem 0.125rem #e8e7e4;
+
 export const ReviewTileDiv = styled.div`
   padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  box-shadow: 0.0625rem 0.125rem #e8e7e4;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e8e7e4;
   background-color: white;
   border-radius: 10px;
   animation-name: ${fadeInAnimation};
   animation-duration: 0.3s;
+  width: 99%;
 `;
 
 export const ReviewTileContent = styled.div`
@@ -409,13 +415,17 @@ export const ReviewTileHeader = styled.div`
 
 export const ReviewTileSummary = styled.div`
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 1.30rem;
+`;
+
+export const ReviewDate = styled.span`
+  opacity: 0.75;
 `;
 
 export const ReviewBody = styled.div`
   overflow-wrap: break-word;
   width: 90%;
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.5;
   margin-top: 1rem;
 `;
@@ -427,7 +437,7 @@ export const UsernameContainer = styled.div`
 `;
 
 export const UserIcon = styled.div`
-  background-color: #959595;
+  background-color: teal;
   border-radius: 50%;
   color: #fff;
   font-size: 1.125rem;
@@ -499,12 +509,22 @@ export const HelpfulButton = styled(Buttons)`
   background-color: transparent;
   color: black;
   font-size: 12pt;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+    border-color: #bfe3b4;
+  }
 `;
 
 export const MarkedHelpfulButton = styled(HelpfulButton)`
   animation-name: ${fadeInAnimation};
   animation-duration: 0.3s;
   cursor: auto;
+  &: hover{
+    cursor: auto;
+    background-color: transparent;
+  }
 `;
 
 export const ReportButton = styled(Buttons)`
@@ -519,6 +539,7 @@ export const ReportButton = styled(Buttons)`
   &: hover {
     color: blue;
     cursor: pointer;
+    background-color: transparent;
   }
 `;
 
@@ -535,7 +556,7 @@ export const ReviewFormContainer = styled(ModalBackground)`
 `;
 
 export const styledForm = styled.form`
-  background-color: #fafafa;
+  background-color: #EAFAF1;
   display: flex;
   flex-direction: column;
   width: fit-content;
@@ -623,7 +644,7 @@ export const RadioButtonsContainer = styled.div`
 
 export const RadioInput = styled.input`
   transform: scale(1.25);
-  accent-color: black;
+  accent-color: teal;
 `;
 
 export const RadioButtonDiv = styled.div`
@@ -751,14 +772,20 @@ export const submitButton = styled.input`
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: black;
-  background-color: black;
+  border-color: teal;
+  background-color: teal;
   color: white;
   width: 15%;
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
   align-self: center;
+  &: hover{
+    background-color: #bfe3b4;
+    color: black;
+    cursor: pointer;
+    border-color: teal;
+  }
 `;
 
 export const ErrorMessage = styled.div`
