@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import LimePicture from './components/RelatedItemsComparisons/images/happylime.png';
 
 import Overview from './components/Overview/Overview.jsx';
 import QuestionsAnswers from './components/QuestionsAnswers/QuestionsAnswers.jsx';
@@ -18,6 +19,17 @@ const AppContainer = styled.div`
   margin-left: 4%;
   margin-right: 4%;
   background-color:  ${props => props.change ? '#EAFAF1' : 'grey'};
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  height: 100%;
+  align-items: center;
+`;
+
+const Logo = styled.img`
+  height: 90%;
+  float: left;
 `;
 
 const Header = styled.div`
@@ -50,22 +62,27 @@ const Buttons = styled.button`
   }
 `;
 
+const NavContainer = styled.div`
+  display: flex;
+  gap: 1%;
+  width: 40%;
+`;
+
 const HeaderButtons = styled(Buttons)`
   background-color: #bfe3b4;
   color: black;
+  border: teal;
   &: hover{
     cursor: pointer;
   }
-  width: 30%;
   font-size: 1rem;
   border: none;
   height: 60%;
 `;
 
 const SearchInput = styled.input`
-  width: 15%;
+  width: 100%;
   font-size: 1.0625rem;
-  height: 60%;
   border: solid 1px rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   &:focus {
@@ -105,11 +122,16 @@ const App = () => {
   return (
     <AppBackground change={!theme}>
       <Header>
-        <h1 style={{ fontSize: '3rem', color: '#bfe3b4' }}>Lululime</h1>
-        <HeaderButtons>Home</HeaderButtons>
-        <HeaderButtons>Products</HeaderButtons>
-        <HeaderButtons>Contact Us</HeaderButtons>
-        <SearchInput type="text" placeholder="Search..." />
+        <LogoContainer>
+          <Logo src={LimePicture} alt="lime" />
+          <h1 style={{ fontSize: '3rem', color: '#bfe3b4', float: 'left' }}>Lululime</h1>
+        </LogoContainer>
+        <NavContainer>
+          <HeaderButtons>Home</HeaderButtons>
+          <HeaderButtons>Products</HeaderButtons>
+          <HeaderButtons>Contact Us</HeaderButtons>
+          <SearchInput type="text" placeholder="Search..." />
+        </NavContainer>
       </Header>
       <AppContainer change={!theme}>
         <Overview currentID={currentID} />
