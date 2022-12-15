@@ -294,7 +294,6 @@ export const sortingByDiv = styled(AnimatedDiv)`
 
 export const ResetFiltersButton = styled(Buttons)`
   width: fit-content;
-  background-color: black;
 `;
 
 // Product Breakdown
