@@ -76,7 +76,7 @@ const StyledStar = styled.img`
 `;
 
 const Image = styled.img`
-    height: 60%;
+    height: 65%;
     width: ${props => props.width}px;
 `;
 
