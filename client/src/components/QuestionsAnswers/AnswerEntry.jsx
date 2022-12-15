@@ -39,7 +39,7 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
 
   return (
     <styling.AnswerContainer>
-      <span style={{ fontSize: '1.3rem' }}>
+      <span style={{ fontSize: '1.1rem' }}>
         <b>A</b>
         {`: ${answer.body}?`}
       </span>
