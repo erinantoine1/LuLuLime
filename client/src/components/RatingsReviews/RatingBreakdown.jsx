@@ -37,7 +37,7 @@ const RatingBreakdown = ({ metaData, totalRatings, currentID }) => {
     <styling.RatingBreakdownDiv>
       <styling.AverageRatingDiv>
         <h3>{averageRating}</h3>
-        <StaticStars rating={averageRating} size={16} />
+        <StaticStars rating={averageRating} size={17} />
       </styling.AverageRatingDiv>
       <h3>{`${percentRecommend}% Recommended`}</h3>
     </styling.RatingBreakdownDiv>

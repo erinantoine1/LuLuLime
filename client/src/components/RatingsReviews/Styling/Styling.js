@@ -131,6 +131,7 @@ export const Buttons = styled.button`
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
+  font-size: 1rem;
   &: hover{
     background-color: #bfe3b4;
     color: black;
@@ -157,7 +158,8 @@ export const ReviewSectionHeader = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  font-size: 14pt;
+  font-size: 1.35rem;
+  margin-top: 2%;
 `;
 export const DropDownDiv = styled.div`
   display: flex;
@@ -168,7 +170,7 @@ export const Select = styled.select`
   background-color: transparent;
   font-weight: bold;
   font-family: Helvetica;
-  font-size: 12pt;
+  font-size: 1.20rem;
   &:focus {
     outline: none;
   }
@@ -551,7 +553,7 @@ export const SearchResultsDiv = styled(ReviewTileDiv)`
 /********* Review Form Styles  *************/
 
 export const ReviewFormContainer = styled(ModalBackground)`
-  font-size: 12pt;
+  font-size: 14pt;
   z-index: 999;
 `;
 
@@ -632,7 +634,6 @@ export const CharDiv = styled.div`
 `;
 
 export const CharNames = styled.span`
-  font-size: 12pt;
   font-weight: bold;
   margin-bottom: 1rem;
 `;
@@ -779,6 +780,7 @@ export const submitButton = styled.input`
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
+  font-size: 1rem;
   align-self: center;
   &: hover{
     background-color: #bfe3b4;

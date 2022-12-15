@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import axios from 'axios';
+
+const fadeInAnimation = keyframes`
+  0% { opacity: 0}
+  100% { opacity: 1}
+`;
 
 const Modal = styled.div`
   z-index: 999;
@@ -10,6 +15,8 @@ const Modal = styled.div`
   height: 100vh;
   width:100vw;
   background: rgba(0,0,0,0.5);
+  animation-name: ${fadeInAnimation};
+  animation-duration: 0.3s;
 `;
 
 const InnerModal = styled.div`
@@ -58,25 +65,7 @@ const StyledText = styled.p`
   margin: 5%;
 `;
 
-
-const CompareModal = ({ setShowModal, id, currentID }) => {
-
-  const [currentItem, setCurrentItem] = useState({});
-  const [relatedItem, setRelatedItem] = useState({});
-
-  useEffect(() => {
-    axios.get('/currentItem', { params: { product_id: currentID } })
-      .then(res => {
-        setCurrentItem(res.data);
-      })
-      .catch(err => console.error(err));
-
-    axios.get('/currentItem', { params: { product_id: id } })
-      .then(res => {
-        setRelatedItem(res.data);
-      })
-      .catch(err => console.error(err));
-  }, [currentID, id]);
+const CompareModal = ({ currentItem, relatedItem, setShowModal }) => {
 
   return (
     <Modal onClick={() => setShowModal(false)}>
