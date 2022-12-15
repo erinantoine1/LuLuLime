@@ -73,7 +73,7 @@ const QuestionsAnswers = ({ currentID }) => {
   return (
     <styling.QASectionTopBorders>
       <styling.QASectionContainer>
-        <h1 style={{ fontSize: '3rem' }}>Questions and Answers</h1>
+        <h1 style={{ fontSize: '2.6rem' }}>Questions and Answers</h1>
         {searchPressed ? (
           <SearchQuestions doSearch={doSearch} />
         ) : (
