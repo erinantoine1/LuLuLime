@@ -25,6 +25,7 @@ const LogoContainer = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
+  gap: 5%;
 `;
 
 const Logo = styled.img`

@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { reviewsTestData, metadataTestData } from './TestData.js';
 
 import RatingsReviews from '../RatingsReviews.jsx';
+import RatingBreakdown from '../RatingBreakdown.jsx';
 
 jest.mock('axios');
 
@@ -31,4 +32,14 @@ describe('RatingsReviews', () => {
     expect(await screen.findByLabelText(/Sort/)).toBeInTheDocument();
 
   });
+});
+
+describe('RatingBreakdown', () => {
+  it('renders RatingBreakdown', () => {
+    render(<RatingBreakdown metaData={metadataTestData} />);
+
+    expect(screen.getByText(/Recommended/)).toBeInTheDocument();
+
+  });
+
 });

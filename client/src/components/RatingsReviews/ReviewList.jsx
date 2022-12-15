@@ -39,7 +39,7 @@ const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displ
         )) : <styling.SearchResultsDiv>No Reviews Matched Your Search</styling.SearchResultsDiv>}
       </styling.ReviewTilesContainer>
       <div ref={divRef}></div>
-      <styling.ReviewButtonContainer>
+      <styling.ReviewButtonContainer shrink={displayedReviews > 2}>
         {reviews.length > displayedReviews ? <styling.Buttons type="button" onClick={() => handleMoreReviews()}>More Reviews</styling.Buttons> : null}
         <styling.Buttons type="button" onClick={() => displayReviewForm ? setDisplayReviewForm(false) : setDisplayReviewForm(true)}>Add Review</styling.Buttons>
       </styling.ReviewButtonContainer>

@@ -369,6 +369,7 @@ export const ReviewTilesContainer = styled.div`
 export const ReviewButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-right: ${props => props.shrink ? '1.7%' : '0.5%'};
 `;
 /********* Rating Breakdown Styles  *************/
 
@@ -730,7 +731,6 @@ export const AddPhotoBar = styled.div`
 export const PhotoInput = styled.input`
   width: 60%;
   font-size: 12pt;
-  border: none;
   border-bottom: solid 1px rgba(0, 0, 0, 0.25);
   &: focus {
     outline: none;
