@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import CompareModal from './CompareModal.jsx';
 import StaticStars from '../RatingsReviews/StaticStars.jsx';
-
+import TealStar from './images/star-987445_1280.webp';
 
 const Ratings = styled.div`
   position: relative;
@@ -40,7 +40,9 @@ const FullStars = styled.div`
 
 
 const StyledCard = styled.div`
-  box-shadow: 0 1px 0.5rem -4px #000;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
+  -moz-box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
   background: #fff;
   cursor: pointer;
   height: 375px;
@@ -95,7 +97,7 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
     <Container>
       {showModal && <CompareModal id={id} currentID={currentID} setShowModal={setShowModal} /> }
       <StyledCard>
-        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://starpng.com/public/uploads/preview/star-black-and-white-star-icon-png-image-transparent-101576581363xuvnqfy4r1.png" />
+        <StyledStar onClick={() => setShowModal(true)} alt="star" src={TealStar} />
         <Image width={cardWidth} src={picture} alt="item" onClick={handleClick} />
         <StyledCategory>{category}</StyledCategory>
         <StyledName>{name}</StyledName>
