@@ -11,6 +11,7 @@ import { StarContext } from './components/RatingsReviews/Utils.js';
 
 const AppBackground = styled.div`
   background-color: ${props => props.change ? '#EAFAF1' : 'black'};
+  font-family: Helvetica;
 `;
 
 const AppContainer = styled.div`
