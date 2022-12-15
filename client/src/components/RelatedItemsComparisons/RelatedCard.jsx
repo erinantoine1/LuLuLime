@@ -88,14 +88,31 @@ const Container = styled.div`
 const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_price, picture, type, outfitItems, setOutfitItems, cardWidth, ratings }) => {
   const [showModal, setShowModal] = useState(false);
 
+  const [currentItem, setCurrentItem] = useState({});
+  const [relatedItem, setRelatedItem] = useState({});
+
   const handleClick = () => {
     setCurrentID(id);
     window.scrollTo({ top: 0 });
   };
 
+  useEffect(() => {
+    axios.get('/currentItem', { params: { product_id: currentID } })
+      .then(res => {
+        setCurrentItem(res.data);
+      })
+      .catch(err => console.error(err));
+
+    axios.get('/currentItem', { params: { product_id: id } })
+      .then(res => {
+        setRelatedItem(res.data);
+      })
+      .catch(err => console.error(err));
+  }, [currentID, id]);
+
   return (
     <Container>
-      {showModal && <CompareModal id={id} currentID={currentID} setShowModal={setShowModal} /> }
+      {showModal && <CompareModal currentItem={currentItem} relatedItem={relatedItem} setShowModal={setShowModal} /> }
       <StyledCard>
         <StyledStar onClick={() => setShowModal(true)} alt="star" src={TealStar} />
         <Image width={cardWidth} src={picture} alt="item" onClick={handleClick} />
