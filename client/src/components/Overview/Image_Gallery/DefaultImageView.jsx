@@ -10,43 +10,48 @@ const DefaultImageViewDiv = styled.div`
 `;
 
 const TopLeftDiv = styled.div`
-  width: 100%;
-  height: 100%
-  border: solid;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: columns;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-
+width: 100%;
+height: 100%
+border: solid;
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: relative;
 `;
 const BottomLeftDiv = styled.div`
 
 `;
 
 const LeftButton = styled.div`
-  order: 1;
+order: 1;
+  margin-top: 40%;
+  z-index: 250;
 `;
 
 const RightButton = styled.div`
-  order: 3;
+order: 3;
+  margin-top: 50%;
+  z-index: 250;
 `;
 
 
 const ImageDiv = styled.div`
   order: 2;
+  height: 100%;
+  width: 100%;
 `;
 
 const ThumbnailsDiv = styled.div`
-  order: 2;
   position: absolute;
   width: 80%;
   height: 10%;
   bottom: 0;
   justify-content: space-around;
-  margin-left: 20%;
-  margin-bottom: 0%;
+  margin-left: 16%;
+  margin-bottom: 1%;
+  display: block;
 `;
 
 
@@ -72,7 +77,7 @@ const DefaultImageView = (
       <DefaultImageViewDiv>
         <TopLeftDiv>
           <LeftButton style={currentImageIndex === 0 || expandedImageViewActive ? { visibility: 'hidden' } : { visibility: 'visible' }} onClick={handleLeftClick}>
-            <img src="https://cdn-icons-png.flaticon.com/64/44/44917.png" alt="" />
+            <img src="https://cdn-icons-png.flaticon.com/32/44/44917.png" alt="" style={{ position: 'absolute', left: '13.75%', top: '55%' }} />
           </LeftButton>
           <ImageDiv>
             <CurrentImages
@@ -119,7 +124,7 @@ const DefaultImageView = (
             />
           </ImageDiv>
           <RightButton style={(currentImageIndex + 1) === productStylePhotos.length - 1 || expandedImageViewActive ? { visibility: 'hidden' } : { visibility: 'visible' }} onClick={handleRightClick}>
-            <img src="https://cdn-icons-png.flaticon.com/64/45/45044.png" alt="" />
+            <img src="https://cdn-icons-png.flaticon.com/32/45/45044.png" style={{ position: 'absolute', left: '74.5%', top: '55%' }} alt="" />
           </RightButton>
         </TopLeftDiv>
         <BottomLeftDiv>

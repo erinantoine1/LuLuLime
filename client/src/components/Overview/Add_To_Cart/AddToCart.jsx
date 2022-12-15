@@ -23,11 +23,11 @@ left: 0%;
 `;
 const QuantitySelectorDiv = styled.div`
 position: absolute;
-left: 96%;
+left: 82%;
 `;
 const SizeSelectorDiv = styled.div`
 position: absolute;
-left: 68%;
+left: 55%;
 top: -2%;
 
 `;

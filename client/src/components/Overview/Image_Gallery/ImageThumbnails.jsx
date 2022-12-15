@@ -6,7 +6,8 @@ import ImageThumbnail from './ImageThumbnail.jsx';
 const ContainerParent = styled.div`
 display: flex;
 position: relative;
-width: 78%;
+width: 74.75%;
+overflow: hidden;
 margin-top: -1%;
 `;
 

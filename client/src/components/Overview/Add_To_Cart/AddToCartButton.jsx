@@ -6,13 +6,13 @@ const ATCButton = styled.button`
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: black;
+  border-color: teal;
   background-color: teal;
   color: white;
   overflow-wrap: break-word;
   min-width: fit-content;
   height: 50px;
-  width: 250px;
+  width: 200px;
   &: hover{
     background-color: #bfe3b4;
     color: black;
