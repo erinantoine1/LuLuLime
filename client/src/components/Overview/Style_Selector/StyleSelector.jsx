@@ -4,6 +4,12 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import StyleThumbnail from './StyleThumbnail.jsx';
 
+const AnotherThumbnailContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+position: relative;
+`;
+
 const StyleThumbnailsDiv = styled.div`
 width: 450px;
 min-height: fit-content;
@@ -11,14 +17,14 @@ display: flex;
 flex-wrap: wrap;
 z-index: 40;
 position: relative;
-left: -53%;
-padding: 1%;
+left: -7%;
+padding: 2%;
 `;
 const ThumbnailStyleName = styled.div`
 height: 30px;
 width: 400px;
 position: relative;
-left: -44%;
+left: 0%;
 margin-top: 5%;
 `;
 
@@ -70,7 +76,7 @@ const StyleSelector = (
     });
 
     return (
-      <div>
+      <AnotherThumbnailContainer>
         <ThumbnailStyleName>
           <b>Style: </b>
           {`${productStyleName}`}
@@ -78,7 +84,7 @@ const StyleSelector = (
         <StyleThumbnailsDiv>
           {thumbnails}
         </StyleThumbnailsDiv>
-      </div>
+      </AnotherThumbnailContainer>
     );
   });
 
