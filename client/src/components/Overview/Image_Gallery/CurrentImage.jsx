@@ -5,10 +5,9 @@ const CurrentImg = styled.img`
   &:hover {
     cursor: zoom-in;
   }
-  max-height: 600px;
-  width: 450px;
+  max-height: fit-content;
+  width: 425px;
   border-radius: 3%;
-  margin-bottom: 0;
 `;
 
 const CurrentImage = (
