@@ -96,7 +96,7 @@ const OutfitCard = ({ outfitItems, setOutfitItems, cardWidth, name, category, de
 
   return (
     <StyledCard>
-      <StyledX src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png" alt="X" onClick={removeItem} />
+      <StyledX src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Eo_circle_teal_letter-x.svg/1024px-Eo_circle_teal_letter-x.svg.png" alt="X" onClick={removeItem} />
       <Image width={cardWidth} alt="image" src={pictures} onClick={handleClick} />
       <StyledCategory>{category}</StyledCategory>
       <StyledName>{name}</StyledName>

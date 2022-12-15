@@ -90,6 +90,7 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
   return (
     <StyledCard width={cardWidth} onClick={addItem}>
       <Title>Add to Outfit</Title>
+      <img src="https://w7.pngwing.com/pngs/977/124/png-transparent-round-green-cross-icon-hospital-nurse-in-vitro-fertilisation-medicine-health-ambulance-cross-hospital-icon-miscellaneous-service-logo-thumbnail.png"/>
       <Plus>+</Plus>
     </StyledCard>
   );

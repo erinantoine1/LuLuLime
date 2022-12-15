@@ -13,13 +13,17 @@ const Container = styled.div`
   text-align: center;
 `;
 
+const Title = styled.h1`
+  font-size: 2rem;
+`;
+
 const RelatedItemsComparisons = ({ currentID, setCurrentID }) => {
 
   return (
     <Container>
-      <h1>Related Items</h1>
+      <Title>Related Items</Title>
       <RelatedList setCurrentID={setCurrentID} currentID={currentID} />
-      <h1>Your Outfit</h1>
+      <Title>Your Outfit</Title>
       <OutfitList currentID={currentID} setCurrentID={setCurrentID} />
     </Container>
   );

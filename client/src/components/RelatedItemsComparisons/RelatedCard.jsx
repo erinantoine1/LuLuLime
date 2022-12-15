@@ -4,7 +4,6 @@ import axios from 'axios';
 import CompareModal from './CompareModal.jsx';
 import StaticStars from '../RatingsReviews/StaticStars.jsx';
 
-
 const Ratings = styled.div`
   position: relative;
   vertical-align: middle;
@@ -97,7 +96,7 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
     <Container>
       {showModal && <CompareModal id={id} currentID={currentID} setShowModal={setShowModal} /> }
       <StyledCard>
-        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://banner2.cleanpng.com/20180715/ezq/kisspng-slinky-senegal-asterisk-5b4b180c101f17.7661747715316480120661.jpg" />
+        <StyledStar onClick={() => setShowModal(true)} alt="star" src="https://cdn.pixabay.com/photo/2015/10/14/10/23/star-987445_1280.png" />
         <Image width={cardWidth} src={picture} alt="item" onClick={handleClick} />
         <StyledCategory>{category}</StyledCategory>
         <StyledName>{name}</StyledName>
