@@ -54,9 +54,8 @@ const ImageIcons = (
       iconMap = (
         productStylePhotos.map((photo, index) => {
           return (
-            <IconContainer>
+            <IconContainer key={index}>
               <ImageIcon
-                key={index}
                 photoIndex={productStylePhotos.indexOf(photo)}
                 photoUrl={photo.url}
                 thumbnailUrl={photo.thumbnail_url}

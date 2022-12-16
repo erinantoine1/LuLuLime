@@ -18,7 +18,7 @@ margin: auto;
 box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
 background-color: white;
 border-radius: 10px;
-margin-top: 6rem;
+margin-top: 10%;
 `;
 
 const LeftOverviewDiv = styled.div`
@@ -121,7 +121,6 @@ const Overview = ({ currentID, starRating, dataLoaded, setDataLoaded }) => {
         });
       })
       .then((response) => {
-        console.log('this is it: ', response);
         setProductTitle(response.data.name);
         setProductCategory(response.data.category);
         setProductOverview(response.data.description);
@@ -130,7 +129,6 @@ const Overview = ({ currentID, starRating, dataLoaded, setDataLoaded }) => {
         axios.get('/products/styles', {
           params: parameters
         }).then((response) => {
-          console.log('line 76: ', response.data);
           setAllProductStyles(response.data.results);
           for (let i = 0; i < response.data.results.length; i++) {
             if (response.data.results[i]['default?']) {
