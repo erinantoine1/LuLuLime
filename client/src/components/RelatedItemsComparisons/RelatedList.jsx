@@ -67,52 +67,79 @@ const RelatedList = ({ setCurrentID, currentID }) => {
     containerRef.current.scrollLeft = 0;
 
     axios.get('/currentItem/related', { params: { product_id: currentID } })
-      .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem', { params: { product_id: itemID } }))))
       .then(res => {
-        const temp = [];
-        for (let i = 0; i < res.length; i++) {
-          temp.push(res[i].data);
+        if(typeof localStorage.getItem(`${JSON.stringify(res.data)}info`) === 'string') {
+          setRelatedItems(JSON.parse(localStorage.getItem(`${JSON.stringify(res.data)}info`)));
+        } else {
+          console.log('promise all fired');
+          Promise.all(res.data.map(itemID => axios.get('/currentItem', { params: { product_id: itemID } })))
+          .then(item => {
+            const temp = [];
+            for (let i = 0; i < item.length; i++) {
+              temp.push(item[i].data);
+            }
+            localStorage.setItem(`${JSON.stringify(res.data)}info`, JSON.stringify(temp));
+            setRelatedItems(temp);
+          })
+          .catch(err => console.log(err));
         }
-        setRelatedItems(temp);
       })
       .catch(err => console.error(err));
 
     axios.get('/currentItem/related', { params: { product_id: currentID } })
-      .then(res => Promise.all(res.data.map(itemID => axios.get('/currentItem/styles', { params: { product_id: itemID } }))))
       .then(res => {
-        const temp = [];
-        for (let i = 0; i < res.length; i++) {
-          let hasDefault = false;
-          for (let j = 0; j < res[i].data.results.length; j++) {
-            if (res[i].data.results[j]['default?']) {
-              hasDefault = true;
-              if (typeof res[i].data.results[j].photos[0].url === 'string') {
-                temp.push({ photo: res[i].data.results[j].photos[0].url });
+        if(typeof localStorage.getItem(`${JSON.stringify(res.data)}styles`) === 'string') {
+          setStyles(JSON.parse(localStorage.getItem(`${JSON.stringify(res.data)}styles`)));
+        } else {
+          console.log('promise all 2 fired');
+          Promise.all(res.data.map(itemID => axios.get('/currentItem/styles', { params: { product_id: itemID } })))
+          .then(item => {
+            const temp = [];
+            for (let i = 0; i < item.length; i++) {
+            let hasDefault = false;
+            for (let j = 0; j < item[i].data.results.length; j++) {
+              if (item[i].data.results[j]['default?']) {
+                hasDefault = true;
+                if (typeof item[i].data.results[j].photos[0].url === 'string') {
+                  temp.push({ photo: item[i].data.results[j].photos[0].url });
+                } else {
+                  temp.push({ photo: 'https://media.allure.com/photos/5adba084276cd40c0eb8f42e/16:9/w_2560%2Cc_limit/GettyImages-826492462.jpg' });
+                }
+              }
+            }
+            if (!hasDefault) {
+              if(typeof item[i].data.results[0].photos[0].url === 'string') {
+                temp.push({ photo: item[i].data.results[0].photos[0].url });
               } else {
                 temp.push({ photo: 'https://media.allure.com/photos/5adba084276cd40c0eb8f42e/16:9/w_2560%2Cc_limit/GettyImages-826492462.jpg' });
               }
             }
           }
-          if (!hasDefault) {
-            if(typeof res[i].data.results[0].photos[0].url === 'string') {
-              temp.push({ photo: res[i].data.results[0].photos[0].url });
-            } else {
-              temp.push({ photo: 'https://media.allure.com/photos/5adba084276cd40c0eb8f42e/16:9/w_2560%2Cc_limit/GettyImages-826492462.jpg' });
-            }
-          }
+          localStorage.setItem(`${JSON.stringify(res.data)}styles`, JSON.stringify(temp));
+          setStyles(temp);
+          })
+          .catch(err => console.error(err));
         }
-        setStyles(temp);
       })
       .catch(err => console.error(err));
 
       axios.get('/currentItem/related', { params: { product_id: currentID } })
-      .then(res => Promise.all(res.data.map(itemID => axios.get('/reviews/meta', { params: { product_id: itemID } }))))
       .then(res => {
-        const temp = [];
-        for (let i = 0; i < res.length; i++) {
-          temp.push(getAverageRating(res[i].data.ratings))
+        if(typeof localStorage.getItem(`${JSON.stringify(res.data)}stars`) === 'string') {
+          setRatings(JSON.parse(localStorage.getItem(`${JSON.stringify(res.data)}stars`)));
+        } else {
+          console.log('promise all 3 fired');
+          Promise.all(res.data.map(itemID => axios.get('/reviews/meta', { params: { product_id: itemID } })))
+          .then(item => {
+            const temp = [];
+            for (let i = 0; i < item.length; i++) {
+              temp.push(getAverageRating(item[i].data.ratings))
+            }
+            localStorage.setItem(`${JSON.stringify(res.data)}stars`, JSON.stringify(temp));
+            setRatings(temp);
+          })
+          .catch(err => console.error(err));
         }
-        setRatings(temp);
       })
       .catch(err => console.error(err));
   }, [currentID]);
