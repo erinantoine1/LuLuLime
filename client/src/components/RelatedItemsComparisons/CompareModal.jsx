@@ -20,11 +20,12 @@ const Modal = styled.div`
 `;
 
 const InnerModal = styled.div`
-  background-color: white;
+  background-color: #EAFAF1;
   margin: 6% 20%;
   height: 65vh;
   text-align: center;
   border-radius: 1rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
 
   @media screen and (max-width: 1100px) {
     margin: 8% 15%;
