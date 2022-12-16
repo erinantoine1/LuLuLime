@@ -132,7 +132,7 @@ export const QuestionButtons = styled.div`
 export const QAHeaderButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 37%;
+  width: 50%;
   height: 48%;
   font-size: 90%;
   align-items: center;
@@ -140,7 +140,7 @@ export const QAHeaderButtons = styled.div`
 `;
 
 export const QAHelpfulContainer = styled.div`
-  width: 24%;
+  width: 30%;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -212,6 +212,7 @@ export const styledForm = styled.form`
   display: flex;
   flex-direction: column;
   width: fit-content;
+  justify-content: center;
   align-items: center;
   padding-left: 10%;
   padding-right: 10%;
@@ -251,9 +252,12 @@ export const FormLabels = styled.label`
 
 export const textAreaDiv = styled.div`
   display: flex;
+  padding-top: 10%;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   height: 100%;
-  width: 50%;
+  width: 70%;
   margin: 10%;
   margin-top: 15%;
   text-align: center;
@@ -265,10 +269,21 @@ export const StyledHeader = styled.div`
 
 export const StyledTextArea = styled.textarea`
   margin-bottom: 2rem;
+  width: 120%;
+  border: 1px solid rgb(0, 0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+  text-size: 2rem;
 `;
 
 export const StyledInput = styled.input`
+  display: flex;
   margin-bottom: 2rem;
+  width: 120%;
+  border: 1px solid rgb(0, 0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+  text-size: 2rem;
 `;
 
 export const UserInfoDiv = styled.div`
@@ -364,7 +379,7 @@ export const AnswerContainer = styled.div`
 export const AnswerButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 30%;
+  width: 38%;
   height: 48%;
   font-size: 90%;
   align-items: center;
@@ -373,7 +388,7 @@ export const AnswerButtons = styled.div`
 `;
 
 export const AnswersHelpfulContainer = styled.div`
-  width: 20%;
+  width: 25%;
   display:flex;
   justify-content:center;
   align-items:center;
