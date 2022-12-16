@@ -93,7 +93,9 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
 
   const handleClick = () => {
     setCurrentID(id);
-    window.scrollTo({ top: 0 });
+    setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 50);
   };
 
   useEffect(() => {
