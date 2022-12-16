@@ -6,8 +6,6 @@ import RelatedCard from './RelatedCard.jsx';
 const ContainerParent = styled.div`
   display: flex;
 `;
-// align-items: center
-// justify-content: center;
 
 const CardContainer = styled.div`
   display: flex;
@@ -42,7 +40,7 @@ const RightButton = styled.button`
   cursor: pointer;
   font-size: 3rem;
   border: none;
-  visibility: ${props => props.scrollCount === props.len - 4 ? 'hidden' : 'visible'};
+  visibility: ${props => props.scrollCount >= props.len - 4 ? 'hidden' : 'visible'};
 `;
 
 const getAverageRating = (ratings) => {

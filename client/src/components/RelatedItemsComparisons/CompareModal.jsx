@@ -68,19 +68,49 @@ const StyledText = styled.p`
 
 const CompareModal = ({ currentItem, relatedItem, setShowModal }) => {
 
+  const [features, setFeatures] = useState([]);
+  const [currentFeatures, setCurrentFeatures] = useState({});
+  const [relatedFeatures, setRelatedFeatures] = useState({});
+
+  useEffect(() => {
+    const uniqueFeatures = [];
+    const currentTemp = {};
+    const relatedTemp = {};
+    for (let i = 0; i < currentItem['features'].length; i++) {
+      if (currentItem['features'][i]['value'] !== null) {
+        uniqueFeatures.push(currentItem['features'][i]['value']);
+        currentTemp[currentItem['features'][i]['value']] = true;
+      }
+    }
+
+    for (let i = 0; i < relatedItem['features'].length; i++) {
+      if (!uniqueFeatures.includes(relatedItem['features'][i]['value']) && relatedItem['features'][i]['value'] !== null) {
+        uniqueFeatures.push(relatedItem['features'][i]['value'])
+        relatedTemp[relatedItem['features'][i]['value']] = true;
+      } else if (uniqueFeatures.includes(relatedItem['features'][i]['value']) && relatedItem['features'][i]['value'] !== null) {
+        relatedTemp[relatedItem['features'][i]['value']] = true;
+      }
+    }
+
+    setCurrentFeatures(currentTemp);
+    setRelatedFeatures(relatedTemp);
+    setFeatures(uniqueFeatures);
+  }, []);
+
   return (
     <Modal onClick={() => setShowModal(false)}>
       {(Object.keys(currentItem).length && Object.keys(relatedItem).length) ? <InnerModal onClick={(e) => e.stopPropagation()}>
       <StyledTitle>Comparing</StyledTitle>
         <StyledColumn1>{currentItem.name}</StyledColumn1><SpaceHolder>Feature</SpaceHolder><StyledColumn1>{relatedItem.name}</StyledColumn1>
-        {currentItem['features']?.map((item, index) => {
-          if(item['value'] !== null) {
-            return <div key={index}><StyledColumn>✔</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>-</StyledColumn></div>
+        {features?.map((item, index) => {
+          if(currentFeatures[item] && relatedFeatures[item]) {
+            return <div key={index}><StyledColumn>✔</StyledColumn><StyledColumn>{item}</StyledColumn><StyledColumn>✔</StyledColumn></div>
           }
-        })}
-        {relatedItem['features']?.map((item, index) => {
-          if(item['value'] !== null) {
-            return <div key={index}><StyledColumn>-</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>✔</StyledColumn></div>
+          if(currentFeatures[item] && !relatedFeatures[item]) {
+            return <div key={index}><StyledColumn>✔</StyledColumn><StyledColumn>{item}</StyledColumn><StyledColumn>-</StyledColumn></div>
+          }
+          if(!currentFeatures[item] && relatedFeatures[item]) {
+            return <div key={index}><StyledColumn>-</StyledColumn><StyledColumn>{item}</StyledColumn><StyledColumn>✔</StyledColumn></div>
           }
         })}
       </InnerModal> : null}

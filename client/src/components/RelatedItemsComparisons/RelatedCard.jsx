@@ -100,14 +100,12 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
   useEffect(() => {
     axios.get('/currentItem', { params: { product_id: currentID } })
       .then(res => {
-        console.log('current item data: ', res.data);
         setCurrentItem(res.data);
       })
       .catch(err => console.error(err));
 
     axios.get('/currentItem', { params: { product_id: id } })
       .then(res => {
-        console.log('related item data: ', res.data);
         setRelatedItem(res.data);
       })
       .catch(err => console.error(err));
