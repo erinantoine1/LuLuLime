@@ -14,14 +14,17 @@ const StyledCard = styled.div`
   width: ${props => props.width / 4}px;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const StyledPlus = styled.img`
-  height: 40%;
-  width: 40%;
+  height: 45%;
+  width: 45%;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
+  position: absolute;
+  top: 1rem;
 `;
 
 const getAverageRating = (ratings) => {
