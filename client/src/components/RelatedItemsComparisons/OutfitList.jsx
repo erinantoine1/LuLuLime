@@ -28,6 +28,7 @@ const LeftButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 3rem;
+  visibility: ${props => props.scrollCount <= 0 ? 'hidden' : 'visible'};
 `;
 
 const RightButton = styled.button`
@@ -40,6 +41,7 @@ const RightButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 3rem;
+  visibility: ${props => props.scrollCount >= props.len - 3 ? 'hidden' : 'visible'};
 `;
 
 const OutfitList = ({ currentID, setCurrentID }) => {
@@ -68,12 +70,12 @@ const OutfitList = ({ currentID, setCurrentID }) => {
 
   return (
     <ContainerParent>
-      <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
+      <LeftButton scrollCount={scrollCount} onClick={handleLeftClick}>⇠</LeftButton>
       <Add cardWidth={width} setOutfitItems={setOutfitItems} outfitItems={outfitItems} currentID={currentID} />
       <CardContainer ref={containerRef}>
         {outfitItems.map((item, index) => <OutfitCard id={item.id} setCurrentID={setCurrentID} outfitItems={outfitItems} setOutfitItems={setOutfitItems} cardWidth={Math.ceil(width / 4)} key={index} name={item.name} default_price={item.default_price} category={item.category} pictures={item.pictures} ratings={item.ratings} />)}
       </CardContainer>
-      <RightButton onClick={handleRightClick}>⇢</RightButton>
+      <RightButton scrollCount={scrollCount} len={outfitItems.length} onClick={handleRightClick}>⇢</RightButton>
     </ContainerParent>
   );
 };
