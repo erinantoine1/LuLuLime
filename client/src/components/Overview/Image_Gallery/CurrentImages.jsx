@@ -10,6 +10,9 @@ const PhotoContainer = styled.div`
   max-height: 100%; /* not to stand out from div */
   bottom: 0%;
   left: 18%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 `;
 
 const MagnifyingGlassIcon = styled.img`

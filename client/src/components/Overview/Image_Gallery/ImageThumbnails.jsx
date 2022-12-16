@@ -7,7 +7,6 @@ const ContainerParent = styled.div`
 display: flex;
 position: relative;
 width: 74.75%;
-overflow: hidden;
 margin-top: 58%;
 `;
 

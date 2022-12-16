@@ -43,7 +43,7 @@ const ImageDiv = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
-
+  top: 40%;
 `;
 
 const ThumbnailsDiv = styled.div`
