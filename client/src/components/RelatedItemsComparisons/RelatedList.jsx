@@ -25,7 +25,6 @@ const LeftButton = styled.button`
   background-color: #EAFAF1;
   height: 75px;
   width: 75px;
-  border-radius: 50%;
   margin: auto 6px;
   cursor: pointer;
   font-size: 3rem;
@@ -39,7 +38,6 @@ const RightButton = styled.button`
   background-color: #EAFAF1;
   height: 75px;
   width: 75px;
-  border-radius: 50%;
   margin: auto 6px;
   cursor: pointer;
   font-size: 3rem;
