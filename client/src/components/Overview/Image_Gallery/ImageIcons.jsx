@@ -52,10 +52,11 @@ const ImageIcons = (
 
     if (productStylePhotos) {
       iconMap = (
-        productStylePhotos.map((photo) => {
+        productStylePhotos.map((photo, index) => {
           return (
             <IconContainer>
               <ImageIcon
+                key={index}
                 photoIndex={productStylePhotos.indexOf(photo)}
                 photoUrl={photo.url}
                 thumbnailUrl={photo.thumbnail_url}
