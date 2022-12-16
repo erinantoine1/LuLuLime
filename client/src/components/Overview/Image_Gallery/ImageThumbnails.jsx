@@ -8,7 +8,7 @@ display: flex;
 position: relative;
 width: 74.75%;
 overflow: hidden;
-margin-top: -1%;
+margin-top: 58%;
 `;
 
 const ThumbnailsContainer = styled.div`

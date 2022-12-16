@@ -17,7 +17,6 @@ display: flex;
 flex-wrap: wrap;
 flex-direction: column;
 justify-content: center;
-align-items: center;
 position: relative;
 `;
 const BottomLeftDiv = styled.div`
@@ -26,14 +25,16 @@ const BottomLeftDiv = styled.div`
 
 const LeftButton = styled.div`
 order: 1;
-  margin-top: 40%;
+  margin-top: 50%;
   z-index: 250;
+  position: relative;
 `;
 
 const RightButton = styled.div`
 order: 3;
-  margin-top: 50%;
+  margin-top: 0%;
   z-index: 250;
+  position: relative;
 `;
 
 
@@ -41,17 +42,16 @@ const ImageDiv = styled.div`
   order: 2;
   height: 100%;
   width: 100%;
+  position: absolute;
+
 `;
 
 const ThumbnailsDiv = styled.div`
-  position: absolute;
+  position: relative;
   width: 80%;
   height: 10%;
-  bottom: 0;
   justify-content: space-around;
   margin-left: 16%;
-  margin-bottom: 1%;
-  display: block;
 `;
 
 
