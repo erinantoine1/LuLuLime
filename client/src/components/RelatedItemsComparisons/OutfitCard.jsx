@@ -48,7 +48,7 @@ const StyledCard = styled.div`
 `;
 
 const Image = styled.img`
-  height: 60%;
+  height: 65%;
   width: ${props => props.width}px;
 `;
 

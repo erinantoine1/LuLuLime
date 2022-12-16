@@ -8,6 +8,8 @@ const CurrentImg = styled.img`
   max-height: fit-content;
   width: 425px;
   border-radius: 3%;
+  margin-top: 8%;
+  position: relative;
 `;
 
 const CurrentImage = (

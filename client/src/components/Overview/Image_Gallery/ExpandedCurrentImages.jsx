@@ -7,7 +7,6 @@ const PhotoContainer = styled.div`
   text-align: center;
   flex: 1;
   position: relative;
-  top: -50px;
 `;
 
 const MagnifyingGlassIcon = styled.img`

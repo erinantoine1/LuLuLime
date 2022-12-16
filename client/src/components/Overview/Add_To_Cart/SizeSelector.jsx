@@ -40,8 +40,8 @@ const SizeSelector = (
         <div>
           <select size={productStyleSizeDropdownLength} value={productStyleSize} onChange={(e) => { updateCurrentSize(e); }}>
             <option>Select Size</option>
-            {productStyleSizes.map((size) => {
-              return <option>{size}</option>;
+            {productStyleSizes.map((size, index) => {
+              return <option key={index}>{size}</option>;
             })}
           </select>
         </div>

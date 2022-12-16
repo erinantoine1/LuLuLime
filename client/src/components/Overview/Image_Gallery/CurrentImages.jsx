@@ -9,8 +9,10 @@ const PhotoContainer = styled.div`
   max-width: 100%; /* not to stand out from div */
   max-height: 100%; /* not to stand out from div */
   bottom: 0%;
-  margin-top: -10%;
   left: 18%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 `;
 
 const MagnifyingGlassIcon = styled.img`
