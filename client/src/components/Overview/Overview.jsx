@@ -72,7 +72,7 @@ const ProductInformationDiv = styled.div`
 `;
 
 
-const Overview = ({ currentID, starRating }) => {
+const Overview = ({ currentID, starRating, dataLoaded, setDataLoaded }) => {
   /* ****************** initial state declarations ******************* */
   const [allProducts, setAllProducts] = useState([]);
   const [productTitle, setProductTitle] = useState();
@@ -110,6 +110,7 @@ const Overview = ({ currentID, starRating }) => {
 
   /* ****************** axios requests ******************* */
   useEffect(() => {
+    setDataLoaded(false);
     const parameters = { currentID };
     axios.get('/products').then((response) => {
       setAllProducts(response.data);
@@ -150,6 +151,7 @@ const Overview = ({ currentID, starRating }) => {
               }
               setProductStyleQuantities(productStyleQuantitiesArray);
               setProductStyleSizes(productStyleSizesArray);
+              setDataLoaded(true);
             }
           }
         });
@@ -181,6 +183,7 @@ const Overview = ({ currentID, starRating }) => {
   };
 
   /* ****************** mapping products ******************* */
+
   return (
     <OverviewDiv>
       <LeftOverviewDiv>
