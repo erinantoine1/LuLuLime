@@ -48,6 +48,7 @@ const StyledColumn = styled.div`
   width: 33%;
   margin: 1rem 0;
   font-size: 1.5rem;
+  font-weight: bold;
 `;
 
 const SpaceHolder = styled.div`
@@ -57,7 +58,7 @@ const SpaceHolder = styled.div`
 `;
 
 const StyledTitle = styled.h1`
-  padding-top: 1rem;
+  padding-top: 4rem;
 `;
 
 const StyledText = styled.p`
@@ -72,8 +73,16 @@ const CompareModal = ({ currentItem, relatedItem, setShowModal }) => {
       {(Object.keys(currentItem).length && Object.keys(relatedItem).length) ? <InnerModal onClick={(e) => e.stopPropagation()}>
       <StyledTitle>Comparing</StyledTitle>
         <StyledColumn1>{currentItem.name}</StyledColumn1><SpaceHolder>Feature</SpaceHolder><StyledColumn1>{relatedItem.name}</StyledColumn1>
-        {currentItem['features']?.map(item => <div><StyledColumn>✔</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>✘</StyledColumn></div>)}
-        {relatedItem['features']?.map(item => <div><StyledColumn>✘</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>✔</StyledColumn></div>)}
+        {currentItem['features']?.map((item, index) => {
+          if(item['value'] !== null) {
+            return <div key={index}><StyledColumn>✔</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>-</StyledColumn></div>
+          }
+        })}
+        {relatedItem['features']?.map((item, index) => {
+          if(item['value'] !== null) {
+            return <div key={index}><StyledColumn>-</StyledColumn><StyledColumn>{item['value']}</StyledColumn><StyledColumn>✔</StyledColumn></div>
+          }
+        })}
       </InnerModal> : null}
     </Modal>
   );

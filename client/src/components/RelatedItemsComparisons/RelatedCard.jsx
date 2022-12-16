@@ -87,7 +87,6 @@ const Container = styled.div`
 
 const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_price, picture, type, outfitItems, setOutfitItems, cardWidth, ratings }) => {
   const [showModal, setShowModal] = useState(false);
-
   const [currentItem, setCurrentItem] = useState({});
   const [relatedItem, setRelatedItem] = useState({});
 
@@ -101,12 +100,14 @@ const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_pric
   useEffect(() => {
     axios.get('/currentItem', { params: { product_id: currentID } })
       .then(res => {
+        console.log('current item data: ', res.data);
         setCurrentItem(res.data);
       })
       .catch(err => console.error(err));
 
     axios.get('/currentItem', { params: { product_id: id } })
       .then(res => {
+        console.log('related item data: ', res.data);
         setRelatedItem(res.data);
       })
       .catch(err => console.error(err));
