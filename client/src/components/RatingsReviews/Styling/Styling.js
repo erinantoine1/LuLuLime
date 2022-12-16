@@ -575,7 +575,7 @@ export const styledForm = styled.form`
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   -webkit-backface-visibility: hidden;
-  height: 90%;
+  height: 85%;
   width: 60%;
   overflow: auto;
 `;
