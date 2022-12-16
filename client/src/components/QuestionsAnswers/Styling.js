@@ -52,6 +52,24 @@ export const QATilesContainer = styled.div`
   margin-bottom: 5%;
 `;
 
+export const QASearchDiv = styled.div`
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width 15%;
+  height: 150%;
+
+`;
+
+export const QASearch = styled.input`
+  border: solid 1px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  height: 2rem;
+  font-size: 1.0625rem;
+`;
+
 export const QAInfoDiv = styled.div`
   margin-top: 3%;
   align-items: center;
@@ -166,7 +184,7 @@ const collapseAnimation = keyframes`
   100% {transform: scale(0)}
 `;
 
-export const QAFormContainer = styled.div`
+export const ModelBackground = styled.div`
   z-index: 2;
   position: fixed;
   left: 0;
@@ -180,17 +198,32 @@ export const QAFormContainer = styled.div`
   justify-content: center;
   animation-name: ${props => props.out ? fadeOutAnimation : fadeInAnimation};
   animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  -webkit-backface-visibility: hidden;
+`;
+
+export const QAFormContainer = styled(ModelBackground)`
+  font-size: 14pt;
+  z-index: 999;
 `;
 
 export const styledForm = styled.form`
+  background-color: #EAFAF1;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  width: 35%;
-  height: 55%;
+  width: fit-content;
   align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
   animation-name: ${props => props.out ? collapseAnimation : expandAnimation};
   animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  -webkit-backface-visibility: hidden;
+  height: 50%;
+  width: 40%;
+  overflow: auto;
+  border-radius: 10px;
 `;
 
 export const CharNames = styled.span`
@@ -259,17 +292,19 @@ export const Buttons = styled.button`
   padding: 1rem;
   cursor: pointer;
   border: 0.0625rem solid;
-  border-color: black;
+  border-color: teal;
   background-color: teal;
   color: white;
   width: 15%;
   overflow-wrap: break-word;
   min-width: fit-content;
   max-width: fit-content;
+  font-size: 1rem;
   &: hover{
     background-color: #bfe3b4;
     color: black;
     cursor: pointer;
+    border-color: teal;
   }
 `;
 

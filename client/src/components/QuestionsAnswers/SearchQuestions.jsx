@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as styling from './Styling.js';
 
 const SearchQuestions = ({ doSearch, unfilter }) => {
 
@@ -14,9 +15,13 @@ const SearchQuestions = ({ doSearch, unfilter }) => {
   };
 
   return (
-    <div>
-      <input type='text' placeholder='What is your question?' onChange={handleInput} />
-    </div>
+    <styling.QASearchDiv>
+      <styling.QASearch
+        type='text'
+        placeholder='What is your question?'
+        onChange={handleInput}
+      />
+    </styling.QASearchDiv>
   );
 };
 
