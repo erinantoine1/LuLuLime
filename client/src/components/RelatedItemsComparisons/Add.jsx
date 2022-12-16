@@ -18,8 +18,8 @@ const StyledCard = styled.div`
 `;
 
 const StyledPlus = styled.img`
-  height: 45%;
-  width: 45%;
+  height: 10rem;
+  width: 10rem;
 `;
 
 const Title = styled.h1`

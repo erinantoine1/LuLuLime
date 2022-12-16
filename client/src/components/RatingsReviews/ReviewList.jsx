@@ -22,6 +22,10 @@ const ReviewList = ({ currentID, reviews, metaData, setReviews, sortOrder, displ
     setHelpfulReviews(JSON.parse(localStorage.getItem('helpful')));
   }, []);
 
+  useEffect(() => {
+    setDisplayedReviews(2);
+  }, [currentID]);
+
   return (
     <styling.ReviewListDiv>
       <styling.ReviewTilesContainer>
