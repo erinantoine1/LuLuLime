@@ -18,7 +18,7 @@ margin: auto;
 box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem #e8e7e4;
 background-color: white;
 border-radius: 10px;
-margin-top: 10%;
+margin-top: 8.5%;
 `;
 
 const LeftOverviewDiv = styled.div`
