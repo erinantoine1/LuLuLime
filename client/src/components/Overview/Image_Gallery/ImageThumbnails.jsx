@@ -77,7 +77,7 @@ const ImageThumbnails = (
       thumbnailMap = (
         productStylePhotos.map((photo, index) => {
           return (
-            <ThumbnailContainer>
+            <ThumbnailContainer key={index}>
               <ImageThumbnail
                 photoIndex={productStylePhotos.indexOf(photo)}
                 photoUrl={photo.url}
@@ -120,7 +120,6 @@ const ImageThumbnails = (
                 setCurrentPhotoUrl={setCurrentPhotoUrl}
                 currentImageIndex={currentImageIndex}
                 setCurrentImageIndex={setCurrentImageIndex}
-                key={index}
               />
             </ThumbnailContainer>
           );
@@ -129,11 +128,9 @@ const ImageThumbnails = (
 
     return (
       <ContainerParent>
-        <LeftButton onClick={handleLeftClick}>⇠</LeftButton>
         <ThumbnailsContainer ref={containerRef}>
           {thumbnailMap}
         </ThumbnailsContainer>
-        <RightButton onClick={handleRightClick}>⇢</RightButton>
       </ContainerParent>
     );
   });
