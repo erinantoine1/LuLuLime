@@ -87,7 +87,6 @@ const Container = styled.div`
 
 const RelatedCard = ({ id, currentID, setCurrentID, name, category, default_price, picture, type, outfitItems, setOutfitItems, cardWidth, ratings }) => {
   const [showModal, setShowModal] = useState(false);
-
   const [currentItem, setCurrentItem] = useState({});
   const [relatedItem, setRelatedItem] = useState({});
 
