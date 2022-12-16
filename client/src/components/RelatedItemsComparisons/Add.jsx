@@ -13,20 +13,18 @@ const StyledCard = styled.div`
   position: relative;
   width: ${props => props.width / 4}px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 `;
 
 const StyledPlus = styled.img`
-  height: 25px;
-  width: 25px;
-  top: 0.5rem;
-  right: 0.5rem;
-  position: absolute;
+  height: 45%;
+  width: 45%;
 `;
 
-const Title = styled.h2`
-  margin-top: 10%;
+const Title = styled.h1`
+  position: absolute;
+  top: 1rem;
 `;
 
 const getAverageRating = (ratings) => {
@@ -97,7 +95,7 @@ const Add = ({ outfitItems, setOutfitItems, cardWidth, currentID }) => {
   return (
     <StyledCard width={cardWidth} onClick={addItem}>
       <Title>Add to Outfit</Title>
-      <StyledPlus src={PNGPlus} alt="+" />
+      <StyledPlus src="https://static.vecteezy.com/system/resources/previews/009/266/327/original/plus-sign-icon-free-png.png" alt="+" />
     </StyledCard>
   );
 };
