@@ -11,7 +11,7 @@ const QuestionEntry = ({ question, loadQuestions }) => {
   const [answersShown, setAnswersShown] = useState(2);
   const [timesClicked, setTimesClicked] = useState(0);
   const [allAnswersShown, setAllAnswersShown] = useState(false);
-  const [helpfulPressed, setHelpfulPressed] = useState(localStorage.getItem(`${question.question_id}helpful`));
+  const [helpfulPressed, setHelpfulPressed] = useState(localStorage.getItem(`${question.question_id}helpful`) || false);
   const [newAnswer, setNewAnswer] = useState(false);
 
   const loadAnswers = (page = 1) => {
@@ -26,7 +26,6 @@ const QuestionEntry = ({ question, loadQuestions }) => {
 
   useEffect(() => {
     loadAnswers();
-    localStorage.setItem(`${question.question_id}helpful`, false);
   }, [question]);
 
   let getAnswers = Object.values(question.answers);

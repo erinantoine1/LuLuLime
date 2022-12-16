@@ -61,7 +61,7 @@ const NewQuestionForm = ({ loadQuestions, toggleNewQuestion, product_id }) => {
           <h2>Ask a question</h2>
           <styling.StyledTextArea
             cols="48"
-            rows="8"
+            rows="16"
             type='textarea'
             placeholder='What is your question?'
             onChange={handleQuestion}
