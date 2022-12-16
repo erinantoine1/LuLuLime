@@ -32,11 +32,6 @@ const AnswerEntry = ({ answer, loadAnswers }) => {
     handleUpdate('report');
   };
 
-  // console.log(answer.id + ' ' + answer.helpfulness);
-  // setTimeout(() => {
-  //   console.log(answer.id + ' ' + answer.helpfulness);
-  // }, 1000);
-
   return (
     <styling.AnswerContainer>
       <span style={{ fontSize: '1.1rem' }}>
