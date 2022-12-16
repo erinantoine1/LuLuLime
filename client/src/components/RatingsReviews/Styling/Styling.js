@@ -578,6 +578,7 @@ export const styledForm = styled.form`
   height: 85%;
   width: 60%;
   overflow: auto;
+  margin-top: 4%;
 `;
 
 export const ReviewFormHeader = styled.h2`
