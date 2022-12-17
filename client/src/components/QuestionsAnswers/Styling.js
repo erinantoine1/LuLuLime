@@ -132,19 +132,29 @@ export const QuestionButtons = styled.div`
 export const QAHeaderButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 50%;
   height: 48%;
   font-size: 90%;
   align-items: center;
   margin-right: 3%;
+  @media screen and (max-width: 1999px) {
+    width: 50%;
+  }
+  @media screen and (min-width: 2000px){
+    width: 37%;
+  }
 `;
 
 export const QAHelpfulContainer = styled.div`
-  width: 30%;
   display:flex;
   justify-content:center;
   align-items:center;
   justify-content:center;
+  @media screen and (max-width: 1999px) {
+    width: 50%;
+  }
+  @media screen and (min-width: 2000px){
+    width: 24%;
+  }
 `;
 
 export const QAPhotos = styled.div`
@@ -379,20 +389,30 @@ export const AnswerContainer = styled.div`
 export const AnswerButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 38%;
   height: 48%;
   font-size: 90%;
   align-items: center;
   padding-right: 1%;
   font-size: 90%;
+  @media screen and (max-width: 1999px) {
+    width: 38%;
+  }
+  @media screen and (min-width: 2000px){
+    width: 30%;
+  }
 `;
 
 export const AnswersHelpfulContainer = styled.div`
-  width: 25%;
   display:flex;
   justify-content:center;
   align-items:center;
   justify-content: center;
+  @media screen and (max-width: 1999px) {
+    width: 25%;
+  }
+  @media screen and (min-width: 2000px){
+    width: 20%;
+  }
 `;
 
 
