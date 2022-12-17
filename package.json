@@ -41,7 +41,7 @@
     "build": "webpack",
     "test": "jest",
     "react-dev": "webpack --config ./webpack.config.js  -w",
-    "server-dev": "npx nodemon server"
+    "start": "npx nodemon server"
   },
   "repository": {
     "type": "git",

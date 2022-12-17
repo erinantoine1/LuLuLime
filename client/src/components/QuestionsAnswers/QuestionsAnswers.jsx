@@ -102,4 +102,3 @@ const QuestionsAnswers = ({ currentID }) => {
 };
 
 export default QuestionsAnswers;
-
