@@ -1,20 +1,18 @@
-# FEC2210
-
 # Project Atelier
 
-# Introduction
-## Description
+## Introduction
+### Description
 
-# Project Details
+## Project Details
 
-## Overview
+### Overview
 
-## Related Items
+### Related Items
 
-## Questions & Answers
+### Questions & Answers
 
-## Ratings & Reviews
+### Ratings & Reviews
 
 ## Installation
 
-# Team
+## Team
