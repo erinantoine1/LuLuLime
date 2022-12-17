@@ -17,14 +17,11 @@ This application is written in JavaScript, HTML and CSS, and uses:
 ## Overview
 
 The overview section contains basic information about the current item (ie. category, title, rating, description, and price).
-* Users may select a style thumbnail to change the style/color of the current item. 
-	* Depending on what style is chosen, either the original price or sale price will be shown above.
-	* The image gallery on the left will also change to match the selected style.
-		* Users may toggle through images using the arrows or by clicking on the thumnails below. 
-* The size and quantity of the current item may be selected from dropdowns. The item can then be added to the shopping cart by clicking the ‘Add to Cart’ button. 
-	* On click, if a size is not chosen, an alert stating ‘Please select a size’ will appear above the ‘Add to Cart’ button. This will automatically open the size dropdown until a size is chosen. 
-	* After a size is chosen, the quantity dropdown will become active as well. 
-	* Once both a size and quantity are selected, the item can be added to the cart successfully.
+![Overview Section](https://user-images.githubusercontent.com/98850205/208268563-c594a291-e6dc-4e67-829e-4e329ce6504c.gif)
+* Users may select a style thumbnail to change the style/color of the current item.
+* The image gallery on the left will also change to match the selected style. 
+* Users may toggle through images using the arrows or by clicking on the thumnails below.  
+* Once both a size and quantity are selected, an item can be added to the cart successfully.
 
 ## Related Items & Outfits
 Related Products displays product cards of similar items that may interest the user. This component includes:
