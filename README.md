@@ -17,7 +17,10 @@ This application is written in JavaScript, HTML and CSS, and uses:
 ## Overview
 
 The overview section contains basic information about the current item (ie. category, title, rating, description, and price).
-![Overview Section](https://user-images.githubusercontent.com/98850205/208268563-c594a291-e6dc-4e67-829e-4e329ce6504c.gif)
+
+![Overview Screen Capture](https://user-images.githubusercontent.com/93167286/208269811-822f6036-62bc-4821-9951-ee9b5a4a46ec.gif)
+
+
 * Users may select a style thumbnail to change the style/color of the current item.
 * The image gallery on the left will also change to match the selected style. 
 * Users may toggle through images using the arrows or by clicking on the thumnails below.  
