@@ -11,12 +11,12 @@ Project Atelier is an e-commerce concept website, a demonstration of ability and
 
 This application is written in JavaScript, HTML and CSS, and uses:
 * React, Axios, and Styled Components in the front end
-* Express middleware as a proxy backend server
+* Express with middleware as a proxy backend server to enhance security
 * Webpack and Babel to bundle and transcompile our project to be run in the browser
 
 ## Overview
 
-* The overview section contains basic information about the current item (ie. category, title, rating, description, and price).
+The overview section contains basic information about the current item (ie. category, title, rating, description, and price).
 * Users may select a style thumbnail to change the style/color of the current item. 
 	* Depending on what style is chosen, either the original price or sale price will be shown above.
 	* The image gallery on the left will also change to match the selected style.
@@ -69,9 +69,12 @@ The Ratings and Reviews component dynamically displays user reviews, ratings, an
 	`npm start`
 
 4. Rename example.config.js to config.js
-5. Replace example token with github personal access token
 
-	`token = 'put token here'`
+	`example.config.js -> config.js`
+
+6. Replace example token with github personal access token
+
+	`TOKEN = 'PUT TOKEN HERE'`
 	
 7. Open project in web browser at 
 
@@ -80,7 +83,21 @@ The Ratings and Reviews component dynamically displays user reviews, ratings, an
 
 
 ## Team
-Project Lead
-* Max Peterson - Questions & Answers
+* **Erin Antoine - Overview**
+	* https://github.com/erinantoine1
+	* https://www.linkedin.com/in/erin-antoine/
+
+
+* **Justin Chong - Related Items & Outfits**
+	* https://github.com/justinjchong
+	* https://www.linkedin.com/in/justin-chong-169bb5118/
+
+
+* **Max Peterson - Questions & Answers**
 	* https://github.com/maxpeterson96
 	* https://www.linkedin.com/in/max-peterson-10b368b3/
+
+
+* **Chris Garcia - Ratings & Reviews**
+	* https://github.com/cegarcia96
+	* https://www.linkedin.com/in/christopher-garcia-609442193/
