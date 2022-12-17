@@ -48,8 +48,16 @@ The Questions and Answers component enables users to ask and respond to question
 ## Ratings & Reviews
 The Ratings and Reviews component dynamically displays user reviews, ratings, and statistics about the selected product.
 - Allows filtering, sorting, and keyword searching through a scrollable list of user reviews.
+
+![Review-List-Functionality](https://user-images.githubusercontent.com/93167286/208269618-a7daf6eb-5b7a-44d9-981c-023b761140c3.gif)
+
+
 - Users are able to rate reviews as helpful once per user as well as report inappropriate reviews.
 - Extends the ability to write and submit a review with client side data validation to prevent faulty reviews.
+
+
+![Submitting-Review](https://user-images.githubusercontent.com/93167286/208269524-52ee83c4-0392-4721-bbdd-ee39f086160d.gif)
+
 
 ## Installation
 
