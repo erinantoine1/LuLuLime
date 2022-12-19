@@ -29,6 +29,8 @@ The overview section contains basic information about the current item (ie. cate
 ## Related Items & Outfits
 Related Products displays product cards of similar items that may interest the user. This component includes:
 
+![related](https://user-images.githubusercontent.com/18542870/208379126-3c8d3b17-2673-4cd2-a6b6-5964ef23061b.gif)
+
 - Data caching to reduce api calls made by 16 per page and decrease rendering time from 3.4 seconds to 0.3 seconds
 - A sliding carousel of related product cards
 - Product cards that display the name, category, and star rating rounded to the nearest quarter-star
@@ -36,6 +38,8 @@ Related Products displays product cards of similar items that may interest the u
 - Conditionally rendered scroll buttons if unable to scroll any further
 
 Your Outfit allows users to save and track individual products based on their interest. This component includes:
+
+![outfit](https://user-images.githubusercontent.com/18542870/208379170-52bfb20e-f1b6-472a-b33b-53f88b7bce48.gif)
 
 - Your Outfit list that persists on the website during a new session
 - Add to Outfit card that adds the current product to Your Outfit list
