@@ -31,7 +31,7 @@ Related Products displays product cards of similar items that may interest the u
 
 ![related](https://user-images.githubusercontent.com/18542870/208379126-3c8d3b17-2673-4cd2-a6b6-5964ef23061b.gif)
 
-- Data caching to reduce api calls made by 16 per page and decrease rendering time from 3.4 seconds to 0.3 seconds
+- Data caching to reduce api calls made by 16 per page and decrease rendering time from 3.4 s to 0.3 s
 - A sliding carousel of related product cards
 - Product cards that display the name, category, and star rating rounded to the nearest quarter-star
 - A popup feature comparison modal
